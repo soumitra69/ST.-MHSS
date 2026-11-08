@@ -1,0 +1,6 @@
+{
+  "name": "St. Michael's Higher Secondary School - Umsning",
+  "description": "Official institutional portal for St. Michael's Higher Secondary School, Umsning (Estd. 1961), Meghalaya. Serving 2,000 students and staff with academics, circulars, admissions, and campus media.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

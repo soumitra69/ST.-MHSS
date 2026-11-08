@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">St. Michael's Higher Secondary School mark</title>
+  <circle cx="64" cy="64" r="61" fill="#17345f"/>
+  <circle cx="64" cy="64" r="53" fill="#fff" stroke="#d6ad4d" stroke-width="3"/>
+  <path d="M64 19 70 34 86 31 79 46 91 56 75 58 72 74 61 63 48 72 49 56 34 50 48 41 45 26 60 33Z" fill="#d6ad4d"/>
+  <path d="M36 57h56v38H36z" rx="4" fill="#17345f"/>
+  <path d="M64 62v27M42 65c8-4 15-3 22 2 7-5 14-6 22-2v21c-8-4-15-3-22 2-7-5-14-6-22-2Z" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+  <path d="M21 102h86" stroke="#d6ad4d" stroke-width="3" stroke-linecap="round"/>
+  <text x="64" y="115" fill="#17345f" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing="1.2" text-anchor="middle">EXCELSIOR</text>
+</svg>
