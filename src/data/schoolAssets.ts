@@ -1,4 +1,5 @@
-const assetUrl = (filename: string) => `/assets/${encodeURIComponent(filename)}`;
+const assetUrl = (filename: string) =>
+  `${import.meta.env.BASE_URL}assets/${encodeURIComponent(filename)}`;
 
 export const SCHOOL_IMAGES = {
   logo: assetUrl('don-bosco-college-mark.svg'),
@@ -75,6 +76,6 @@ export const resolveSchoolAsset = (source: string): string => {
     return assetUrl(`WhatsApp ${media} ${date} at ${time} PM${variantSuffix}.${extension}`);
   }
 
-  if (source.startsWith('/assets/')) return source;
+  if (source.startsWith('/assets/')) return assetUrl(filename);
   throw new Error(`Unknown school asset: ${source}`);
 };
