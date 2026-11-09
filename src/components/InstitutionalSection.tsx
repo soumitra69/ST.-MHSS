@@ -3,9 +3,9 @@ import { SCHOOL_IMAGES } from '../data/schoolAssets';
 import { SCHOOL_INFO } from '../data/schoolData';
 
 const institutionalValues = [
-  'MBOSE Academic Rigor & Inquiry',
-  'Moral Integrity & Pastoral Care',
-  'Synchronized Drill & Cultural Pride',
+  'Rigorous MBOSE academic foundation & inquiry',
+  'Moral integrity, respect & pastoral care',
+  'Synchronized drill, cultural pride & service',
 ];
 
 const heritagePillars = [
@@ -43,7 +43,7 @@ const heritagePillars = [
 
 export const InstitutionalSection: React.FC = () => (
   <>
-    {/* Who We Are, Our Mission & Our Vision — Colourful Narayana-Inspired Section Canvas */}
+    {/* SECTION 1: Who We Are, Our Mission & Our Vision */}
     <section
       id="about"
       className="w-full bg-gradient-to-br from-[#eff6ff] via-[#fff7ed] to-[#f0fdf4] py-12 md:py-16 border-t border-blue-200/70"
@@ -159,156 +159,196 @@ export const InstitutionalSection: React.FC = () => (
             </a>
           </article>
         </div>
+      </div>
+    </section>
 
-        {/* Compact Side-by-Side Executive Cards: Founder's Heritage & Principal's Desk */}
-        <div className="mt-8 grid gap-6 lg:grid-cols-2">
-          {/* Card 1: Founder's Heritage (Compact & Executive) */}
-          <article
-            id="founder-message"
-            className="scroll-mt-28 group relative flex flex-col overflow-hidden rounded-2xl border-2 border-blue-200 bg-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
-            data-aos="fade-right"
-            data-aos-duration="750"
-          >
-            <div className="h-1.5 w-full bg-gradient-to-r from-[#1d4ed8] via-[#2563eb] to-[#f59e0b]" />
+    {/* SECTION 2 (SEPARATE COMPACT SECTION): Founder's Heritage (#founder-message) */}
+    <section
+      id="founder-message"
+      className="w-full bg-gradient-to-r from-[#dbeafe] via-[#fef3c7] to-[#e0f2fe] py-9 md:py-12 scroll-mt-24 border-t border-amber-300/70"
+    >
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <article
+          className="group relative grid overflow-hidden rounded-2xl border-2 border-blue-300/90 bg-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl md:grid-cols-[270px_1fr]"
+          data-aos="fade-up"
+          data-aos-duration="750"
+        >
+          <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#1d4ed8] via-[#f59e0b] to-[#ea580c] z-10" />
 
-            <div className="grid sm:grid-cols-[210px_1fr] items-stretch flex-1">
-              {/* Compact Portrait / Tower Thumbnail */}
-              <div className="relative h-48 sm:h-full min-h-[190px] bg-slate-900 overflow-hidden">
-                <img
-                  src={SCHOOL_IMAGES.foundingCampus}
-                  alt="St. Michael's Higher Secondary School main campus building and tower, established in 1961"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent" />
-                <span className="absolute top-3 left-3 rounded-full bg-amber-400 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-slate-950 shadow-sm">
-                  <i className="fas fa-history mr-1" aria-hidden="true"></i>
-                  Estd. 1961
-                </span>
-                <div className="absolute bottom-3 left-3 right-3 text-white">
-                  <p className="text-[11px] font-bold leading-tight text-amber-300">
-                    <i className="fas fa-monument mr-1" aria-hidden="true"></i>
-                    Archangel Tower
-                  </p>
-                  <p className="text-[10px] text-slate-200">65 Years of Diocesan Service</p>
-                </div>
-              </div>
-
-              {/* Compact Content Area */}
-              <div className="flex flex-col justify-between bg-gradient-to-br from-white via-blue-50/35 to-amber-50/35 p-5 sm:p-6">
-                <div>
-                  <span className="inline-flex items-center gap-1.5 rounded-md bg-blue-100/90 border border-blue-200 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#0c4a8a]">
-                    <i className="fas fa-cross text-[#ea580c]" aria-hidden="true"></i>
-                    Catholic Diocese of Shillong
-                  </span>
-                  <h2 className="vision-serif-heading mt-2 text-lg sm:text-xl text-[#0c4a8a]">
-                    <span className="vision-double-angle" aria-hidden="true">
-                      &raquo;
-                    </span>{' '}
-                    Founder&apos;s Heritage
-                  </h2>
-                  <p className="mt-2 text-xs sm:text-[13px] font-medium leading-6 text-slate-700">
-                    Established in 1961 in the conviction that values-led education transforms
-                    families across Ri Bhoi District. That founding spirit endures today—nurturing
-                    every learner&apos;s potential and guiding youth to step forward with courage (
-                    <em>{SCHOOL_INFO.mottoKhasi}</em>).
-                  </p>
-                </div>
-
-                <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-blue-200/70 pt-3 text-[11px] font-bold">
-                  <span className="inline-flex items-center gap-1.5 text-[#0c4a8a]">
-                    <i className="fas fa-map-marker-alt text-[#d90429]" aria-hidden="true"></i>
-                    NH-6, Umsning, Meghalaya
-                  </span>
-                  <span className="rounded-md bg-amber-100 border border-amber-300 px-2.5 py-0.5 text-[10px] font-extrabold text-amber-900">
-                    <i className="fas fa-award mr-1" aria-hidden="true"></i>
-                    1961 – 2026
-                  </span>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          {/* Card 2: Principal's Desk (Compact & Executive) */}
-          <article
-            id="principal-message"
-            className="scroll-mt-28 group relative flex flex-col overflow-hidden rounded-2xl border-2 border-orange-200 bg-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
-            data-aos="fade-left"
+          {/* Left Compact Image Column */}
+          <div
+            className="relative h-48 md:h-full md:max-h-[250px] bg-slate-900 overflow-hidden"
+            data-aos="zoom-in"
             data-aos-delay="100"
-            data-aos-duration="750"
           >
-            <div className="h-1.5 w-full bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#0d9488]" />
-
-            <div className="grid sm:grid-cols-[210px_1fr] items-stretch flex-1">
-              {/* Compact Faculty & Leadership Thumbnail */}
-              <div className="relative h-48 sm:h-full min-h-[190px] bg-slate-900 overflow-hidden">
-                <img
-                  src={SCHOOL_IMAGES.schoolStaff}
-                  alt="St. Michael's Higher Secondary School leadership, Reverend Sisters, and faculty"
-                  className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent" />
-                <span className="absolute top-3 left-3 rounded-full bg-gradient-to-r from-[#ea580c] to-[#d97706] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-sm">
-                  <i className="fas fa-chalkboard-teacher mr-1" aria-hidden="true"></i>
-                  68+ Educators
-                </span>
-                <div className="absolute bottom-3 left-3 right-3 text-white">
-                  <p className="text-[11px] font-bold leading-tight text-amber-300">
-                    <i className="fas fa-user-tie mr-1" aria-hidden="true"></i>
-                    Principal&apos;s Office
-                  </p>
-                  <p className="text-[10px] text-slate-200">Pastoral &amp; Academic Mentorship</p>
-                </div>
-              </div>
-
-              {/* Compact Content Area */}
-              <div className="flex flex-col justify-between bg-gradient-to-br from-white via-orange-50/35 to-sky-50/35 p-5 sm:p-6">
-                <div>
-                  <span className="inline-flex items-center gap-1.5 rounded-md bg-orange-100 border border-orange-200 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-orange-900">
-                    <i className="fas fa-user-tie text-[#ea580c]" aria-hidden="true"></i>
-                    From The Principal&apos;s Desk
-                  </span>
-                  <h2 className="vision-serif-heading mt-2 text-lg sm:text-xl text-[#0c4a8a]">
-                    <span className="vision-double-angle" aria-hidden="true">
-                      &raquo;
-                    </span>{' '}
-                    Principal&apos;s Welcome
-                  </h2>
-                  <p className="mt-2 text-xs sm:text-[13px] font-medium leading-6 text-slate-700">
-                    Our mission at St. Michael&apos;s is to provide a disciplined, caring campus
-                    where every child excels in MBOSE academics, discovers talents in athletics and
-                    choral music, and grows into a compassionate citizen.
-                  </p>
-
-                  <div className="mt-3 flex flex-wrap gap-1.5">
-                    {institutionalValues.map((value) => (
-                      <span
-                        key={value}
-                        className="inline-flex items-center gap-1 rounded-md bg-blue-50 border border-blue-200/80 px-2 py-0.5 text-[10px] font-bold text-[#0c4a8a]"
-                      >
-                        <i
-                          className="fas fa-check-circle text-[#d90429] text-[9px]"
-                          aria-hidden="true"
-                        ></i>
-                        {value}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-orange-200/70 pt-3 text-[11px] font-bold">
-                  <span className="text-[#0c4a8a]">Office of the Principal &amp; Management</span>
-                  <span className="rounded-md bg-gradient-to-r from-[#1d4ed8] to-[#ea580c] px-2.5 py-0.5 text-[10px] font-extrabold text-white">
-                    MBOSE-01961
-                  </span>
-                </div>
-              </div>
+            <img
+              src={SCHOOL_IMAGES.foundingCampus}
+              alt="St. Michael's Higher Secondary School main campus building and tower, established in 1961"
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent" />
+            <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-gradient-to-r from-[#1d4ed8]/95 to-[#ea580c]/95 px-3 py-1.5 text-[11px] font-bold text-white shadow-md backdrop-blur-xs">
+              <i className="fas fa-monument mr-1.5 text-amber-300" aria-hidden="true"></i>
+              S.M.H.S.S. Archangel Tower • Estd. 1961
             </div>
-          </article>
-        </div>
+          </div>
+
+          {/* Right Compact Text Column */}
+          <div
+            className="flex flex-col justify-center bg-gradient-to-br from-white via-blue-50/40 to-amber-50/45 p-5 sm:p-6 md:px-8 md:py-6"
+            data-aos="fade-left"
+            data-aos-delay="140"
+          >
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <span className="inline-flex items-center rounded-full bg-amber-100 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-amber-900 border border-amber-300">
+                <i className="fas fa-history mr-1.5 text-[#ea580c]" aria-hidden="true"></i>
+                Founded in 1961 • 65 Years of Service
+              </span>
+              <span className="rounded-full bg-blue-100 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#0c4a8a]">
+                <i className="fas fa-cross mr-1 text-[#1d4ed8]" aria-hidden="true"></i>
+                Catholic Diocese of Shillong
+              </span>
+            </div>
+
+            <h2 className="vision-serif-heading mt-2.5 text-xl sm:text-2xl text-[#0c4a8a]">
+              <span className="vision-double-angle" aria-hidden="true">
+                &raquo;
+              </span>{' '}
+              Founder&apos;s Heritage
+            </h2>
+
+            <p className="mt-2 text-xs sm:text-sm font-medium leading-6 text-slate-700">
+              St. Michael&apos;s Higher Secondary School was established in 1961 in the conviction
+              that quality education opens doors and strengthens the entire Ri Bhoi region. That
+              founding spirit continues today: nurturing every student&apos;s potential and helping
+              young people step forward with courage (<em>{SCHOOL_INFO.mottoKhasi}</em>).
+            </p>
+
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-blue-200/80 pt-3 text-xs font-bold">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="rounded-md bg-rose-100 px-2.5 py-1 text-[11px] text-[#c61c49]">
+                  <i className="fas fa-map-marker-alt mr-1" aria-hidden="true"></i>
+                  NH-6, Umsning, Meghalaya
+                </span>
+                <span className="rounded-md bg-emerald-100 px-2.5 py-1 text-[11px] text-emerald-900">
+                  <i className="fas fa-award mr-1 text-emerald-700" aria-hidden="true"></i>
+                  1961 – 2026 Legacy
+                </span>
+              </div>
+              <a href="#why-us" className="vision-read-more inline-flex items-center gap-1.5">
+                <span>Our Legacy</span>
+                <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    {/* SECTION 3 (SEPARATE COMPACT SECTION): Principal's Desk (#principal-message) */}
+    <section
+      id="principal-message"
+      className="w-full bg-gradient-to-br from-[#0c2d57] via-[#1d4ed8] to-[#0f172a] py-9 md:py-12 scroll-mt-24 border-t-2 border-amber-400/70"
+    >
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <article
+          className="group relative grid overflow-hidden rounded-2xl border-2 border-amber-400/80 bg-white shadow-2xl transition-all duration-300 hover:-translate-y-1 md:grid-cols-[1fr_270px]"
+          data-aos="fade-up"
+          data-aos-duration="750"
+        >
+          <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#0d9488] z-10" />
+
+          {/* Left Compact Text Column */}
+          <div
+            className="order-2 md:order-1 flex flex-col justify-center bg-gradient-to-br from-white via-sky-50/45 to-orange-50/40 p-5 sm:p-6 md:px-8 md:py-6"
+            data-aos="fade-right"
+            data-aos-delay="100"
+          >
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <span className="inline-flex items-center rounded-full bg-orange-100 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-orange-900 border border-orange-300">
+                <i className="fas fa-user-tie mr-1.5 text-[#ea580c]" aria-hidden="true"></i>
+                From The Principal&apos;s Desk
+              </span>
+              <span className="rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#ea580c] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-xs">
+                <i className="fas fa-certificate mr-1 text-amber-300" aria-hidden="true"></i>
+                MBOSE-01961
+              </span>
+            </div>
+
+            <h2 className="vision-serif-heading mt-2.5 text-xl sm:text-2xl text-[#0c4a8a]">
+              <span className="vision-double-angle" aria-hidden="true">
+                &raquo;
+              </span>{' '}
+              Principal&apos;s Welcome
+            </h2>
+
+            <p className="mt-2 text-xs sm:text-sm font-medium leading-6 text-slate-700">
+              Every child brings unique gifts and possibilities. Our responsibility at St.
+              Michael&apos;s is to provide a disciplined, caring environment where learners ask
+              thoughtful questions, excel in MBOSE academics, discover their talents in athletics
+              and music, and grow into compassionate citizens.
+            </p>
+
+            <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-2">
+              {institutionalValues.map((value, idx) => (
+                <div
+                  key={value}
+                  className="flex items-center gap-1.5 rounded-lg bg-blue-50/90 px-2.5 py-1.5 text-[11px] font-semibold text-[#0c4a8a] border border-blue-200/80"
+                  data-aos="zoom-in"
+                  data-aos-delay={140 + idx * 60}
+                >
+                  <i
+                    className="fas fa-check-circle text-[#d90429] shrink-0 text-xs"
+                    aria-hidden="true"
+                  ></i>
+                  <span className="leading-tight">{value}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-blue-200/80 pt-3 text-xs">
+              <div>
+                <span className="font-bold text-[#0c4a8a]">
+                  Office of the Principal &amp; Management
+                </span>
+                <span className="hidden sm:inline text-slate-400 mx-1.5">•</span>
+                <span className="block sm:inline text-[11px] font-medium text-slate-600">
+                  St. Michael&apos;s H.S. School, Umsning
+                </span>
+              </div>
+              <a href="#faculty" className="vision-read-more inline-flex items-center gap-1.5">
+                <span>Meet Faculty</span>
+                <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          {/* Right Compact Image Column */}
+          <div
+            className="relative order-1 md:order-2 h-48 md:h-full md:max-h-[260px] bg-slate-900 overflow-hidden"
+            data-aos="zoom-in"
+            data-aos-delay="140"
+          >
+            <img
+              src={SCHOOL_IMAGES.schoolStaff}
+              alt="St. Michael's Higher Secondary School leadership, Reverend Sisters, and faculty"
+              className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent" />
+            <div className="absolute top-3 right-3 rounded-full bg-amber-400 px-3 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-slate-950 shadow-md">
+              <i className="fas fa-chalkboard-teacher mr-1" aria-hidden="true"></i>
+              68+ Educators
+            </div>
+            <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-slate-950/80 border border-amber-400/50 px-3 py-1.5 text-[11px] font-bold text-white backdrop-blur-xs">
+              <i className="fas fa-award mr-1.5 text-amber-300" aria-hidden="true"></i>
+              Leadership &amp; Faculty Council
+            </div>
+          </div>
+        </article>
       </div>
     </section>
   </>
