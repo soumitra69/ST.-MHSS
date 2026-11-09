@@ -7931,3 +7931,688 @@ body,
   font-family: 'Font Awesome 6 Brands' !important;
   font-weight: 400 !important;
 }
+
+
+/* ==========================================================================
+   20. Executive Premium School Footer & Bottom-Right Ask Desk + Back to Top
+   ========================================================================== */
+
+.premium-school-footer {
+  background: linear-gradient(145deg, #071936 0%, #0c2d57 48%, #102a45 100%) !important;
+  color: #f8fafc !important;
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0 clamp(2.5rem, 4vw, 3.5rem) !important;
+  border-top: 5px solid #f59e0b !important;
+  position: relative;
+}
+
+.footer-top-ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: clamp(20px, 2.8vw, 30px);
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(29, 78, 216, 0.35) 0%, rgba(15, 118, 110, 0.32) 100%);
+  border: 1.5px solid rgba(251, 191, 36, 0.45);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+  margin-bottom: 42px;
+}
+
+.footer-ribbon-brand {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 1 1 420px;
+  min-width: 0;
+}
+
+.footer-ribbon-crest {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 5px;
+  border: 2px solid #fbbf24;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.footer-ribbon-crest img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.footer-ribbon-text {
+  min-width: 0;
+}
+
+.footer-ribbon-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.footer-pill-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #fbbf24;
+  color: #0f172a;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.footer-pill-blue {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #e0f2fe;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.footer-ribbon-text h2 {
+  margin: 0 0 4px;
+  font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+  font-weight: 900;
+  color: #ffffff !important;
+  line-height: 1.25;
+}
+
+.footer-ribbon-text p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+}
+
+.footer-ribbon-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.footer-cta-btn:hover {
+  transform: translateY(-2px);
+}
+
+.footer-cta-call {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+.footer-cta-whatsapp {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+}
+
+.footer-cta-apply {
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(234, 88, 12, 0.35);
+}
+
+/* 4-Column Executive Footer Grid */
+.premium-school-footer .footer-content-grid {
+  display: grid !important;
+  grid-template-columns: 1.35fr 1fr 1fr 1.1fr !important;
+  gap: 32px !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+.premium-school-footer .footer-column h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.96rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  margin: 0 0 18px !important;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(251, 191, 36, 0.35);
+  letter-spacing: 0.04em;
+}
+
+.footer-contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  margin-bottom: 16px;
+}
+
+.footer-contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.footer-contact-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #1d4ed8 0%, #ea580c 100%);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  flex-shrink: 0;
+}
+
+.footer-contact-row strong {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fde047;
+  margin-bottom: 2px;
+}
+
+.footer-contact-row p {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #e2e8f0;
+}
+
+.footer-contact-row a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-contact-row a:hover {
+  color: #fde047;
+  text-decoration: underline;
+}
+
+.footer-social-strip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.footer-social-pill {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.footer-social-pill:hover {
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  border-color: #fde047;
+  transform: translateY(-2px);
+}
+
+.premium-school-footer .footer-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.premium-school-footer .footer-menu li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #dbeafe !important;
+  font-size: 0.82rem !important;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.premium-school-footer .footer-menu li a:hover {
+  color: #fde047 !important;
+  transform: translateX(4px);
+}
+
+.footer-link-icon {
+  width: 16px;
+  text-align: center;
+  color: #fb923c;
+  font-size: 0.78rem;
+}
+
+.footer-hours-box {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(234, 88, 12, 0.2) 0%, rgba(29, 78, 216, 0.25) 100%);
+  border: 1px solid rgba(251, 191, 36, 0.4);
+}
+
+.footer-hours-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #fde047;
+  margin-bottom: 4px;
+}
+
+.footer-hours-box p {
+  margin: 0 0 10px;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: #f1f5f9;
+}
+
+.footer-map-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #0c2d57 !important;
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.footer-map-btn:hover {
+  background: #fde047;
+}
+
+.footer-base {
+  background: #041024 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+  padding: 16px 0 !important;
+}
+
+.footer-base-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-base .copyright-text {
+  margin: 0;
+  color: #cbd5e1 !important;
+  font-size: 0.78rem !important;
+  text-align: left;
+}
+
+.footer-base-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 0.76rem;
+  color: #64748b;
+}
+
+.footer-base-links a {
+  color: #93c5fd;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-base-links a:hover {
+  color: #fde047;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Right-Side Floating Dock: Back to Top + Ask Desk Chat Options
+   (Moved Back-to-Top from Left to Right Side above Ask Desk!)
+   ========================================================================== */
+
+.floating-right-dock {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.floating-right-dock > * {
+  pointer-events: auto;
+}
+
+.floating-right-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+/* Override legacy left-side .back-to-top-btn so it sits on the RIGHT above Ask Desk */
+.back-to-top-btn {
+  position: static !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  border: 2px solid #fbbf24 !important;
+  background: linear-gradient(135deg, #0c2d57 0%, #1d4ed8 100%) !important;
+  color: #ffffff !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 10px 24px rgba(12, 45, 87, 0.35) !important;
+  cursor: pointer !important;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px) scale(0.9);
+  transition: all 0.25s ease !important;
+}
+
+.back-to-top-btn.visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+.back-to-top-btn:hover {
+  background: linear-gradient(135deg, #ea580c 0%, #d90429 100%) !important;
+  transform: translateY(-2px) scale(1.05) !important;
+}
+
+/* Ask Desk Floating Button (Bottom Right) */
+.ask-chat-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: 2px solid #fde047;
+  background: linear-gradient(135deg, #ea580c 0%, #1d4ed8 100%);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 14px 32px rgba(12, 45, 87, 0.4);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.ask-chat-trigger:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 18px 38px rgba(234, 88, 12, 0.45);
+}
+
+.ask-chat-trigger.active {
+  background: linear-gradient(135deg, #d90429 0%, #0c2d57 100%);
+}
+
+.ask-chat-trigger i {
+  font-size: 1rem;
+}
+
+/* Interactive Ask Chat Window (Bottom Right) */
+.ask-chat-window {
+  width: 350px;
+  max-width: calc(100vw - 32px);
+  background: #ffffff;
+  border-radius: 20px;
+  border: 2px solid #93c5fd;
+  box-shadow: 0 24px 60px rgba(7, 25, 54, 0.38);
+  overflow: hidden;
+  animation: fadeIn 0.22s ease;
+}
+
+.ask-chat-header {
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #0c2d57 0%, #1d4ed8 60%, #ea580c 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ask-chat-header-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ask-chat-header-info img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 2px;
+  border: 1.5px solid #fde047;
+}
+
+.ask-chat-header-info h4 {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.ask-chat-header-info span {
+  display: block;
+  font-size: 0.68rem;
+  color: #e0f2fe;
+}
+
+.ask-chat-close {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.ask-chat-body {
+  padding: 14px;
+  max-height: 330px;
+  overflow-y: auto;
+  background: linear-gradient(180deg, #f8fafc 0%, #eff6ff 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ask-chat-bubble {
+  padding: 10px 13px;
+  border-radius: 14px;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.ask-chat-bubble p {
+  margin: 0;
+}
+
+.ask-chat-bubble.desk {
+  background: #ffffff;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+  align-self: flex-start;
+  box-shadow: 0 4px 10px rgba(12, 45, 87, 0.05);
+}
+
+.ask-chat-bubble.user {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+  color: #ffffff;
+  font-weight: 600;
+  align-self: flex-end;
+}
+
+.ask-chat-action-link {
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #ea580c 0%, #d97706 100%);
+  color: #ffffff !important;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.ask-chat-topics {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed #cbd5e1;
+}
+
+.ask-topics-title {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #475569;
+}
+
+.ask-topic-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 11px;
+  border-radius: 10px;
+  border: 1px solid #bfdbfe;
+  background: #ffffff;
+  color: #0c4a8a;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.ask-topic-btn:hover {
+  background: #eff6ff;
+  border-color: #ea580c;
+  transform: translateX(2px);
+}
+
+.ask-chat-footer {
+  padding: 10px 14px;
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.ask-footer-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-decoration: none;
+  color: #ffffff !important;
+}
+
+.ask-footer-btn.call {
+  background: #1d4ed8;
+}
+
+.ask-footer-btn.whatsapp {
+  background: #059669;
+}
+
+/* Responsive Footer & Floating Dock */
+@media (max-width: 1080px) {
+  .premium-school-footer .footer-content-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .premium-school-footer .footer-content-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .footer-top-ribbon {
+    padding: 18px;
+  }
+
+  .footer-ribbon-actions {
+    width: 100%;
+  }
+
+  .footer-cta-btn {
+    flex: 1 1 130px;
+    justify-content: center;
+  }
+
+  .footer-base-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .floating-right-dock {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .ask-chat-trigger {
+    padding: 10px 16px;
+    font-size: 0.76rem;
+  }
+}
