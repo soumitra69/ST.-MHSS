@@ -48,7 +48,7 @@ export const InstitutionalSection: React.FC = () => (
       id="about"
       className="w-full bg-gradient-to-br from-[#eff6ff] via-[#fff7ed] to-[#f0fdf4] py-12 md:py-16 border-t border-blue-200/70"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="container">
         <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
           <div
             className="rounded-2xl border border-blue-200/80 bg-white/95 p-6 shadow-lg shadow-blue-950/5 backdrop-blur-xs sm:p-7"
@@ -167,9 +167,9 @@ export const InstitutionalSection: React.FC = () => (
       id="founder-message"
       className="w-full bg-gradient-to-r from-[#dbeafe] via-[#fef3c7] to-[#e0f2fe] py-9 md:py-12 scroll-mt-24 border-t border-amber-300/70"
     >
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div className="container">
         <article
-          className="group relative grid overflow-hidden rounded-2xl border-2 border-blue-300/90 bg-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl md:grid-cols-[270px_1fr]"
+          className="group relative grid w-full overflow-hidden rounded-2xl border-2 border-blue-300/90 bg-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl md:grid-cols-[310px_1fr]"
           data-aos="fade-up"
           data-aos-duration="750"
         >
@@ -252,9 +252,9 @@ export const InstitutionalSection: React.FC = () => (
       id="principal-message"
       className="w-full bg-gradient-to-br from-[#0c2d57] via-[#1d4ed8] to-[#0f172a] py-9 md:py-12 scroll-mt-24 border-t-2 border-amber-400/70"
     >
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <div className="container">
         <article
-          className="group relative grid overflow-hidden rounded-2xl border-2 border-amber-400/80 bg-white shadow-2xl transition-all duration-300 hover:-translate-y-1 md:grid-cols-[1fr_270px]"
+          className="group relative grid w-full overflow-hidden rounded-2xl border-2 border-amber-400/80 bg-white shadow-2xl transition-all duration-300 hover:-translate-y-1 md:grid-cols-[1fr_310px]"
           data-aos="fade-up"
           data-aos-duration="750"
         >
