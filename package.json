@@ -1,9 +1,13 @@
-
 {
-  "name": "react-example",
+  "name": "st-mhss",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://soumitra69.github.io/ST.-MHSS/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/soumitra69/ST.-MHSS.git"
+  },
   "scripts": {
     "dev": "vite --port 3000 --host 0.0.0.0",
     "build": "vite build",

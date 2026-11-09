@@ -69,6 +69,7 @@ export const SCHOOL_INFO = {
   classes: "Undergraduate and post-graduate academic pathways",
   logo: SCHOOL_IMAGES.logo,
   campusHero: SCHOOL_IMAGES.campus,
+  liveUrl: "https://soumitra69.github.io/ST.-MHSS/",
 };
 
 export const NOTICES: Notice[] = [

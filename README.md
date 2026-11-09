@@ -8,7 +8,8 @@ This contains everything you need to run your app locally.
 
 ## Live app
 
-[Open the live app](https://soumitra69.github.io/ST.-MHSS/)
+- **Live Website:** [https://soumitra69.github.io/ST.-MHSS/](https://soumitra69.github.io/ST.-MHSS/)
+- **Repository:** [https://github.com/soumitra69/ST.-MHSS.git](https://github.com/soumitra69/ST.-MHSS.git)
 
 View your app in AI Studio: https://ai.studio/apps/fe868958-a435-4f17-9111-f4af43f157ef
 

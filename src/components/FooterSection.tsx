@@ -20,6 +20,7 @@ const othersLinks = [
   { label: 'Campus life', href: '#campus-life' },
   { label: 'School gallery', href: '#student-work' },
   { label: 'Frequently asked questions', href: '#faq' },
+  { label: 'Live Portal (GitHub Pages)', href: 'https://soumitra69.github.io/ST.-MHSS/' },
 ];
 
 export const FooterSection: React.FC = () => {
@@ -66,6 +67,12 @@ export const FooterSection: React.FC = () => {
                 <p>
                   <i className="fas fa-envelope"></i>{' '}
                   <a href={`mailto:${SCHOOL_INFO.email}`}>{SCHOOL_INFO.email}</a>
+                </p>
+                <p>
+                  <i className="fas fa-globe"></i>{' '}
+                  <a href="https://soumitra69.github.io/ST.-MHSS/" target="_blank" rel="noreferrer">
+                    https://soumitra69.github.io/ST.-MHSS/
+                  </a>
                 </p>
               </div>
 
