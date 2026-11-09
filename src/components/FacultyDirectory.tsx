@@ -61,7 +61,11 @@ export const FacultyDirectory: React.FC = () => {
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10"
+          data-aos="fade-up"
+          data-aos-duration="750"
+        >
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#7c3aed] px-4 py-1 text-xs font-bold tracking-wider uppercase text-white shadow-sm mb-3">
               <i className="fas fa-chalkboard-teacher" aria-hidden="true"></i>
@@ -98,7 +102,11 @@ export const FacultyDirectory: React.FC = () => {
         </div>
 
         {/* Department Filter Tabs */}
-        <div className="flex items-center gap-2.5 overflow-x-auto pb-3 mb-8">
+        <div
+          className="flex items-center gap-2.5 overflow-x-auto pb-3 mb-8"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           {departments.map((dept) => (
             <button
               key={dept}
@@ -124,6 +132,8 @@ export const FacultyDirectory: React.FC = () => {
               <div
                 key={member.id}
                 className={`relative overflow-hidden p-5 rounded-2xl border-2 transition-all duration-200 shadow-md hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between ${theme.border}`}
+                data-aos="fade-up"
+                data-aos-delay={60 * (index + 1)}
               >
                 <div className={`absolute inset-x-0 top-0 h-1.5 ${theme.topBar}`} />
                 <div>

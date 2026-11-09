@@ -50,7 +50,11 @@ export const InstitutionalSection: React.FC = () => (
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
-          <div className="rounded-2xl border border-blue-200/80 bg-white/90 p-7 shadow-lg shadow-blue-950/5 backdrop-blur-xs sm:p-9">
+          <div
+            className="rounded-2xl border border-blue-200/80 bg-white/90 p-7 shadow-lg shadow-blue-950/5 backdrop-blur-xs sm:p-9"
+            data-aos="fade-right"
+            data-aos-duration="800"
+          >
             <span className="inline-block rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#ea580c] px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-white shadow-xs">
               <i className="fas fa-landmark mr-1.5" aria-hidden="true"></i>
               St. Michael&apos;s Higher Secondary School • Umsning
@@ -76,10 +80,12 @@ export const InstitutionalSection: React.FC = () => (
           </div>
 
           <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
-            {heritagePillars.map((pillar) => (
+            {heritagePillars.map((pillar, idx) => (
               <div
                 key={pillar.title}
                 className={`rounded-xl border p-5 shadow-md transition-transform duration-200 hover:-translate-y-0.5 ${pillar.cardStyle}`}
+                data-aos="fade-left"
+                data-aos-delay={90 * (idx + 1)}
               >
                 <div className="flex items-center justify-between gap-2">
                   <div className="text-sm font-bold text-[#0c4a8a]">
@@ -103,6 +109,8 @@ export const InstitutionalSection: React.FC = () => (
           <article
             id="mission"
             className="scroll-mt-28 relative overflow-hidden rounded-2xl border-2 border-blue-200 bg-gradient-to-b from-white via-white to-blue-50/70 p-7 shadow-xl shadow-blue-900/10 sm:p-10"
+            data-aos="fade-up"
+            data-aos-duration="750"
           >
             <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-[#1d4ed8] via-[#0284c7] to-[#0d9488]" />
             <h3 className="vision-serif-heading text-2xl sm:text-3xl text-[#0c4a8a]">
@@ -126,6 +134,9 @@ export const InstitutionalSection: React.FC = () => (
           <article
             id="vision"
             className="scroll-mt-28 relative overflow-hidden rounded-2xl border-2 border-orange-200 bg-gradient-to-b from-white via-white to-amber-50/70 p-7 shadow-xl shadow-orange-900/10 sm:p-10"
+            data-aos="fade-up"
+            data-aos-delay="140"
+            data-aos-duration="750"
           >
             <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#d90429]" />
             <h3 className="vision-serif-heading text-2xl sm:text-3xl text-[#0c4a8a]">
@@ -155,7 +166,11 @@ export const InstitutionalSection: React.FC = () => (
       className="w-full bg-gradient-to-r from-[#dbeafe] via-[#fef3c7] to-[#e0f2fe] py-16 md:py-24 scroll-mt-24 border-t border-amber-300/60"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <article className="grid overflow-hidden rounded-2xl border-2 border-blue-300/80 bg-white shadow-2xl md:grid-cols-2">
+        <article
+          className="grid overflow-hidden rounded-2xl border-2 border-blue-300/80 bg-white shadow-2xl md:grid-cols-2"
+          data-aos="fade-up"
+          data-aos-duration="800"
+        >
           <div className="relative min-h-72 md:min-h-112 bg-slate-900">
             <img
               src={SCHOOL_IMAGES.foundingCampus}
@@ -207,7 +222,11 @@ export const InstitutionalSection: React.FC = () => (
       className="w-full bg-gradient-to-br from-[#0c2d57] via-[#1d4ed8] to-[#0f172a] py-16 md:py-24 scroll-mt-24"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <article className="grid overflow-hidden rounded-2xl border-2 border-amber-400/70 bg-white shadow-2xl md:grid-cols-[1.15fr_0.85fr]">
+        <article
+          className="grid overflow-hidden rounded-2xl border-2 border-amber-400/70 bg-white shadow-2xl md:grid-cols-[1.15fr_0.85fr]"
+          data-aos="fade-up"
+          data-aos-duration="800"
+        >
           <div className="relative order-1 min-h-72 md:order-2 md:min-h-128 bg-slate-900">
             <img
               src={SCHOOL_IMAGES.schoolStaff}

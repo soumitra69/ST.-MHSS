@@ -69,7 +69,11 @@ export const VideoDrillSection: React.FC = () => {
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10"
+          data-aos="fade-up"
+          data-aos-duration="750"
+        >
           <div>
             <div className="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#F59E0B] mb-2">
               <i className="fas fa-film" aria-hidden="true"></i>
@@ -121,7 +125,7 @@ export const VideoDrillSection: React.FC = () => {
         {/* Video Player + Information Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Main Video Viewport */}
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-8" data-aos="fade-right" data-aos-duration="800">
             <div className="relative rounded-2xl overflow-hidden bg-black border-2 border-amber-400/70 shadow-2xl group">
               <video
                 key={current.src}
@@ -201,7 +205,7 @@ export const VideoDrillSection: React.FC = () => {
           </div>
 
           {/* Right Column: Context & Drill Philosophy */}
-          <div className="lg:col-span-4 space-y-5">
+          <div className="lg:col-span-4 space-y-5" data-aos="fade-left" data-aos-delay="120">
             <div className="p-6 bg-white/10 rounded-2xl border border-white/20 backdrop-blur-xs">
               <span className="text-xs uppercase tracking-wider text-[#F59E0B] font-semibold block mb-2">
                 <i className="fas fa-star mr-1" aria-hidden="true"></i>

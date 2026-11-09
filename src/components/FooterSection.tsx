@@ -38,7 +38,7 @@ export const FooterSection: React.FC = () => {
       <footer className="university-footer premium-school-footer">
         <div className="container">
           {/* Top Executive Accreditation & Quick Connect Ribbon */}
-          <div className="footer-top-ribbon">
+          <div className="footer-top-ribbon" data-aos="fade-up" data-aos-duration="750">
             <div className="footer-ribbon-brand">
               <div className="footer-ribbon-crest">
                 <img
@@ -93,7 +93,7 @@ export const FooterSection: React.FC = () => {
           </div>
 
           {/* Main 4-Column Executive Footer Grid */}
-          <div className="footer-content-grid">
+          <div className="footer-content-grid" data-aos="fade-up" data-aos-delay="100">
             {/* Column 1: Campus Secretariat & Location */}
             <div className="footer-column identity-section">
               <h3>

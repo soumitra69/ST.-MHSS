@@ -26,14 +26,80 @@ export default function App() {
   const formRef = useRef<HTMLDivElement | null>(null);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const [admissionModalOpen, setAdmissionModalOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  const smoothScrollToElement = (targetElement: HTMLElement) => {
+    const headerEl = document.querySelector('.main-header') as HTMLElement | null;
+    const headerOffset = headerEl ? headerEl.offsetHeight + 12 : 84;
+    const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = Math.max(0, elementPosition - headerOffset);
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth',
+    });
+  };
 
   useEffect(() => {
     AOS.init({
-      duration: 850,
+      duration: 750,
       easing: 'ease-out-cubic',
-      once: true,
-      offset: 50,
+      once: false,
+      mirror: true,
+      offset: 40,
     });
+
+    const handleResize = () => {
+      AOS.refresh();
+    };
+
+    window.addEventListener('resize', handleResize, { passive: true });
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    let rafId = 0;
+    const updateScrollProgress = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
+      setScrollProgress(pct);
+    };
+
+    const onScroll = () => {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(updateScrollProgress);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    updateScrollProgress();
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
+
+  // Intercept all in-page #anchor links for smooth, sticky-header-compensated scrolling
+  useEffect(() => {
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      const anchor = target?.closest('a[href^="#"]') as HTMLAnchorElement | null;
+      if (!anchor) return;
+
+      const rawHash = anchor.getAttribute('href');
+      if (!rawHash || rawHash === '#') return;
+
+      const sectionId = rawHash.slice(1);
+      const sectionEl = document.getElementById(sectionId);
+      if (sectionEl) {
+        e.preventDefault();
+        smoothScrollToElement(sectionEl);
+        window.history.pushState(null, '', rawHash);
+      }
+    };
+
+    document.addEventListener('click', handleAnchorClick);
+    return () => document.removeEventListener('click', handleAnchorClick);
   }, []);
 
   useEffect(() => {
@@ -49,7 +115,7 @@ export default function App() {
 
   const scrollToForm = () => {
     if (formRef.current) {
-      formRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      smoothScrollToElement(formRef.current);
     } else {
       setAdmissionModalOpen(true);
     }
@@ -58,12 +124,20 @@ export default function App() {
   const handleNavigate = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      smoothScrollToElement(element);
     }
   };
 
   return (
     <div className="app-wrapper">
+      {/* Smooth Top Scroll Progress Indicator */}
+      <div className="scroll-progress-track" aria-hidden="true">
+        <div
+          className="scroll-progress-bar"
+          style={{ transform: `scaleX(${scrollProgress / 100})` }}
+        />
+      </div>
+
       {/* Site header and admissions hero */}
       <header>
         <AlertBar onRegisterClick={scrollToForm} />

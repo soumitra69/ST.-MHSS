@@ -57,7 +57,7 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
-          <div className="mb-10 text-center">
+          <div className="mb-10 text-center" data-aos="fade-up" data-aos-duration="750">
             <span className="inline-block rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#ea580c] px-4 py-1 text-xs font-bold uppercase tracking-[0.16em] text-white shadow-sm">
               <i className="fas fa-question-circle mr-1.5" aria-hidden="true"></i>
               Information for Students &amp; Families
@@ -81,6 +81,8 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
                   className={`overflow-hidden rounded-xl border shadow-sm transition-all ${
                     FAQ_BORDERS[index % FAQ_BORDERS.length]
                   }`}
+                  data-aos="fade-up"
+                  data-aos-delay={60 * (index + 1)}
                 >
                   <h3>
                     <button
@@ -109,7 +111,11 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
             })}
           </div>
 
-          <div className="mt-12 flex flex-col gap-6 rounded-2xl border-2 border-amber-300 bg-gradient-to-r from-[#0c2d57] via-[#1d4ed8] to-[#0f766e] p-6 text-white sm:flex-row sm:items-center sm:justify-between sm:p-9 shadow-2xl">
+          <div
+            className="mt-12 flex flex-col gap-6 rounded-2xl border-2 border-amber-300 bg-gradient-to-r from-[#0c2d57] via-[#1d4ed8] to-[#0f766e] p-6 text-white sm:flex-row sm:items-center sm:justify-between sm:p-9 shadow-2xl"
+            data-aos="zoom-in"
+            data-aos-duration="750"
+          >
             <div className="max-w-2xl">
               <span className="inline-block rounded-md bg-amber-400 px-3 py-0.5 text-[11px] font-extrabold uppercase tracking-wider text-slate-950 mb-2">
                 <i className="fas fa-bullhorn mr-1.5" aria-hidden="true"></i>

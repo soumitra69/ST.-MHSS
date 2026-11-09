@@ -76,7 +76,11 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
       className="w-full overflow-hidden bg-gradient-to-br from-[#e0f2fe] via-[#fef3c7] to-[#dcfce7] py-16 md:py-24 scroll-mt-20 border-t border-blue-200"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <header className="mb-10 flex flex-col justify-between gap-5 border-b-2 border-blue-300/60 pb-7 sm:flex-row sm:items-end md:mb-12">
+        <header
+          className="mb-10 flex flex-col justify-between gap-5 border-b-2 border-blue-300/60 pb-7 sm:flex-row sm:items-end md:mb-12"
+          data-aos="fade-up"
+          data-aos-duration="750"
+        >
           <div className="max-w-3xl">
             <span className="inline-block rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#0d9488] px-4 py-1 text-xs font-bold uppercase tracking-[0.16em] text-white shadow-sm">
               <i className="fas fa-graduation-cap mr-1.5" aria-hidden="true"></i>
@@ -98,22 +102,27 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
         {/* 4 Colour-Coded School Stages */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {academicStages.map(
-            ({
-              number,
-              name,
-              classes,
-              icon,
-              detail,
-              image,
-              imageAlt,
-              badgeClass,
-              cardBorder,
-              topBar,
-              tagColor,
-            }) => (
+            (
+              {
+                number,
+                name,
+                classes,
+                icon,
+                detail,
+                image,
+                imageAlt,
+                badgeClass,
+                cardBorder,
+                topBar,
+                tagColor,
+              },
+              index
+            ) => (
               <article
                 key={number}
                 className={`group relative flex flex-col overflow-hidden rounded-2xl border-2 shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl ${cardBorder}`}
+                data-aos="fade-up"
+                data-aos-delay={90 * (index + 1)}
               >
                 <div className={`h-2 w-full ${topBar}`} />
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
@@ -153,6 +162,8 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
         <div
           id="streams"
           className="mt-14 scroll-mt-24 relative overflow-hidden rounded-2xl border-2 border-blue-300 bg-gradient-to-br from-white via-blue-50/50 to-amber-50/60 p-6 shadow-2xl sm:p-8 lg:p-10"
+          data-aos="fade-up"
+          data-aos-duration="800"
         >
           <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-[#1d4ed8] via-[#ea580c] to-[#0d9488]" />
           <div className="flex flex-col justify-between gap-4 border-b border-blue-200 pb-6 lg:flex-row lg:items-center">

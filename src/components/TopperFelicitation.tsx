@@ -42,7 +42,11 @@ export const TopperFelicitation: React.FC = () => {
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12"
+          data-aos="fade-up"
+          data-aos-duration="750"
+        >
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#ea580c] to-[#d97706] px-4 py-1 text-xs font-bold tracking-wider uppercase text-white shadow-sm mb-3">
               <i className="fas fa-trophy" aria-hidden="true"></i>
@@ -72,7 +76,7 @@ export const TopperFelicitation: React.FC = () => {
         {/* Featured Showcase Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Main Photo Feature */}
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-8" data-aos="fade-right" data-aos-duration="800">
             <div className="rounded-2xl overflow-hidden border-2 border-amber-400 bg-gradient-to-b from-[#0c2d57] to-[#0f172a] p-3 shadow-2xl">
               <div className="relative aspect-4/3 sm:aspect-16/10 bg-black rounded-xl overflow-hidden">
                 <img
@@ -125,7 +129,7 @@ export const TopperFelicitation: React.FC = () => {
           </div>
 
           {/* Right Column: Scholarship and Quotes */}
-          <div className="lg:col-span-4 space-y-5">
+          <div className="lg:col-span-4 space-y-5" data-aos="fade-left" data-aos-delay="120">
             <div className="relative overflow-hidden p-6 bg-gradient-to-b from-white via-amber-50/70 to-orange-50/80 rounded-2xl border-2 border-amber-300 shadow-xl">
               <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#1d4ed8]" />
               <span className="inline-block rounded-md bg-orange-100 border border-orange-300 px-2.5 py-0.5 text-[11px] uppercase text-orange-900 font-bold mb-2">

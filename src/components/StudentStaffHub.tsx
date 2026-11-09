@@ -182,7 +182,7 @@ export const StudentStaffHub: React.FC = () => {
     <section id="hub" className="hub-section">
       <div className="container">
         {/* Executive Section Header */}
-        <div className="hub-header-wrap">
+        <div className="hub-header-wrap" data-aos="fade-up" data-aos-duration="750">
           <div className="hub-header-left">
             <span className="hub-eyebrow">
               CENTRAL DIGITAL CAMPUS • 2,000+ LEARNERS &amp; 68+ EDUCATORS
@@ -195,7 +195,7 @@ export const StudentStaffHub: React.FC = () => {
             </p>
           </div>
 
-          <div className="hub-kpi-strip">
+          <div className="hub-kpi-strip" data-aos="fade-left" data-aos-delay="100">
             <div className="hub-kpi-card">
               <span className="hub-kpi-val">{NOTICES.length} Active</span>
               <span className="hub-kpi-lbl">Official Circulars</span>
@@ -230,7 +230,13 @@ export const StudentStaffHub: React.FC = () => {
         )}
 
         {/* Executive Tab Navigation Bar */}
-        <div className="hub-tabs-bar" role="tablist" aria-label="Operations Hub Sections">
+        <div
+          className="hub-tabs-bar"
+          role="tablist"
+          aria-label="Operations Hub Sections"
+          data-aos="fade-up"
+          data-aos-delay="120"
+        >
           {[
             { id: 'notices', label: 'Notice Board', badge: `${NOTICES.length}` },
             { id: 'timetables', label: 'Timetable & Calendar' },

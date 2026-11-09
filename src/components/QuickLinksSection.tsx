@@ -57,10 +57,17 @@ export const QuickLinksSection: React.FC = () => (
     aria-label="Quick campus navigation"
     className="relative z-20 mx-auto mt-4 sm:-mt-8 lg:-mt-10 w-full max-w-7xl px-4 sm:px-6 lg:px-8"
   >
-    <ul className="grid list-none grid-cols-1 gap-3 rounded-2xl border-2 border-amber-300/80 bg-gradient-to-r from-[#eff6ff] via-[#fff7ed] to-[#f0fdf4] p-3 shadow-2xl shadow-slate-950/15 backdrop-blur-md sm:grid-cols-2 lg:grid-cols-4 sm:gap-4 sm:p-4">
+    <ul
+      className="grid list-none grid-cols-1 gap-3 rounded-2xl border-2 border-amber-300/80 bg-gradient-to-r from-[#eff6ff] via-[#fff7ed] to-[#f0fdf4] p-3 shadow-2xl shadow-slate-950/15 backdrop-blur-md sm:grid-cols-2 lg:grid-cols-4 sm:gap-4 sm:p-4"
+      data-aos="fade-up"
+      data-aos-duration="750"
+    >
       {quickLinks.map(
-        ({ title, detail, href, badge, icon, cardClass, badgeClass, detailClass, arrowClass }) => (
-          <li key={title}>
+        (
+          { title, detail, href, badge, icon, cardClass, badgeClass, detailClass, arrowClass },
+          index
+        ) => (
+          <li key={title} data-aos="zoom-in" data-aos-delay={70 * (index + 1)}>
             <a
               href={href}
               className={`group flex h-full min-h-20 items-center justify-between gap-3 rounded-xl border p-3.5 sm:p-4 shadow-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-xl ${cardClass}`}
