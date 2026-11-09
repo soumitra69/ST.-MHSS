@@ -1,34 +1,5 @@
 import React, { useState } from 'react';
 import {
-  Bell,
-  Calendar,
-  Clock,
-  Download,
-  Users,
-  CreditCard,
-  Bus,
-  Shield,
-  Search,
-  CheckCircle,
-  Award,
-  ChevronRight,
-  Check,
-  X,
-  FileText,
-  Phone,
-  MapPin,
-  Trophy,
-  BookOpen,
-  ClipboardCheck,
-  Lock,
-  Sparkles,
-  Printer,
-  AlertCircle,
-  ArrowUpRight,
-  GraduationCap,
-  Layers,
-} from 'lucide-react';
-import {
   NOTICES,
   HOUSES,
   FEE_STRUCTURE,
@@ -40,29 +11,29 @@ import {
 const HOUSE_THEMES = [
   {
     accent: '#DC2626',
-    softBg: 'rgba(220, 38, 38, 0.08)',
-    border: 'rgba(220, 38, 38, 0.28)',
+    softBg: 'rgba(220, 38, 38, 0.06)',
+    border: 'rgba(220, 38, 38, 0.25)',
     badgeBg: '#B91C1C',
     patron: 'Archangel of Courage & Justice',
   },
   {
     accent: '#1D4ED8',
-    softBg: 'rgba(29, 78, 216, 0.08)',
-    border: 'rgba(29, 78, 216, 0.28)',
+    softBg: 'rgba(29, 78, 216, 0.06)',
+    border: 'rgba(29, 78, 216, 0.25)',
     badgeBg: '#1E40AF',
     patron: 'Archangel of Strength & Heraldry',
   },
   {
     accent: '#047857',
-    softBg: 'rgba(4, 120, 87, 0.08)',
-    border: 'rgba(4, 120, 87, 0.28)',
+    softBg: 'rgba(4, 120, 87, 0.06)',
+    border: 'rgba(4, 120, 87, 0.25)',
     badgeBg: '#065F46',
     patron: 'Archangel of Healing & Science',
   },
   {
     accent: '#D97706',
-    softBg: 'rgba(217, 119, 6, 0.08)',
-    border: 'rgba(217, 119, 6, 0.28)',
+    softBg: 'rgba(217, 119, 6, 0.06)',
+    border: 'rgba(217, 119, 6, 0.25)',
     badgeBg: '#B45309',
     patron: 'Archangel of Wisdom & Light',
   },
@@ -132,7 +103,6 @@ const STAFF_MODULES = [
     schedule: 'Mandatory by 09:15 AM',
     desc: 'Submit section-wise morning and afternoon attendance from Nursery to Class XII with automated guardian SMS alerts for absentees.',
     actionLabel: 'Open Attendance Register',
-    icon: ClipboardCheck,
   },
   {
     title: 'MBOSE CCE & Terminal Marks Ledger',
@@ -140,7 +110,6 @@ const STAFF_MODULES = [
     schedule: 'Term I / Term II / Pre-Board',
     desc: 'Enter unit test scores, laboratory practical grades, and internal assessment marks for official MBOSE report card generation.',
     actionLabel: 'Launch Marks Portal',
-    icon: Award,
   },
   {
     title: 'Departmental Lesson Plans & Syllabus',
@@ -148,7 +117,6 @@ const STAFF_MODULES = [
     schedule: 'Weekly Academic Review',
     desc: 'Access and upload structured weekly teaching diaries, laboratory experiment schedules, and remedial coaching rosters.',
     actionLabel: 'View Syllabus Vault',
-    icon: BookOpen,
   },
   {
     title: 'Staff Leave, Duty & Invigilation Desk',
@@ -156,7 +124,6 @@ const STAFF_MODULES = [
     schedule: 'Secretariat Approved',
     desc: 'Apply for casual/medical leave, check period substitution assignments, and download examination hall invigilation charts.',
     actionLabel: 'Manage Leave & Roster',
-    icon: Calendar,
   },
 ];
 
@@ -206,7 +173,7 @@ export const StudentStaffHub: React.FC = () => {
       return;
     }
     showNoticeToast(
-      `Verification request sent for Educator ID "${staffIdInput.toUpperCase()}" (${staffDeptInput}). Please complete 2-step verification on the campus intranet terminal.`
+      `Verification request sent for Educator ID "${staffIdInput.toUpperCase()}" (${staffDeptInput}). Please complete verification on the campus intranet terminal.`
     );
     setStaffIdInput('');
   };
@@ -218,10 +185,11 @@ export const StudentStaffHub: React.FC = () => {
         <div className="hub-header-wrap">
           <div className="hub-header-left">
             <span className="hub-eyebrow">
-              <Sparkles className="w-3.5 h-3.5" />
               CENTRAL DIGITAL CAMPUS • 2,000+ LEARNERS &amp; 68+ EDUCATORS
             </span>
-            <h2 className="hub-main-title">Student &amp; Staff Operations Hub</h2>
+            <h2 className="hub-main-title vision-serif-heading">
+              <span className="vision-double-angle" aria-hidden="true">&raquo;</span> Student &amp; Staff Operations Hub
+            </h2>
             <p className="hub-subtitle">
               Unified institutional portal for official circulars, daily bell routines, Archangel house standings, transparent fee schedules, NH-6 transit routes, and academic administration.
             </p>
@@ -247,7 +215,7 @@ export const StudentStaffHub: React.FC = () => {
         {toastMessage && (
           <div className="hub-toast-banner" role="status">
             <div className="hub-toast-content">
-              <CheckCircle className="w-5 h-5 text-[#F59E0B] shrink-0" />
+              <span className="font-bold text-amber-400">&raquo;</span>
               <span>{toastMessage}</span>
             </div>
             <button
@@ -256,7 +224,7 @@ export const StudentStaffHub: React.FC = () => {
               className="hub-toast-close"
               aria-label="Dismiss notification"
             >
-              <X className="w-4 h-4" />
+              ×
             </button>
           </div>
         )}
@@ -264,15 +232,14 @@ export const StudentStaffHub: React.FC = () => {
         {/* Executive Tab Navigation Bar */}
         <div className="hub-tabs-bar" role="tablist" aria-label="Operations Hub Sections">
           {[
-            { id: 'notices', label: 'Notice Board', icon: Bell, badge: `${NOTICES.length}` },
-            { id: 'timetables', label: 'Timetable & Calendar', icon: Clock },
-            { id: 'houses', label: 'House Championship', icon: Shield },
-            { id: 'fees', label: 'Fee Schedule & Calculator', icon: CreditCard },
-            { id: 'bus', label: 'Bus Transit Fleet', icon: Bus },
-            { id: 'staff', label: 'Faculty & Staff Desk', icon: Users },
-            { id: 'results', label: 'MBOSE Result Desk', icon: Award },
+            { id: 'notices', label: 'Notice Board', badge: `${NOTICES.length}` },
+            { id: 'timetables', label: 'Timetable & Calendar' },
+            { id: 'houses', label: 'House Championship' },
+            { id: 'fees', label: 'Fee Schedule & Calculator' },
+            { id: 'bus', label: 'Bus Transit Fleet' },
+            { id: 'staff', label: 'Faculty & Staff Desk' },
+            { id: 'results', label: 'MBOSE Result Desk' },
           ].map((tab) => {
-            const Icon = tab.icon;
             const isActive = activeTab === tab.id;
             return (
               <button
@@ -283,8 +250,7 @@ export const StudentStaffHub: React.FC = () => {
                 onClick={() => setActiveTab(tab.id as typeof activeTab)}
                 className={`hub-tab-btn ${isActive ? 'active' : ''}`}
               >
-                <Icon className="hub-tab-icon" />
-                <span>{tab.label}</span>
+                <span>&raquo; {tab.label}</span>
                 {tab.badge && <span className="hub-tab-badge">{tab.badge}</span>}
               </button>
             );
@@ -316,13 +282,13 @@ export const StudentStaffHub: React.FC = () => {
               </div>
 
               <div className="hub-search-box">
-                <Search className="hub-search-icon" />
                 <input
                   type="text"
                   placeholder="Search circulars by keyword, exam, or stream..."
                   value={noticeSearch}
                   onChange={(e) => setNoticeSearch(e.target.value)}
                   className="hub-search-input"
+                  style={{ paddingLeft: '14px' }}
                 />
                 {noticeSearch && (
                   <button
@@ -331,7 +297,7 @@ export const StudentStaffHub: React.FC = () => {
                     className="hub-search-clear"
                     aria-label="Clear search"
                   >
-                    <X className="w-3.5 h-3.5" />
+                    ×
                   </button>
                 )}
               </div>
@@ -340,7 +306,6 @@ export const StudentStaffHub: React.FC = () => {
             {/* Notices Card Grid */}
             {filteredNotices.length === 0 ? (
               <div className="hub-empty-card">
-                <AlertCircle className="w-8 h-8 text-slate-400 mx-auto mb-2" />
                 <h4>No Matching Circulars Found</h4>
                 <p>Try clearing your search filter or selecting &ldquo;All&rdquo; categories.</p>
               </div>
@@ -371,21 +336,18 @@ export const StudentStaffHub: React.FC = () => {
 
                     <div className="hub-notice-body">
                       <div className="hub-notice-date">
-                        <Calendar className="w-3.5 h-3.5 text-[#D97706]" />
                         <span>Published: {notice.date}</span>
                       </div>
-                      <h3 className="hub-notice-title">{notice.title}</h3>
+                      <h3 className="hub-notice-title">&raquo; {notice.title}</h3>
                       <p className="hub-notice-desc">{notice.description}</p>
                     </div>
 
                     <div className="hub-notice-footer">
                       <div className="hub-file-meta">
-                        <FileText className="w-3.5 h-3.5 text-slate-400" />
                         <span>{notice.fileSize || 'Official Circular PDF'}</span>
                       </div>
                       <span className="hub-card-action">
-                        <span>Read Circular</span>
-                        <ChevronRight className="w-4 h-4" />
+                        Read More
                       </span>
                     </div>
                   </article>
@@ -407,8 +369,7 @@ export const StudentStaffHub: React.FC = () => {
                   <div>
                     <span className="hub-card-kicker">MONDAY – FRIDAY ROUTINE</span>
                     <h3 className="hub-exec-card-title">
-                      <Clock className="w-5 h-5 text-[#D97706]" />
-                      <span>Daily Campus Bell Schedule</span>
+                      &raquo; Daily Campus Bell Schedule
                     </h3>
                   </div>
                   <span className="hub-status-pill">08:30 AM – 02:45 PM</span>
@@ -442,8 +403,7 @@ export const StudentStaffHub: React.FC = () => {
                     <div>
                       <span className="hub-card-kicker">MBOSE SESSION 2026–27</span>
                       <h3 className="hub-exec-card-title">
-                        <Calendar className="w-5 h-5 text-[#1B365D]" />
-                        <span>Institutional Academic Calendar</span>
+                        &raquo; Institutional Academic Calendar
                       </h3>
                     </div>
                     <button
@@ -456,8 +416,7 @@ export const StudentStaffHub: React.FC = () => {
                       }}
                       className="hub-mini-action-btn"
                     >
-                      <Printer className="w-3.5 h-3.5" />
-                      <span>Print</span>
+                      Print
                     </button>
                   </div>
 
@@ -491,8 +450,7 @@ export const StudentStaffHub: React.FC = () => {
                       }}
                       className="hub-primary-btn-full"
                     >
-                      <Download className="w-4 h-4 text-[#F59E0B]" />
-                      <span>Download / Print Full Academic Calendar 2026–27</span>
+                      Download / Print Full Academic Calendar 2026–27
                     </button>
                   </div>
                 </div>
@@ -501,7 +459,7 @@ export const StudentStaffHub: React.FC = () => {
                 <div className="hub-highlight-navy-card">
                   <div className="hub-navy-card-top">
                     <span className="hub-navy-kicker">WEEKLY CAMPUS TRADITIONS</span>
-                    <h4>Co-Curricular &amp; Pastoral Formation Hours</h4>
+                    <h4>&raquo; Co-Curricular &amp; Pastoral Formation Hours</h4>
                   </div>
                   <div className="hub-navy-grid">
                     <div className="hub-navy-stat">
@@ -543,16 +501,14 @@ export const StudentStaffHub: React.FC = () => {
                           className="hub-house-color-pill"
                           style={{ backgroundColor: theme.badgeBg }}
                         >
-                          <Shield className="w-3.5 h-3.5" />
-                          <span>{h.color} House</span>
+                          {h.color} House
                         </span>
                         <span className="hub-house-rank">
-                          <Trophy className="w-3.5 h-3.5 text-[#D97706]" />
-                          <span>Rank #{i + 1}</span>
+                          Rank #{i + 1}
                         </span>
                       </div>
 
-                      <h3 className="hub-house-name">{h.name}</h3>
+                      <h3 className="hub-house-name">&raquo; {h.name}</h3>
                       <p className="hub-house-patron">{theme.patron}</p>
                       <div
                         className="hub-house-motto"
@@ -644,8 +600,7 @@ export const StudentStaffHub: React.FC = () => {
                   <div>
                     <span className="hub-card-kicker">OFFICIAL MBOSE FEE LEDGER 2026–27</span>
                     <h3 className="hub-exec-card-title">
-                      <Layers className="w-5 h-5 text-[#D97706]" />
-                      <span>{selectedFee.classGroup}</span>
+                      &raquo; {selectedFee.classGroup}
                     </h3>
                   </div>
                   <span className="hub-status-pill">Transparent Structure</span>
@@ -727,7 +682,7 @@ export const StudentStaffHub: React.FC = () => {
               <div className="hub-fee-summary-card">
                 <div>
                   <span className="hub-summary-kicker">ESTIMATED ANNUAL OUTLAY</span>
-                  <h4 className="hub-summary-class">{selectedFee.classGroup}</h4>
+                  <h4 className="hub-summary-class">&raquo; {selectedFee.classGroup}</h4>
 
                   <div className="hub-summary-total-box">
                     <span className="hub-summary-total-lbl">Combined Annual Estimate</span>
@@ -744,19 +699,19 @@ export const StudentStaffHub: React.FC = () => {
 
                   <div className="hub-summary-perks">
                     <div className="hub-perk-item">
-                      <Check className="w-4 h-4 text-[#F59E0B] shrink-0" />
+                      <span className="font-bold text-amber-400">&raquo;</span>
                       <span>Payable in 4 quarterly installments or 2 term challans</span>
                     </div>
                     <div className="hub-perk-item">
-                      <Check className="w-4 h-4 text-[#F59E0B] shrink-0" />
+                      <span className="font-bold text-amber-400">&raquo;</span>
                       <span>100% tuition waiver for MBOSE State Top 20 Merit Rankers</span>
                     </div>
                     <div className="hub-perk-item">
-                      <Check className="w-4 h-4 text-[#F59E0B] shrink-0" />
+                      <span className="font-bold text-amber-400">&raquo;</span>
                       <span>Sibling concession available through the Principal&apos;s office</span>
                     </div>
                     <div className="hub-perk-item">
-                      <Check className="w-4 h-4 text-[#F59E0B] shrink-0" />
+                      <span className="font-bold text-amber-400">&raquo;</span>
                       <span>Zero capitation fee or hidden development donations</span>
                     </div>
                   </div>
@@ -772,16 +727,14 @@ export const StudentStaffHub: React.FC = () => {
                     }
                     className="hub-gold-cta-btn"
                   >
-                    <CreditCard className="w-4 h-4" />
-                    <span>Request Official Fee Challan</span>
+                    Request Official Fee Challan
                   </button>
                   <button
                     type="button"
                     onClick={() => window.print()}
                     className="hub-outline-light-btn"
                   >
-                    <Printer className="w-4 h-4" />
-                    <span>Print Fee Estimate Slip</span>
+                    Print Fee Estimate Slip
                   </button>
                 </div>
               </div>
@@ -800,8 +753,7 @@ export const StudentStaffHub: React.FC = () => {
                   <div className="hub-bus-card-top">
                     <div className="hub-bus-badge-group">
                       <span className="hub-route-badge">
-                        <Bus className="w-3.5 h-3.5" />
-                        <span>{b.routeNo}</span>
+                        {b.routeNo}
                       </span>
                       <span className="hub-corridor-tag">NH-6 Corridor Fleet #0{i + 1}</span>
                     </div>
@@ -815,7 +767,7 @@ export const StudentStaffHub: React.FC = () => {
                     </div>
                   </div>
 
-                  <h3 className="hub-bus-title">{b.busName}</h3>
+                  <h3 className="hub-bus-title">&raquo; {b.busName}</h3>
 
                   {/* Visual Stop Timeline */}
                   <div className="hub-stops-timeline">
@@ -839,8 +791,7 @@ export const StudentStaffHub: React.FC = () => {
                       href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`}
                       className="hub-call-coord-btn"
                     >
-                      <Phone className="w-3.5 h-3.5" />
-                      <span>Call Desk</span>
+                      Call Desk
                     </a>
                   </div>
                 </article>
@@ -857,46 +808,39 @@ export const StudentStaffHub: React.FC = () => {
             <div className="hub-staff-layout">
               {/* Left 4 Operational Cards */}
               <div className="hub-staff-modules-grid">
-                {STAFF_MODULES.map((mod) => {
-                  const Icon = mod.icon;
-                  return (
-                    <article key={mod.code} className="hub-staff-card">
-                      <div className="hub-staff-card-top">
-                        <div className="hub-staff-icon-box">
-                          <Icon className="w-5 h-5 text-[#1B365D]" />
-                        </div>
-                        <span className="hub-staff-code">{mod.code}</span>
-                      </div>
-
+                {STAFF_MODULES.map((mod) => (
+                  <article key={mod.code} className="hub-staff-card">
+                    <div className="hub-staff-card-top">
                       <span className="hub-staff-schedule">{mod.schedule}</span>
-                      <h3 className="hub-staff-title">{mod.title}</h3>
-                      <p className="hub-staff-desc">{mod.desc}</p>
+                      <span className="hub-staff-code">{mod.code}</span>
+                    </div>
 
-                      <button
-                        type="button"
-                        onClick={() =>
-                          showNoticeToast(
-                            `${mod.title} (${mod.code}): Please authenticate via the Educator SSO Console on the right.`
-                          )
-                        }
-                        className="hub-staff-action-btn"
-                      >
-                        <span>{mod.actionLabel}</span>
-                        <ArrowUpRight className="w-4 h-4" />
-                      </button>
-                    </article>
-                  );
-                })}
+                    <h3 className="hub-staff-title">&raquo; {mod.title}</h3>
+                    <p className="hub-staff-desc">{mod.desc}</p>
+
+                    <button
+                      type="button"
+                      onClick={() =>
+                        showNoticeToast(
+                          `${mod.title} (${mod.code}): Please authenticate via the Educator SSO Console on the right.`
+                        )
+                      }
+                      className="hub-staff-action-btn"
+                    >
+                      <span>{mod.actionLabel}</span>
+                      <span aria-hidden="true">→</span>
+                    </button>
+                  </article>
+                ))}
               </div>
 
               {/* Right Card: Educator SSO Login Card */}
               <div className="hub-staff-sso-card">
                 <div className="hub-sso-header">
                   <div className="hub-sso-badge">
-                    <Lock className="w-4 h-4 text-[#F59E0B]" />
-                    <span>EDUCATOR INTRANET SSO</span>
+                    EDUCATOR INTRANET SSO
                   </div>
-                  <h3>Faculty &amp; Secretariat Sign-In</h3>
+                  <h3>&raquo; Faculty &amp; Secretariat Sign-In</h3>
                   <p>
                     Authorized portal for St. Michael&apos;s 68+ teaching faculty and administrative staff.
                   </p>
@@ -933,13 +877,12 @@ export const StudentStaffHub: React.FC = () => {
                   </div>
 
                   <button type="submit" className="hub-gold-cta-btn w-full">
-                    <Lock className="w-4 h-4" />
-                    <span>Authenticate Educator Session</span>
+                    Authenticate Educator Session
                   </button>
                 </form>
 
                 <div className="hub-sso-footer">
-                  <span>Need IT or Secretariat assistance?</span>
+                  <span>Need Secretariat assistance?</span>
                   <a href="#faculty" className="hub-sso-link">
                     View Full Faculty Directory →
                   </a>
@@ -959,9 +902,8 @@ export const StudentStaffHub: React.FC = () => {
               <div className="hub-result-card">
                 <div className="hub-result-card-top">
                   <span className="hub-card-kicker">ACADEMIC DISTINCTION RECORD</span>
-                  <Award className="w-6 h-6 text-[#D97706]" />
                 </div>
-                <h3>MBOSE SSLC &amp; HSSLC Excellence</h3>
+                <h3>&raquo; MBOSE SSLC &amp; HSSLC Excellence</h3>
                 <p>
                   St. Michael&apos;s Higher Secondary School (Affiliation Code:{' '}
                   <strong>{SCHOOL_INFO.schoolCode}</strong>) maintains a proud legacy of State Top 20 Merit Rankers and 100% board pass performance.
@@ -985,8 +927,7 @@ export const StudentStaffHub: React.FC = () => {
                   </div>
                 </div>
                 <a href="#toppers" className="hub-result-link-btn">
-                  <GraduationCap className="w-4 h-4" />
-                  <span>View State Topper Felicitation Gallery</span>
+                  View State Topper Felicitation Gallery
                 </a>
               </div>
 
@@ -994,23 +935,22 @@ export const StudentStaffHub: React.FC = () => {
               <div className="hub-result-card">
                 <div className="hub-result-card-top">
                   <span className="hub-card-kicker">EXAMINATION CELL PROTOCOL</span>
-                  <FileText className="w-6 h-6 text-[#1B365D]" />
                 </div>
-                <h3>Marksheet &amp; Certificate Verification</h3>
+                <h3>&raquo; Marksheet &amp; Certificate Verification</h3>
                 <p>
                   To safeguard student privacy, individual marksheets and pass certificates are issued directly through the School Examination Secretariat upon presentation of the admit card.
                 </p>
                 <ul className="hub-result-checklist">
                   <li>
-                    <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span className="font-bold text-[#c61c49]">&raquo;</span>
                     <span>Original MBOSE SSLC (Class X) &amp; HSSLC (Class XII) Marksheets</span>
                   </li>
                   <li>
-                    <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span className="font-bold text-[#c61c49]">&raquo;</span>
                     <span>Provisional Pass, Character &amp; Transfer Certificates (TC)</span>
                   </li>
                   <li>
-                    <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span className="font-bold text-[#c61c49]">&raquo;</span>
                     <span>Class XI Stream Allocation &amp; Merit Scholarship Letters</span>
                   </li>
                 </ul>
@@ -1023,8 +963,7 @@ export const StudentStaffHub: React.FC = () => {
                   }
                   className="hub-result-secondary-btn"
                 >
-                  <span>Check Document Collection Requirements</span>
-                  <ChevronRight className="w-4 h-4" />
+                  Check Document Collection Requirements
                 </button>
               </div>
 
@@ -1032,25 +971,21 @@ export const StudentStaffHub: React.FC = () => {
               <div className="hub-result-card navy-accent">
                 <div className="hub-result-card-top">
                   <span className="hub-summary-kicker">OFFICIAL VERIFICATION DESK</span>
-                  <Shield className="w-6 h-6 text-[#F59E0B]" />
                 </div>
-                <h3>Contact the Examination Cell</h3>
+                <h3>&raquo; Contact the Examination Cell</h3>
                 <p>
                   For official institutional verification, board result queries, or Class XI admission cutoffs, contact our Examination Secretariat directly.
                 </p>
 
                 <div className="hub-exam-contact-box">
                   <div className="hub-exam-contact-item">
-                    <MapPin className="w-4 h-4 text-[#F59E0B] shrink-0" />
-                    <span>Umsning Town, NH-6 Corridor, Ri Bhoi District</span>
+                    <span>&raquo; Umsning Town, NH-6 Corridor, Ri Bhoi District</span>
                   </div>
                   <div className="hub-exam-contact-item">
-                    <Clock className="w-4 h-4 text-[#F59E0B] shrink-0" />
-                    <span>{SCHOOL_INFO.officeHours}</span>
+                    <span>&raquo; {SCHOOL_INFO.officeHours}</span>
                   </div>
                   <div className="hub-exam-contact-item">
-                    <Phone className="w-4 h-4 text-[#F59E0B] shrink-0" />
-                    <span>{SCHOOL_INFO.phoneMobile} / {SCHOOL_INFO.phone}</span>
+                    <span>&raquo; {SCHOOL_INFO.phoneMobile} / {SCHOOL_INFO.phone}</span>
                   </div>
                 </div>
 
@@ -1058,8 +993,7 @@ export const StudentStaffHub: React.FC = () => {
                   href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`}
                   className="hub-gold-cta-btn w-full"
                 >
-                  <Phone className="w-4 h-4" />
-                  <span>Call Examination Secretariat</span>
+                  Call Examination Secretariat
                 </a>
               </div>
             </div>
@@ -1093,7 +1027,7 @@ export const StudentStaffHub: React.FC = () => {
                   className="hub-modal-close"
                   aria-label="Close circular"
                 >
-                  <X className="w-5 h-5" />
+                  ×
                 </button>
               </div>
 
@@ -1101,7 +1035,7 @@ export const StudentStaffHub: React.FC = () => {
                 <span className="hub-modal-school">
                   {SCHOOL_INFO.name.toUpperCase()} • {SCHOOL_INFO.schoolCode}
                 </span>
-                <h3>{activeNoticeModal.title}</h3>
+                <h3>&raquo; {activeNoticeModal.title}</h3>
                 <div className="hub-modal-meta">
                   <span>Published: {activeNoticeModal.date}</span>
                   <span>•</span>
@@ -1116,8 +1050,7 @@ export const StudentStaffHub: React.FC = () => {
                   onClick={() => window.print()}
                   className="hub-modal-print-btn"
                 >
-                  <Printer className="w-4 h-4" />
-                  <span>Print Circular</span>
+                  Print Circular
                 </button>
                 <button
                   type="button"

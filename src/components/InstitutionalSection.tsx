@@ -1,5 +1,4 @@
 import React from 'react';
-import { ArrowUpRight, Award, Compass, Eye, Heart, ShieldCheck, Target } from 'lucide-react';
 import { SCHOOL_IMAGES } from '../data/schoolAssets';
 import { SCHOOL_INFO } from '../data/schoolData';
 
@@ -26,83 +25,81 @@ const heritagePillars = [
 
 export const InstitutionalSection: React.FC = () => (
   <>
-    {/* Who We Are */}
+    {/* Who We Are, Our Mission & Our Vision */}
     <section
       id="about"
-      className="w-full bg-linear-to-b from-slate-50 via-white to-slate-50/70 py-16 md:py-24 border-t border-slate-200/70"
+      className="w-full bg-white py-16 md:py-24 border-t border-slate-200/80"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+        <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
           <div>
-            <span className="mb-3 inline-flex items-center gap-2 rounded-full bg-amber-100/80 px-3.5 py-1 text-xs font-bold uppercase tracking-[0.16em] text-amber-900">
-              <Compass className="h-3.5 w-3.5" aria-hidden="true" />
-              Who We Are • Estd. {SCHOOL_INFO.established}
-            </span>
-            <h2 className="text-3xl font-extrabold tracking-tight text-[#142842] sm:text-4xl md:text-5xl leading-[1.12]">
-              Learning with purpose. Growing with values.
+            <h2 className="vision-serif-heading text-3xl sm:text-4xl text-[#0c4a8a]">
+              <span className="vision-double-angle" aria-hidden="true">&raquo;</span> Who We Are
             </h2>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-              Since 1961, St. Michael&apos;s Higher Secondary School has welcomed learners in
-              Umsning to pursue knowledge, build character, and serve their community under the
-              guiding motto <strong>{SCHOOL_INFO.mottoLatin}</strong> &amp;{' '}
+            <p className="vision-body-copy mt-5 text-[#0c4a8a]">
+              Since {SCHOOL_INFO.established}, St. Michael&apos;s Higher Secondary School, Umsning
+              has formed men and women of faith, scholarship, leadership, and service in the
+              Catholic Diocesan tradition, fostering a culture of excellence and core values of
+              respect, discipline, and care for the whole person under the guiding motto{' '}
+              <strong>{SCHOOL_INFO.mottoLatin}</strong> &amp;{' '}
               <strong>{SCHOOL_INFO.mottoKhasi}</strong> ({SCHOOL_INFO.mottoMeaning}).
             </p>
+            <a href="#why-us" className="vision-read-more mt-5 inline-block">
+              Read More
+            </a>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
             {heritagePillars.map((pillar) => (
               <div
                 key={pillar.title}
-                className="rounded-xl border border-slate-200/90 bg-white p-4 shadow-xs transition-colors hover:border-amber-400/70"
+                className="rounded-xl border border-slate-200 bg-slate-50/70 p-4 transition-colors hover:border-[#0c4a8a]/40"
               >
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1B365D]">
-                  <ShieldCheck className="h-4 w-4 text-amber-600 shrink-0" aria-hidden="true" />
-                  <span>{pillar.title}</span>
+                <div className="text-sm font-semibold text-[#0c4a8a]">
+                  &raquo; {pillar.title}
                 </div>
-                <p className="mt-1.5 text-xs leading-5 text-slate-600">{pillar.detail}</p>
+                <p className="mt-1.5 text-xs leading-6 text-slate-600">{pillar.detail}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Mission & Vision Side-by-Side Cards */}
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        {/* Our Mission & Our Vision Side-by-Side (Exact Reference Typography) */}
+        <div className="mt-12 grid gap-8 md:grid-cols-2">
           <article
             id="mission"
-            className="scroll-mt-28 rounded-2xl border border-slate-200 bg-white p-7 shadow-md shadow-slate-900/5 sm:p-10"
+            className="scroll-mt-28 rounded-2xl border border-slate-200 bg-white p-7 shadow-sm sm:p-10"
           >
-            <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#1B365D] text-amber-300 shadow-xs">
-              <Target className="h-6 w-6" aria-hidden="true" />
-            </div>
-            <span className="block text-xs font-bold uppercase tracking-[0.16em] text-amber-800">
-              Institutional Purpose
-            </span>
-            <h3 className="mt-1 text-2xl font-bold text-[#142842] sm:text-3xl">Our Mission</h3>
-            <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base sm:leading-8">
+            <h3 className="vision-serif-heading text-2xl sm:text-3xl text-[#0c4a8a]">
+              <span className="vision-double-angle" aria-hidden="true">&raquo;</span> Our Mission
+            </h3>
+            <p className="vision-body-copy mt-5 text-[#0c4a8a]">
               To provide an inclusive, values-led education that helps every student develop
-              intellectually, spiritually, socially, and physically. We encourage curiosity,
-              discipline, compassion, and confidence so learners can make a positive difference in
-              their families and communities.
+              intellectually, spiritually, socially, and physically, encouraging curiosity,
+              discipline, compassion, and confidence so learners make a lasting difference in their
+              families and communities.
             </p>
+            <a href="#academics" className="vision-read-more mt-6 inline-block">
+              Read More
+            </a>
           </article>
 
           <article
             id="vision"
-            className="scroll-mt-28 rounded-2xl bg-[#142842] p-7 text-white shadow-xl shadow-slate-950/15 sm:p-10 border border-white/10"
+            className="scroll-mt-28 rounded-2xl border border-slate-200 bg-white p-7 shadow-sm sm:p-10"
           >
-            <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-amber-300">
-              <Eye className="h-6 w-6" aria-hidden="true" />
-            </div>
-            <span className="block text-xs font-bold uppercase tracking-[0.16em] text-amber-300">
-              Guiding Horizon
-            </span>
-            <h3 className="mt-1 text-2xl font-bold text-white sm:text-3xl">Our Vision</h3>
-            <p className="mt-4 text-sm leading-7 text-slate-200 sm:text-base sm:leading-8">
-              To be a caring learning community where each person is inspired to strive for
-              excellence, honour the dignity of others, and meet the future with knowledge,
-              integrity, and courage — ever upward, <em className="text-amber-300">Excelsior</em>{' '}
-              and <em className="text-amber-300">Shaphrang</em>.
+            <h3 className="vision-serif-heading text-2xl sm:text-3xl text-[#0c4a8a]">
+              <span className="vision-double-angle" aria-hidden="true">&raquo;</span> Our Vision
+            </h3>
+            <p className="vision-body-copy mt-5 text-[#0c4a8a]">
+              To form men and women of faith, scholarship, leadership, and service in the Catholic
+              Diocesan tradition, fostering a culture of excellence and core values of respect,
+              justice, and holistic care for the whole person — ever upward,{' '}
+              <em>{SCHOOL_INFO.mottoLatin}</em> and <em>{SCHOOL_INFO.mottoKhasi}</em>.
             </p>
+            <a href="#apply-form" className="vision-read-more mt-6 inline-block">
+              Read More
+            </a>
           </article>
         </div>
       </div>
@@ -111,7 +108,7 @@ export const InstitutionalSection: React.FC = () => (
     {/* Founder's Heritage */}
     <section id="founder-message" className="w-full bg-[#eef3f8] py-16 md:py-24 scroll-mt-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <article className="grid overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-xl shadow-slate-900/8 md:grid-cols-2">
+        <article className="grid overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-lg md:grid-cols-2">
           <div className="relative min-h-72 md:min-h-112 bg-slate-900">
             <img
               src={SCHOOL_IMAGES.foundingCampus}
@@ -125,23 +122,22 @@ export const InstitutionalSection: React.FC = () => (
             </div>
           </div>
           <div className="flex flex-col justify-center p-6 sm:p-10 lg:p-14">
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.16em] text-amber-800">
-              <Award className="h-4 w-4" aria-hidden="true" />
+            <span className="text-xs font-semibold uppercase tracking-widest text-amber-800">
               Founded in 1961 • 65 Years of Service
             </span>
-            <h2 className="mt-2 text-2xl font-bold text-[#142842] sm:text-3xl">
-              A legacy built on faith, scholarship, and community upliftment
+            <h2 className="vision-serif-heading mt-2 text-2xl sm:text-3xl text-[#0c4a8a]">
+              <span className="vision-double-angle" aria-hidden="true">&raquo;</span> Founder&apos;s Heritage
             </h2>
-            <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base sm:leading-8">
+            <p className="vision-body-copy mt-4 text-[#0c4a8a]">
               St. Michael&apos;s Higher Secondary School was established in 1961 in the conviction
               that quality education opens doors and strengthens the entire Ri Bhoi region. That
               founding spirit continues today: making learning meaningful, nurturing every
-              student&apos;s God-given potential, and helping young people step forward with courage.
+              student&apos;s potential, and helping young people step forward with courage.
             </p>
-            <div className="mt-6 flex flex-wrap items-center gap-4 border-t border-slate-200 pt-5 text-xs font-bold uppercase tracking-wider text-[#1B365D]">
+            <div className="mt-6 flex flex-wrap items-center gap-4 border-t border-slate-200 pt-5 text-xs font-semibold uppercase tracking-wider text-[#0c4a8a]">
               <span>Catholic Diocese of Shillong</span>
               <span className="text-slate-300">•</span>
-              <span className="text-amber-800">Umsning, Meghalaya</span>
+              <span className="text-[#c61c49]">Umsning, Meghalaya</span>
             </div>
           </div>
         </article>
@@ -151,7 +147,7 @@ export const InstitutionalSection: React.FC = () => (
     {/* Principal's Desk */}
     <section id="principal-message" className="w-full bg-[#142842] py-16 md:py-24 scroll-mt-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <article className="grid overflow-hidden rounded-2xl bg-white shadow-2xl shadow-slate-950/25 md:grid-cols-[1.15fr_0.85fr]">
+        <article className="grid overflow-hidden rounded-2xl bg-white shadow-2xl md:grid-cols-[1.15fr_0.85fr]">
           <div className="relative order-1 min-h-72 md:order-2 md:min-h-128 bg-slate-900">
             <img
               src={SCHOOL_IMAGES.schoolStaff}
@@ -162,16 +158,13 @@ export const InstitutionalSection: React.FC = () => (
             />
           </div>
           <div className="order-2 flex flex-col justify-center p-6 sm:p-10 lg:p-14 md:order-1">
-            <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-amber-50 text-amber-800 border border-amber-200">
-              <Heart className="h-5 w-5" aria-hidden="true" />
-            </div>
-            <span className="text-xs font-bold uppercase tracking-[0.16em] text-amber-800">
+            <span className="text-xs font-semibold uppercase tracking-widest text-amber-800">
               From The Principal&apos;s Desk
             </span>
-            <h2 className="mt-2 text-2xl font-bold text-[#142842] sm:text-3xl">
-              A warm welcome to students, parents, and guardians
+            <h2 className="vision-serif-heading mt-2 text-2xl sm:text-3xl text-[#0c4a8a]">
+              <span className="vision-double-angle" aria-hidden="true">&raquo;</span> Principal&apos;s Welcome
             </h2>
-            <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base sm:leading-8">
+            <p className="vision-body-copy mt-4 text-[#0c4a8a]">
               Every child brings unique gifts and possibilities. Our responsibility at St.
               Michael&apos;s is to provide a disciplined, caring environment where learners ask
               thoughtful questions, excel in MBOSE academics, discover their talents in athletics
@@ -181,21 +174,21 @@ export const InstitutionalSection: React.FC = () => (
               {institutionalValues.map((value) => (
                 <li
                   key={value}
-                  className="flex items-start gap-2.5 text-sm font-medium text-slate-700 sm:text-base"
+                  className="flex items-start gap-2.5 text-sm font-medium text-[#0c4a8a] sm:text-base"
                 >
-                  <ArrowUpRight className="mt-1 h-4 w-4 shrink-0 text-amber-700" aria-hidden="true" />
+                  <span className="font-bold text-[#c61c49]" aria-hidden="true">&raquo;</span>
                   <span>{value}</span>
                 </li>
               ))}
             </ul>
             <div className="mt-7 flex items-center justify-between border-t border-slate-200 pt-5 text-sm">
               <div>
-                <p className="font-bold text-[#142842]">Office of the Principal &amp; Management</p>
+                <p className="font-semibold text-[#0c4a8a]">Office of the Principal &amp; Management</p>
                 <p className="text-xs text-slate-500">
                   St. Michael&apos;s Higher Secondary School, Umsning
                 </p>
               </div>
-              <span className="rounded-md bg-slate-100 px-3 py-1 font-mono text-xs font-bold text-[#1B365D]">
+              <span className="rounded-md bg-slate-100 px-3 py-1 text-xs font-semibold text-[#0c4a8a]">
                 Estd. 1961
               </span>
             </div>

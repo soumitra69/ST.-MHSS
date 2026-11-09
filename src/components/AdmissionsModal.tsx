@@ -65,18 +65,13 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
         
         {/* Header */}
         <div className="p-5 bg-[#1B365D] text-white flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-white/10 rounded-lg">
-              <GraduationCap className="w-6 h-6 text-[#F59E0B]" />
-            </div>
-            <div>
-              <h3 className="text-base font-extrabold uppercase tracking-tight">
-                Academic Session 2026–27 Admission
-              </h3>
-              <p className="text-xs text-slate-200">
-                {SCHOOL_INFO.name}
-              </p>
-            </div>
+          <div>
+            <h3 className="text-base font-bold uppercase tracking-tight">
+              &raquo; Academic Session 2026–27 Admission
+            </h3>
+            <p className="text-xs text-slate-200">
+              {SCHOOL_INFO.name}
+            </p>
           </div>
           <button
             type="button"
@@ -122,7 +117,7 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
               <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 text-left max-w-md mx-auto text-xs space-y-1.5">
                 <div className="flex justify-between">
                   <span className="text-slate-500">Application Number:</span>
-                  <span className="font-mono font-bold text-[#D97706]">{applicationId}</span>
+                  <span className="font-bold text-[#D97706]">{applicationId}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-500">Applicant:</span>

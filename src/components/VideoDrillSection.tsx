@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Play, Pause, Volume2, VolumeX, Maximize2, Music, Activity, Users } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, Maximize2 } from 'lucide-react';
 import { SCHOOL_IMAGES, resolveSchoolAsset } from '../data/schoolAssets';
 
 export const VideoDrillSection: React.FC = () => {
@@ -68,14 +68,13 @@ export const VideoDrillSection: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
-            <div className="flex items-center gap-2 text-xs font-bold tracking-wider uppercase text-[#F59E0B] mb-2">
-              <Activity className="w-4 h-4 text-[#F59E0B]" />
+            <div className="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#F59E0B] mb-2">
               <span>Campus Life in Motion</span>
               <span className="text-white/40">•</span>
               <span>Athletics &amp; Performing Arts</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-              The Living Spirit of 2,000 Students
+            <h2 className="vision-serif-heading text-3xl sm:text-4xl text-white">
+              <span className="vision-double-angle text-amber-400" aria-hidden="true">&raquo;</span> The Living Spirit of 2,000 Students
             </h2>
             <p className="mt-2 text-slate-300 text-sm sm:text-base max-w-2xl leading-relaxed">
               Experience the synchronized energy and musical discipline that define daily student life at St. Michael&apos;s Higher Secondary School, Umsning.
@@ -87,25 +86,23 @@ export const VideoDrillSection: React.FC = () => {
             <button
               type="button"
               onClick={() => handleSwitchVideo('drill')}
-              className={`px-4 py-2.5 text-xs font-bold uppercase tracking-wider rounded-lg transition-all flex items-center gap-2 ${
+              className={`px-4 py-2.5 text-xs font-semibold uppercase tracking-wider rounded-lg transition-all ${
                 activeVideo === 'drill'
                   ? 'bg-[#D97706] text-white shadow-md'
                   : 'text-slate-300 hover:text-white'
               }`}
             >
-              <Activity className="w-3.5 h-3.5" />
               Synchronized Drill
             </button>
             <button
               type="button"
               onClick={() => handleSwitchVideo('choir')}
-              className={`px-4 py-2.5 text-xs font-bold uppercase tracking-wider rounded-lg transition-all flex items-center gap-2 ${
+              className={`px-4 py-2.5 text-xs font-semibold uppercase tracking-wider rounded-lg transition-all ${
                 activeVideo === 'choir'
                   ? 'bg-[#D97706] text-white shadow-md'
                   : 'text-slate-300 hover:text-white'
               }`}
             >
-              <Music className="w-3.5 h-3.5" />
               Choral Ensemble
             </button>
           </div>
@@ -143,7 +140,7 @@ export const VideoDrillSection: React.FC = () => {
                   <span className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#D97706] hover:bg-[#B45309] text-white flex items-center justify-center shadow-2xl ring-4 ring-white/30 transition-transform duration-300 group-hover:scale-105">
                     <Play className="w-7 h-7 sm:w-8 sm:h-8 fill-current ml-1" />
                   </span>
-                  <span className="mt-3 px-3.5 py-1 rounded-full bg-black/65 border border-white/20 text-xs font-bold uppercase tracking-wider text-amber-300 backdrop-blur-xs">
+                  <span className="mt-3 px-3.5 py-1 rounded-full bg-black/65 border border-white/20 text-xs font-semibold uppercase tracking-wider text-amber-300 backdrop-blur-xs">
                     Click to Watch Campus Video
                   </span>
                 </button>
@@ -180,18 +177,18 @@ export const VideoDrillSection: React.FC = () => {
 
             <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-300">
               <span>Recorded live on campus at St. Michael&apos;s Higher Secondary School, Umsning</span>
-              <span className="font-mono text-[#F59E0B] font-bold">On-Demand HD Stream • Zero Autoplay Latency</span>
+              <span className="text-[#F59E0B] font-semibold">Annual Sports &amp; Choral Showcase</span>
             </div>
           </div>
 
           {/* Right Column: Context & Drill Philosophy */}
           <div className="lg:col-span-4 space-y-5">
             <div className="p-6 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-xs">
-              <span className="text-[11px] font-mono uppercase tracking-wider text-[#F59E0B] font-bold block mb-2">
+              <span className="text-xs uppercase tracking-wider text-[#F59E0B] font-semibold block mb-2">
                 {current.category}
               </span>
               <h3 className="text-xl font-bold text-white mb-2">
-                {current.title}
+                &raquo; {current.title}
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-4">
                 {current.details}
@@ -199,15 +196,15 @@ export const VideoDrillSection: React.FC = () => {
 
               <div className="space-y-3 pt-4 border-t border-white/10 text-xs text-slate-200">
                 <div className="flex items-center gap-2.5">
-                  <span className="w-2 h-2 rounded-full bg-[#D97706] shrink-0" />
+                  <span className="font-bold text-[#F59E0B]">&raquo;</span>
                   <span>Weekly synchronized drill &amp; aerobic posture conditioning</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <span className="w-2 h-2 rounded-full bg-[#D97706] shrink-0" />
+                  <span className="font-bold text-[#F59E0B]">&raquo;</span>
                   <span>Annual Archangel house points awarded for precision</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <span className="w-2 h-2 rounded-full bg-[#D97706] shrink-0" />
+                  <span className="font-bold text-[#F59E0B]">&raquo;</span>
                   <span>Full spectator gallery on tiered amphitheatre stairs</span>
                 </div>
               </div>
@@ -216,8 +213,7 @@ export const VideoDrillSection: React.FC = () => {
             {/* Quick Athletic / Choral Note */}
             <div className="p-5 bg-white/5 rounded-2xl border border-white/10 text-xs">
               <div className="flex items-center justify-between mb-2">
-                <span className="font-bold text-white">Daily Community Assembly</span>
-                <Users className="w-4 h-4 text-[#F59E0B]" />
+                <span className="font-bold text-white">&raquo; Daily Community Assembly</span>
               </div>
               <p className="text-slate-300 leading-relaxed font-normal">
                 Every morning, students assemble across the central courtyard for prayer, physical drill, and the singing of the school hymn in English and Khasi.

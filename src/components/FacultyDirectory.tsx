@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Users } from 'lucide-react';
+import { Search } from 'lucide-react';
 import { FACULTY_MEMBERS } from '../data/schoolData';
 
 export const FacultyDirectory: React.FC = () => {
@@ -34,14 +34,13 @@ export const FacultyDirectory: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-2 text-xs font-bold tracking-wider uppercase text-amber-800 mb-2">
-              <Users className="w-4 h-4 text-amber-700" aria-hidden="true" />
+            <div className="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-amber-800 mb-2">
               <span>Mentors &amp; Academic Leadership</span>
               <span className="text-slate-300">•</span>
               <span>68+ Certified Educators</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#142842] tracking-tight">
-              Faculty &amp; department directory
+            <h2 className="vision-serif-heading text-3xl sm:text-4xl text-[#0c4a8a]">
+              <span className="vision-double-angle" aria-hidden="true">&raquo;</span> Faculty &amp; Department Directory
             </h2>
             <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed">
               Our dedicated educators, Reverend Sisters, and subject specialists committed to
@@ -72,7 +71,7 @@ export const FacultyDirectory: React.FC = () => {
               key={dept}
               type="button"
               onClick={() => setDepartmentFilter(dept)}
-              className={`px-3.5 py-2 text-xs font-bold rounded-lg whitespace-nowrap transition-colors ${
+              className={`px-3.5 py-2 text-xs font-semibold rounded-lg whitespace-nowrap transition-colors ${
                 departmentFilter === dept
                   ? 'bg-[#142842] text-amber-300 shadow-xs'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -101,7 +100,7 @@ export const FacultyDirectory: React.FC = () => {
                       className="w-12 h-12 rounded-full object-cover border-2 border-[#1B365D] shrink-0"
                     />
                   ) : (
-                    <div className="w-12 h-12 rounded-full bg-[#142842] text-amber-300 flex items-center justify-center font-bold font-mono text-sm shadow-xs shrink-0">
+                    <div className="w-12 h-12 rounded-full bg-[#142842] text-amber-300 flex items-center justify-center font-bold text-sm shadow-xs shrink-0">
                       {member.name
                         .split(' ')
                         .map((n) => n[0])
@@ -110,10 +109,10 @@ export const FacultyDirectory: React.FC = () => {
                     </div>
                   )}
                   <div className="min-w-0">
-                    <h3 className="text-sm font-bold text-[#142842] leading-snug truncate">
+                    <h3 className="text-sm font-bold text-[#0c4a8a] leading-snug truncate">
                       {member.name}
                     </h3>
-                    <p className="text-xs text-amber-800 font-bold truncate">{member.role}</p>
+                    <p className="text-xs text-amber-800 font-semibold truncate">{member.role}</p>
                   </div>
                 </div>
 
@@ -124,13 +123,13 @@ export const FacultyDirectory: React.FC = () => {
                   </div>
                   <div className="flex items-center justify-between gap-2">
                     <span className="text-slate-400">Credentials:</span>
-                    <span className="font-mono font-medium text-slate-700 text-right">
+                    <span className="font-medium text-slate-700 text-right">
                       {member.qualification}
                     </span>
                   </div>
                   <div className="flex items-center justify-between gap-2">
                     <span className="text-slate-400">Experience:</span>
-                    <span className="font-bold text-[#1B365D] text-right">{member.experience}</span>
+                    <span className="font-semibold text-[#1B365D] text-right">{member.experience}</span>
                   </div>
                 </div>
               </div>

@@ -6093,3 +6093,241 @@ img.hero-bg-layer {
     flex: 1 1 100px;
   }
 }
+
+
+/* ==========================================================================
+   15. Uploaded Reference Typography (Merriweather Serif + Poppins Sans)
+       & All-Screen Responsive Navbar Overrides
+   ========================================================================== */
+
+:root {
+  --font-heading: 'Merriweather', Georgia, serif;
+  --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body,
+button,
+input,
+select,
+textarea,
+p,
+a,
+span,
+li,
+label,
+.quote-counter,
+.hub-ref-code,
+.hub-status-pill,
+.hub-bell-time,
+.hub-house-rank,
+.hub-fee-stage-num,
+.hub-time-pill,
+.hub-staff-code {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+.vision-serif-heading,
+.student-h3,
+.toghether-left h2,
+.left-content h3,
+.header-section h1,
+.header-section h2,
+.student-work-content h3,
+.alumini-header h1,
+.hub-main-title,
+.hub-exec-card-title,
+.hub-house-name,
+.hub-bus-title,
+.hub-result-card h3 {
+  font-family: 'Merriweather', Georgia, serif !important;
+  letter-spacing: -0.01em;
+}
+
+/* Exact Reference Image Typography ("» Our Vision" + Poppins Body + Red Read More) */
+.vision-serif-heading {
+  font-family: 'Merriweather', Georgia, serif !important;
+  font-weight: 700;
+  color: #0c4a8a;
+  line-height: 1.25;
+}
+
+.vision-double-angle {
+  color: #0c4a8a;
+  font-weight: 900;
+  margin-right: 4px;
+}
+
+.vision-body-copy {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 500;
+  font-size: clamp(0.98rem, 1.25vw, 1.14rem);
+  line-height: 1.65;
+  color: #0c4a8a;
+}
+
+.vision-read-more {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #d90429;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.vision-read-more:hover {
+  color: #9b021d;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   All-Screen Responsive Navbar (Desktop >= 992px, Mobile/Tablet <= 991px)
+   ========================================================================== */
+
+.main-header .container {
+  max-width: 1400px;
+  padding-inline: clamp(14px, 2vw, 28px);
+}
+
+.logo-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(10px, 1.4vw, 22px);
+  width: 100%;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1vw, 14px);
+  padding: 10px 0;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.logo-placeholder {
+  width: clamp(44px, 3.8vw, 58px);
+  height: clamp(44px, 3.8vw, 58px);
+  flex-shrink: 0;
+}
+
+.university-name h1 {
+  font-family: 'Merriweather', Georgia, serif !important;
+  font-size: clamp(0.92rem, 1.25vw, 1.25rem);
+  font-weight: 900;
+  color: #142842;
+  line-height: 1.18;
+  margin-bottom: 2px;
+  white-space: nowrap;
+}
+
+.university-name p {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: clamp(0.62rem, 0.78vw, 0.72rem);
+  color: #5b6876;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Desktop & Laptop Screens (992px and above): Always show full desktop nav, fluidly scaled */
+@media (min-width: 992px) {
+  .desktop-only {
+    display: flex !important;
+  }
+
+  .mobile-header-actions {
+    display: none !important;
+  }
+
+  .mobile-menu-drawer {
+    display: none !important;
+  }
+
+  .primary-secondery-nav {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    border-left: 1px solid #e5e7eb;
+  }
+
+  .secondary-nav {
+    padding: 6px 0 6px clamp(10px, 1.2vw, 20px);
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .secondary-nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: clamp(2px, 0.35vw, 6px);
+  }
+
+  .sec-nav-link {
+    font-size: clamp(0.64rem, 0.72vw, 0.75rem);
+    font-weight: 600;
+    padding: 4px clamp(5px, 0.65vw, 10px);
+    white-space: nowrap;
+  }
+
+  .umoid-box {
+    font-size: clamp(0.64rem, 0.72vw, 0.75rem);
+    padding: 3px clamp(7px, 0.8vw, 12px);
+    margin-left: clamp(4px, 0.6vw, 8px);
+    white-space: nowrap;
+  }
+
+  .primary-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: clamp(8px, 1.15vw, 20px);
+    padding-left: clamp(10px, 1.2vw, 20px);
+  }
+
+  .primary-nav-link {
+    font-size: clamp(0.72rem, 0.82vw, 0.85rem);
+    font-weight: 600;
+    padding: 13px 2px;
+    white-space: nowrap;
+  }
+
+  .search-btn {
+    padding: 6px clamp(8px, 1vw, 14px);
+    font-size: clamp(0.66rem, 0.75vw, 0.75rem);
+  }
+
+  .apply-now-btn {
+    padding: clamp(8px, 0.8vw, 11px) clamp(12px, 1.3vw, 22px);
+    font-size: clamp(0.72rem, 0.82vw, 0.84rem);
+  }
+}
+
+/* Tablet & Mobile Screens (991px and below): Keep mobile navbar & drawer */
+@media (max-width: 991px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-header-actions {
+    display: flex !important;
+  }
+
+  .university-name h1 {
+    white-space: normal;
+    font-size: clamp(0.84rem, 3.4vw, 1.12rem);
+  }
+
+  .university-name p {
+    white-space: normal;
+    font-size: clamp(0.6rem, 2.3vw, 0.72rem);
+  }
+}

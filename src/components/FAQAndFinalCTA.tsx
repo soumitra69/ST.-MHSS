@@ -47,11 +47,11 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <div className="mb-10 text-center">
-            <span className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-700">
               Information for Students &amp; Families
             </span>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#1B365D] sm:text-4xl">
-              Frequently Asked Questions
+            <h2 className="vision-serif-heading mt-3 text-3xl text-[#0c4a8a] sm:text-4xl">
+              <span className="vision-double-angle" aria-hidden="true">&raquo;</span> Frequently Asked Questions
             </h2>
           </div>
 

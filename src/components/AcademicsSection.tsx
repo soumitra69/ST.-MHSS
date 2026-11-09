@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ArrowRight, BookOpen, CheckCircle2, GraduationCap, Sparkles } from 'lucide-react';
 import { SCHOOL_IMAGES } from '../data/schoolAssets';
 import { STREAMS } from '../data/schoolData';
 
@@ -50,12 +49,11 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <header className="mb-10 flex flex-col justify-between gap-5 border-b border-[#d9d6cd] pb-7 sm:flex-row sm:items-end md:mb-12">
           <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.18em] text-amber-800">
-              <BookOpen className="h-3.5 w-3.5" aria-hidden="true" />
+            <span className="inline-block text-xs font-semibold uppercase tracking-[0.18em] text-amber-800">
               MBOSE Curriculum • Nursery to Class XII
             </span>
-            <h2 className="mt-2.5 text-3xl font-extrabold leading-tight tracking-tight text-[#142842] sm:text-4xl md:text-5xl">
-              Academic progression &amp; senior secondary pathways
+            <h2 className="vision-serif-heading mt-2.5 text-3xl leading-tight text-[#0c4a8a] sm:text-4xl">
+              <span className="vision-double-angle" aria-hidden="true">&raquo;</span> Academic Progression &amp; Pathways
             </h2>
           </div>
           <p className="max-w-md text-sm leading-6 text-slate-600 sm:text-base">
@@ -79,16 +77,16 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
                   decoding="async"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 motion-reduce:transition-none"
                 />
-                <span className="absolute top-3 left-3 rounded-md bg-[#142842]/90 px-2.5 py-1 font-mono text-xs font-bold text-amber-300 backdrop-blur-xs">
+                <span className="absolute top-3 left-3 rounded-md bg-[#142842]/90 px-2.5 py-1 text-xs font-semibold text-amber-300 backdrop-blur-xs">
                   STAGE {number}
                 </span>
               </div>
               <div className="flex flex-1 flex-col justify-between p-5">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-amber-800">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-amber-800">
                     {classes}
                   </p>
-                  <h3 className="mt-1 text-lg font-bold leading-snug text-[#142842]">{name}</h3>
+                  <h3 className="mt-1 text-lg font-bold leading-snug text-[#0c4a8a]">{name}</h3>
                   <p className="mt-2 text-xs leading-relaxed text-slate-600">{detail}</p>
                 </div>
               </div>
@@ -103,12 +101,11 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
         >
           <div className="flex flex-col justify-between gap-4 border-b border-slate-200 pb-6 lg:flex-row lg:items-center">
             <div>
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.16em] text-amber-800">
-                <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
+              <span className="inline-block text-xs font-semibold uppercase tracking-[0.16em] text-amber-800">
                 Higher Secondary Section (MBOSE HSSLC)
               </span>
-              <h3 className="mt-1 text-2xl font-extrabold text-[#142842] sm:text-3xl">
-                Class XI &amp; XII Streams Offered
+              <h3 className="vision-serif-heading mt-1 text-2xl text-[#0c4a8a] sm:text-3xl">
+                <span className="vision-double-angle" aria-hidden="true">&raquo;</span> Class XI &amp; XII Streams Offered
               </h3>
             </div>
 
@@ -123,7 +120,7 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
                     role="tab"
                     aria-selected={isSelected}
                     onClick={() => setSelectedStream(index)}
-                    className={`rounded-lg px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition-all ${
+                    className={`rounded-lg px-4 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all ${
                       isSelected
                         ? 'bg-[#142842] text-amber-300 shadow-sm'
                         : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
@@ -139,18 +136,18 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
           {/* Active Stream Details */}
           <div className="mt-6 grid gap-8 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-5">
-              <h4 className="text-xl font-bold text-[#142842]">{STREAMS[selectedStream].name}</h4>
+              <h4 className="text-xl font-bold text-[#0c4a8a]">{STREAMS[selectedStream].name}</h4>
               <p className="mt-2 text-sm leading-7 text-slate-600">
                 {STREAMS[selectedStream].tagline}
               </p>
 
               <div className="mt-5 space-y-2.5">
-                <p className="text-xs font-bold uppercase tracking-wider text-amber-800">
+                <p className="text-xs font-semibold uppercase tracking-wider text-amber-800">
                   Department Highlights
                 </p>
                 {STREAMS[selectedStream].features.map((feat) => (
                   <div key={feat} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-amber-700" aria-hidden="true" />
+                    <span className="font-bold text-[#c61c49]" aria-hidden="true">&raquo;</span>
                     <span>{feat}</span>
                   </div>
                 ))}
@@ -159,14 +156,14 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
 
             <div className="grid gap-6 sm:grid-cols-2 lg:col-span-7">
               <div className="rounded-xl border border-slate-200 bg-slate-50/80 p-5">
-                <p className="text-xs font-bold uppercase tracking-wider text-[#142842]">
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#0c4a8a]">
                   Core &amp; Elective Subjects (MBOSE)
                 </p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {STREAMS[selectedStream].subjects.map((subject) => (
                     <span
                       key={subject}
-                      className="rounded-md border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-[#1B365D] shadow-2xs"
+                      className="rounded-md border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-[#1B365D] shadow-2xs"
                     >
                       {subject}
                     </span>
@@ -175,16 +172,16 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
               </div>
 
               <div className="rounded-xl border border-slate-200 bg-slate-50/80 p-5">
-                <p className="text-xs font-bold uppercase tracking-wider text-[#142842]">
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#0c4a8a]">
                   University &amp; Career Pathways
                 </p>
                 <ul className="mt-3 space-y-2">
                   {STREAMS[selectedStream].careerPaths.map((career) => (
                     <li
                       key={career}
-                      className="flex items-center gap-2 text-xs font-semibold text-slate-700"
+                      className="flex items-center gap-2 text-xs font-medium text-slate-700"
                     >
-                      <GraduationCap className="h-4 w-4 shrink-0 text-amber-700" aria-hidden="true" />
+                      <span className="font-bold text-[#c61c49]" aria-hidden="true">&raquo;</span>
                       <span>{career}</span>
                     </li>
                   ))}
@@ -201,10 +198,10 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
             <button
               type="button"
               onClick={onOpenAdmission}
-              className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-lg bg-[#142842] px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-[#1B365D] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#142842]"
+              className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-lg bg-[#142842] px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-[#1B365D]"
             >
-              Apply for Admission
-              <ArrowRight className="h-4 w-4 text-amber-300" aria-hidden="true" />
+              <span>Apply for Admission</span>
+              <span aria-hidden="true">→</span>
             </button>
           </div>
         </div>
