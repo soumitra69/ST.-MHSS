@@ -9552,3 +9552,236 @@ html {
     align-items: flex-start;
   }
 }
+
+
+/* ==========================================================================
+   22. Creative Colour-Changing Hover for All Website Buttons &
+       Crisp White Banner Text Across Hero & Dark/Photo Banners
+   ========================================================================== */
+
+/* 1. Hero Banner & All Photo/Dark Banners — Pure Crisp White Text */
+.hero-section .content-wrapper,
+.hero-section .content-wrapper .subtitle,
+.hero-section .slide-headings h3,
+.hero-section .hero-slide-desc,
+.hero-section .hero-pill-badge,
+.hero-section .hero-stat-val,
+.hero-section .hero-stat-lbl {
+  color: #ffffff !important;
+  text-shadow: 0 3px 16px rgba(0, 0, 0, 0.55);
+}
+
+.hero-section .hero-pill-badge {
+  background: linear-gradient(90deg, rgba(29, 78, 216, 0.88) 0%, rgba(234, 88, 12, 0.88) 100%) !important;
+  border: 1.5px solid #fde047 !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.hero-section .slide-headings h3 {
+  font-family: 'Merriweather', Georgia, serif !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
+  letter-spacing: 0.02em;
+  text-shadow: 0 6px 24px rgba(4, 16, 36, 0.78) !important;
+}
+
+.hero-section .content-wrapper .subtitle {
+  color: #ffffff !important;
+  background: rgba(12, 45, 87, 0.58);
+  border-left: 4px solid #fde047;
+  padding: 6px 12px;
+  border-radius: 0 8px 8px 0;
+  display: inline-block;
+}
+
+.hero-section .hero-slide-desc {
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+.hero-section .slide-accent {
+  background: linear-gradient(90deg, #fde047 0%, #ea580c 50%, #38bdf8 100%) !important;
+  height: 5px;
+  width: 72px;
+}
+
+.hero-section .hero-stat-pill {
+  background: linear-gradient(135deg, rgba(12, 45, 87, 0.86) 0%, rgba(29, 78, 216, 0.78) 100%) !important;
+  border: 1.5px solid rgba(253, 224, 71, 0.55) !important;
+  transition: all 0.3s ease;
+}
+
+.hero-section .hero-stat-pill:hover {
+  background: linear-gradient(135deg, #ea580c 0%, #d90429 100%) !important;
+  border-color: #ffffff !important;
+  transform: translateY(-4px);
+}
+
+/* Ensure All Dark / Photo Section Banners Render Crisp White Text */
+.alert-bar .alert-text,
+.alert-bar .utility-link,
+.why-us-section .left-content h3,
+.why-us-section .left-content p,
+.why-us-section .rank-big-number,
+.why-us-section .rank-text strong,
+.why-us-section .rank-text span,
+.why-us-section .stat-box .number,
+.why-us-section .stat-box .label,
+.why-us-section .cert-title,
+.why-us-section .cert-subtitle,
+.achievedment .achievement-card p,
+.life-vibrant-section .student-heading,
+.life-vibrant-section .life-header-desc,
+.life-vibrant-section .life-kpi-chip strong,
+.life-vibrant-section .life-kpi-chip span,
+#media h2,
+#media h3,
+#media p,
+#media span,
+.family-media-bottom-overlay h4,
+.family-media-bottom-overlay p {
+  color: #ffffff !important;
+}
+
+/* 2. Creative Colour-Changing Hover Effects for ALL Buttons Across the Website */
+button,
+.register-btn,
+.apply-now-btn,
+.submit-btn,
+.read-button,
+.footer-cta-btn,
+.footer-map-btn,
+.ask-chat-trigger,
+.ask-topic-btn,
+.ask-footer-btn,
+.family-filter-btn,
+.family-arrow-btn,
+.family-explore-btn,
+.family-merit-btn,
+.family-card-read-btn,
+.work-filter-pill,
+.hub-tab-btn,
+.hub-filter-pill,
+.hub-gold-cta-btn,
+.hub-outline-light-btn,
+.hub-call-coord-btn,
+.hub-staff-action-btn,
+.hub-result-link-btn,
+.hub-result-secondary-btn,
+.quote-arrow-btn,
+.nav-btn,
+.menu-option,
+.umoid-box,
+.vision-read-more {
+  transition:
+    background 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.32s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+/* Orange / Crimson / Gold Primary Buttons -> Shift to Electric Royal Blue & Emerald on Hover */
+.register-btn:hover,
+.apply-now-btn:hover,
+.footer-cta-apply:hover,
+.family-merit-btn:hover,
+.hub-gold-cta-btn:hover,
+.ask-chat-trigger:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #0d9488 55%, #7c3aed 100%) !important;
+  color: #ffffff !important;
+  border-color: #fde047 !important;
+  transform: translateY(-3px) scale(1.03) !important;
+  box-shadow: 0 14px 30px rgba(29, 78, 216, 0.42) !important;
+}
+
+/* Blue / Dark Primary Buttons -> Shift to Vibrant Sunset Orange, Crimson & Gold on Hover */
+.submit-btn:hover,
+.read-button:hover,
+.footer-cta-call:hover,
+.footer-cta-whatsapp:hover,
+.family-explore-btn:hover,
+.hub-result-link-btn:hover,
+.hub-result-secondary-btn:hover,
+.hub-staff-action-btn:hover,
+.hub-call-coord-btn:hover,
+.hub-outline-light-btn:hover,
+.ask-footer-btn:hover,
+.back-to-top-btn:hover {
+  background: linear-gradient(135deg, #ea580c 0%, #d90429 55%, #f59e0b 100%) !important;
+  color: #ffffff !important;
+  border-color: #fde047 !important;
+  transform: translateY(-3px) scale(1.03) !important;
+  box-shadow: 0 14px 30px rgba(234, 88, 12, 0.4) !important;
+}
+
+/* Filter Pills, Tab Buttons, Arrow Buttons & Secondary Buttons -> Shift to Multi-Colour Gradient on Hover */
+.work-filter-pill:hover,
+.family-filter-btn:hover,
+.hub-tab-btn:hover,
+.hub-filter-pill:hover,
+.quote-arrow-btn:hover,
+.family-arrow-btn:hover,
+.nav-btn:hover,
+.ask-topic-btn:hover,
+.umoid-box:hover,
+.search-btn:hover,
+.footer-map-btn:hover {
+  background: linear-gradient(135deg, #ea580c 0%, #1d4ed8 100%) !important;
+  color: #ffffff !important;
+  border-color: #fde047 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 24px rgba(234, 88, 12, 0.32) !important;
+}
+
+.work-filter-pill:hover i,
+.family-filter-btn:hover i,
+.hub-tab-btn:hover i,
+.ask-topic-btn:hover i,
+.search-btn:hover i,
+.footer-map-btn:hover i {
+  color: #fde047 !important;
+}
+
+/* Read More Links & Inline Action Buttons -> Creative Pill Transformation on Hover */
+.vision-read-more,
+.family-card-read-btn {
+  padding: 5px 12px !important;
+  border-radius: 999px !important;
+  background: rgba(217, 4, 41, 0.08);
+  border: 1px solid rgba(217, 4, 41, 0.22);
+}
+
+.vision-read-more:hover,
+.family-card-read-btn:hover {
+  background: linear-gradient(135deg, #d90429 0%, #ea580c 100%) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+  text-decoration: none !important;
+  transform: translateX(4px) !important;
+  box-shadow: 0 8px 18px rgba(217, 4, 41, 0.28) !important;
+}
+
+/* Tailwind Section Buttons (Academics, Faculty, VideoDrill, FAQAndFinalCTA) Hover Colour Shift */
+#academics button:hover,
+#faculty button:hover,
+#media button:hover,
+#faq .mt-12 button:hover {
+  background: linear-gradient(135deg, #ea580c 0%, #d90429 52%, #1d4ed8 100%) !important;
+  color: #ffffff !important;
+  border-color: #fde047 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 26px rgba(234, 88, 12, 0.35) !important;
+}
+
+/* Keep FAQ Accordion Question Row Hover Clean & Crisp */
+#faq article h3 button:hover {
+  background: linear-gradient(90deg, #1d4ed8 0%, #ea580c 100%) !important;
+  color: #ffffff !important;
+  transform: none !important;
+}
+
+#faq article h3 button:hover i {
+  color: #fde047 !important;
+}
