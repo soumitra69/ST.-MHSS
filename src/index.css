@@ -10697,3 +10697,306 @@ button,
     padding: 22px 16px;
   }
 }
+
+/* ==========================================================================
+   24. CLEAN SOLID INSTITUTIONAL COLOUR PALETTE OVERRIDES
+       (Removes All Mixed/Rainbow Gradients Across Sections, Cards & Buttons)
+   ========================================================================== */
+
+/* 1. Top Scroll Progress Bar & Alert Bar — Clean Solid Institutional Colours */
+.scroll-progress-bar {
+  background: #d97706 !important;
+  box-shadow: 0 0 8px rgba(217, 119, 6, 0.45) !important;
+}
+
+.alert-bar {
+  background: #0c2d57 !important;
+  border-bottom: 2px solid #d97706 !important;
+}
+
+.main-header {
+  background: #ffffff !important;
+  border-bottom: 2px solid #0c4a8a !important;
+  box-shadow: 0 6px 22px rgba(12, 45, 87, 0.08) !important;
+}
+
+.umoid-box {
+  background: #fef3c7 !important;
+  color: #92400e !important;
+  border: 1px solid #f59e0b !important;
+}
+
+/* 2. Clean Solid Section Backgrounds (No Mixed Multi-Colour Gradients) */
+.toghether,
+.learning-spaces-section,
+.student-work-gallery-section,
+.family-speaks-section {
+  background: #ffffff !important;
+  border-top: 1px solid #e2e8f0 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.resherch,
+.latest-events-section,
+.hub-section,
+.alumini {
+  background: #f4f7fb !important;
+  border-top: 1px solid #dde5ef !important;
+  border-bottom: 1px solid #dde5ef !important;
+}
+
+.life-vibrant-section {
+  background: #0c2d57 !important;
+  border-top: 3px solid #d97706 !important;
+  border-bottom: 3px solid #0c4a8a !important;
+}
+
+.prospectus-callback-banner {
+  background: #0c2d57 !important;
+  border: 2px solid #d97706 !important;
+}
+
+/* 3. Clean Solid Cards, Quote Boxes, Badges & Pills (No Mixed Gradients) */
+.registration-form {
+  background: #ffffff !important;
+  border: 2px solid #0c4a8a !important;
+}
+
+.registration-date {
+  background: #0c4a8a !important;
+  color: #ffffff !important;
+}
+
+.quote-box,
+.life-featured-banner,
+.family-spotlight-body,
+.family-highlights-box,
+.featured-section {
+  background: #ffffff !important;
+  border-color: #dbe3ee !important;
+}
+
+.quote-box {
+  border-left: 5px solid #0c4a8a !important;
+}
+
+.hero-section .hero-pill-badge {
+  background: rgba(12, 45, 87, 0.9) !important;
+  border: 1.5px solid #f59e0b !important;
+  color: #ffffff !important;
+}
+
+.hero-section .slide-accent {
+  background: #f59e0b !important;
+}
+
+.hero-section .hero-stat-pill {
+  background: rgba(12, 45, 87, 0.88) !important;
+  border: 1px solid rgba(245, 158, 11, 0.5) !important;
+}
+
+.hero-section .hero-stat-pill:hover {
+  background: #0c4a8a !important;
+  border-color: #f59e0b !important;
+}
+
+.excellence-banner-pill,
+.spaces-eyebrow-pill,
+.events-eyebrow-pill,
+.work-eyebrow-pill,
+.family-eyebrow-pill,
+.family-media-cat-pill,
+.event-date-badge,
+.life-card-category-pill {
+  background: #0c4a8a !important;
+  color: #ffffff !important;
+}
+
+.life-eyebrow-pill,
+.life-featured-ribbon,
+.event-cat-ribbon,
+.prospectus-kicker,
+.prospectus-card-icon,
+.space-num-chip {
+  background: #d97706 !important;
+  color: #ffffff !important;
+}
+
+/* 4. Uniform Institutional Card Borders & Metric Blocks */
+.life-photo-card,
+.work-gallery-card,
+.space-facility-card,
+.campus-event-card,
+.family-voice-card,
+.family-spotlight-card,
+.alumni-card {
+  background: #ffffff !important;
+  border: 1.5px solid #dbe3ee !important;
+  border-top: 4px solid #0c4a8a !important;
+}
+
+.life-photo-card:nth-child(even),
+.work-gallery-card:nth-child(even),
+.space-facility-card:nth-child(even),
+.campus-event-card:nth-child(even),
+.family-voice-card:nth-child(even) {
+  border-top: 4px solid #d97706 !important;
+}
+
+.metric-block:nth-child(1),
+.metric-block:nth-child(2),
+.metric-block:nth-child(3),
+.metric-block:nth-child(4) {
+  background: #ffffff !important;
+  border: 1.5px solid #dbe3ee !important;
+  border-top: 4px solid #0c4a8a !important;
+}
+
+.metric-block:nth-child(1) .metric-value,
+.metric-block:nth-child(2) .metric-value,
+.metric-block:nth-child(3) .metric-value,
+.metric-block:nth-child(4) .metric-value {
+  color: #0c4a8a !important;
+}
+
+.family-kpi-card {
+  background: #ffffff !important;
+  border: 1.5px solid #dbe3ee !important;
+  border-top: 4px solid #0c4a8a !important;
+}
+
+.family-kpi-card .family-kpi-icon {
+  background: #0c4a8a !important;
+  color: #ffffff !important;
+}
+
+.life-kpi-blue,
+.life-kpi-orange,
+.life-kpi-emerald {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+/* 5. Active Filter Tabs & Buttons — Clean Solid Institutional Royal Blue */
+.work-filter-pill.active,
+.family-filter-btn.active,
+.hub-tab-btn.active,
+.spaces-filter-btn.active,
+.events-filter-btn.active,
+.menu-option.active,
+.menu-option:hover {
+  background: #0c4a8a !important;
+  color: #ffffff !important;
+  border-color: #0c4a8a !important;
+  box-shadow: 0 8px 20px rgba(12, 74, 138, 0.22) !important;
+}
+
+/* 6. Solid Institutional Primary Buttons & Solid Colour-Changing Hovers (No Mixed Gradients) */
+.register-btn,
+.apply-now-btn,
+.callback-submit-btn,
+.family-merit-btn,
+.ask-chat-trigger {
+  background: #d97706 !important;
+  color: #ffffff !important;
+  border-color: #f59e0b !important;
+}
+
+.submit-btn,
+.read-button {
+  background: #0c4a8a !important;
+  color: #ffffff !important;
+  border-color: #0c4a8a !important;
+}
+
+/* Primary Gold/Amber Buttons -> Solid Royal Blue (#0c4a8a) on Hover */
+.register-btn:hover,
+.apply-now-btn:hover,
+.footer-cta-apply:hover,
+.family-merit-btn:hover,
+.hub-gold-cta-btn:hover,
+.ask-chat-trigger:hover,
+.callback-submit-btn:hover {
+  background: #0c4a8a !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 26px rgba(12, 74, 138, 0.35) !important;
+}
+
+/* Primary Royal Blue / Navy Buttons -> Solid Institutional Gold (#d97706) on Hover */
+.submit-btn:hover,
+.read-button:hover,
+.footer-cta-call:hover,
+.footer-cta-whatsapp:hover,
+.family-explore-btn:hover,
+.hub-result-link-btn:hover,
+.hub-result-secondary-btn:hover,
+.hub-staff-action-btn:hover,
+.hub-call-coord-btn:hover,
+.hub-outline-light-btn:hover,
+.ask-footer-btn:hover,
+.back-to-top-btn:hover,
+#academics button:hover,
+#faculty button:hover,
+#media button:hover,
+#faq .mt-12 button:hover {
+  background: #d97706 !important;
+  color: #ffffff !important;
+  border-color: #fde047 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 24px rgba(217, 119, 6, 0.32) !important;
+}
+
+/* Secondary / Filter / Tab / Arrow Buttons -> Solid Royal Blue (#0c4a8a) on Hover */
+.work-filter-pill:hover,
+.family-filter-btn:hover,
+.hub-tab-btn:hover,
+.hub-filter-pill:hover,
+.quote-arrow-btn:hover,
+.family-arrow-btn:hover,
+.nav-btn:hover,
+.ask-topic-btn:hover,
+.umoid-box:hover,
+.search-btn:hover,
+.footer-map-btn:hover,
+.spaces-filter-btn:hover,
+.events-filter-btn:hover,
+.space-view-more-btn:hover,
+.event-read-btn:hover,
+.prospectus-download-btn:hover,
+.excellence-ctrl-btn:hover {
+  background: #0c4a8a !important;
+  color: #ffffff !important;
+  border-color: #0c4a8a !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(12, 74, 138, 0.25) !important;
+}
+
+/* Read More Pill Links -> Solid Institutional Royal Blue on Hover */
+.vision-read-more,
+.family-card-read-btn {
+  background: #eff6ff !important;
+  border: 1px solid #bfdbfe !important;
+  color: #0c4a8a !important;
+}
+
+.vision-read-more:hover,
+.family-card-read-btn:hover {
+  background: #0c4a8a !important;
+  color: #ffffff !important;
+  border-color: #0c4a8a !important;
+  transform: translateX(3px) !important;
+  box-shadow: 0 6px 16px rgba(12, 74, 138, 0.24) !important;
+}
+
+/* FAQ Accordion Question Row Hover -> Solid Royal Blue (#0c4a8a) */
+#faq article h3 button:hover {
+  background: #0c4a8a !important;
+  color: #ffffff !important;
+  transform: none !important;
+}
+
+#faq article h3 button:hover i {
+  color: #fde047 !important;
+}

@@ -36,12 +36,8 @@ const frequentlyAskedQuestions = [
 ];
 
 const FAQ_BORDERS = [
-  'border-l-4 border-l-[#1d4ed8] border-blue-200 bg-gradient-to-r from-blue-50/80 to-white',
-  'border-l-4 border-l-[#ea580c] border-orange-200 bg-gradient-to-r from-orange-50/80 to-white',
-  'border-l-4 border-l-[#0d9488] border-teal-200 bg-gradient-to-r from-teal-50/80 to-white',
-  'border-l-4 border-l-[#7c3aed] border-purple-200 bg-gradient-to-r from-purple-50/80 to-white',
-  'border-l-4 border-l-[#e11d48] border-rose-200 bg-gradient-to-r from-rose-50/80 to-white',
-  'border-l-4 border-l-[#d97706] border-amber-200 bg-gradient-to-r from-amber-50/80 to-white',
+  'border-l-4 border-l-[#0c4a8a] border-slate-200 bg-white',
+  'border-l-4 border-l-[#d97706] border-slate-200 bg-white',
 ];
 
 export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
@@ -53,13 +49,13 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
   return (
     <section
       id="faq"
-      className="w-full bg-gradient-to-br from-[#eff6ff] via-[#faf5ff] to-[#fff7ed] py-16 md:py-24 border-t border-blue-200"
+      className="w-full bg-[#f4f7fb] py-16 md:py-24 border-t border-slate-200"
     >
       <div className="container">
         <div className="w-full">
           <div className="mb-10 text-center" data-aos="fade-up" data-aos-duration="750">
-            <span className="inline-block rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#ea580c] px-4 py-1 text-xs font-bold uppercase tracking-[0.16em] text-white shadow-sm">
-              <i className="fas fa-question-circle mr-1.5" aria-hidden="true"></i>
+            <span className="inline-block rounded-full bg-[#0c4a8a] px-4 py-1 text-xs font-bold uppercase tracking-[0.16em] text-white shadow-sm">
+              <i className="fas fa-question-circle mr-1.5 text-amber-300" aria-hidden="true"></i>
               Information for Students &amp; Families
             </span>
             <h2 className="vision-serif-heading mt-3 text-3xl text-[#0c4a8a] sm:text-4xl">
@@ -90,11 +86,11 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
                       aria-expanded={isOpen}
                       aria-controls={answerId}
                       onClick={() => setOpenIndex(isOpen ? null : index)}
-                      className="flex w-full items-center justify-between gap-4 p-5 text-left text-sm font-bold text-[#0c4a8a] hover:bg-white/60 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-[#1B365D] sm:text-base cursor-pointer"
+                      className="flex w-full items-center justify-between gap-4 p-5 text-left text-sm font-bold text-[#0c4a8a] hover:bg-slate-50 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-[#1B365D] sm:text-base cursor-pointer"
                     >
                       <span>&raquo; {item.question}</span>
                       <i
-                        className={`fas fa-chevron-down shrink-0 text-[#ea580c] transition-transform motion-reduce:transition-none ${
+                        className={`fas fa-chevron-down shrink-0 text-[#d97706] transition-transform motion-reduce:transition-none ${
                           isOpen ? 'rotate-180' : ''
                         }`}
                         aria-hidden="true"
@@ -102,7 +98,7 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
                     </button>
                   </h3>
                   {isOpen && (
-                    <div id={answerId} className="border-t border-blue-100 px-5 py-4 bg-white">
+                    <div id={answerId} className="border-t border-slate-100 px-5 py-4 bg-white">
                       <p className="text-sm font-medium leading-7 text-slate-700">{item.answer}</p>
                     </div>
                   )}
@@ -112,19 +108,19 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
           </div>
 
           <div
-            className="mt-12 flex w-full flex-col gap-6 rounded-2xl border-2 border-amber-300 bg-gradient-to-r from-[#0c2d57] via-[#1d4ed8] to-[#0f766e] p-6 text-white lg:flex-row lg:items-center lg:justify-between sm:p-9 shadow-2xl"
+            className="mt-12 flex w-full flex-col gap-6 rounded-2xl border border-slate-700 bg-[#0c2d57] p-6 text-white lg:flex-row lg:items-center lg:justify-between sm:p-9 shadow-2xl"
             data-aos="zoom-in"
             data-aos-duration="750"
           >
             <div className="max-w-3xl">
-              <span className="inline-block rounded-md bg-amber-400 px-3 py-0.5 text-[11px] font-extrabold uppercase tracking-wider text-slate-950 mb-2">
+              <span className="inline-block rounded-md bg-[#d97706] px-3 py-0.5 text-[11px] font-extrabold uppercase tracking-wider text-white mb-2">
                 <i className="fas fa-bullhorn mr-1.5" aria-hidden="true"></i>
                 Admissions Open 2026–27
               </span>
               <h3 className="text-xl font-bold sm:text-2xl text-white">
                 &raquo; Connect with St. Michael&apos;s, Umsning
               </h3>
-              <p className="mt-2 text-sm leading-7 text-blue-100">
+              <p className="mt-2 text-sm leading-7 text-slate-200">
                 Ready to apply for Academic Session 2026–27 or have questions about streams, fees,
                 or campus facilities?
               </p>
@@ -149,7 +145,7 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
               <button
                 type="button"
                 onClick={onOpenAdmission}
-                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#f59e0b] to-[#ea580c] px-5 py-3 text-sm font-extrabold text-white shadow-lg transition-transform hover:scale-[1.02] cursor-pointer"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#d97706] px-5 py-3 text-sm font-extrabold text-white shadow-lg transition-transform hover:scale-[1.02] cursor-pointer"
               >
                 <i className="fas fa-paper-plane" aria-hidden="true"></i>
                 Online Admission Form
@@ -157,7 +153,7 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
               <button
                 type="button"
                 onClick={() => onNavigate('footer')}
-                className="inline-flex items-center gap-2 rounded-xl border-2 border-white/40 bg-white/10 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-white/20 cursor-pointer"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/40 bg-white/10 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-white/20 cursor-pointer"
               >
                 <i className="fas fa-map-marker-alt text-amber-300" aria-hidden="true"></i>
                 Location &amp; Contact

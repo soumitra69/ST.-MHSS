@@ -38,7 +38,7 @@ export const TopperFelicitation: React.FC = () => {
   return (
     <section
       id="toppers"
-      className="w-full py-16 md:py-24 bg-gradient-to-br from-[#fffbeb] via-[#eff6ff] to-[#fef2f2] border-b border-amber-200 scroll-mt-20"
+      className="w-full py-16 md:py-24 bg-white border-b border-slate-200 scroll-mt-20"
     >
       <div className="container">
         {/* Section Header */}
@@ -48,8 +48,8 @@ export const TopperFelicitation: React.FC = () => {
           data-aos-duration="750"
         >
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#ea580c] to-[#d97706] px-4 py-1 text-xs font-bold tracking-wider uppercase text-white shadow-sm mb-3">
-              <i className="fas fa-trophy" aria-hidden="true"></i>
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#0c4a8a] px-4 py-1 text-xs font-bold tracking-wider uppercase text-white shadow-sm mb-3">
+              <i className="fas fa-trophy text-amber-300" aria-hidden="true"></i>
               <span>Hall of Academic Honor</span>
               <span>•</span>
               <span>MBOSE State Board Distinction</span>
@@ -67,7 +67,7 @@ export const TopperFelicitation: React.FC = () => {
             </p>
           </div>
 
-          <div className="shrink-0 bg-gradient-to-r from-[#1d4ed8] to-[#0f766e] px-5 py-3 rounded-xl border border-blue-400 text-xs text-white font-extrabold uppercase tracking-wider shadow-lg">
+          <div className="shrink-0 bg-[#0c2d57] px-5 py-3 rounded-xl border border-slate-700 text-xs text-white font-extrabold uppercase tracking-wider shadow-md">
             <i className="fas fa-medal mr-1.5 text-amber-300" aria-hidden="true"></i>
             MBOSE SSLC State Top 20 Honoree
           </div>
@@ -77,7 +77,7 @@ export const TopperFelicitation: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Main Photo Feature */}
           <div className="lg:col-span-8" data-aos="fade-right" data-aos-duration="800">
-            <div className="rounded-2xl overflow-hidden border-2 border-amber-400 bg-gradient-to-b from-[#0c2d57] to-[#0f172a] p-3 shadow-2xl">
+            <div className="rounded-2xl overflow-hidden border border-slate-200 bg-[#0c2d57] p-3 shadow-xl">
               <div className="relative aspect-4/3 sm:aspect-16/10 bg-black rounded-xl overflow-hidden">
                 <img
                   src={felicitationPhotos[selectedPhoto].src}
@@ -130,10 +130,10 @@ export const TopperFelicitation: React.FC = () => {
 
           {/* Right Column: Scholarship and Quotes */}
           <div className="lg:col-span-4 space-y-5" data-aos="fade-left" data-aos-delay="120">
-            <div className="relative overflow-hidden p-6 bg-gradient-to-b from-white via-amber-50/70 to-orange-50/80 rounded-2xl border-2 border-amber-300 shadow-xl">
-              <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#1d4ed8]" />
-              <span className="inline-block rounded-md bg-orange-100 border border-orange-300 px-2.5 py-0.5 text-[11px] uppercase text-orange-900 font-bold mb-2">
-                <i className="fas fa-graduation-cap mr-1" aria-hidden="true"></i>
+            <div className="relative overflow-hidden p-6 bg-[#f8fafc] rounded-2xl border border-slate-200 shadow-lg">
+              <div className="absolute inset-x-0 top-0 h-1.5 bg-[#0c4a8a]" />
+              <span className="inline-block rounded-md bg-amber-50 border border-amber-200 px-2.5 py-0.5 text-[11px] uppercase text-amber-900 font-bold mb-2">
+                <i className="fas fa-graduation-cap mr-1 text-[#d97706]" aria-hidden="true"></i>
                 Scholarship Endowment
               </span>
               <h4 className="text-lg font-bold text-[#0c4a8a] mb-2">
@@ -144,7 +144,7 @@ export const TopperFelicitation: React.FC = () => {
                 Secondary education in Ri Bhoi District.
               </p>
 
-              <div className="p-4 bg-gradient-to-r from-[#1d4ed8] to-[#1e3a8a] text-white rounded-xl border border-blue-400 mb-4 shadow-md">
+              <div className="p-4 bg-[#0c4a8a] text-white rounded-xl border border-[#0c4a8a] mb-4 shadow-md">
                 <span className="text-[11px] uppercase text-amber-300 font-bold block">
                   <i className="fas fa-coins mr-1" aria-hidden="true"></i>
                   Merit Cash Scholarship
@@ -156,22 +156,22 @@ export const TopperFelicitation: React.FC = () => {
               </div>
 
               <ul className="space-y-2.5 text-xs text-slate-800 font-semibold">
-                <li className="flex items-start gap-2 rounded-lg bg-white/90 p-2 border border-amber-200">
-                  <i className="fas fa-check-circle text-[#d90429] mt-0.5 shrink-0" aria-hidden="true"></i>
+                <li className="flex items-start gap-2 rounded-lg bg-white p-2 border border-slate-200">
+                  <i className="fas fa-check-circle text-[#0c4a8a] mt-0.5 shrink-0" aria-hidden="true"></i>
                   <span>Full tuition waiver for Higher Secondary studies</span>
                 </li>
-                <li className="flex items-start gap-2 rounded-lg bg-white/90 p-2 border border-amber-200">
-                  <i className="fas fa-check-circle text-[#d90429] mt-0.5 shrink-0" aria-hidden="true"></i>
+                <li className="flex items-start gap-2 rounded-lg bg-white p-2 border border-slate-200">
+                  <i className="fas fa-check-circle text-[#0c4a8a] mt-0.5 shrink-0" aria-hidden="true"></i>
                   <span>Priority laboratory and reference library access</span>
                 </li>
-                <li className="flex items-start gap-2 rounded-lg bg-white/90 p-2 border border-amber-200">
-                  <i className="fas fa-check-circle text-[#d90429] mt-0.5 shrink-0" aria-hidden="true"></i>
+                <li className="flex items-start gap-2 rounded-lg bg-white p-2 border border-slate-200">
+                  <i className="fas fa-check-circle text-[#0c4a8a] mt-0.5 shrink-0" aria-hidden="true"></i>
                   <span>Personal mentorship by Senior Subject Lecturers</span>
                 </li>
               </ul>
             </div>
 
-            <div className="p-6 bg-gradient-to-br from-[#0c2d57] via-[#1d4ed8] to-[#0f766e] text-white rounded-2xl border-2 border-amber-300/70 shadow-xl">
+            <div className="p-6 bg-[#0c2d57] text-white rounded-2xl border border-slate-700 shadow-lg">
               <p className="text-xs sm:text-sm text-white leading-relaxed font-medium">
                 <i className="fas fa-quote-left text-amber-300 mr-1.5" aria-hidden="true"></i>
                 Discipline, daily prayer, and the dedication of my teachers at St. Michael&apos;s

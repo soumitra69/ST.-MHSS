@@ -3,28 +3,28 @@ import { FACULTY_MEMBERS } from '../data/schoolData';
 
 const CARD_THEMES = [
   {
-    border: 'border-blue-300 bg-gradient-to-b from-white to-blue-50/70',
-    topBar: 'bg-gradient-to-r from-[#1d4ed8] to-[#3b82f6]',
-    avatar: 'bg-gradient-to-br from-[#1d4ed8] to-[#1e3a8a] text-white',
-    badge: 'bg-blue-100 text-blue-900 border-blue-200',
+    border: 'border-slate-200 bg-white',
+    topBar: 'bg-[#0c4a8a]',
+    avatar: 'bg-[#0c4a8a] text-white',
+    badge: 'bg-blue-50 text-[#0c4a8a] border-blue-200',
   },
   {
-    border: 'border-orange-300 bg-gradient-to-b from-white to-orange-50/70',
-    topBar: 'bg-gradient-to-r from-[#ea580c] to-[#f59e0b]',
-    avatar: 'bg-gradient-to-br from-[#ea580c] to-[#c2410c] text-white',
-    badge: 'bg-orange-100 text-orange-900 border-orange-200',
+    border: 'border-slate-200 bg-white',
+    topBar: 'bg-[#d97706]',
+    avatar: 'bg-[#0c2d57] text-white',
+    badge: 'bg-amber-50 text-amber-900 border-amber-200',
   },
   {
-    border: 'border-teal-300 bg-gradient-to-b from-white to-teal-50/70',
-    topBar: 'bg-gradient-to-r from-[#0d9488] to-[#10b981]',
-    avatar: 'bg-gradient-to-br from-[#0d9488] to-[#0f766e] text-white',
-    badge: 'bg-teal-100 text-teal-900 border-teal-200',
+    border: 'border-slate-200 bg-white',
+    topBar: 'bg-[#0c4a8a]',
+    avatar: 'bg-[#0c4a8a] text-white',
+    badge: 'bg-blue-50 text-[#0c4a8a] border-blue-200',
   },
   {
-    border: 'border-purple-300 bg-gradient-to-b from-white to-purple-50/70',
-    topBar: 'bg-gradient-to-r from-[#7c3aed] to-[#a855f7]',
-    avatar: 'bg-gradient-to-br from-[#7c3aed] to-[#5b21b6] text-white',
-    badge: 'bg-purple-100 text-purple-900 border-purple-200',
+    border: 'border-slate-200 bg-white',
+    topBar: 'bg-[#0c2d57]',
+    avatar: 'bg-[#0c2d57] text-white',
+    badge: 'bg-slate-100 text-[#0c2d57] border-slate-200',
   },
 ];
 
@@ -57,7 +57,7 @@ export const FacultyDirectory: React.FC = () => {
   return (
     <section
       id="faculty"
-      className="w-full py-16 md:py-24 bg-gradient-to-br from-[#eef2ff] via-[#f0fdfa] to-[#fff7ed] border-b border-blue-200 scroll-mt-20"
+      className="w-full py-16 md:py-24 bg-[#f4f7fb] border-b border-slate-200 scroll-mt-20"
     >
       <div className="container">
         {/* Section Header */}
@@ -67,8 +67,8 @@ export const FacultyDirectory: React.FC = () => {
           data-aos-duration="750"
         >
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#7c3aed] px-4 py-1 text-xs font-bold tracking-wider uppercase text-white shadow-sm mb-3">
-              <i className="fas fa-chalkboard-teacher" aria-hidden="true"></i>
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#0c4a8a] px-4 py-1 text-xs font-bold tracking-wider uppercase text-white shadow-sm mb-3">
+              <i className="fas fa-chalkboard-teacher text-amber-300" aria-hidden="true"></i>
               <span>Mentors &amp; Academic Leadership</span>
               <span>•</span>
               <span>68+ Certified Educators</span>
@@ -114,8 +114,8 @@ export const FacultyDirectory: React.FC = () => {
               onClick={() => setDepartmentFilter(dept)}
               className={`px-4 py-2 text-xs font-bold rounded-xl whitespace-nowrap transition-all cursor-pointer ${
                 departmentFilter === dept
-                  ? 'bg-gradient-to-r from-[#1d4ed8] to-[#ea580c] text-white shadow-md'
-                  : 'bg-white border border-blue-200 text-[#0c4a8a] hover:bg-blue-50'
+                  ? 'bg-[#0c4a8a] text-white shadow-md'
+                  : 'bg-white border border-slate-200 text-[#0c4a8a] hover:bg-blue-50'
               }`}
             >
               <i className="fas fa-layer-group mr-1.5 text-[10px]" aria-hidden="true"></i>

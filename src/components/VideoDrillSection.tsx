@@ -65,7 +65,7 @@ export const VideoDrillSection: React.FC = () => {
   return (
     <section
       id="media"
-      className="w-full py-16 md:py-24 bg-gradient-to-br from-[#0F1D38] via-[#1e3a8a] to-[#0f4c5c] text-white border-b border-[#1B365D]"
+      className="w-full py-16 md:py-24 bg-[#0c2d57] text-white border-b border-slate-800"
     >
       <div className="container">
         {/* Section Header */}

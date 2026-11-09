@@ -15,9 +15,8 @@ const heritagePillars = [
     icon: 'fas fa-church',
     detail:
       'Serving families across Ri Bhoi District under the Catholic Diocese of Shillong since 1961.',
-    cardStyle:
-      'border-l-4 border-l-[#1d4ed8] border-blue-200 bg-gradient-to-r from-blue-50/90 to-white',
-    badgeStyle: 'bg-blue-600 text-white',
+    cardStyle: 'border-l-4 border-l-[#0c4a8a] border-slate-200 bg-white',
+    badgeStyle: 'bg-[#0c4a8a] text-white',
   },
   {
     title: 'Holistic Formation',
@@ -25,9 +24,8 @@ const heritagePillars = [
     icon: 'fas fa-shield-alt',
     detail:
       'Integrating classroom excellence with synchronized drill, choral music, and ecological stewardship.',
-    cardStyle:
-      'border-l-4 border-l-[#ea580c] border-orange-200 bg-gradient-to-r from-orange-50/90 to-white',
-    badgeStyle: 'bg-orange-600 text-white',
+    cardStyle: 'border-l-4 border-l-[#d97706] border-slate-200 bg-white',
+    badgeStyle: 'bg-[#d97706] text-white',
   },
   {
     title: 'Inclusive Community',
@@ -35,9 +33,8 @@ const heritagePillars = [
     icon: 'fas fa-users',
     detail:
       'Welcoming over 2,000 boys and girls from Umsning and surrounding towns from Nursery to Class XII.',
-    cardStyle:
-      'border-l-4 border-l-[#0d9488] border-teal-200 bg-gradient-to-r from-teal-50/90 to-white',
-    badgeStyle: 'bg-teal-600 text-white',
+    cardStyle: 'border-l-4 border-l-[#0c2d57] border-slate-200 bg-white',
+    badgeStyle: 'bg-[#0c2d57] text-white',
   },
 ];
 
@@ -46,17 +43,17 @@ export const InstitutionalSection: React.FC = () => (
     {/* SECTION 1: Who We Are, Our Mission & Our Vision */}
     <section
       id="about"
-      className="w-full bg-gradient-to-br from-[#eff6ff] via-[#fff7ed] to-[#f0fdf4] py-12 md:py-16 border-t border-blue-200/70"
+      className="w-full bg-[#f4f7fb] py-12 md:py-16 border-t border-slate-200"
     >
       <div className="container">
         <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
           <div
-            className="rounded-2xl border border-blue-200/80 bg-white/95 p-6 shadow-lg shadow-blue-950/5 backdrop-blur-xs sm:p-7"
+            className="rounded-2xl border border-slate-200 bg-white p-6 shadow-md sm:p-7"
             data-aos="fade-right"
             data-aos-duration="750"
           >
-            <span className="inline-block rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#ea580c] px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-white shadow-xs">
-              <i className="fas fa-landmark mr-1.5" aria-hidden="true"></i>
+            <span className="inline-block rounded-full bg-[#0c4a8a] px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-white shadow-xs">
+              <i className="fas fa-landmark mr-1.5 text-amber-300" aria-hidden="true"></i>
               St. Michael&apos;s Higher Secondary School • Umsning
             </span>
             <h2 className="vision-serif-heading mt-3.5 text-2xl sm:text-3xl text-[#0c4a8a]">
@@ -83,13 +80,13 @@ export const InstitutionalSection: React.FC = () => (
             {heritagePillars.map((pillar, idx) => (
               <div
                 key={pillar.title}
-                className={`rounded-xl border p-4 shadow-md transition-transform duration-200 hover:-translate-y-0.5 ${pillar.cardStyle}`}
+                className={`rounded-xl border p-4 shadow-sm transition-transform duration-200 hover:-translate-y-0.5 ${pillar.cardStyle}`}
                 data-aos="fade-left"
                 data-aos-delay={80 * (idx + 1)}
               >
                 <div className="flex items-center justify-between gap-2">
                   <div className="text-sm font-bold text-[#0c4a8a]">
-                    <i className={`${pillar.icon} mr-1.5 text-[#ea580c]`} aria-hidden="true"></i>
+                    <i className={`${pillar.icon} mr-1.5 text-[#d97706]`} aria-hidden="true"></i>
                     &raquo; {pillar.title}
                   </div>
                   <span
@@ -110,11 +107,11 @@ export const InstitutionalSection: React.FC = () => (
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           <article
             id="mission"
-            className="scroll-mt-28 relative overflow-hidden rounded-2xl border-2 border-blue-200 bg-gradient-to-b from-white via-white to-blue-50/70 p-6 shadow-lg shadow-blue-900/5 sm:p-7"
+            className="scroll-mt-28 relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-md sm:p-7"
             data-aos="fade-up"
             data-aos-duration="700"
           >
-            <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#1d4ed8] via-[#0284c7] to-[#0d9488]" />
+            <div className="absolute inset-x-0 top-0 h-1.5 bg-[#0c4a8a]" />
             <h3 className="vision-serif-heading text-xl sm:text-2xl text-[#0c4a8a]">
               <span className="vision-double-angle" aria-hidden="true">
                 &raquo;
@@ -135,12 +132,12 @@ export const InstitutionalSection: React.FC = () => (
 
           <article
             id="vision"
-            className="scroll-mt-28 relative overflow-hidden rounded-2xl border-2 border-orange-200 bg-gradient-to-b from-white via-white to-amber-50/70 p-6 shadow-lg shadow-orange-900/5 sm:p-7"
+            className="scroll-mt-28 relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-md sm:p-7"
             data-aos="fade-up"
             data-aos-delay="120"
             data-aos-duration="700"
           >
-            <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#d90429]" />
+            <div className="absolute inset-x-0 top-0 h-1.5 bg-[#d97706]" />
             <h3 className="vision-serif-heading text-xl sm:text-2xl text-[#0c4a8a]">
               <span className="vision-double-angle" aria-hidden="true">
                 &raquo;
@@ -165,15 +162,15 @@ export const InstitutionalSection: React.FC = () => (
     {/* SECTION 2 (SEPARATE COMPACT SECTION): Founder's Heritage (#founder-message) */}
     <section
       id="founder-message"
-      className="w-full bg-gradient-to-r from-[#dbeafe] via-[#fef3c7] to-[#e0f2fe] py-9 md:py-12 scroll-mt-24 border-t border-amber-300/70"
+      className="w-full bg-white py-9 md:py-12 scroll-mt-24 border-t border-slate-200"
     >
       <div className="container">
         <article
-          className="group relative grid w-full overflow-hidden rounded-2xl border-2 border-blue-300/90 bg-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl md:grid-cols-[310px_1fr]"
+          className="group relative grid w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:grid-cols-[310px_1fr]"
           data-aos="fade-up"
           data-aos-duration="750"
         >
-          <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#1d4ed8] via-[#f59e0b] to-[#ea580c] z-10" />
+          <div className="absolute inset-x-0 top-0 h-1.5 bg-[#0c4a8a] z-10" />
 
           {/* Left Compact Image Column */}
           <div
@@ -189,7 +186,7 @@ export const InstitutionalSection: React.FC = () => (
               decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent" />
-            <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-gradient-to-r from-[#1d4ed8]/95 to-[#ea580c]/95 px-3 py-1.5 text-[11px] font-bold text-white shadow-md backdrop-blur-xs">
+            <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-[#0c2d57]/95 px-3 py-1.5 text-[11px] font-bold text-white shadow-md backdrop-blur-xs">
               <i className="fas fa-monument mr-1.5 text-amber-300" aria-hidden="true"></i>
               S.M.H.S.S. Archangel Tower • Estd. 1961
             </div>
@@ -197,17 +194,17 @@ export const InstitutionalSection: React.FC = () => (
 
           {/* Right Compact Text Column */}
           <div
-            className="flex flex-col justify-center bg-gradient-to-br from-white via-blue-50/40 to-amber-50/45 p-5 sm:p-6 md:px-8 md:py-6"
+            className="flex flex-col justify-center bg-white p-5 sm:p-6 md:px-8 md:py-6"
             data-aos="fade-left"
             data-aos-delay="140"
           >
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="inline-flex items-center rounded-full bg-amber-100 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-amber-900 border border-amber-300">
-                <i className="fas fa-history mr-1.5 text-[#ea580c]" aria-hidden="true"></i>
+              <span className="inline-flex items-center rounded-full bg-amber-50 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-amber-900 border border-amber-200">
+                <i className="fas fa-history mr-1.5 text-[#d97706]" aria-hidden="true"></i>
                 Founded in 1961 • 65 Years of Service
               </span>
-              <span className="rounded-full bg-blue-100 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#0c4a8a]">
-                <i className="fas fa-cross mr-1 text-[#1d4ed8]" aria-hidden="true"></i>
+              <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#0c4a8a] border border-blue-200">
+                <i className="fas fa-cross mr-1 text-[#0c4a8a]" aria-hidden="true"></i>
                 Catholic Diocese of Shillong
               </span>
             </div>
@@ -226,14 +223,14 @@ export const InstitutionalSection: React.FC = () => (
               young people step forward with courage (<em>{SCHOOL_INFO.mottoKhasi}</em>).
             </p>
 
-            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-blue-200/80 pt-3 text-xs font-bold">
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 pt-3 text-xs font-bold">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-md bg-rose-100 px-2.5 py-1 text-[11px] text-[#c61c49]">
-                  <i className="fas fa-map-marker-alt mr-1" aria-hidden="true"></i>
+                <span className="rounded-md bg-slate-100 px-2.5 py-1 text-[11px] text-[#0c4a8a]">
+                  <i className="fas fa-map-marker-alt mr-1 text-[#d97706]" aria-hidden="true"></i>
                   NH-6, Umsning, Meghalaya
                 </span>
-                <span className="rounded-md bg-emerald-100 px-2.5 py-1 text-[11px] text-emerald-900">
-                  <i className="fas fa-award mr-1 text-emerald-700" aria-hidden="true"></i>
+                <span className="rounded-md bg-slate-100 px-2.5 py-1 text-[11px] text-[#0c4a8a]">
+                  <i className="fas fa-award mr-1 text-[#d97706]" aria-hidden="true"></i>
                   1961 – 2026 Legacy
                 </span>
               </div>
@@ -250,28 +247,28 @@ export const InstitutionalSection: React.FC = () => (
     {/* SECTION 3 (SEPARATE COMPACT SECTION): Principal's Desk (#principal-message) */}
     <section
       id="principal-message"
-      className="w-full bg-gradient-to-br from-[#0c2d57] via-[#1d4ed8] to-[#0f172a] py-9 md:py-12 scroll-mt-24 border-t-2 border-amber-400/70"
+      className="w-full bg-[#0c2d57] py-9 md:py-12 scroll-mt-24 border-t border-slate-800"
     >
       <div className="container">
         <article
-          className="group relative grid w-full overflow-hidden rounded-2xl border-2 border-amber-400/80 bg-white shadow-2xl transition-all duration-300 hover:-translate-y-1 md:grid-cols-[1fr_310px]"
+          className="group relative grid w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl transition-all duration-300 hover:-translate-y-1 md:grid-cols-[1fr_310px]"
           data-aos="fade-up"
           data-aos-duration="750"
         >
-          <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#0d9488] z-10" />
+          <div className="absolute inset-x-0 top-0 h-1.5 bg-[#d97706] z-10" />
 
           {/* Left Compact Text Column */}
           <div
-            className="order-2 md:order-1 flex flex-col justify-center bg-gradient-to-br from-white via-sky-50/45 to-orange-50/40 p-5 sm:p-6 md:px-8 md:py-6"
+            className="order-2 md:order-1 flex flex-col justify-center bg-white p-5 sm:p-6 md:px-8 md:py-6"
             data-aos="fade-right"
             data-aos-delay="100"
           >
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="inline-flex items-center rounded-full bg-orange-100 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-orange-900 border border-orange-300">
-                <i className="fas fa-user-tie mr-1.5 text-[#ea580c]" aria-hidden="true"></i>
+              <span className="inline-flex items-center rounded-full bg-amber-50 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-amber-900 border border-amber-200">
+                <i className="fas fa-user-tie mr-1.5 text-[#d97706]" aria-hidden="true"></i>
                 From The Principal&apos;s Desk
               </span>
-              <span className="rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#ea580c] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-xs">
+              <span className="rounded-full bg-[#0c4a8a] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-xs">
                 <i className="fas fa-certificate mr-1 text-amber-300" aria-hidden="true"></i>
                 MBOSE-01961
               </span>
