@@ -11000,3 +11000,168 @@ button,
 #faq article h3 button:hover i {
   color: #fde047 !important;
 }
+
+/* 7. Top Alert Bar Layout & Utility Link Colour-Changing Hover Fix
+      (WhatsApp Desk | +91 94361 02845 | Campus Video) */
+.alert-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: nowrap !important;
+  gap: 10px !important;
+  width: 100% !important;
+  overflow: hidden !important;
+}
+
+.alert-content {
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+.alert-carousel {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+.alert-message {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+.alert-text {
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  font-size: clamp(0.7rem, 0.76vw, 0.78rem) !important;
+}
+
+.utility-section {
+  flex: 0 0 auto !important;
+  padding-left: 10px !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+.utility-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  flex-wrap: nowrap !important;
+}
+
+.utility-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  padding: 4px 10px !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.22s ease !important;
+}
+
+.utility-link:hover {
+  background: #d97706 !important;
+  border-color: #fde047 !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.38) !important;
+}
+
+.utility-link:hover i,
+.utility-link:hover span {
+  color: #ffffff !important;
+}
+
+/* 8. Secondary Nav Bar Options (NOTICES, STATE HONORS, HR. SEC STREAMS, STUDENT HUB,
+      HOUSES, DRILL & CHOIR, FACULTY, CONTACT) & Primary Nav Hover Colour Change */
+.sec-nav-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  padding: 4px 9px !important;
+  border-radius: 999px !important;
+  border: 1px solid transparent !important;
+  color: #1e293b !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.22s ease !important;
+}
+
+.sec-nav-link i {
+  color: #d97706 !important;
+  transition: color 0.25s ease !important;
+}
+
+.sec-nav-link:hover {
+  background: #0c4a8a !important;
+  border-color: #0c4a8a !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(12, 74, 138, 0.24) !important;
+}
+
+.sec-nav-link:hover i {
+  color: #fde047 !important;
+}
+
+.primary-nav-link {
+  transition:
+    color 0.25s ease,
+    background 0.25s ease !important;
+}
+
+.primary-nav-link:hover,
+.primary-nav-link.active {
+  color: #d97706 !important;
+}
+
+.dropdown-item {
+  transition:
+    background 0.22s ease,
+    color 0.22s ease,
+    padding-left 0.22s ease !important;
+}
+
+.dropdown-item:hover {
+  background: #0c4a8a !important;
+  color: #ffffff !important;
+}
+
+.dropdown-item:hover i {
+  color: #fde047 !important;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active,
+.mobile-sec-grid a:hover {
+  background: #0c4a8a !important;
+  color: #ffffff !important;
+}
+
+.mobile-nav-link:hover i,
+.mobile-sec-grid a:hover i {
+  color: #fde047 !important;
+}
