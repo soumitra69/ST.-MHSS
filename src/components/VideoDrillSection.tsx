@@ -67,7 +67,7 @@ export const VideoDrillSection: React.FC = () => {
       id="media"
       className="w-full py-16 md:py-24 bg-gradient-to-br from-[#0F1D38] via-[#1e3a8a] to-[#0f4c5c] text-white border-b border-[#1B365D]"
     >
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container">
         {/* Section Header */}
         <div
           className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10"

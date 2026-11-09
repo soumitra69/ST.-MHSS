@@ -55,8 +55,8 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
       id="faq"
       className="w-full bg-gradient-to-br from-[#eff6ff] via-[#faf5ff] to-[#fff7ed] py-16 md:py-24 border-t border-blue-200"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl">
+      <div className="container">
+        <div className="w-full">
           <div className="mb-10 text-center" data-aos="fade-up" data-aos-duration="750">
             <span className="inline-block rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#ea580c] px-4 py-1 text-xs font-bold uppercase tracking-[0.16em] text-white shadow-sm">
               <i className="fas fa-question-circle mr-1.5" aria-hidden="true"></i>
@@ -70,7 +70,7 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
             </h2>
           </div>
 
-          <div className="space-y-3.5">
+          <div className="w-full space-y-3.5">
             {frequentlyAskedQuestions.map((item, index) => {
               const isOpen = openIndex === index;
               const answerId = `school-faq-answer-${index}`;
@@ -112,11 +112,11 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
           </div>
 
           <div
-            className="mt-12 flex flex-col gap-6 rounded-2xl border-2 border-amber-300 bg-gradient-to-r from-[#0c2d57] via-[#1d4ed8] to-[#0f766e] p-6 text-white sm:flex-row sm:items-center sm:justify-between sm:p-9 shadow-2xl"
+            className="mt-12 flex w-full flex-col gap-6 rounded-2xl border-2 border-amber-300 bg-gradient-to-r from-[#0c2d57] via-[#1d4ed8] to-[#0f766e] p-6 text-white lg:flex-row lg:items-center lg:justify-between sm:p-9 shadow-2xl"
             data-aos="zoom-in"
             data-aos-duration="750"
           >
-            <div className="max-w-2xl">
+            <div className="max-w-3xl">
               <span className="inline-block rounded-md bg-amber-400 px-3 py-0.5 text-[11px] font-extrabold uppercase tracking-wider text-slate-950 mb-2">
                 <i className="fas fa-bullhorn mr-1.5" aria-hidden="true"></i>
                 Admissions Open 2026–27

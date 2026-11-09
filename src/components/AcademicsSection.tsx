@@ -75,7 +75,7 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
       id="academics"
       className="w-full overflow-hidden bg-gradient-to-br from-[#e0f2fe] via-[#fef3c7] to-[#dcfce7] py-16 md:py-24 scroll-mt-20 border-t border-blue-200"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="container">
         <header
           className="mb-10 flex flex-col justify-between gap-5 border-b-2 border-blue-300/60 pb-7 sm:flex-row sm:items-end md:mb-12"
           data-aos="fade-up"
