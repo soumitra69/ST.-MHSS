@@ -1,167 +1,384 @@
-import React, { useState, useEffect } from 'react';
-import { resolveSchoolAsset } from '../data/schoolAssets';
+import React, { useState, useEffect, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  Award,
+  Compass,
+  Trophy,
+  Music,
+  Maximize2,
+  X,
+  ChevronLeft,
+  ChevronRight,
+  Calendar,
+  MapPin,
+  Camera,
+} from 'lucide-react';
+import { SCHOOL_IMAGES } from '../data/schoolAssets';
 
-const subWorkCards = [
+type GalleryCategory = 'all' | 'merit' | 'fieldwork' | 'sports' | 'culture';
+
+interface GalleryItem {
+  id: string;
+  title: string;
+  category: Exclude<GalleryCategory, 'all'>;
+  categoryLabel: string;
+  dateTag: string;
+  location: string;
+  caption: string;
+  img: string;
+  theme: 'blue' | 'orange' | 'emerald' | 'purple' | 'crimson' | 'amber';
+}
+
+const GALLERY_ITEMS: GalleryItem[] = [
   {
-    src: resolveSchoolAsset('./Assets/Rectangle 61.png'),
-    title: 'Students Celebrating State Board Merit & Distinctions',
-    category: 'Academic Achievement',
+    id: 'graduating-batch-portrait',
+    title: 'Graduating Batch & Faculty Honours Portrait',
+    category: 'merit',
+    categoryLabel: 'State Merit & Honours',
+    dateTag: 'Academic Session 2025–26',
+    location: 'St. Michael Archangel Steps',
+    caption:
+      'Graduating Higher Secondary scholars in traditional Khasi attire and formal blazer dress alongside the Principal, Missionary Sisters, and faculty with championship shields.',
+    img: SCHOOL_IMAGES.graduatingBatch,
+    theme: 'blue',
   },
   {
-    src: resolveSchoolAsset('./Assets/Rectangle 62.png'),
-    title: 'Ri Bhoi Watershed & Campus Environmental Conservation',
-    category: 'Geography & Ecology',
+    id: 'state-ceremony-felicitation',
+    title: 'State-Level SSLC Topper Felicitation Ceremony',
+    category: 'merit',
+    categoryLabel: 'State Merit & Honours',
+    dateTag: 'MBOSE State Rank #8',
+    location: 'State Auditorium, Meghalaya',
+    caption:
+      'State dignitaries felicitating St. Michael’s SSLC State Merit holder Ms. Darihunlangoshisha Rani (577/600, 96.17%) with the official citation and cash award.',
+    img: SCHOOL_IMAGES.stateCeremony,
+    theme: 'orange',
   },
   {
-    src: resolveSchoolAsset('./Assets/Rectangle 63.png'),
-    title: 'Student Council Leadership & Youth Awareness Rallies',
-    category: 'Student Leadership',
+    id: 'geography-class-xii-fieldwork',
+    title: 'Class XII Geography Field Survey & Research',
+    category: 'fieldwork',
+    categoryLabel: 'Academic Fieldwork',
+    dateTag: 'HSSLC Practical Curriculum',
+    location: 'Ri-Bhoi District Field Station',
+    caption:
+      'Senior Secondary Geography scholars and faculty mentors conducting on-site terrain, settlement, and socio-economic survey work across Ri-Bhoi District.',
+    img: SCHOOL_IMAGES.geographyFieldwork,
+    theme: 'emerald',
   },
   {
-    src: resolveSchoolAsset('./Assets/Rectangle 64.png'),
-    title: 'Inter-House Sports Champions & Athletic Trophy',
-    category: 'Athletics & PT Drill',
+    id: 'panoramic-morning-assembly',
+    title: '2,000-Scholar Morning Assembly Formation',
+    category: 'sports',
+    categoryLabel: 'Assembly & Discipline',
+    dateTag: 'Daily • 8:15 AM Sharp',
+    location: 'Central Campus Courtyard',
+    caption:
+      'A panoramic view of our disciplined morning assembly with students lined up in crisp rows across the pine-ringed Umsning campus courtyard.',
+    img: SCHOOL_IMAGES.panoramicAssembly,
+    theme: 'purple',
+  },
+  {
+    id: 'green-house-champions',
+    title: 'National Sports Day — House Medalists',
+    category: 'sports',
+    categoryLabel: 'Sports & Athletics',
+    dateTag: 'National Sports Day',
+    location: 'Main Athletics Arena',
+    caption:
+      'Green and Teal House athletes proudly displaying their National Sports Day medals and merit certificates alongside their physical education mentor.',
+    img: SCHOOL_IMAGES.sportsGreenChampions,
+    theme: 'emerald',
+  },
+  {
+    id: 'cultural-troupe-courtyard',
+    title: 'Annual Cultural Dance & Choral Ensemble',
+    category: 'culture',
+    categoryLabel: 'Culture & Choir',
+    dateTag: 'Annual Cultural Fest',
+    location: 'Amphitheatre Courtyard',
+    caption:
+      'Students performing a synchronized cultural dance and choral presentation in the central courtyard surrounded by cheering house galleries.',
+    img: SCHOOL_IMAGES.culturalTroupe,
+    theme: 'crimson',
+  },
+  {
+    id: 'award-citation-handover',
+    title: 'Merit Scholarship & Rs. 30,000 Award Handover',
+    category: 'merit',
+    categoryLabel: 'State Merit & Honours',
+    dateTag: 'Board Excellence Honours',
+    location: 'Official Felicitation Stage',
+    caption:
+      'Presentation of the Rs. 30,000 state excellence cheque and trophy honouring St. Michael’s consistent 100% MBOSE board pass legacy.',
+    img: SCHOOL_IMAGES.awardPresentation,
+    theme: 'amber',
+  },
+  {
+    id: 'botanical-excursion-team',
+    title: 'Environmental & Botanical Study Excursion',
+    category: 'fieldwork',
+    categoryLabel: 'Academic Fieldwork',
+    dateTag: 'Experiential Learning',
+    location: 'Meghalaya Ecological Belt',
+    caption:
+      'Science and Humanities students documenting local flora, watershed patterns, and conservation practices during guided outdoor fieldwork.',
+    img: SCHOOL_IMAGES.fieldwork,
+    theme: 'blue',
+  },
+  {
+    id: 'certificate-winners-lineup',
+    title: 'Inter-House Literary & Academic Certificate Winners',
+    category: 'merit',
+    categoryLabel: 'State Merit & Honours',
+    dateTag: 'Annual Prize Distribution',
+    location: 'Assembly Forecourt',
+    caption:
+      'Merit certificate and shield recipients honoured in front of the entire student body for excellence in debate, quiz, science exhibition, and board subjects.',
+    img: SCHOOL_IMAGES.certificateWinners,
+    theme: 'orange',
+  },
+  {
+    id: 'school-choir-harmony',
+    title: 'St. Michael’s Polyphonic School Choir',
+    category: 'culture',
+    categoryLabel: 'Culture & Choir',
+    dateTag: 'Liturgical & Fest Choir',
+    location: 'Main Stage Pavilion',
+    caption:
+      'Our celebrated student choir performing four-part sacred hymns, school anthems, and Khasi choral compositions during special feast day celebrations.',
+    img: SCHOOL_IMAGES.choir,
+    theme: 'purple',
+  },
+  {
+    id: 'inter-house-track-relay',
+    title: 'Annual Athletics & Track Championship Squad',
+    category: 'sports',
+    categoryLabel: 'Sports & Athletics',
+    dateTag: 'Annual Sports Meet',
+    location: 'St. Michael’s Sports Ground',
+    caption:
+      'Track and field champions from Blue, Green, Yellow, and Red houses celebrating victory on the school athletic field.',
+    img: SCHOOL_IMAGES.sports,
+    theme: 'crimson',
+  },
+  {
+    id: 'eco-plantation-stewards',
+    title: 'World Environment Day Sapling Plantation',
+    category: 'culture',
+    categoryLabel: 'Culture & Choir',
+    dateTag: 'Green Campus Mission',
+    location: 'Umsning Campus Perimeter',
+    caption:
+      'Eco Club volunteers nurturing native saplings to preserve the lush pine and subtropical greenery of our 15-acre Ri-Bhoi campus.',
+    img: SCHOOL_IMAGES.environment,
+    theme: 'emerald',
   },
 ];
 
-const galleryImages = [
-  { src: resolveSchoolAsset('./Assets/Rectangle 71.png'), title: 'Annual Cultural & Traditional Khasi Dance Showcase' },
-  { src: resolveSchoolAsset('./Assets/Rectangle 72.png'), title: 'State Board SSLC Topper Felicitation Ceremony' },
-  { src: resolveSchoolAsset('./Assets/Rectangle 73.png'), title: 'Class XII Geography Fieldwork Excursion' },
-  { src: resolveSchoolAsset('./Assets/Rectangle 74.png'), title: 'Community Awareness & Anti-Tobacco Rally' },
-  { src: resolveSchoolAsset('./Assets/Rectangle 75.png'), title: 'World Environment Day Tree Plantation Drive' },
-  { src: resolveSchoolAsset('./Assets/Rectangle 76.png'), title: 'Senior Choral Ensemble and School Hymn' },
+const FILTER_TABS: { id: GalleryCategory; label: string; icon: React.ReactNode }[] = [
+  { id: 'all', label: 'All Campus Photos (12)', icon: <Camera size={16} /> },
+  { id: 'merit', label: 'State Merit & Awards', icon: <Award size={16} /> },
+  { id: 'fieldwork', label: 'Fieldwork & Research', icon: <Compass size={16} /> },
+  { id: 'sports', label: '4-House Sports & Drill', icon: <Trophy size={16} /> },
+  { id: 'culture', label: 'Cultural, Choir & Eco', icon: <Music size={16} /> },
 ];
 
 export const StudentWorkSection: React.FC = () => {
-  const [lightboxImg, setLightboxImg] = useState<{ src: string; title: string } | null>(null);
+  const [activeCategory, setActiveCategory] = useState<GalleryCategory>('all');
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const filteredItems = useMemo(() => {
+    if (activeCategory === 'all') return GALLERY_ITEMS;
+    return GALLERY_ITEMS.filter((item) => item.category === activeCategory);
+  }, [activeCategory]);
 
   useEffect(() => {
-    if (!lightboxImg) return;
-    const onKeyDown = (e: KeyboardEvent) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (lightboxIndex === null) return;
       if (e.key === 'Escape') {
-        setLightboxImg(null);
+        setLightboxIndex(null);
+      } else if (e.key === 'ArrowRight') {
+        setLightboxIndex((prev) => (prev !== null ? (prev + 1) % filteredItems.length : null));
+      } else if (e.key === 'ArrowLeft') {
+        setLightboxIndex((prev) =>
+          prev !== null ? (prev - 1 + filteredItems.length) % filteredItems.length : null
+        );
       }
     };
-    window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
-  }, [lightboxImg]);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxIndex, filteredItems.length]);
+
+  const activePhoto = lightboxIndex !== null ? filteredItems[lightboxIndex] : null;
 
   return (
-    <div id="student-work">
-      <section className="student-work">
-        <div className="container">
-          <div className="student-work-content" data-aos="fade-down" data-aos-duration="900">
-            <div>
-              <span className="section-eyebrow">INNOVATION &amp; DISCIPLINE IN ACTION</span>
-              <h3>CAMPUS GALLERY &amp; STUDENT WORK</h3>
-            </div>
-            <a href="#hub" className="view-more-link">
-              <span>Explore Digital Hub</span>
-              <span aria-hidden="true">→</span>
-            </a>
+    <section className="student-work-gallery-section" id="gallery">
+      <div className="container">
+        {/* Vibrant Gallery Header */}
+        <motion.div
+          className="work-gallery-header"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="work-gallery-title-group">
+            <span className="section-sub-badge work-eyebrow-pill">
+              INNOVATION &amp; DISCIPLINE IN ACTION • AUTHENTIC CAMPUS ARCHIVE
+            </span>
+            <h2 className="student-work-heading">» Campus Gallery &amp; Student Work</h2>
+            <p className="student-work-subtext">
+              Explore verified photographs from our state merit felicitations, Class XII Geography fieldwork,
+              2,000-scholar morning assemblies, National Sports Day championships, and Khasi cultural festivals.
+            </p>
           </div>
 
-          <div className="student-card">
-            {/* Large Main Image */}
-            <div
-              className="card-container"
-              data-aos="zoom-in"
-              data-aos-duration="900"
-              onClick={() =>
-                setLightboxImg({
-                  src: resolveSchoolAsset('./Assets/Rectangle 60.png'),
-                  title: "Students learning and participating in campus activities at St. Michael's Higher Secondary School, Umsning.",
-                })
-              }
-            >
-              <div className="image-wrapper">
-                <img
-                  src={resolveSchoolAsset('./Assets/Rectangle 60.png')}
-                  alt="Students at work on a campus field study"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="caption">
-                  <span className="caption-badge">CAMPUS MOMENT</span>
-                  <p>
-                    Discover student learning, science exhibitions, and community life at St. Michael&apos;s Higher Secondary School, Umsning.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* 2x2 Grid of Project Cards */}
-            <div className="flex-card">
-              {subWorkCards.map((item, idx) => (
-                <div
-                  key={item.src}
-                  className="work-subcard"
-                  data-aos="fade-up"
-                  data-aos-delay={100 * (idx + 1)}
-                  onClick={() => setLightboxImg(item)}
+          {/* Interactive Colour-Coded Filter Pills */}
+          <div className="work-filter-bar" role="tablist" aria-label="Campus Gallery Categories">
+            {FILTER_TABS.map((tab) => {
+              const isActive = activeCategory === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  className={`work-filter-pill ${isActive ? 'active' : ''}`}
+                  onClick={() => {
+                    setActiveCategory(tab.id);
+                    setLightboxIndex(null);
+                  }}
                 >
-                  <img
-                    src={item.src}
-                    alt={item.title}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div className="work-subcard-overlay">
-                    <span className="work-tag">{item.category}</span>
-                    <h4>{item.title}</h4>
-                  </div>
-                </div>
-              ))}
-            </div>
+                  {tab.icon}
+                  <span>{tab.label}</span>
+                </button>
+              );
+            })}
           </div>
-        </div>
-      </section>
+        </motion.div>
 
-      <section className="student-work-image-section">
-        <div className="container">
-          <div className="student-work-image">
-            {galleryImages.map((img, index) => (
-              <div
-                key={img.src}
-                className="gallery-grid-item"
-                data-aos="zoom-in"
-                data-aos-delay={70 * (index + 1)}
-                onClick={() => setLightboxImg(img)}
+        {/* Framed 3-Column Photo Grid (Zero Cropped Heads, Zero Duplicate Images) */}
+        <motion.div className="work-gallery-grid" layout>
+          <AnimatePresence mode="popLayout">
+            {filteredItems.map((item, idx) => (
+              <motion.article
+                key={item.id}
+                layout
+                initial={{ opacity: 0, scale: 0.96, y: 18 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.35, delay: idx * 0.04 }}
+                className={`work-gallery-card work-theme-${item.theme}`}
               >
-                <img
-                  src={img.src}
-                  alt={img.title}
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="gallery-item-hover">
-                  <i className="fas fa-expand-alt"></i>
-                  <span>{img.title}</span>
+                <div
+                  className="work-card-media"
+                  onClick={() => setLightboxIndex(idx)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Inspect ${item.title}`}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setLightboxIndex(idx);
+                    }
+                  }}
+                >
+                  <img src={item.img} alt={item.title} loading="lazy" decoding="async" />
+                  <span className="work-card-category-badge">{item.categoryLabel}</span>
+                  <button
+                    type="button"
+                    className="work-card-zoom-btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setLightboxIndex(idx);
+                    }}
+                    aria-label={`Enlarge ${item.title}`}
+                  >
+                    <Maximize2 size={15} /> Inspect Photo
+                  </button>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Lightbox Modal */}
-      {lightboxImg && (
-        <div className="lightbox-backdrop" onClick={() => setLightboxImg(null)}>
-          <div className="lightbox-modal" onClick={(e) => e.stopPropagation()}>
-            <button
-              type="button"
-              className="lightbox-close"
-              onClick={() => setLightboxImg(null)}
-              aria-label="Close preview"
+                <div className="work-card-body">
+                  <div className="work-card-meta">
+                    <span>
+                      <Calendar size={13} /> {item.dateTag}
+                    </span>
+                    <span>
+                      <MapPin size={13} /> {item.location}
+                    </span>
+                  </div>
+                  <h3 className="work-card-title">{item.title}</h3>
+                  <p className="work-card-caption">{item.caption}</p>
+                </div>
+              </motion.article>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      </div>
+
+      {/* Fullscreen Lightbox with Next / Previous Navigation */}
+      <AnimatePresence>
+        {activePhoto && lightboxIndex !== null && (
+          <motion.div
+            className="gallery-lightbox-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setLightboxIndex(null)}
+          >
+            <motion.div
+              className="gallery-lightbox-modal"
+              initial={{ scale: 0.94, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.94, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
             >
-              <i className="fas fa-times"></i>
-            </button>
-            <img src={lightboxImg.src} alt={lightboxImg.title} />
-            <p className="lightbox-caption">{lightboxImg.title}</p>
-          </div>
-        </div>
-      )}
-    </div>
+              <button
+                type="button"
+                className="gallery-lightbox-close"
+                onClick={() => setLightboxIndex(null)}
+                aria-label="Close gallery preview"
+              >
+                <X size={20} />
+              </button>
+
+              <div className="gallery-lightbox-stage">
+                <button
+                  type="button"
+                  className="gallery-lightbox-nav prev"
+                  onClick={() =>
+                    setLightboxIndex((lightboxIndex - 1 + filteredItems.length) % filteredItems.length)
+                  }
+                  aria-label="Previous photo"
+                >
+                  <ChevronLeft size={22} />
+                </button>
+                <img src={activePhoto.img} alt={activePhoto.title} />
+                <button
+                  type="button"
+                  className="gallery-lightbox-nav next"
+                  onClick={() => setLightboxIndex((lightboxIndex + 1) % filteredItems.length)}
+                  aria-label="Next photo"
+                >
+                  <ChevronRight size={22} />
+                </button>
+              </div>
+
+              <div className="gallery-lightbox-footer">
+                <div>
+                  <span className="gallery-lightbox-tag">{activePhoto.categoryLabel}</span>
+                  <h4>{activePhoto.title}</h4>
+                  <p>{activePhoto.caption}</p>
+                </div>
+                <span className="gallery-lightbox-counter">
+                  {lightboxIndex + 1} / {filteredItems.length}
+                </span>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
   );
 };

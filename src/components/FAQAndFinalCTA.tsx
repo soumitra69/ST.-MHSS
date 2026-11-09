@@ -36,6 +36,15 @@ const frequentlyAskedQuestions = [
   },
 ];
 
+const FAQ_BORDERS = [
+  'border-l-4 border-l-[#1d4ed8] border-blue-200 bg-gradient-to-r from-blue-50/80 to-white',
+  'border-l-4 border-l-[#ea580c] border-orange-200 bg-gradient-to-r from-orange-50/80 to-white',
+  'border-l-4 border-l-[#0d9488] border-teal-200 bg-gradient-to-r from-teal-50/80 to-white',
+  'border-l-4 border-l-[#7c3aed] border-purple-200 bg-gradient-to-r from-purple-50/80 to-white',
+  'border-l-4 border-l-[#e11d48] border-rose-200 bg-gradient-to-r from-rose-50/80 to-white',
+  'border-l-4 border-l-[#d97706] border-amber-200 bg-gradient-to-r from-amber-50/80 to-white',
+];
+
 export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
   onOpenAdmission,
   onNavigate,
@@ -43,19 +52,25 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="w-full bg-white py-16 md:py-24">
+    <section
+      id="faq"
+      className="w-full bg-gradient-to-br from-[#eff6ff] via-[#faf5ff] to-[#fff7ed] py-16 md:py-24 border-t border-blue-200"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <div className="mb-10 text-center">
-            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-700">
+            <span className="inline-block rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#ea580c] px-4 py-1 text-xs font-bold uppercase tracking-[0.16em] text-white shadow-sm">
               Information for Students &amp; Families
             </span>
             <h2 className="vision-serif-heading mt-3 text-3xl text-[#0c4a8a] sm:text-4xl">
-              <span className="vision-double-angle" aria-hidden="true">&raquo;</span> Frequently Asked Questions
+              <span className="vision-double-angle" aria-hidden="true">
+                &raquo;
+              </span>{' '}
+              Frequently Asked Questions
             </h2>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-3.5">
             {frequentlyAskedQuestions.map((item, index) => {
               const isOpen = openIndex === index;
               const answerId = `school-faq-answer-${index}`;
@@ -63,7 +78,9 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
               return (
                 <article
                   key={item.question}
-                  className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50 transition-colors"
+                  className={`overflow-hidden rounded-xl border shadow-sm transition-all ${
+                    FAQ_BORDERS[index % FAQ_BORDERS.length]
+                  }`}
                 >
                   <h3>
                     <button
@@ -71,11 +88,11 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
                       aria-expanded={isOpen}
                       aria-controls={answerId}
                       onClick={() => setOpenIndex(isOpen ? null : index)}
-                      className="flex w-full items-center justify-between gap-4 p-5 text-left text-sm font-bold text-[#1B365D] hover:bg-slate-100 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-[#1B365D] sm:text-base"
+                      className="flex w-full items-center justify-between gap-4 p-5 text-left text-sm font-bold text-[#0c4a8a] hover:bg-white/60 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-[#1B365D] sm:text-base cursor-pointer"
                     >
-                      {item.question}
+                      <span>&raquo; {item.question}</span>
                       <ChevronDown
-                        className={`h-5 w-5 shrink-0 text-amber-700 transition-transform motion-reduce:transition-none ${
+                        className={`h-5 w-5 shrink-0 text-[#ea580c] transition-transform motion-reduce:transition-none ${
                           isOpen ? 'rotate-180' : ''
                         }`}
                         aria-hidden="true"
@@ -83,8 +100,8 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
                     </button>
                   </h3>
                   {isOpen && (
-                    <div id={answerId} className="border-t border-slate-200 px-5 py-4 bg-white">
-                      <p className="text-sm leading-7 text-slate-600">{item.answer}</p>
+                    <div id={answerId} className="border-t border-blue-100 px-5 py-4 bg-white">
+                      <p className="text-sm font-medium leading-7 text-slate-700">{item.answer}</p>
                     </div>
                   )}
                 </article>
@@ -92,19 +109,31 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
             })}
           </div>
 
-          <div className="mt-10 flex flex-col gap-6 rounded-2xl bg-[#1B365D] p-6 text-white sm:flex-row sm:items-center sm:justify-between sm:p-8 shadow-xl">
+          <div className="mt-12 flex flex-col gap-6 rounded-2xl border-2 border-amber-300 bg-gradient-to-r from-[#0c2d57] via-[#1d4ed8] to-[#0f766e] p-6 text-white sm:flex-row sm:items-center sm:justify-between sm:p-9 shadow-2xl">
             <div className="max-w-2xl">
-              <h3 className="text-xl font-bold sm:text-2xl">Connect with St. Michael&apos;s, Umsning</h3>
-              <p className="mt-2 text-sm leading-7 text-slate-200">
-                Ready to apply for Academic Session 2026–27 or have questions about streams, fees, or campus facilities?
+              <span className="inline-block rounded-md bg-amber-400 px-3 py-0.5 text-[11px] font-extrabold uppercase tracking-wider text-slate-950 mb-2">
+                Admissions Open 2026–27
+              </span>
+              <h3 className="text-xl font-bold sm:text-2xl text-white">
+                &raquo; Connect with St. Michael&apos;s, Umsning
+              </h3>
+              <p className="mt-2 text-sm leading-7 text-blue-100">
+                Ready to apply for Academic Session 2026–27 or have questions about streams, fees,
+                or campus facilities?
               </p>
-              <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-100">
-                <a className="inline-flex items-center gap-2 hover:text-amber-300" href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`}>
-                  <Phone className="h-4 w-4" aria-hidden="true" />
+              <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-white">
+                <a
+                  className="inline-flex items-center gap-2 hover:text-amber-300"
+                  href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`}
+                >
+                  <Phone className="h-4 w-4 text-amber-300" aria-hidden="true" />
                   {SCHOOL_INFO.phoneMobile}
                 </a>
-                <a className="inline-flex items-center gap-2 hover:text-amber-300" href={`mailto:${SCHOOL_INFO.email}`}>
-                  <Mail className="h-4 w-4" aria-hidden="true" />
+                <a
+                  className="inline-flex items-center gap-2 hover:text-amber-300"
+                  href={`mailto:${SCHOOL_INFO.email}`}
+                >
+                  <Mail className="h-4 w-4 text-amber-300" aria-hidden="true" />
                   {SCHOOL_INFO.email}
                 </a>
               </div>
@@ -113,16 +142,16 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
               <button
                 type="button"
                 onClick={onOpenAdmission}
-                className="rounded-lg bg-amber-500 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-amber-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="rounded-xl bg-gradient-to-r from-[#f59e0b] to-[#ea580c] px-5 py-3 text-sm font-extrabold text-white shadow-lg transition-transform hover:scale-[1.02] cursor-pointer"
               >
                 Online Admission Form
               </button>
               <button
                 type="button"
                 onClick={() => onNavigate('footer')}
-                className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="inline-flex items-center gap-2 rounded-xl border-2 border-white/40 bg-white/10 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-white/20 cursor-pointer"
               >
-                <MapPin className="h-4 w-4" aria-hidden="true" />
+                <MapPin className="h-4 w-4 text-amber-300" aria-hidden="true" />
                 Location &amp; Contact
               </button>
             </div>
