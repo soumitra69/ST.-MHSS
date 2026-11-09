@@ -1,19 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Users,
-  Music,
-  Trophy,
-  Leaf,
-  Award,
-  HeartHandshake,
-  Maximize2,
-  X,
-  ChevronLeft,
-  ChevronRight,
-  Calendar,
-  MapPin,
-} from 'lucide-react';
 import { SCHOOL_IMAGES } from '../data/schoolAssets';
 
 interface LifePillarItem {
@@ -28,7 +14,7 @@ interface LifePillarItem {
   highlights: string[];
   img: string;
   theme: 'blue' | 'orange' | 'emerald' | 'purple' | 'crimson' | 'amber';
-  icon: React.ReactNode;
+  iconClass: string;
 }
 
 const LIFE_PILLARS: LifePillarItem[] = [
@@ -42,10 +28,14 @@ const LIFE_PILLARS: LifePillarItem[] = [
     location: 'Main Assembly Courtyard',
     description:
       'Every morning begins with prayer, scripture reading, moral reflections, and student-led addresses from the lectern—building poise, confidence, and ethical leadership.',
-    highlights: ['School Captains & House Prefects', 'Daily Moral & Civic Reflections', 'Inter-House Turnout Inspection'],
+    highlights: [
+      'School Captains & House Prefects',
+      'Daily Moral & Civic Reflections',
+      'Inter-House Turnout Inspection',
+    ],
     img: SCHOOL_IMAGES.assemblyAddress,
     theme: 'blue',
-    icon: <Award size={18} />,
+    iconClass: 'fas fa-award',
   },
   {
     id: 'cultural-heritage',
@@ -57,10 +47,14 @@ const LIFE_PILLARS: LifePillarItem[] = [
     location: 'Central Amphitheatre',
     description:
       'Students celebrate the rich cultural heritage of Ri-Bhoi and Meghalaya in traditional Jainsem, Dhara, and Jymphong alongside classical and contemporary stage arts.',
-    highlights: ['Traditional Khasi Folk Presentations', 'Inter-Class Drama & Elocution', 'Annual Cultural Pageant'],
+    highlights: [
+      'Traditional Khasi Folk Presentations',
+      'Inter-Class Drama & Elocution',
+      'Annual Cultural Pageant',
+    ],
     img: SCHOOL_IMAGES.culture,
     theme: 'orange',
-    icon: <Music size={18} />,
+    iconClass: 'fas fa-music',
   },
   {
     id: 'sports-champions',
@@ -72,10 +66,14 @@ const LIFE_PILLARS: LifePillarItem[] = [
     location: 'Sports Ground & Courts',
     description:
       'Competitive four-house tournaments in football, basketball, relay sprints, and indoor games nurture physical endurance, teamwork, and true sportsmanship.',
-    highlights: ['4-House Championship Shield', 'District & State Level Athletes', 'Dedicated Physical Education Mentors'],
+    highlights: [
+      '4-House Championship Shield',
+      'District & State Level Athletes',
+      'Dedicated Physical Education Mentors',
+    ],
     img: SCHOOL_IMAGES.sportsBlueChampions,
     theme: 'emerald',
-    icon: <Trophy size={18} />,
+    iconClass: 'fas fa-trophy',
   },
   {
     id: 'courtyard-performances',
@@ -87,10 +85,14 @@ const LIFE_PILLARS: LifePillarItem[] = [
     location: 'Archangel Courtyard Stage',
     description:
       'With amphitheatre steps surrounding our central court, scholars perform choral harmonies, ensemble dances, and instrumental tributes during school celebrations.',
-    highlights: ['Four-Part School Choir', 'House Dance & Music Ensembles', 'Teachers’ Day & Foundation Day Shows'],
+    highlights: [
+      'Four-Part School Choir',
+      'House Dance & Music Ensembles',
+      'Teachers’ Day & Foundation Day Shows',
+    ],
     img: SCHOOL_IMAGES.courtyardDance,
     theme: 'purple',
-    icon: <Users size={18} />,
+    iconClass: 'fas fa-users',
   },
   {
     id: 'eco-stewardship',
@@ -102,10 +104,14 @@ const LIFE_PILLARS: LifePillarItem[] = [
     location: 'Pine Belt & Botanical Zone',
     description:
       'Rooted in the lush hills of Umsning, our Eco Club leads hands-on sapling plantations, zero-plastic pledges, and botanical care across the 15-acre green campus.',
-    highlights: ['Annual Student Sapling Drive', 'Plastic-Free Campus Initiative', 'Meghalaya Biodiversity Awareness'],
+    highlights: [
+      'Annual Student Sapling Drive',
+      'Plastic-Free Campus Initiative',
+      'Meghalaya Biodiversity Awareness',
+    ],
     img: SCHOOL_IMAGES.campusEcoDrive,
     theme: 'crimson',
-    icon: <Leaf size={18} />,
+    iconClass: 'fas fa-leaf',
   },
   {
     id: 'civic-campaigns',
@@ -117,10 +123,14 @@ const LIFE_PILLARS: LifePillarItem[] = [
     location: 'St. Michael Tower Plaza',
     description:
       'Students design hand-painted posters and lead community rallies on public health, anti-tobacco awareness, road safety, and rural literacy across Ri-Bhoi District.',
-    highlights: ['Anti-Tobacco & Health Campaigns', 'Hand-Painted Poster Exhibitions', 'Ri-Bhoi Community Service'],
+    highlights: [
+      'Anti-Tobacco & Health Campaigns',
+      'Hand-Painted Poster Exhibitions',
+      'Ri-Bhoi Community Service',
+    ],
     img: SCHOOL_IMAGES.posterCampaign,
     theme: 'amber',
-    icon: <HeartHandshake size={18} />,
+    iconClass: 'fas fa-hand-holding-heart',
   },
 ];
 
@@ -160,6 +170,7 @@ export const StudentLifeSection: React.FC = () => {
         >
           <div className="life-header-left">
             <span className="section-sub-badge life-eyebrow-pill">
+              <i className="fas fa-star mr-1.5" aria-hidden="true"></i>
               HOLISTIC CAMPUS FORMATION • ESTD. 1961
             </span>
             <h2 className="student-heading">» Student Life at St. Michael&apos;s</h2>
@@ -171,16 +182,22 @@ export const StudentLifeSection: React.FC = () => {
 
           <div className="life-kpi-strip">
             <div className="life-kpi-chip life-kpi-blue">
-              <strong>4 Houses</strong>
+              <strong>
+                <i className="fas fa-shield-alt mr-1.5 text-amber-300" aria-hidden="true"></i>4 Houses
+              </strong>
               <span>Blue • Green • Yellow • Red</span>
             </div>
             <div className="life-kpi-chip life-kpi-orange">
-              <strong>2,000+</strong>
+              <strong>
+                <i className="fas fa-user-graduate mr-1.5 text-amber-200" aria-hidden="true"></i>2,000+
+              </strong>
               <span>Active Campus Scholars</span>
             </div>
             <div className="life-kpi-chip life-kpi-emerald">
-              <strong>15+ Clubs</strong>
-              <span>Sports, Choir, Eco & Arts</span>
+              <strong>
+                <i className="fas fa-futbol mr-1.5 text-amber-200" aria-hidden="true"></i>15+ Clubs
+              </strong>
+              <span>Sports, Choir, Eco &amp; Arts</span>
             </div>
           </div>
         </motion.div>
@@ -212,18 +229,29 @@ export const StudentLifeSection: React.FC = () => {
               loading="lazy"
               decoding="async"
             />
-            <span className="life-featured-ribbon">CAMPUS FORMATION SPOTLIGHT</span>
+            <span className="life-featured-ribbon">
+              <i className="fas fa-flag mr-1.5" aria-hidden="true"></i>
+              CAMPUS FORMATION SPOTLIGHT
+            </span>
             <button type="button" className="life-zoom-trigger" aria-label="View full photo">
-              <Maximize2 size={16} /> View Full Photo
+              <i className="fas fa-expand" aria-hidden="true"></i> View Full Photo
             </button>
           </div>
 
           <div className="life-featured-content">
             <div className="life-house-badges">
-              <span className="house-pill house-blue">Blue House</span>
-              <span className="house-pill house-green">Green House</span>
-              <span className="house-pill house-yellow">Yellow House</span>
-              <span className="house-pill house-red">Red House</span>
+              <span className="house-pill house-blue">
+                <i className="fas fa-shield-alt mr-1" aria-hidden="true"></i>Blue House
+              </span>
+              <span className="house-pill house-green">
+                <i className="fas fa-shield-alt mr-1" aria-hidden="true"></i>Green House
+              </span>
+              <span className="house-pill house-yellow">
+                <i className="fas fa-shield-alt mr-1" aria-hidden="true"></i>Yellow House
+              </span>
+              <span className="house-pill house-red">
+                <i className="fas fa-shield-alt mr-1" aria-hidden="true"></i>Red House
+              </span>
             </div>
             <h3>» The Four-House Brotherhood &amp; Morning Drill</h3>
             <p>
@@ -232,10 +260,10 @@ export const StudentLifeSection: React.FC = () => {
             </p>
             <div className="life-featured-meta">
               <span>
-                <Calendar size={15} /> Weekly House Drill &amp; Annual Sports
+                <i className="fas fa-calendar-alt text-[#ea580c]" aria-hidden="true"></i> Weekly House Drill &amp; Annual Sports
               </span>
               <span>
-                <MapPin size={15} /> St. Michael&apos;s Main Ground, Umsning
+                <i className="fas fa-map-marker-alt text-[#d90429]" aria-hidden="true"></i> St. Michael&apos;s Main Ground, Umsning
               </span>
             </div>
           </div>
@@ -268,7 +296,7 @@ export const StudentLifeSection: React.FC = () => {
                 <img src={item.img} alt={item.title} loading="lazy" decoding="async" />
                 <div className="life-card-top-badges">
                   <span className="life-card-category-pill">
-                    {item.icon}
+                    <i className={item.iconClass} aria-hidden="true"></i>
                     {item.category}
                   </span>
                   <span className="life-card-num-badge">{item.number}</span>
@@ -282,17 +310,17 @@ export const StudentLifeSection: React.FC = () => {
                   }}
                   aria-label={`Expand ${item.title}`}
                 >
-                  <Maximize2 size={15} />
+                  <i className="fas fa-expand" aria-hidden="true"></i>
                 </button>
               </div>
 
               <div className="life-card-body">
                 <div className="life-card-meta-row">
                   <span>
-                    <Calendar size={13} /> {item.schedule}
+                    <i className="fas fa-calendar-alt text-[#1d4ed8]" aria-hidden="true"></i> {item.schedule}
                   </span>
                   <span>
-                    <MapPin size={13} /> {item.location}
+                    <i className="fas fa-map-marker-alt text-[#ea580c]" aria-hidden="true"></i> {item.location}
                   </span>
                 </div>
                 <h3 className="life-card-title">{item.title}</h3>
@@ -333,7 +361,7 @@ export const StudentLifeSection: React.FC = () => {
                 onClick={() => setActiveIndex(null)}
                 aria-label="Close photo preview"
               >
-                <X size={20} />
+                <i className="fas fa-times" aria-hidden="true"></i>
               </button>
 
               <div className="gallery-lightbox-stage">
@@ -345,7 +373,7 @@ export const StudentLifeSection: React.FC = () => {
                   }
                   aria-label="Previous photo"
                 >
-                  <ChevronLeft size={22} />
+                  <i className="fas fa-chevron-left" aria-hidden="true"></i>
                 </button>
                 <img src={activeItem.img} alt={activeItem.title} />
                 <button
@@ -354,13 +382,16 @@ export const StudentLifeSection: React.FC = () => {
                   onClick={() => setActiveIndex((activeIndex + 1) % LIFE_PILLARS.length)}
                   aria-label="Next photo"
                 >
-                  <ChevronRight size={22} />
+                  <i className="fas fa-chevron-right" aria-hidden="true"></i>
                 </button>
               </div>
 
               <div className="gallery-lightbox-footer">
                 <div>
-                  <span className="gallery-lightbox-tag">{activeItem.category}</span>
+                  <span className="gallery-lightbox-tag">
+                    <i className={`${activeItem.iconClass} mr-1`} aria-hidden="true"></i>
+                    {activeItem.category}
+                  </span>
                   <h4>{activeItem.title}</h4>
                   <p>{activeItem.description}</p>
                 </div>
@@ -393,7 +424,7 @@ export const StudentLifeSection: React.FC = () => {
                 onClick={() => setSpotlightOpen(false)}
                 aria-label="Close photo preview"
               >
-                <X size={20} />
+                <i className="fas fa-times" aria-hidden="true"></i>
               </button>
               <div className="gallery-lightbox-stage">
                 <img
@@ -403,7 +434,9 @@ export const StudentLifeSection: React.FC = () => {
               </div>
               <div className="gallery-lightbox-footer">
                 <div>
-                  <span className="gallery-lightbox-tag">4-House Formation</span>
+                  <span className="gallery-lightbox-tag">
+                    <i className="fas fa-flag mr-1" aria-hidden="true"></i>4-House Formation
+                  </span>
                   <h4>The Four-House Brotherhood &amp; Morning Drill</h4>
                   <p>
                     Blue, Green, Yellow, and Red House students assembled on the main pine-ringed ground at St.

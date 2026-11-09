@@ -45,6 +45,7 @@ export const TopperFelicitation: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#ea580c] to-[#d97706] px-4 py-1 text-xs font-bold tracking-wider uppercase text-white shadow-sm mb-3">
+              <i className="fas fa-trophy" aria-hidden="true"></i>
               <span>Hall of Academic Honor</span>
               <span>•</span>
               <span>MBOSE State Board Distinction</span>
@@ -63,7 +64,8 @@ export const TopperFelicitation: React.FC = () => {
           </div>
 
           <div className="shrink-0 bg-gradient-to-r from-[#1d4ed8] to-[#0f766e] px-5 py-3 rounded-xl border border-blue-400 text-xs text-white font-extrabold uppercase tracking-wider shadow-lg">
-            ★ MBOSE SSLC State Top 20 Honoree
+            <i className="fas fa-medal mr-1.5 text-amber-300" aria-hidden="true"></i>
+            MBOSE SSLC State Top 20 Honoree
           </div>
         </div>
 
@@ -83,6 +85,7 @@ export const TopperFelicitation: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F1D38] via-[#0F1D38]/30 to-transparent pointer-events-none" />
                 <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 text-white">
                   <span className="inline-block rounded-md bg-amber-400 px-2.5 py-0.5 text-[11px] uppercase tracking-wider text-slate-950 font-extrabold mb-2">
+                    <i className="fas fa-award mr-1" aria-hidden="true"></i>
                     {felicitationPhotos[selectedPhoto].subtitle}
                   </span>
                   <h3 className="text-lg sm:text-xl font-bold leading-tight drop-shadow-sm">
@@ -126,6 +129,7 @@ export const TopperFelicitation: React.FC = () => {
             <div className="relative overflow-hidden p-6 bg-gradient-to-b from-white via-amber-50/70 to-orange-50/80 rounded-2xl border-2 border-amber-300 shadow-xl">
               <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-[#ea580c] via-[#f59e0b] to-[#1d4ed8]" />
               <span className="inline-block rounded-md bg-orange-100 border border-orange-300 px-2.5 py-0.5 text-[11px] uppercase text-orange-900 font-bold mb-2">
+                <i className="fas fa-graduation-cap mr-1" aria-hidden="true"></i>
                 Scholarship Endowment
               </span>
               <h4 className="text-lg font-bold text-[#0c4a8a] mb-2">
@@ -138,6 +142,7 @@ export const TopperFelicitation: React.FC = () => {
 
               <div className="p-4 bg-gradient-to-r from-[#1d4ed8] to-[#1e3a8a] text-white rounded-xl border border-blue-400 mb-4 shadow-md">
                 <span className="text-[11px] uppercase text-amber-300 font-bold block">
+                  <i className="fas fa-coins mr-1" aria-hidden="true"></i>
                   Merit Cash Scholarship
                 </span>
                 <span className="text-3xl font-extrabold text-white">₹20,000</span>
@@ -148,21 +153,15 @@ export const TopperFelicitation: React.FC = () => {
 
               <ul className="space-y-2.5 text-xs text-slate-800 font-semibold">
                 <li className="flex items-start gap-2 rounded-lg bg-white/90 p-2 border border-amber-200">
-                  <span className="font-bold text-[#d90429]" aria-hidden="true">
-                    &raquo;
-                  </span>
+                  <i className="fas fa-check-circle text-[#d90429] mt-0.5 shrink-0" aria-hidden="true"></i>
                   <span>Full tuition waiver for Higher Secondary studies</span>
                 </li>
                 <li className="flex items-start gap-2 rounded-lg bg-white/90 p-2 border border-amber-200">
-                  <span className="font-bold text-[#d90429]" aria-hidden="true">
-                    &raquo;
-                  </span>
+                  <i className="fas fa-check-circle text-[#d90429] mt-0.5 shrink-0" aria-hidden="true"></i>
                   <span>Priority laboratory and reference library access</span>
                 </li>
                 <li className="flex items-start gap-2 rounded-lg bg-white/90 p-2 border border-amber-200">
-                  <span className="font-bold text-[#d90429]" aria-hidden="true">
-                    &raquo;
-                  </span>
+                  <i className="fas fa-check-circle text-[#d90429] mt-0.5 shrink-0" aria-hidden="true"></i>
                   <span>Personal mentorship by Senior Subject Lecturers</span>
                 </li>
               </ul>
@@ -170,11 +169,13 @@ export const TopperFelicitation: React.FC = () => {
 
             <div className="p-6 bg-gradient-to-br from-[#0c2d57] via-[#1d4ed8] to-[#0f766e] text-white rounded-2xl border-2 border-amber-300/70 shadow-xl">
               <p className="text-xs sm:text-sm text-white leading-relaxed font-medium">
-                “Discipline, daily prayer, and the dedication of my teachers at St. Michael&apos;s
-                Umsning gave me the confidence to compete and excel at the state level.”
+                <i className="fas fa-quote-left text-amber-300 mr-1.5" aria-hidden="true"></i>
+                Discipline, daily prayer, and the dedication of my teachers at St. Michael&apos;s
+                Umsning gave me the confidence to compete and excel at the state level.
               </p>
               <div className="mt-4 pt-3 border-t border-white/20 text-[11px] text-blue-100">
                 <span className="font-bold text-amber-300 block">
+                  <i className="fas fa-user-graduate mr-1" aria-hidden="true"></i>
                   MBOSE SSLC State Merit Holder
                 </span>
                 <span>St. Michael&apos;s Higher Secondary School, Umsning</span>

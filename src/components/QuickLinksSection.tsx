@@ -6,6 +6,7 @@ const quickLinks = [
     detail: 'Nursery to Class XII online enquiry',
     href: '#apply-form',
     badge: 'Open Now',
+    icon: 'fas fa-user-graduate',
     cardClass:
       'bg-gradient-to-br from-[#1d4ed8] to-[#1e3a8a] text-white border-[#3b82f6] shadow-blue-900/20',
     badgeClass: 'bg-amber-300 text-slate-950',
@@ -17,6 +18,7 @@ const quickLinks = [
     detail: 'MBOSE SSLC & XI–XII Streams',
     href: '#academics',
     badge: 'MBOSE',
+    icon: 'fas fa-book-open',
     cardClass:
       'bg-gradient-to-br from-[#ea580c] to-[#c2410c] text-white border-[#fb923c] shadow-orange-900/20',
     badgeClass: 'bg-white text-[#c2410c]',
@@ -28,6 +30,7 @@ const quickLinks = [
     detail: 'SSLC Top 20 & ₹20k Cash Award',
     href: '#toppers',
     badge: 'Top 20',
+    icon: 'fas fa-trophy',
     cardClass:
       'bg-gradient-to-br from-[#0d9488] to-[#0f766e] text-white border-[#2dd4bf] shadow-teal-900/20',
     badgeClass: 'bg-amber-200 text-teal-950',
@@ -39,6 +42,7 @@ const quickLinks = [
     detail: 'Notices, fees, bus & bell routine',
     href: '#hub',
     badge: '6 Notices',
+    icon: 'fas fa-th-large',
     cardClass:
       'bg-gradient-to-br from-[#7c3aed] to-[#5b21b6] text-white border-[#a78bfa] shadow-purple-900/20',
     badgeClass: 'bg-amber-300 text-purple-950',
@@ -55,7 +59,7 @@ export const QuickLinksSection: React.FC = () => (
   >
     <ul className="grid list-none grid-cols-1 gap-3 rounded-2xl border-2 border-amber-300/80 bg-gradient-to-r from-[#eff6ff] via-[#fff7ed] to-[#f0fdf4] p-3 shadow-2xl shadow-slate-950/15 backdrop-blur-md sm:grid-cols-2 lg:grid-cols-4 sm:gap-4 sm:p-4">
       {quickLinks.map(
-        ({ title, detail, href, badge, cardClass, badgeClass, detailClass, arrowClass }) => (
+        ({ title, detail, href, badge, icon, cardClass, badgeClass, detailClass, arrowClass }) => (
           <li key={title}>
             <a
               href={href}
@@ -63,6 +67,7 @@ export const QuickLinksSection: React.FC = () => (
             >
               <span className="min-w-0 flex-1">
                 <span className="flex items-center gap-2">
+                  <i className={`${icon} text-amber-300 text-sm shrink-0`} aria-hidden="true"></i>
                   <span className="truncate text-sm font-bold text-white">&raquo; {title}</span>
                   <span
                     className={`shrink-0 rounded-full px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider ${badgeClass}`}
@@ -75,10 +80,10 @@ export const QuickLinksSection: React.FC = () => (
                 </span>
               </span>
               <span
-                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold transition-all duration-200 group-hover:translate-x-0.5 ${arrowClass}`}
+                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold transition-all duration-200 group-hover:translate-x-0.5 ${arrowClass}`}
                 aria-hidden="true"
               >
-                →
+                <i className="fas fa-arrow-right" aria-hidden="true"></i>
               </span>
             </a>
           </li>

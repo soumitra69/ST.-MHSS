@@ -25,7 +25,10 @@ export const ExcellenceSection: React.FC = () => {
           <div className="toghether-content">
             {/* Left Content */}
             <div className="toghether-left" data-aos="fade-right" data-aos-delay="100">
-              <span className="section-eyebrow">OUR LEGACY SINCE 1961</span>
+              <span className="section-eyebrow">
+                <i className="fas fa-landmark mr-1.5" aria-hidden="true"></i>
+                OUR LEGACY SINCE 1961
+              </span>
               <h2>
                 Together we have
                 <br />
@@ -38,7 +41,7 @@ export const ExcellenceSection: React.FC = () => {
                   onClick={handlePrevQuote}
                   aria-label="Previous highlight"
                 >
-                  <span aria-hidden="true">←</span>
+                  <i className="fas fa-arrow-left" aria-hidden="true"></i>
                 </button>
                 <button
                   type="button"
@@ -46,7 +49,7 @@ export const ExcellenceSection: React.FC = () => {
                   onClick={handleNextQuote}
                   aria-label="Next highlight"
                 >
-                  <span aria-hidden="true">→</span>
+                  <i className="fas fa-arrow-right" aria-hidden="true"></i>
                 </button>
                 <span className="ml-2 text-xs font-mono font-semibold text-slate-500">
                   0{quoteIndex + 1} / 0{excellenceQuotes.length}
@@ -91,6 +94,7 @@ export const ExcellenceSection: React.FC = () => {
                 />
               </div>
               <p>
+                <i className="fas fa-award text-amber-300 mr-1.5" aria-hidden="true"></i>
                 MBOSE has recognized ST. MICHAEL&apos;S with distinction for consistent 100% board
                 clearance and state-level academic honors.
               </p>
@@ -109,7 +113,10 @@ export const ExcellenceSection: React.FC = () => {
                   decoding="async"
                 />
                 <div className="achievement-badge-overlay">
-                  <span>STATE MERIT HONOUR</span>
+                  <span>
+                    <i className="fas fa-trophy mr-1.5" aria-hidden="true"></i>
+                    STATE MERIT HONOUR
+                  </span>
                 </div>
               </div>
             </div>
@@ -129,6 +136,7 @@ export const ExcellenceSection: React.FC = () => {
                 />
               </div>
               <p>
+                <i className="fas fa-medal text-amber-300 mr-1.5" aria-hidden="true"></i>
                 St. Michael&apos;s SSLC Award Body presenting the ₹20,000 cash scholarship cheque to
                 our MBOSE State Top 20 rank holder.
               </p>

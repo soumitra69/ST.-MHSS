@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ChevronDown, Mail, MapPin, Phone } from 'lucide-react';
 import { SCHOOL_INFO } from '../data/schoolData';
 
 interface FAQAndFinalCTAProps {
@@ -60,6 +59,7 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
         <div className="mx-auto max-w-4xl">
           <div className="mb-10 text-center">
             <span className="inline-block rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#ea580c] px-4 py-1 text-xs font-bold uppercase tracking-[0.16em] text-white shadow-sm">
+              <i className="fas fa-question-circle mr-1.5" aria-hidden="true"></i>
               Information for Students &amp; Families
             </span>
             <h2 className="vision-serif-heading mt-3 text-3xl text-[#0c4a8a] sm:text-4xl">
@@ -91,12 +91,12 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
                       className="flex w-full items-center justify-between gap-4 p-5 text-left text-sm font-bold text-[#0c4a8a] hover:bg-white/60 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-[#1B365D] sm:text-base cursor-pointer"
                     >
                       <span>&raquo; {item.question}</span>
-                      <ChevronDown
-                        className={`h-5 w-5 shrink-0 text-[#ea580c] transition-transform motion-reduce:transition-none ${
+                      <i
+                        className={`fas fa-chevron-down shrink-0 text-[#ea580c] transition-transform motion-reduce:transition-none ${
                           isOpen ? 'rotate-180' : ''
                         }`}
                         aria-hidden="true"
-                      />
+                      ></i>
                     </button>
                   </h3>
                   {isOpen && (
@@ -112,6 +112,7 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
           <div className="mt-12 flex flex-col gap-6 rounded-2xl border-2 border-amber-300 bg-gradient-to-r from-[#0c2d57] via-[#1d4ed8] to-[#0f766e] p-6 text-white sm:flex-row sm:items-center sm:justify-between sm:p-9 shadow-2xl">
             <div className="max-w-2xl">
               <span className="inline-block rounded-md bg-amber-400 px-3 py-0.5 text-[11px] font-extrabold uppercase tracking-wider text-slate-950 mb-2">
+                <i className="fas fa-bullhorn mr-1.5" aria-hidden="true"></i>
                 Admissions Open 2026–27
               </span>
               <h3 className="text-xl font-bold sm:text-2xl text-white">
@@ -126,14 +127,14 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
                   className="inline-flex items-center gap-2 hover:text-amber-300"
                   href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`}
                 >
-                  <Phone className="h-4 w-4 text-amber-300" aria-hidden="true" />
+                  <i className="fas fa-phone-alt text-amber-300" aria-hidden="true"></i>
                   {SCHOOL_INFO.phoneMobile}
                 </a>
                 <a
                   className="inline-flex items-center gap-2 hover:text-amber-300"
                   href={`mailto:${SCHOOL_INFO.email}`}
                 >
-                  <Mail className="h-4 w-4 text-amber-300" aria-hidden="true" />
+                  <i className="fas fa-envelope text-amber-300" aria-hidden="true"></i>
                   {SCHOOL_INFO.email}
                 </a>
               </div>
@@ -142,8 +143,9 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
               <button
                 type="button"
                 onClick={onOpenAdmission}
-                className="rounded-xl bg-gradient-to-r from-[#f59e0b] to-[#ea580c] px-5 py-3 text-sm font-extrabold text-white shadow-lg transition-transform hover:scale-[1.02] cursor-pointer"
+                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#f59e0b] to-[#ea580c] px-5 py-3 text-sm font-extrabold text-white shadow-lg transition-transform hover:scale-[1.02] cursor-pointer"
               >
+                <i className="fas fa-paper-plane" aria-hidden="true"></i>
                 Online Admission Form
               </button>
               <button
@@ -151,7 +153,7 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
                 onClick={() => onNavigate('footer')}
                 className="inline-flex items-center gap-2 rounded-xl border-2 border-white/40 bg-white/10 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-white/20 cursor-pointer"
               >
-                <MapPin className="h-4 w-4 text-amber-300" aria-hidden="true" />
+                <i className="fas fa-map-marker-alt text-amber-300" aria-hidden="true"></i>
                 Location &amp; Contact
               </button>
             </div>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Search, X, ArrowRight } from 'lucide-react';
 import { NOTICES, FACULTY_MEMBERS, STREAMS, BUS_ROUTES } from '../data/schoolData';
 
 interface SearchModalProps {
@@ -79,7 +78,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         <div className="p-4 border-b border-slate-200 flex items-center gap-3 bg-slate-50">
-          <Search className="w-5 h-5 text-[#1B365D]" />
+          <i className="fas fa-search text-[#1B365D] text-base" aria-hidden="true"></i>
           <input
             type="text"
             placeholder="Search circulars, admission forms, faculty, bus routes..."
@@ -91,10 +90,10 @@ export const SearchModal: React.FC<SearchModalProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="p-1 rounded-md text-slate-400 hover:text-slate-700 hover:bg-slate-200 transition-colors"
+            className="p-1.5 rounded-md text-slate-400 hover:text-slate-700 hover:bg-slate-200 transition-colors cursor-pointer"
             aria-label="Close search"
           >
-            <X className="w-5 h-5" />
+            <i className="fas fa-times text-base" aria-hidden="true"></i>
           </button>
         </div>
 
@@ -103,6 +102,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
           {matchedNotices.length > 0 && (
             <div>
               <span className="text-[11px] uppercase font-semibold text-[#D97706] block mb-2 px-2">
+                <i className="fas fa-bullhorn mr-1.5" aria-hidden="true"></i>
                 Circulars &amp; Notices
               </span>
               <div className="space-y-1">
@@ -111,7 +111,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                     key={n.id}
                     type="button"
                     onClick={() => handleSelect('hub')}
-                    className="w-full text-left p-2.5 rounded-lg hover:bg-slate-100 transition-colors flex items-center justify-between group"
+                    className="w-full text-left p-2.5 rounded-lg hover:bg-slate-100 transition-colors flex items-center justify-between group cursor-pointer"
                   >
                     <div>
                       <div className="text-xs font-bold text-[#0c4a8a] group-hover:text-[#D97706]">
@@ -121,7 +121,10 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                         {n.description}
                       </div>
                     </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#1B365D] shrink-0" />
+                    <i
+                      className="fas fa-arrow-right text-xs text-slate-400 group-hover:text-[#1B365D] shrink-0"
+                      aria-hidden="true"
+                    ></i>
                   </button>
                 ))}
               </div>
@@ -132,6 +135,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
           {matchedStreams.length > 0 && (
             <div>
               <span className="text-[11px] uppercase font-semibold text-[#1B365D] block mb-2 px-2">
+                <i className="fas fa-graduation-cap mr-1.5" aria-hidden="true"></i>
                 Class XI–XII Streams
               </span>
               <div className="space-y-1">
@@ -140,7 +144,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                     key={idx}
                     type="button"
                     onClick={() => handleSelect('academics')}
-                    className="w-full text-left p-2.5 rounded-lg hover:bg-slate-100 transition-colors flex items-center justify-between group"
+                    className="w-full text-left p-2.5 rounded-lg hover:bg-slate-100 transition-colors flex items-center justify-between group cursor-pointer"
                   >
                     <div>
                       <div className="text-xs font-bold text-[#0c4a8a]">{s.name}</div>
@@ -148,7 +152,10 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                         {s.subjects.join(', ')}
                       </div>
                     </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#1B365D]" />
+                    <i
+                      className="fas fa-arrow-right text-xs text-slate-400 group-hover:text-[#1B365D]"
+                      aria-hidden="true"
+                    ></i>
                   </button>
                 ))}
               </div>
@@ -159,6 +166,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
           {matchedFaculty.length > 0 && (
             <div>
               <span className="text-[11px] uppercase font-semibold text-[#1B365D] block mb-2 px-2">
+                <i className="fas fa-chalkboard-teacher mr-1.5" aria-hidden="true"></i>
                 Faculty Members
               </span>
               <div className="space-y-1">
@@ -167,7 +175,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                     key={f.id}
                     type="button"
                     onClick={() => handleSelect('faculty')}
-                    className="w-full text-left p-2.5 rounded-lg hover:bg-slate-100 transition-colors flex items-center justify-between group"
+                    className="w-full text-left p-2.5 rounded-lg hover:bg-slate-100 transition-colors flex items-center justify-between group cursor-pointer"
                   >
                     <div>
                       <div className="text-xs font-bold text-[#0c4a8a]">{f.name}</div>
@@ -175,7 +183,10 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                         {f.role} • {f.department}
                       </div>
                     </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#1B365D]" />
+                    <i
+                      className="fas fa-arrow-right text-xs text-slate-400 group-hover:text-[#1B365D]"
+                      aria-hidden="true"
+                    ></i>
                   </button>
                 ))}
               </div>
@@ -186,6 +197,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
           {matchedBus.length > 0 && (
             <div>
               <span className="text-[11px] uppercase font-semibold text-[#1B365D] block mb-2 px-2">
+                <i className="fas fa-bus-alt mr-1.5" aria-hidden="true"></i>
                 Bus Routes
               </span>
               <div className="space-y-1">
@@ -194,7 +206,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                     key={idx}
                     type="button"
                     onClick={() => handleSelect('hub')}
-                    className="w-full text-left p-2.5 rounded-lg hover:bg-slate-100 transition-colors flex items-center justify-between group"
+                    className="w-full text-left p-2.5 rounded-lg hover:bg-slate-100 transition-colors flex items-center justify-between group cursor-pointer"
                   >
                     <div>
                       <div className="text-xs font-bold text-[#0c4a8a]">
@@ -204,7 +216,10 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                         {b.stops.join(' ➔ ')}
                       </div>
                     </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#1B365D]" />
+                    <i
+                      className="fas fa-arrow-right text-xs text-slate-400 group-hover:text-[#1B365D]"
+                      aria-hidden="true"
+                    ></i>
                   </button>
                 ))}
               </div>
@@ -225,7 +240,10 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 
         <div className="p-3 bg-slate-50 border-t border-slate-200 text-[11px] text-slate-500 flex items-center justify-between px-4">
           <span>Press ESC or click outside to exit search</span>
-          <span className="text-[#D97706] font-semibold">St. Michael&apos;s Digital Archives</span>
+          <span className="text-[#D97706] font-semibold">
+            <i className="fas fa-archive mr-1" aria-hidden="true"></i>
+            St. Michael&apos;s Digital Archives
+          </span>
         </div>
       </div>
     </div>

@@ -70,7 +70,7 @@ export const AlumniSection: React.FC = () => {
               onClick={handlePrev}
               aria-label="Previous Alumni Testimonial"
             >
-              ←
+              <i className="fas fa-arrow-left" aria-hidden="true"></i>
             </button>
             <button
               type="button"
@@ -78,7 +78,7 @@ export const AlumniSection: React.FC = () => {
               onClick={handleNext}
               aria-label="Next Alumni Testimonial"
             >
-              →
+              <i className="fas fa-arrow-right" aria-hidden="true"></i>
             </button>
           </nav>
         </div>
@@ -95,13 +95,22 @@ export const AlumniSection: React.FC = () => {
               />
             </div>
             <div className="content-area">
-              <span className="badge">ALUMNI &amp; SCHOLARS</span>
-              <p className="testimonial">{current.quote}</p>
+              <span className="badge">
+                <i className="fas fa-user-graduate mr-1.5" aria-hidden="true"></i>
+                ALUMNI &amp; SCHOLARS
+              </span>
+              <p className="testimonial">
+                <i className="fas fa-quote-left mr-2 text-[#ea580c]" aria-hidden="true"></i>
+                {current.quote}
+              </p>
               <hr className="testimonial-hr" />
               <div className="profile-info">
                 <h2>{current.name}</h2>
                 <p className="role">{current.role}</p>
-                <p className="company">{current.company}</p>
+                <p className="company">
+                  <i className="fas fa-award mr-1.5" aria-hidden="true"></i>
+                  {current.company}
+                </p>
               </div>
             </div>
           </div>
@@ -129,7 +138,10 @@ export const AlumniSection: React.FC = () => {
               />
               <div className="alumni-card-meta">
                 <p className="alumni-name">{person.name}</p>
-                <span className="alumni-company-tag">{person.company}</span>
+                <span className="alumni-company-tag">
+                  <i className="fas fa-star mr-1 text-amber-500" aria-hidden="true"></i>
+                  {person.company}
+                </span>
               </div>
             </button>
           ))}

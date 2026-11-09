@@ -2,25 +2,29 @@ import React from 'react';
 import { SCHOOL_INFO } from '../data/schoolData';
 
 const admissionsLinks = [
-  { label: 'Online Admission Enquiry', href: '#apply-form' },
-  { label: 'School Levels & Class XI–XII Streams', href: '#academics' },
-  { label: 'Fee Structure & Transit Calculator', href: '#hub' },
-  { label: 'Frequently Asked Questions', href: '#faq' },
+  { label: 'Online Admission Enquiry', href: '#apply-form', icon: 'fas fa-file-signature' },
+  { label: 'School Levels & Class XI–XII Streams', href: '#academics', icon: 'fas fa-layer-group' },
+  { label: 'Fee Structure & Transit Calculator', href: '#hub', icon: 'fas fa-calculator' },
+  { label: 'Frequently Asked Questions', href: '#faq', icon: 'fas fa-question-circle' },
 ];
 
 const academicsLinks = [
-  { label: 'MBOSE Curriculum & Streams', href: '#academics' },
-  { label: 'State Board Merit Toppers', href: '#toppers' },
-  { label: 'Academic Faculty Directory', href: '#faculty' },
-  { label: 'Academic Spotlight & Labs', href: '#research' },
+  { label: 'MBOSE Curriculum & Streams', href: '#academics', icon: 'fas fa-book-open' },
+  { label: 'State Board Merit Toppers', href: '#toppers', icon: 'fas fa-trophy' },
+  { label: 'Academic Faculty Directory', href: '#faculty', icon: 'fas fa-chalkboard-teacher' },
+  { label: 'Academic Spotlight & Labs', href: '#research', icon: 'fas fa-flask' },
 ];
 
 const othersLinks = [
-  { label: 'Student & Staff Operations Hub', href: '#hub' },
-  { label: 'Campus Life & Synchronized Drill', href: '#campus-life' },
-  { label: 'School Gallery & Student Work', href: '#student-work' },
-  { label: 'Alumni & Scholar Testimonials', href: '#alumni' },
-  { label: 'Live Portal (GitHub Pages)', href: 'https://soumitra69.github.io/ST.-MHSS/' },
+  { label: 'Student & Staff Operations Hub', href: '#hub', icon: 'fas fa-laptop-house' },
+  { label: 'Campus Life & Synchronized Drill', href: '#campus-life', icon: 'fas fa-futbol' },
+  { label: 'School Gallery & Student Work', href: '#gallery', icon: 'fas fa-images' },
+  { label: 'Alumni & Scholar Testimonials', href: '#alumni', icon: 'fas fa-user-graduate' },
+  {
+    label: 'Live Portal (GitHub Pages)',
+    href: 'https://soumitra69.github.io/ST.-MHSS/',
+    icon: 'fas fa-external-link-alt',
+  },
 ];
 
 export const FooterSection: React.FC = () => {
@@ -47,7 +51,10 @@ export const FooterSection: React.FC = () => {
             </div>
 
             <div className="location-details">
-              <h4>—— Locate Our Campus</h4>
+              <h4>
+                <i className="fas fa-map-marked-alt mr-2 text-amber-300" aria-hidden="true"></i>
+                Locate Our Campus
+              </h4>
               <div className="address-block">
                 <h3>ST. MICHAEL&apos;S HIGHER SECONDARY SCHOOL</h3>
                 <p>{SCHOOL_INFO.address}</p>
@@ -82,7 +89,7 @@ export const FooterSection: React.FC = () => {
                 rel="noreferrer"
                 className="navigation-button"
               >
-                <i className="fas fa-arrow-right"></i>
+                <i className="fas fa-directions"></i>
                 <span>Get Directions on Google Maps</span>
               </a>
             </div>
@@ -90,11 +97,17 @@ export const FooterSection: React.FC = () => {
 
           {/* Admissions Section */}
           <div className="footer-column" data-aos="fade-up" data-aos-delay="100">
-            <h3>ADMISSIONS</h3>
+            <h3>
+              <i className="fas fa-user-plus mr-2 text-amber-300" aria-hidden="true"></i>
+              ADMISSIONS
+            </h3>
             <ul className="footer-menu">
               {admissionsLinks.map((item) => (
                 <li key={item.label}>
-                  <a href={item.href}>{item.label}</a>
+                  <a href={item.href}>
+                    <i className={`${item.icon} mr-2 text-xs text-amber-300`} aria-hidden="true"></i>
+                    {item.label}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -102,11 +115,17 @@ export const FooterSection: React.FC = () => {
 
           {/* Academics Section */}
           <div className="footer-column" data-aos="fade-up" data-aos-delay="200">
-            <h3>ACADEMICS</h3>
+            <h3>
+              <i className="fas fa-graduation-cap mr-2 text-amber-300" aria-hidden="true"></i>
+              ACADEMICS
+            </h3>
             <ul className="footer-menu">
               {academicsLinks.map((item) => (
                 <li key={item.label}>
-                  <a href={item.href}>{item.label}</a>
+                  <a href={item.href}>
+                    <i className={`${item.icon} mr-2 text-xs text-amber-300`} aria-hidden="true"></i>
+                    {item.label}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -114,7 +133,10 @@ export const FooterSection: React.FC = () => {
 
           {/* Others Section */}
           <div className="footer-column" data-aos="fade-up" data-aos-delay="300">
-            <h3>CAMPUS &amp; PORTAL</h3>
+            <h3>
+              <i className="fas fa-compass mr-2 text-amber-300" aria-hidden="true"></i>
+              CAMPUS &amp; PORTAL
+            </h3>
             <ul className="footer-menu">
               {othersLinks.map((item) => (
                 <li key={item.label}>
@@ -123,6 +145,7 @@ export const FooterSection: React.FC = () => {
                     target={item.href.startsWith('http') ? '_blank' : undefined}
                     rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
                   >
+                    <i className={`${item.icon} mr-2 text-xs text-amber-300`} aria-hidden="true"></i>
                     {item.label}
                   </a>
                 </li>

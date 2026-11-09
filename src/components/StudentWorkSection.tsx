@@ -1,18 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Award,
-  Compass,
-  Trophy,
-  Music,
-  Maximize2,
-  X,
-  ChevronLeft,
-  ChevronRight,
-  Calendar,
-  MapPin,
-  Camera,
-} from 'lucide-react';
 import { SCHOOL_IMAGES } from '../data/schoolAssets';
 
 type GalleryCategory = 'all' | 'merit' | 'fieldwork' | 'sports' | 'culture';
@@ -27,6 +14,7 @@ interface GalleryItem {
   caption: string;
   img: string;
   theme: 'blue' | 'orange' | 'emerald' | 'purple' | 'crimson' | 'amber';
+  iconClass: string;
 }
 
 const GALLERY_ITEMS: GalleryItem[] = [
@@ -41,6 +29,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
       'Graduating Higher Secondary scholars in traditional Khasi attire and formal blazer dress alongside the Principal, Missionary Sisters, and faculty with championship shields.',
     img: SCHOOL_IMAGES.graduatingBatch,
     theme: 'blue',
+    iconClass: 'fas fa-user-graduate',
   },
   {
     id: 'state-ceremony-felicitation',
@@ -53,6 +42,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
       'State dignitaries felicitating St. Michael’s SSLC State Merit holder Ms. Darihunlangoshisha Rani (577/600, 96.17%) with the official citation and cash award.',
     img: SCHOOL_IMAGES.stateCeremony,
     theme: 'orange',
+    iconClass: 'fas fa-trophy',
   },
   {
     id: 'geography-class-xii-fieldwork',
@@ -65,6 +55,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
       'Senior Secondary Geography scholars and faculty mentors conducting on-site terrain, settlement, and socio-economic survey work across Ri-Bhoi District.',
     img: SCHOOL_IMAGES.geographyFieldwork,
     theme: 'emerald',
+    iconClass: 'fas fa-compass',
   },
   {
     id: 'panoramic-morning-assembly',
@@ -77,6 +68,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
       'A panoramic view of our disciplined morning assembly with students lined up in crisp rows across the pine-ringed Umsning campus courtyard.',
     img: SCHOOL_IMAGES.panoramicAssembly,
     theme: 'purple',
+    iconClass: 'fas fa-users',
   },
   {
     id: 'green-house-champions',
@@ -89,6 +81,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
       'Green and Teal House athletes proudly displaying their National Sports Day medals and merit certificates alongside their physical education mentor.',
     img: SCHOOL_IMAGES.sportsGreenChampions,
     theme: 'emerald',
+    iconClass: 'fas fa-medal',
   },
   {
     id: 'cultural-troupe-courtyard',
@@ -101,6 +94,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
       'Students performing a synchronized cultural dance and choral presentation in the central courtyard surrounded by cheering house galleries.',
     img: SCHOOL_IMAGES.culturalTroupe,
     theme: 'crimson',
+    iconClass: 'fas fa-music',
   },
   {
     id: 'award-citation-handover',
@@ -113,6 +107,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
       'Presentation of the Rs. 30,000 state excellence cheque and trophy honouring St. Michael’s consistent 100% MBOSE board pass legacy.',
     img: SCHOOL_IMAGES.awardPresentation,
     theme: 'amber',
+    iconClass: 'fas fa-award',
   },
   {
     id: 'botanical-excursion-team',
@@ -125,6 +120,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
       'Science and Humanities students documenting local flora, watershed patterns, and conservation practices during guided outdoor fieldwork.',
     img: SCHOOL_IMAGES.fieldwork,
     theme: 'blue',
+    iconClass: 'fas fa-seedling',
   },
   {
     id: 'certificate-winners-lineup',
@@ -137,6 +133,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
       'Merit certificate and shield recipients honoured in front of the entire student body for excellence in debate, quiz, science exhibition, and board subjects.',
     img: SCHOOL_IMAGES.certificateWinners,
     theme: 'orange',
+    iconClass: 'fas fa-certificate',
   },
   {
     id: 'school-choir-harmony',
@@ -149,6 +146,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
       'Our celebrated student choir performing four-part sacred hymns, school anthems, and Khasi choral compositions during special feast day celebrations.',
     img: SCHOOL_IMAGES.choir,
     theme: 'purple',
+    iconClass: 'fas fa-microphone-alt',
   },
   {
     id: 'inter-house-track-relay',
@@ -161,6 +159,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
       'Track and field champions from Blue, Green, Yellow, and Red houses celebrating victory on the school athletic field.',
     img: SCHOOL_IMAGES.sports,
     theme: 'crimson',
+    iconClass: 'fas fa-running',
   },
   {
     id: 'eco-plantation-stewards',
@@ -173,15 +172,16 @@ const GALLERY_ITEMS: GalleryItem[] = [
       'Eco Club volunteers nurturing native saplings to preserve the lush pine and subtropical greenery of our 15-acre Ri-Bhoi campus.',
     img: SCHOOL_IMAGES.environment,
     theme: 'emerald',
+    iconClass: 'fas fa-tree',
   },
 ];
 
-const FILTER_TABS: { id: GalleryCategory; label: string; icon: React.ReactNode }[] = [
-  { id: 'all', label: 'All Campus Photos (12)', icon: <Camera size={16} /> },
-  { id: 'merit', label: 'State Merit & Awards', icon: <Award size={16} /> },
-  { id: 'fieldwork', label: 'Fieldwork & Research', icon: <Compass size={16} /> },
-  { id: 'sports', label: '4-House Sports & Drill', icon: <Trophy size={16} /> },
-  { id: 'culture', label: 'Cultural, Choir & Eco', icon: <Music size={16} /> },
+const FILTER_TABS: { id: GalleryCategory; label: string; iconClass: string }[] = [
+  { id: 'all', label: 'All Campus Photos (12)', iconClass: 'fas fa-camera' },
+  { id: 'merit', label: 'State Merit & Awards', iconClass: 'fas fa-award' },
+  { id: 'fieldwork', label: 'Fieldwork & Research', iconClass: 'fas fa-compass' },
+  { id: 'sports', label: '4-House Sports & Drill', iconClass: 'fas fa-trophy' },
+  { id: 'culture', label: 'Cultural, Choir & Eco', iconClass: 'fas fa-music' },
 ];
 
 export const StudentWorkSection: React.FC = () => {
@@ -225,6 +225,7 @@ export const StudentWorkSection: React.FC = () => {
         >
           <div className="work-gallery-title-group">
             <span className="section-sub-badge work-eyebrow-pill">
+              <i className="fas fa-images mr-1.5" aria-hidden="true"></i>
               INNOVATION &amp; DISCIPLINE IN ACTION • AUTHENTIC CAMPUS ARCHIVE
             </span>
             <h2 className="student-work-heading">» Campus Gallery &amp; Student Work</h2>
@@ -250,7 +251,7 @@ export const StudentWorkSection: React.FC = () => {
                     setLightboxIndex(null);
                   }}
                 >
-                  {tab.icon}
+                  <i className={tab.iconClass} aria-hidden="true"></i>
                   <span>{tab.label}</span>
                 </button>
               );
@@ -285,7 +286,10 @@ export const StudentWorkSection: React.FC = () => {
                   }}
                 >
                   <img src={item.img} alt={item.title} loading="lazy" decoding="async" />
-                  <span className="work-card-category-badge">{item.categoryLabel}</span>
+                  <span className="work-card-category-badge">
+                    <i className={`${item.iconClass} mr-1.5`} aria-hidden="true"></i>
+                    {item.categoryLabel}
+                  </span>
                   <button
                     type="button"
                     className="work-card-zoom-btn"
@@ -295,17 +299,17 @@ export const StudentWorkSection: React.FC = () => {
                     }}
                     aria-label={`Enlarge ${item.title}`}
                   >
-                    <Maximize2 size={15} /> Inspect Photo
+                    <i className="fas fa-expand" aria-hidden="true"></i> Inspect Photo
                   </button>
                 </div>
 
                 <div className="work-card-body">
                   <div className="work-card-meta">
                     <span>
-                      <Calendar size={13} /> {item.dateTag}
+                      <i className="fas fa-calendar-alt text-[#1d4ed8]" aria-hidden="true"></i> {item.dateTag}
                     </span>
                     <span>
-                      <MapPin size={13} /> {item.location}
+                      <i className="fas fa-map-marker-alt text-[#ea580c]" aria-hidden="true"></i> {item.location}
                     </span>
                   </div>
                   <h3 className="work-card-title">{item.title}</h3>
@@ -340,7 +344,7 @@ export const StudentWorkSection: React.FC = () => {
                 onClick={() => setLightboxIndex(null)}
                 aria-label="Close gallery preview"
               >
-                <X size={20} />
+                <i className="fas fa-times" aria-hidden="true"></i>
               </button>
 
               <div className="gallery-lightbox-stage">
@@ -352,7 +356,7 @@ export const StudentWorkSection: React.FC = () => {
                   }
                   aria-label="Previous photo"
                 >
-                  <ChevronLeft size={22} />
+                  <i className="fas fa-chevron-left" aria-hidden="true"></i>
                 </button>
                 <img src={activePhoto.img} alt={activePhoto.title} />
                 <button
@@ -361,13 +365,16 @@ export const StudentWorkSection: React.FC = () => {
                   onClick={() => setLightboxIndex((lightboxIndex + 1) % filteredItems.length)}
                   aria-label="Next photo"
                 >
-                  <ChevronRight size={22} />
+                  <i className="fas fa-chevron-right" aria-hidden="true"></i>
                 </button>
               </div>
 
               <div className="gallery-lightbox-footer">
                 <div>
-                  <span className="gallery-lightbox-tag">{activePhoto.categoryLabel}</span>
+                  <span className="gallery-lightbox-tag">
+                    <i className={`${activePhoto.iconClass} mr-1`} aria-hidden="true"></i>
+                    {activePhoto.categoryLabel}
+                  </span>
                   <h4>{activePhoto.title}</h4>
                   <p>{activePhoto.caption}</p>
                 </div>

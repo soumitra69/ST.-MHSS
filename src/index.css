@@ -7911,3 +7911,23 @@ body,
     padding: 16px !important;
   }
 }
+
+
+/* Ensure Font Awesome 6 Free & Brands Icon Fonts Always Render Crisp */
+.fas,
+.fa-solid {
+  font-family: 'Font Awesome 6 Free' !important;
+  font-weight: 900 !important;
+}
+
+.far,
+.fa-regular {
+  font-family: 'Font Awesome 6 Free' !important;
+  font-weight: 400 !important;
+}
+
+.fab,
+.fa-brands {
+  font-family: 'Font Awesome 6 Brands' !important;
+  font-weight: 400 !important;
+}

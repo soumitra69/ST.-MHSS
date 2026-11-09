@@ -4,16 +4,19 @@ import { resolveSchoolAsset } from '../data/schoolAssets';
 const researchCategories = [
   {
     title: 'Regional Geography Fieldwork',
+    icon: 'fas fa-compass',
     description:
       'Class XII Geography and Environmental Science students participate in annual field surveys across the Ri Bhoi watershed, mapping soil conservation, forest ecology, and local rural livelihoods.',
   },
   {
     title: 'Modern Science Laboratories',
+    icon: 'fas fa-flask',
     description:
       'Dedicated Physics, Chemistry, Biology, and Computer Science laboratories equipped for hands-on experiments, scientific demonstrations, and MBOSE practical examinations.',
   },
   {
     title: 'State Honors & Scholarships',
+    icon: 'fas fa-award',
     description:
       "St. Michael's SSLC Award Body provides merit recognition and scholarships of ₹20,000 for state board toppers, felicitated by the Hon'ble Chief Minister of Meghalaya.",
   },
@@ -25,11 +28,13 @@ const researchGalleryPairs = [
       url: resolveSchoolAsset('/assets/aistudio/WhatsApp_Image_2026-11-08_at_2.05.15_PM__1__81637a2c.jpeg'),
       alt: 'Class XII Geography Fieldwork Excursion',
       tag: 'Field Excursion',
+      icon: 'fas fa-route',
     },
     {
       url: resolveSchoolAsset('/assets/aistudio/WhatsApp_Image_2026-11-08_at_2.04.53_PM_bd53e2d5.jpeg'),
       alt: 'Eco Club Tree Plantation Drive',
       tag: 'Eco Conservation',
+      icon: 'fas fa-leaf',
     },
   ],
   [
@@ -37,20 +42,22 @@ const researchGalleryPairs = [
       url: resolveSchoolAsset('/assets/aistudio/WhatsApp_Image_2026-11-08_at_2.04.10_PM__2__df242174.jpeg'),
       alt: 'Chief Minister Conrad Sangma Felicitating Topper',
       tag: 'State Honors',
+      icon: 'fas fa-trophy',
     },
     {
       url: resolveSchoolAsset('/assets/aistudio/WhatsApp_Image_2026-11-08_at_2.05.21_PM_eeb467f8.jpeg'),
       alt: 'Senior Choral Ensemble and Harmonies',
       tag: 'Performing Arts',
+      icon: 'fas fa-music',
     },
   ],
 ];
 
 const metrics = [
-  { value: '2,000+', label: 'Learners Enrolled (KG–XII)' },
-  { value: '100%', label: 'MBOSE Board Pass Record' },
-  { value: 'Top 20', label: 'Meghalaya State Merit Rank' },
-  { value: '₹20,000', label: 'Scholarship Award Endowment' },
+  { value: '2,000+', label: 'Learners Enrolled (KG–XII)', icon: 'fas fa-user-graduate' },
+  { value: '100%', label: 'MBOSE Board Pass Record', icon: 'fas fa-check-circle' },
+  { value: 'Top 20', label: 'Meghalaya State Merit Rank', icon: 'fas fa-trophy' },
+  { value: '₹20,000', label: 'Scholarship Award Endowment', icon: 'fas fa-coins' },
 ];
 
 export const ResearchSection: React.FC = () => {
@@ -88,8 +95,13 @@ export const ResearchSection: React.FC = () => {
                   className={`menu-option ${activeCategory === idx ? 'active' : ''}`}
                   onClick={() => setActiveCategory(idx)}
                 >
-                  <span>{cat.title}</span>
-                  <span className="menu-arrow">›</span>
+                  <span className="inline-flex items-center gap-2.5">
+                    <i className={cat.icon} aria-hidden="true"></i>
+                    {cat.title}
+                  </span>
+                  <span className="menu-arrow">
+                    <i className="fas fa-chevron-right text-sm" aria-hidden="true"></i>
+                  </span>
                 </button>
               ))}
             </div>
@@ -109,7 +121,10 @@ export const ResearchSection: React.FC = () => {
                   data-aos="zoom-in"
                   data-aos-delay={100 * (idx + 1)}
                 >
-                  <div className="metric-value">{metric.value}</div>
+                  <div className="metric-value">
+                    <i className={`${metric.icon} mr-2 text-lg`} aria-hidden="true"></i>
+                    {metric.value}
+                  </div>
                   <div className="metric-label">{metric.label}</div>
                 </div>
               ))}
@@ -125,7 +140,10 @@ export const ResearchSection: React.FC = () => {
                     loading="lazy"
                     decoding="async"
                   />
-                  <span className="photo-tag">{photo.tag}</span>
+                  <span className="photo-tag">
+                    <i className={`${photo.icon} mr-1.5`} aria-hidden="true"></i>
+                    {photo.tag}
+                  </span>
                 </div>
               ))}
 
@@ -137,7 +155,7 @@ export const ResearchSection: React.FC = () => {
                     onClick={handlePrevGallery}
                     aria-label="Previous photos"
                   >
-                    ←
+                    <i className="fas fa-arrow-left" aria-hidden="true"></i>
                   </button>
                   <button
                     type="button"
@@ -145,11 +163,14 @@ export const ResearchSection: React.FC = () => {
                     onClick={handleNextGallery}
                     aria-label="Next photos"
                   >
-                    →
+                    <i className="fas fa-arrow-right" aria-hidden="true"></i>
                   </button>
                 </div>
                 <a href="#hub" className="resource-link">
-                  View Student Hub Resources <span>›</span>
+                  View Student Hub Resources{' '}
+                  <span>
+                    <i className="fas fa-chevron-right text-xs" aria-hidden="true"></i>
+                  </span>
                 </a>
               </div>
             </div>

@@ -11,6 +11,7 @@ const academicStages = [
     number: '01',
     name: 'Early Years Foundation',
     classes: 'Nursery & Kindergarten (KG I – II)',
+    icon: 'fas fa-child',
     detail:
       'Activity-based foundational literacy, numeracy, phonics, and joyful socialization in a nurturing setting.',
     image: SCHOOL_IMAGES.campus,
@@ -24,6 +25,7 @@ const academicStages = [
     number: '02',
     name: 'Primary School',
     classes: 'Classes I – V',
+    icon: 'fas fa-book-reader',
     detail:
       'Core languages (English & Khasi), environmental studies, mathematics, and moral character instruction.',
     image: SCHOOL_IMAGES.houseAssembly,
@@ -37,6 +39,7 @@ const academicStages = [
     number: '03',
     name: 'Upper Primary & Secondary',
     classes: 'Classes VI – X (MBOSE SSLC)',
+    icon: 'fas fa-flask',
     detail:
       'Comprehensive board preparation with laboratory practicals, computer literacy, and merit mentoring.',
     image: SCHOOL_IMAGES.geographyFieldwork,
@@ -50,6 +53,7 @@ const academicStages = [
     number: '04',
     name: 'Higher Secondary (HSSLC)',
     classes: 'Classes XI – XII (Science, Arts & Commerce)',
+    icon: 'fas fa-user-graduate',
     detail:
       'Specialized pre-university streams with dedicated laboratories, fieldwork, and career counselling.',
     image: SCHOOL_IMAGES.graduatingBatch,
@@ -60,6 +64,8 @@ const academicStages = [
     tagColor: 'text-blue-800 bg-blue-100 border-blue-200',
   },
 ];
+
+const STREAM_ICONS = ['fas fa-atom', 'fas fa-landmark', 'fas fa-chart-line'];
 
 export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmission }) => {
   const [selectedStream, setSelectedStream] = useState(0);
@@ -73,6 +79,7 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
         <header className="mb-10 flex flex-col justify-between gap-5 border-b-2 border-blue-300/60 pb-7 sm:flex-row sm:items-end md:mb-12">
           <div className="max-w-3xl">
             <span className="inline-block rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#0d9488] px-4 py-1 text-xs font-bold uppercase tracking-[0.16em] text-white shadow-sm">
+              <i className="fas fa-graduation-cap mr-1.5" aria-hidden="true"></i>
               MBOSE Curriculum • Nursery to Class XII
             </span>
             <h2 className="vision-serif-heading mt-3 text-3xl leading-tight text-[#0c4a8a] sm:text-4xl">
@@ -95,6 +102,7 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
               number,
               name,
               classes,
+              icon,
               detail,
               image,
               imageAlt,
@@ -119,6 +127,7 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
                   <span
                     className={`absolute top-3 left-3 rounded-lg px-3 py-1 text-xs font-extrabold tracking-wider shadow-md ${badgeClass}`}
                   >
+                    <i className={`${icon} mr-1.5`} aria-hidden="true"></i>
                     STAGE {number}
                   </span>
                 </div>
@@ -149,6 +158,7 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
           <div className="flex flex-col justify-between gap-4 border-b border-blue-200 pb-6 lg:flex-row lg:items-center">
             <div>
               <span className="inline-block rounded-md bg-orange-100 border border-orange-300 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-orange-900">
+                <i className="fas fa-university mr-1.5" aria-hidden="true"></i>
                 Higher Secondary Section (MBOSE HSSLC)
               </span>
               <h3 className="vision-serif-heading mt-2 text-2xl text-[#0c4a8a] sm:text-3xl">
@@ -181,12 +191,13 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
                     role="tab"
                     aria-selected={isSelected}
                     onClick={() => setSelectedStream(index)}
-                    className={`rounded-xl px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                    className={`rounded-xl px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition-all cursor-pointer inline-flex items-center gap-1.5 ${
                       isSelected
                         ? activeColors[index % activeColors.length]
                         : 'border border-blue-200 bg-white text-[#0c4a8a] hover:bg-blue-50'
                     }`}
                   >
+                    <i className={STREAM_ICONS[index % STREAM_ICONS.length]} aria-hidden="true"></i>
                     {shortLabel}
                   </button>
                 );
@@ -204,6 +215,7 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
 
               <div className="mt-5 space-y-2.5">
                 <p className="text-xs font-bold uppercase tracking-wider text-[#ea580c]">
+                  <i className="fas fa-star mr-1" aria-hidden="true"></i>
                   Department Highlights
                 </p>
                 {STREAMS[selectedStream].features.map((feat) => (
@@ -211,9 +223,7 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
                     key={feat}
                     className="flex items-start gap-2.5 rounded-lg bg-blue-50/70 px-3 py-2 text-xs font-medium text-slate-800 sm:text-sm"
                   >
-                    <span className="font-bold text-[#d90429]" aria-hidden="true">
-                      &raquo;
-                    </span>
+                    <i className="fas fa-check-circle text-[#d90429] mt-0.5 shrink-0" aria-hidden="true"></i>
                     <span>{feat}</span>
                   </div>
                 ))}
@@ -223,6 +233,7 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
             <div className="grid gap-6 sm:grid-cols-2 lg:col-span-7">
               <div className="rounded-xl border-2 border-blue-200 bg-gradient-to-br from-blue-50/90 to-white p-5 shadow-sm">
                 <p className="text-xs font-bold uppercase tracking-wider text-[#1d4ed8]">
+                  <i className="fas fa-book mr-1.5" aria-hidden="true"></i>
                   Core &amp; Elective Subjects (MBOSE)
                 </p>
                 <div className="mt-3 flex flex-wrap gap-2">
@@ -231,6 +242,7 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
                       key={subject}
                       className="rounded-lg border border-blue-300 bg-white px-3 py-1.5 text-xs font-bold text-[#0c4a8a] shadow-xs"
                     >
+                      <i className="fas fa-check mr-1 text-[10px] text-blue-600" aria-hidden="true"></i>
                       {subject}
                     </span>
                   ))}
@@ -239,6 +251,7 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
 
               <div className="rounded-xl border-2 border-orange-200 bg-gradient-to-br from-orange-50/90 to-white p-5 shadow-sm">
                 <p className="text-xs font-bold uppercase tracking-wider text-[#ea580c]">
+                  <i className="fas fa-briefcase mr-1.5" aria-hidden="true"></i>
                   University &amp; Career Pathways
                 </p>
                 <ul className="mt-3 space-y-2">
@@ -247,9 +260,7 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
                       key={career}
                       className="flex items-center gap-2 rounded-lg bg-white/90 px-3 py-1.5 text-xs font-semibold text-slate-800 border border-orange-200/70"
                     >
-                      <span className="font-bold text-[#d90429]" aria-hidden="true">
-                        &raquo;
-                      </span>
+                      <i className="fas fa-arrow-circle-right text-[#d90429]" aria-hidden="true"></i>
                       <span>{career}</span>
                     </li>
                   ))}
@@ -268,8 +279,9 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
               onClick={onOpenAdmission}
               className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-xl bg-gradient-to-r from-[#f59e0b] to-[#ea580c] px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-md transition-transform hover:scale-[1.02] cursor-pointer"
             >
+              <i className="fas fa-paper-plane" aria-hidden="true"></i>
               <span>Apply for Admission</span>
-              <span aria-hidden="true">→</span>
+              <i className="fas fa-arrow-right" aria-hidden="true"></i>
             </button>
           </div>
         </div>

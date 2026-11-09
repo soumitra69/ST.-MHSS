@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { X, GraduationCap, CheckCircle2, ChevronRight, ChevronLeft, Printer } from 'lucide-react';
 import { SCHOOL_INFO } from '../data/schoolData';
 
 interface AdmissionsModalProps {
@@ -24,18 +23,20 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
     parentEmail: '',
     address: '',
     needsBus: false,
-    agreeRules: false
+    agreeRules: false,
   });
 
   if (!isOpen) return null;
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
     const { name, value, type } = e.target;
     if (type === 'checkbox') {
       const checked = (e.target as HTMLInputElement).checked;
-      setFormData(prev => ({ ...prev, [name]: checked }));
+      setFormData((prev) => ({ ...prev, [name]: checked }));
     } else {
-      setFormData(prev => ({ ...prev, [name]: value }));
+      setFormData((prev) => ({ ...prev, [name]: value }));
     }
   };
 
@@ -57,29 +58,30 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto" onClick={resetForm}>
+    <div
+      className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
+      onClick={resetForm}
+    >
       <div
         className="bg-white rounded-2xl max-w-xl w-full shadow-2xl border-2 border-slate-200 overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-150"
         onClick={(e) => e.stopPropagation()}
       >
-        
         {/* Header */}
-        <div className="p-5 bg-[#1B365D] text-white flex items-center justify-between">
+        <div className="p-5 bg-gradient-to-r from-[#0c2d57] to-[#1d4ed8] text-white flex items-center justify-between">
           <div>
             <h3 className="text-base font-bold uppercase tracking-tight">
-              &raquo; Academic Session 2026–27 Admission
+              <i className="fas fa-user-graduate mr-2 text-amber-300" aria-hidden="true"></i>
+              Academic Session 2026–27 Admission
             </h3>
-            <p className="text-xs text-slate-200">
-              {SCHOOL_INFO.name}
-            </p>
+            <p className="text-xs text-slate-200">{SCHOOL_INFO.name}</p>
           </div>
           <button
             type="button"
             onClick={resetForm}
-            className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+            className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
             aria-label="Close modal"
           >
-            <X className="w-5 h-5" />
+            <i className="fas fa-times text-base" aria-hidden="true"></i>
           </button>
         </div>
 
@@ -87,15 +89,15 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
         {!submitted && (
           <div className="px-6 py-3 bg-slate-50 border-b border-slate-200 flex items-center justify-between text-xs">
             <span className={`font-bold ${step === 1 ? 'text-[#1B365D]' : 'text-slate-400'}`}>
-              1. Student Details
+              <i className="fas fa-id-card mr-1" aria-hidden="true"></i>1. Student Details
             </span>
-            <span className="text-slate-300">➔</span>
+            <i className="fas fa-chevron-right text-[10px] text-slate-300" aria-hidden="true"></i>
             <span className={`font-bold ${step === 2 ? 'text-[#1B365D]' : 'text-slate-400'}`}>
-              2. Guardian &amp; Contact
+              <i className="fas fa-users mr-1" aria-hidden="true"></i>2. Guardian &amp; Contact
             </span>
-            <span className="text-slate-300">➔</span>
+            <i className="fas fa-chevron-right text-[10px] text-slate-300" aria-hidden="true"></i>
             <span className={`font-bold ${step === 3 ? 'text-[#1B365D]' : 'text-slate-400'}`}>
-              3. Verification &amp; Submit
+              <i className="fas fa-check-double mr-1" aria-hidden="true"></i>3. Submit
             </span>
           </div>
         )}
@@ -105,13 +107,14 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
           {submitted ? (
             <div className="text-center space-y-4 py-4">
               <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
-                <CheckCircle2 className="w-10 h-10" />
+                <i className="fas fa-check-circle text-3xl" aria-hidden="true"></i>
               </div>
               <h4 className="text-xl font-extrabold text-[#1B365D]">
                 Application Successfully Registered!
               </h4>
               <p className="text-xs text-slate-600 max-w-md mx-auto leading-relaxed">
-                Your online admission enquiry has been filed with the {SCHOOL_INFO.name} Admissions Secretariat.
+                Your online admission enquiry has been filed with the {SCHOOL_INFO.name} Admissions
+                Secretariat.
               </p>
 
               <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 text-left max-w-md mx-auto text-xs space-y-1.5">
@@ -129,7 +132,9 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-500">Status:</span>
-                  <span className="text-emerald-700 font-bold">Provisional Verification Pending</span>
+                  <span className="text-emerald-700 font-bold">
+                    Provisional Verification Pending
+                  </span>
                 </div>
               </div>
 
@@ -137,15 +142,15 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
                 <button
                   type="button"
                   onClick={handlePrint}
-                  className="py-2.5 px-5 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold uppercase tracking-wider rounded-lg flex items-center justify-center gap-2"
+                  className="py-2.5 px-5 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold uppercase tracking-wider rounded-lg flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <Printer className="w-4 h-4 text-[#1B365D]" />
+                  <i className="fas fa-print text-[#1B365D]" aria-hidden="true"></i>
                   <span>Print Acknowledgement Slip</span>
                 </button>
                 <button
                   type="button"
                   onClick={resetForm}
-                  className="py-2.5 px-6 bg-[#1B365D] text-white text-xs font-bold uppercase tracking-wider rounded-lg"
+                  className="py-2.5 px-6 bg-[#1B365D] text-white text-xs font-bold uppercase tracking-wider rounded-lg cursor-pointer"
                 >
                   Done
                 </button>
@@ -153,7 +158,6 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
             </div>
           ) : (
             <form onSubmit={handleSubmit}>
-              
               {/* STEP 1: STUDENT INFORMATION */}
               {step === 1 && (
                 <div className="space-y-4">
@@ -214,12 +218,18 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
                     >
                       <option value="Nursery / Kindergarten">Nursery / Kindergarten</option>
                       <option value="Class I to V (Primary)">Class I to V (Primary)</option>
-                      <option value="Class VI to VIII (Upper Primary)">Class VI to VIII (Upper Primary)</option>
+                      <option value="Class VI to VIII (Upper Primary)">
+                        Class VI to VIII (Upper Primary)
+                      </option>
                       <option value="Class IX (Secondary)">Class IX (Secondary)</option>
                       <option value="Class X (SSLC Board)">Class X (SSLC Board)</option>
-                      <option value="Class XI Science">Class XI Science (Higher Secondary)</option>
+                      <option value="Class XI Science">
+                        Class XI Science (Higher Secondary)
+                      </option>
                       <option value="Class XI Arts">Class XI Arts (Higher Secondary)</option>
-                      <option value="Class XI Commerce">Class XI Commerce (Higher Secondary)</option>
+                      <option value="Class XI Commerce">
+                        Class XI Commerce (Higher Secondary)
+                      </option>
                     </select>
                   </div>
 
@@ -257,10 +267,10 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
                       type="button"
                       onClick={() => setStep(2)}
                       disabled={!formData.studentName || !formData.dob}
-                      className="py-2.5 px-6 bg-[#1B365D] hover:bg-[#0F1D38] disabled:opacity-50 text-white text-xs font-bold uppercase tracking-wider rounded-lg flex items-center gap-1.5"
+                      className="py-2.5 px-6 bg-[#1B365D] hover:bg-[#0F1D38] disabled:opacity-50 text-white text-xs font-bold uppercase tracking-wider rounded-lg flex items-center gap-1.5 cursor-pointer"
                     >
                       <span>Proceed to Guardian Info</span>
-                      <ChevronRight className="w-4 h-4" />
+                      <i className="fas fa-chevron-right text-xs" aria-hidden="true"></i>
                     </button>
                   </div>
                 </div>
@@ -330,7 +340,10 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
                   </div>
 
                   <div className="pt-2 flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-700">Require School Bus Service?</span>
+                    <span className="text-xs font-bold text-slate-700">
+                      <i className="fas fa-bus-alt mr-1.5 text-[#1B365D]" aria-hidden="true"></i>
+                      Require School Bus Service?
+                    </span>
                     <input
                       type="checkbox"
                       name="needsBus"
@@ -344,19 +357,19 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
                     <button
                       type="button"
                       onClick={() => setStep(1)}
-                      className="py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg flex items-center gap-1"
+                      className="py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg flex items-center gap-1.5 cursor-pointer"
                     >
-                      <ChevronLeft className="w-4 h-4" />
+                      <i className="fas fa-chevron-left text-xs" aria-hidden="true"></i>
                       <span>Back</span>
                     </button>
                     <button
                       type="button"
                       onClick={() => setStep(3)}
                       disabled={!formData.parentName || !formData.parentPhone}
-                      className="py-2.5 px-6 bg-[#1B365D] hover:bg-[#0F1D38] disabled:opacity-50 text-white text-xs font-bold uppercase tracking-wider rounded-lg flex items-center gap-1.5"
+                      className="py-2.5 px-6 bg-[#1B365D] hover:bg-[#0F1D38] disabled:opacity-50 text-white text-xs font-bold uppercase tracking-wider rounded-lg flex items-center gap-1.5 cursor-pointer"
                     >
                       <span>Review &amp; Confirm</span>
-                      <ChevronRight className="w-4 h-4" />
+                      <i className="fas fa-chevron-right text-xs" aria-hidden="true"></i>
                     </button>
                   </div>
                 </div>
@@ -367,15 +380,31 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
                 <div className="space-y-4">
                   <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-2">
                     <div className="font-bold text-[#1B365D] uppercase pb-1 border-b border-slate-200">
+                      <i className="fas fa-clipboard-check mr-1.5" aria-hidden="true"></i>
                       Summary of Application
                     </div>
                     <div className="grid grid-cols-2 gap-2 text-slate-700">
-                      <div><strong className="text-slate-900">Applicant:</strong> {formData.studentName}</div>
-                      <div><strong className="text-slate-900">Seeking:</strong> {formData.targetClass}</div>
-                      <div><strong className="text-slate-900">Parent/Guardian:</strong> {formData.parentName}</div>
-                      <div><strong className="text-slate-900">Contact:</strong> {formData.parentPhone}</div>
-                      <div><strong className="text-slate-900">Bus Service:</strong> {formData.needsBus ? 'Yes' : 'No'}</div>
-                      <div><strong className="text-slate-900">Date of Birth:</strong> {formData.dob}</div>
+                      <div>
+                        <strong className="text-slate-900">Applicant:</strong>{' '}
+                        {formData.studentName}
+                      </div>
+                      <div>
+                        <strong className="text-slate-900">Seeking:</strong> {formData.targetClass}
+                      </div>
+                      <div>
+                        <strong className="text-slate-900">Parent/Guardian:</strong>{' '}
+                        {formData.parentName}
+                      </div>
+                      <div>
+                        <strong className="text-slate-900">Contact:</strong> {formData.parentPhone}
+                      </div>
+                      <div>
+                        <strong className="text-slate-900">Bus Service:</strong>{' '}
+                        {formData.needsBus ? 'Yes' : 'No'}
+                      </div>
+                      <div>
+                        <strong className="text-slate-900">Date of Birth:</strong> {formData.dob}
+                      </div>
                     </div>
                   </div>
 
@@ -390,7 +419,9 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
                       className="mt-1 w-4 h-4 text-[#1B365D] rounded focus:ring-[#1B365D]"
                     />
                     <label htmlFor="agree" className="text-xs text-slate-600 leading-snug">
-                      I declare that the information provided is correct to the best of my knowledge, and agree to abide by the school rules, uniform code, and MBOSE regulations.
+                      I declare that the information provided is correct to the best of my
+                      knowledge, and agree to abide by the school rules, uniform code, and MBOSE
+                      regulations.
                     </label>
                   </div>
 
@@ -398,26 +429,25 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
                     <button
                       type="button"
                       onClick={() => setStep(2)}
-                      className="py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg flex items-center gap-1"
+                      className="py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg flex items-center gap-1.5 cursor-pointer"
                     >
-                      <ChevronLeft className="w-4 h-4" />
+                      <i className="fas fa-chevron-left text-xs" aria-hidden="true"></i>
                       <span>Back</span>
                     </button>
                     <button
                       type="submit"
                       disabled={!formData.agreeRules}
-                      className="py-2.5 px-7 bg-[#D97706] hover:bg-[#B45309] disabled:opacity-50 text-white text-xs font-bold uppercase tracking-wider rounded-lg shadow"
+                      className="py-2.5 px-7 bg-[#D97706] hover:bg-[#B45309] disabled:opacity-50 text-white text-xs font-bold uppercase tracking-wider rounded-lg shadow cursor-pointer"
                     >
+                      <i className="fas fa-paper-plane mr-1.5" aria-hidden="true"></i>
                       Submit Official Application
                     </button>
                   </div>
                 </div>
               )}
-
             </form>
           )}
         </div>
-
       </div>
     </div>
   );

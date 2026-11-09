@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import { Play, Pause, Volume2, VolumeX, Maximize2 } from 'lucide-react';
 import { SCHOOL_IMAGES, resolveSchoolAsset } from '../data/schoolAssets';
 
 export const VideoDrillSection: React.FC = () => {
@@ -12,19 +11,21 @@ export const VideoDrillSection: React.FC = () => {
     drill: {
       src: resolveSchoolAsset('/assets/aistudio/WhatsApp_Video_2026-11-08_at_2.05.12_PM_d0ce48a7.mp4'),
       poster: SCHOOL_IMAGES.campusAssembly,
-      title: "Mass Synchronized PT & Musical Drill Display",
-      category: "Physical Education & Drill Tradition",
+      title: 'Mass Synchronized PT & Musical Drill Display',
+      category: 'Physical Education & Drill Tradition',
       tagline: "Over 200 students performing in precision formation on the St. Michael's courtyard arena.",
-      details: "Discipline of movement, rhythm, and unity. St. Michael's annual drill combines physical fitness, precision marching, and choreographed musical formations under the Umsning skies."
+      details:
+        "Discipline of movement, rhythm, and unity. St. Michael's annual drill combines physical fitness, precision marching, and choreographed musical formations under the Umsning skies.",
     },
     choir: {
       src: resolveSchoolAsset('/assets/aistudio/WhatsApp_Video_2026-11-08_at_2.05.18_PM_44300432.mp4'),
       poster: SCHOOL_IMAGES.choir,
       title: "St. Michael's Choral Ensemble & Vocals",
-      category: "Diocesan Choral Tradition",
-      tagline: "Harmonious choral singing and musical celebration by the senior school choir.",
-      details: "Rooted in Catholic hymnology and Khasi cultural melody, the school choir enriches morning assemblies, diocesan feasts, and state-level choral festivals."
-    }
+      category: 'Diocesan Choral Tradition',
+      tagline: 'Harmonious choral singing and musical celebration by the senior school choir.',
+      details:
+        'Rooted in Catholic hymnology and Khasi cultural melody, the school choir enriches morning assemblies, diocesan feasts, and state-level choral festivals.',
+    },
   };
 
   const current = videoData[activeVideo];
@@ -62,22 +63,29 @@ export const VideoDrillSection: React.FC = () => {
   };
 
   return (
-    <section id="media" className="w-full py-16 md:py-24 bg-[#0F1D38] text-white border-b border-[#1B365D]">
+    <section
+      id="media"
+      className="w-full py-16 md:py-24 bg-gradient-to-br from-[#0F1D38] via-[#1e3a8a] to-[#0f4c5c] text-white border-b border-[#1B365D]"
+    >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
             <div className="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-[#F59E0B] mb-2">
+              <i className="fas fa-film" aria-hidden="true"></i>
               <span>Campus Life in Motion</span>
               <span className="text-white/40">•</span>
               <span>Athletics &amp; Performing Arts</span>
             </div>
             <h2 className="vision-serif-heading text-3xl sm:text-4xl text-white">
-              <span className="vision-double-angle text-amber-400" aria-hidden="true">&raquo;</span> The Living Spirit of 2,000 Students
+              <span className="vision-double-angle text-amber-400" aria-hidden="true">
+                &raquo;
+              </span>{' '}
+              The Living Spirit of 2,000 Students
             </h2>
-            <p className="mt-2 text-slate-300 text-sm sm:text-base max-w-2xl leading-relaxed">
-              Experience the synchronized energy and musical discipline that define daily student life at St. Michael&apos;s Higher Secondary School, Umsning.
+            <p className="mt-2 text-slate-200 text-sm sm:text-base max-w-2xl leading-relaxed">
+              Experience the synchronized energy and musical discipline that define daily student
+              life at St. Michael&apos;s Higher Secondary School, Umsning.
             </p>
           </div>
 
@@ -86,23 +94,25 @@ export const VideoDrillSection: React.FC = () => {
             <button
               type="button"
               onClick={() => handleSwitchVideo('drill')}
-              className={`px-4 py-2.5 text-xs font-semibold uppercase tracking-wider rounded-lg transition-all ${
+              className={`px-4 py-2.5 text-xs font-semibold uppercase tracking-wider rounded-lg transition-all cursor-pointer ${
                 activeVideo === 'drill'
-                  ? 'bg-[#D97706] text-white shadow-md'
-                  : 'text-slate-300 hover:text-white'
+                  ? 'bg-[#ea580c] text-white shadow-md'
+                  : 'text-slate-200 hover:text-white'
               }`}
             >
+              <i className="fas fa-users mr-1.5" aria-hidden="true"></i>
               Synchronized Drill
             </button>
             <button
               type="button"
               onClick={() => handleSwitchVideo('choir')}
-              className={`px-4 py-2.5 text-xs font-semibold uppercase tracking-wider rounded-lg transition-all ${
+              className={`px-4 py-2.5 text-xs font-semibold uppercase tracking-wider rounded-lg transition-all cursor-pointer ${
                 activeVideo === 'choir'
-                  ? 'bg-[#D97706] text-white shadow-md'
-                  : 'text-slate-300 hover:text-white'
+                  ? 'bg-[#ea580c] text-white shadow-md'
+                  : 'text-slate-200 hover:text-white'
               }`}
             >
+              <i className="fas fa-music mr-1.5" aria-hidden="true"></i>
               Choral Ensemble
             </button>
           </div>
@@ -110,10 +120,9 @@ export const VideoDrillSection: React.FC = () => {
 
         {/* Video Player + Information Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          
           {/* Main Video Viewport */}
           <div className="lg:col-span-8">
-            <div className="relative rounded-2xl overflow-hidden bg-black border-2 border-white/20 shadow-2xl group">
+            <div className="relative rounded-2xl overflow-hidden bg-black border-2 border-amber-400/70 shadow-2xl group">
               <video
                 key={current.src}
                 ref={videoRef}
@@ -137,10 +146,11 @@ export const VideoDrillSection: React.FC = () => {
                   aria-label={`Play ${current.title}`}
                   className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-black/80 via-black/35 to-black/20 transition-opacity group-hover:bg-black/45 cursor-pointer"
                 >
-                  <span className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#D97706] hover:bg-[#B45309] text-white flex items-center justify-center shadow-2xl ring-4 ring-white/30 transition-transform duration-300 group-hover:scale-105">
-                    <Play className="w-7 h-7 sm:w-8 sm:h-8 fill-current ml-1" />
+                  <span className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-r from-[#f59e0b] to-[#ea580c] text-white flex items-center justify-center shadow-2xl ring-4 ring-white/30 transition-transform duration-300 group-hover:scale-105">
+                    <i className="fas fa-play text-xl sm:text-2xl ml-1" aria-hidden="true"></i>
                   </span>
                   <span className="mt-3 px-3.5 py-1 rounded-full bg-black/65 border border-white/20 text-xs font-semibold uppercase tracking-wider text-amber-300 backdrop-blur-xs">
+                    <i className="fas fa-video mr-1.5" aria-hidden="true"></i>
                     Click to Watch Campus Video
                   </span>
                 </button>
@@ -151,78 +161,88 @@ export const VideoDrillSection: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleTogglePlay}
-                  className="p-2 bg-black/65 hover:bg-black/85 rounded-lg text-white text-xs backdrop-blur-xs transition-colors"
+                  className="w-9 h-9 bg-black/65 hover:bg-black/85 rounded-lg text-white text-xs backdrop-blur-xs transition-colors flex items-center justify-center cursor-pointer"
                   aria-label={isPlaying ? 'Pause' : 'Play'}
                 >
-                  {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+                  <i className={`fas ${isPlaying ? 'fa-pause' : 'fa-play'}`} aria-hidden="true"></i>
                 </button>
                 <button
                   type="button"
                   onClick={handleToggleMute}
-                  className="p-2 bg-black/65 hover:bg-black/85 rounded-lg text-white text-xs backdrop-blur-xs transition-colors"
+                  className="w-9 h-9 bg-black/65 hover:bg-black/85 rounded-lg text-white text-xs backdrop-blur-xs transition-colors flex items-center justify-center cursor-pointer"
                   aria-label="Toggle Mute"
                 >
-                  {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                  <i
+                    className={`fas ${isMuted ? 'fa-volume-mute' : 'fa-volume-up'}`}
+                    aria-hidden="true"
+                  ></i>
                 </button>
                 <button
                   type="button"
                   onClick={handleFullscreen}
-                  className="p-2 bg-black/65 hover:bg-black/85 rounded-lg text-white text-xs backdrop-blur-xs transition-colors"
+                  className="w-9 h-9 bg-black/65 hover:bg-black/85 rounded-lg text-white text-xs backdrop-blur-xs transition-colors flex items-center justify-center cursor-pointer"
                   aria-label="Fullscreen"
                 >
-                  <Maximize2 className="w-4 h-4" />
+                  <i className="fas fa-expand" aria-hidden="true"></i>
                 </button>
               </div>
             </div>
 
-            <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-300">
-              <span>Recorded live on campus at St. Michael&apos;s Higher Secondary School, Umsning</span>
-              <span className="text-[#F59E0B] font-semibold">Annual Sports &amp; Choral Showcase</span>
+            <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-200">
+              <span>
+                <i className="fas fa-map-marker-alt mr-1.5 text-amber-400" aria-hidden="true"></i>
+                Recorded live on campus at St. Michael&apos;s Higher Secondary School, Umsning
+              </span>
+              <span className="text-[#F59E0B] font-semibold">
+                <i className="fas fa-trophy mr-1" aria-hidden="true"></i>
+                Annual Sports &amp; Choral Showcase
+              </span>
             </div>
           </div>
 
           {/* Right Column: Context & Drill Philosophy */}
           <div className="lg:col-span-4 space-y-5">
-            <div className="p-6 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-xs">
+            <div className="p-6 bg-white/10 rounded-2xl border border-white/20 backdrop-blur-xs">
               <span className="text-xs uppercase tracking-wider text-[#F59E0B] font-semibold block mb-2">
+                <i className="fas fa-star mr-1" aria-hidden="true"></i>
                 {current.category}
               </span>
-              <h3 className="text-xl font-bold text-white mb-2">
-                &raquo; {current.title}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal mb-4">
+              <h3 className="text-xl font-bold text-white mb-2">&raquo; {current.title}</h3>
+              <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-normal mb-4">
                 {current.details}
               </p>
 
-              <div className="space-y-3 pt-4 border-t border-white/10 text-xs text-slate-200">
+              <div className="space-y-3 pt-4 border-t border-white/15 text-xs text-slate-100">
                 <div className="flex items-center gap-2.5">
-                  <span className="font-bold text-[#F59E0B]">&raquo;</span>
+                  <i className="fas fa-check-circle text-[#F59E0B]" aria-hidden="true"></i>
                   <span>Weekly synchronized drill &amp; aerobic posture conditioning</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <span className="font-bold text-[#F59E0B]">&raquo;</span>
+                  <i className="fas fa-check-circle text-[#F59E0B]" aria-hidden="true"></i>
                   <span>Annual Archangel house points awarded for precision</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <span className="font-bold text-[#F59E0B]">&raquo;</span>
+                  <i className="fas fa-check-circle text-[#F59E0B]" aria-hidden="true"></i>
                   <span>Full spectator gallery on tiered amphitheatre stairs</span>
                 </div>
               </div>
             </div>
 
             {/* Quick Athletic / Choral Note */}
-            <div className="p-5 bg-white/5 rounded-2xl border border-white/10 text-xs">
+            <div className="p-5 bg-white/10 rounded-2xl border border-white/20 text-xs">
               <div className="flex items-center justify-between mb-2">
-                <span className="font-bold text-white">&raquo; Daily Community Assembly</span>
+                <span className="font-bold text-white">
+                  <i className="fas fa-bell mr-1.5 text-amber-400" aria-hidden="true"></i>
+                  Daily Community Assembly
+                </span>
               </div>
-              <p className="text-slate-300 leading-relaxed font-normal">
-                Every morning, students assemble across the central courtyard for prayer, physical drill, and the singing of the school hymn in English and Khasi.
+              <p className="text-slate-200 leading-relaxed font-normal">
+                Every morning, students assemble across the central courtyard for prayer, physical
+                drill, and the singing of the school hymn in English and Khasi.
               </p>
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
   );

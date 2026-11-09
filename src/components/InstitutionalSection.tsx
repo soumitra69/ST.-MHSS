@@ -12,6 +12,7 @@ const heritagePillars = [
   {
     title: 'Diocesan Heritage',
     badge: 'Since 1961',
+    icon: 'fas fa-church',
     detail:
       'Serving families across Ri Bhoi District under the Catholic Diocese of Shillong since 1961.',
     cardStyle:
@@ -21,6 +22,7 @@ const heritagePillars = [
   {
     title: 'Holistic Formation',
     badge: '4 Houses',
+    icon: 'fas fa-shield-alt',
     detail:
       'Integrating classroom excellence with synchronized drill, choral music, and ecological stewardship.',
     cardStyle:
@@ -30,6 +32,7 @@ const heritagePillars = [
   {
     title: 'Inclusive Community',
     badge: '2,000+ Scholars',
+    icon: 'fas fa-users',
     detail:
       'Welcoming over 2,000 boys and girls from Umsning and surrounding towns from Nursery to Class XII.',
     cardStyle:
@@ -49,6 +52,7 @@ export const InstitutionalSection: React.FC = () => (
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
           <div className="rounded-2xl border border-blue-200/80 bg-white/90 p-7 shadow-lg shadow-blue-950/5 backdrop-blur-xs sm:p-9">
             <span className="inline-block rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#ea580c] px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-white shadow-xs">
+              <i className="fas fa-landmark mr-1.5" aria-hidden="true"></i>
               St. Michael&apos;s Higher Secondary School • Umsning
             </span>
             <h2 className="vision-serif-heading mt-4 text-3xl sm:text-4xl text-[#0c4a8a]">
@@ -65,8 +69,9 @@ export const InstitutionalSection: React.FC = () => (
               <strong>{SCHOOL_INFO.mottoLatin}</strong> &amp;{' '}
               <strong>{SCHOOL_INFO.mottoKhasi}</strong> ({SCHOOL_INFO.mottoMeaning}).
             </p>
-            <a href="#why-us" className="vision-read-more mt-5 inline-block">
-              Read More
+            <a href="#why-us" className="vision-read-more mt-5 inline-flex items-center gap-1.5">
+              <span>Read More</span>
+              <i className="fas fa-arrow-right text-xs" aria-hidden="true"></i>
             </a>
           </div>
 
@@ -77,7 +82,10 @@ export const InstitutionalSection: React.FC = () => (
                 className={`rounded-xl border p-5 shadow-md transition-transform duration-200 hover:-translate-y-0.5 ${pillar.cardStyle}`}
               >
                 <div className="flex items-center justify-between gap-2">
-                  <div className="text-sm font-bold text-[#0c4a8a]">&raquo; {pillar.title}</div>
+                  <div className="text-sm font-bold text-[#0c4a8a]">
+                    <i className={`${pillar.icon} mr-1.5 text-[#ea580c]`} aria-hidden="true"></i>
+                    &raquo; {pillar.title}
+                  </div>
                   <span
                     className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${pillar.badgeStyle}`}
                   >
@@ -109,8 +117,9 @@ export const InstitutionalSection: React.FC = () => (
               discipline, compassion, and confidence so learners make a lasting difference in their
               families and communities.
             </p>
-            <a href="#academics" className="vision-read-more mt-6 inline-block">
-              Read More
+            <a href="#academics" className="vision-read-more mt-6 inline-flex items-center gap-1.5">
+              <span>Read More</span>
+              <i className="fas fa-arrow-right text-xs" aria-hidden="true"></i>
             </a>
           </article>
 
@@ -131,8 +140,9 @@ export const InstitutionalSection: React.FC = () => (
               justice, and holistic care for the whole person — ever upward,{' '}
               <em>{SCHOOL_INFO.mottoLatin}</em> and <em>{SCHOOL_INFO.mottoKhasi}</em>.
             </p>
-            <a href="#apply-form" className="vision-read-more mt-6 inline-block">
-              Read More
+            <a href="#apply-form" className="vision-read-more mt-6 inline-flex items-center gap-1.5">
+              <span>Read More</span>
+              <i className="fas fa-arrow-right text-xs" aria-hidden="true"></i>
             </a>
           </article>
         </div>
@@ -155,11 +165,13 @@ export const InstitutionalSection: React.FC = () => (
               decoding="async"
             />
             <div className="absolute bottom-4 left-4 rounded-lg bg-gradient-to-r from-[#1d4ed8] to-[#ea580c] px-4 py-2 text-xs font-bold text-white shadow-lg">
+              <i className="fas fa-monument mr-1.5" aria-hidden="true"></i>
               S.M.H.S.S. Archangel Tower • Umsning (Estd. 1961)
             </div>
           </div>
           <div className="flex flex-col justify-center bg-gradient-to-br from-white via-blue-50/40 to-amber-50/50 p-6 sm:p-10 lg:p-14">
             <span className="inline-block w-fit rounded-md bg-amber-100 px-3 py-1 text-xs font-bold uppercase tracking-widest text-amber-900 border border-amber-300">
+              <i className="fas fa-history mr-1.5" aria-hidden="true"></i>
               Founded in 1961 • 65 Years of Service
             </span>
             <h2 className="vision-serif-heading mt-3 text-2xl sm:text-3xl text-[#0c4a8a]">
@@ -176,9 +188,11 @@ export const InstitutionalSection: React.FC = () => (
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4 border-t border-blue-200 pt-5 text-xs font-bold uppercase tracking-wider text-[#0c4a8a]">
               <span className="rounded-md bg-blue-100 px-3 py-1 text-[#0c4a8a]">
+                <i className="fas fa-cross mr-1.5" aria-hidden="true"></i>
                 Catholic Diocese of Shillong
               </span>
               <span className="rounded-md bg-rose-100 px-3 py-1 text-[#c61c49]">
+                <i className="fas fa-map-marker-alt mr-1.5" aria-hidden="true"></i>
                 Umsning, Meghalaya
               </span>
             </div>
@@ -203,11 +217,13 @@ export const InstitutionalSection: React.FC = () => (
               decoding="async"
             />
             <div className="absolute top-4 right-4 rounded-full bg-amber-400 px-3.5 py-1 text-xs font-extrabold uppercase tracking-wider text-slate-950 shadow-md">
+              <i className="fas fa-chalkboard-teacher mr-1.5" aria-hidden="true"></i>
               68+ Dedicated Educators
             </div>
           </div>
           <div className="order-2 flex flex-col justify-center bg-gradient-to-br from-white via-sky-50/50 to-orange-50/40 p-6 sm:p-10 lg:p-14 md:order-1">
             <span className="inline-block w-fit rounded-md bg-orange-100 px-3 py-1 text-xs font-bold uppercase tracking-widest text-orange-900 border border-orange-300">
+              <i className="fas fa-user-tie mr-1.5" aria-hidden="true"></i>
               From The Principal&apos;s Desk
             </span>
             <h2 className="vision-serif-heading mt-3 text-2xl sm:text-3xl text-[#0c4a8a]">
@@ -228,9 +244,7 @@ export const InstitutionalSection: React.FC = () => (
                   key={value}
                   className="flex items-start gap-2.5 rounded-lg bg-blue-50/80 px-3.5 py-2 text-sm font-medium text-[#0c4a8a] border border-blue-100"
                 >
-                  <span className="font-bold text-[#d90429]" aria-hidden="true">
-                    &raquo;
-                  </span>
+                  <i className="fas fa-check-circle text-[#d90429] mt-1 shrink-0" aria-hidden="true"></i>
                   <span>{value}</span>
                 </li>
               ))}
@@ -243,6 +257,7 @@ export const InstitutionalSection: React.FC = () => (
                 </p>
               </div>
               <span className="rounded-lg bg-gradient-to-r from-[#1d4ed8] to-[#ea580c] px-3.5 py-1.5 text-xs font-bold text-white shadow-sm">
+                <i className="fas fa-award mr-1" aria-hidden="true"></i>
                 Estd. 1961
               </span>
             </div>

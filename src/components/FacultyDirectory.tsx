@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Search } from 'lucide-react';
 import { FACULTY_MEMBERS } from '../data/schoolData';
 
 const CARD_THEMES = [
@@ -65,6 +64,7 @@ export const FacultyDirectory: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#7c3aed] px-4 py-1 text-xs font-bold tracking-wider uppercase text-white shadow-sm mb-3">
+              <i className="fas fa-chalkboard-teacher" aria-hidden="true"></i>
               <span>Mentors &amp; Academic Leadership</span>
               <span>•</span>
               <span>68+ Certified Educators</span>
@@ -82,10 +82,10 @@ export const FacultyDirectory: React.FC = () => {
           </div>
 
           <div className="relative w-full md:w-72 shrink-0">
-            <Search
-              className="w-4 h-4 text-blue-600 absolute left-3 top-1/2 -translate-y-1/2"
+            <i
+              className="fas fa-search text-blue-600 text-xs absolute left-3.5 top-1/2 -translate-y-1/2"
               aria-hidden="true"
-            />
+            ></i>
             <input
               type="text"
               placeholder="Search faculty or subject..."
@@ -110,6 +110,7 @@ export const FacultyDirectory: React.FC = () => {
                   : 'bg-white border border-blue-200 text-[#0c4a8a] hover:bg-blue-50'
               }`}
             >
+              <i className="fas fa-layer-group mr-1.5 text-[10px]" aria-hidden="true"></i>
               {dept}
             </button>
           ))}
@@ -139,11 +140,7 @@ export const FacultyDirectory: React.FC = () => {
                       <div
                         className={`w-12 h-12 rounded-full flex items-center justify-center font-extrabold text-sm shadow-md shrink-0 ${theme.avatar}`}
                       >
-                        {member.name
-                          .split(' ')
-                          .map((n) => n[0])
-                          .slice(0, 2)
-                          .join('')}
+                        <i className="fas fa-user-tie" aria-hidden="true"></i>
                       </div>
                     )}
                     <div className="min-w-0">
@@ -156,19 +153,25 @@ export const FacultyDirectory: React.FC = () => {
 
                   <div className="space-y-1.5 text-xs text-slate-700 border-t border-slate-200/80 pt-3">
                     <div className="flex items-center justify-between gap-2">
-                      <span className="font-semibold text-slate-500">Dept:</span>
+                      <span className="font-semibold text-slate-500">
+                        <i className="fas fa-building mr-1 text-blue-600" aria-hidden="true"></i>Dept:
+                      </span>
                       <span className="font-bold text-slate-900 text-right">
                         {member.department}
                       </span>
                     </div>
                     <div className="flex items-center justify-between gap-2">
-                      <span className="font-semibold text-slate-500">Credentials:</span>
+                      <span className="font-semibold text-slate-500">
+                        <i className="fas fa-graduation-cap mr-1 text-orange-600" aria-hidden="true"></i>Degree:
+                      </span>
                       <span className="font-semibold text-slate-800 text-right">
                         {member.qualification}
                       </span>
                     </div>
                     <div className="flex items-center justify-between gap-2">
-                      <span className="font-semibold text-slate-500">Experience:</span>
+                      <span className="font-semibold text-slate-500">
+                        <i className="fas fa-award mr-1 text-teal-600" aria-hidden="true"></i>Exp:
+                      </span>
                       <span className="font-bold text-[#1d4ed8] text-right">
                         {member.experience}
                       </span>
@@ -177,9 +180,12 @@ export const FacultyDirectory: React.FC = () => {
                 </div>
 
                 <div className="mt-4 pt-2.5 border-t border-slate-200/70 text-[11px] font-bold flex items-center justify-between">
-                  <span className="text-slate-600">St. Michael&apos;s Umsning</span>
+                  <span className="text-slate-600">
+                    <i className="fas fa-school mr-1 text-[#0c4a8a]" aria-hidden="true"></i>
+                    St. Michael&apos;s Umsning
+                  </span>
                   <span className={`rounded-md border px-2 py-0.5 text-[10px] ${theme.badge}`}>
-                    MBOSE
+                    <i className="fas fa-check-circle mr-1" aria-hidden="true"></i>MBOSE
                   </span>
                 </div>
               </div>
