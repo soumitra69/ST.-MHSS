@@ -10706,7 +10706,7 @@ button,
 /* 1. Top Scroll Progress Bar & Alert Bar — Clean Solid Institutional Colours */
 .scroll-progress-bar {
   background: #d97706 !important;
-  box-shadow: 0 0 8px rgba(217, 119, 6, 0.45) !important;
+  box-shadow: none !important;
 }
 
 .alert-bar {
@@ -10717,7 +10717,7 @@ button,
 .main-header {
   background: #ffffff !important;
   border-bottom: 2px solid #0c4a8a !important;
-  box-shadow: 0 6px 22px rgba(12, 45, 87, 0.08) !important;
+  box-shadow: none !important;
 }
 
 .umoid-box {
@@ -10888,7 +10888,6 @@ button,
   background: #0c4a8a !important;
   color: #ffffff !important;
   border-color: #0c4a8a !important;
-  box-shadow: 0 8px 20px rgba(12, 74, 138, 0.22) !important;
 }
 
 /* 6. Solid Institutional Primary Buttons & Solid Colour-Changing Hovers (No Mixed Gradients) */
@@ -11591,3 +11590,150 @@ section {
     max-width: none !important;
   }
 }
+
+/* ==========================================================================
+   26. GLOBAL NO RESTING BOX-SHADOW — HOVER-ONLY BOX-SHADOW SYSTEM
+       Removes All Default Box-Shadows Across the Entire Website;
+       Shows Box-Shadow Strictly on :hover / :focus-visible
+   ========================================================================== */
+
+/* 26A. Remove ALL Resting / Default Box-Shadows Across the Entire Website */
+html body *:not(:hover):not(:focus-visible),
+html body *:not(:hover):not(:focus-visible)::before,
+html body *:not(:hover):not(:focus-visible)::after {
+  box-shadow: none !important;
+}
+
+/* Keep Page Layout & Structural Containers Free of Box-Shadow at All Times */
+html,
+body,
+.app-wrapper,
+main,
+header,
+footer,
+section,
+.container,
+.main-header,
+.alert-bar,
+.scroll-progress-track,
+.scroll-progress-bar {
+  box-shadow: none !important;
+}
+
+/* 26B. Smooth Hover Shadow Transition for All Cards, Boxes & Interactive Elements */
+.shadow-xs,
+.shadow-sm,
+.shadow,
+.shadow-md,
+.shadow-lg,
+.shadow-xl,
+.shadow-2xl,
+.registration-form,
+.quote-box,
+.excellence-auto-banner,
+.achievement-card,
+.vision-card,
+.toghather-right .box,
+.stat-box,
+.certificate-item,
+.life-featured-banner,
+.life-photo-card,
+.life-kpi-card,
+.life-cta-strip,
+.metric-block,
+.menu-option,
+.image-card,
+.space-facility-card,
+.campus-event-card,
+.prospectus-callback-banner,
+.prospectus-action-card,
+.prospectus-app-card,
+.callback-input-group,
+.work-gallery-card,
+.work-stat-pill,
+.hub-kpi-card,
+.hub-notice-card,
+.hub-routine-card,
+.hub-exam-card,
+.hub-house-card,
+.hub-bus-card,
+.hub-fee-stage-card,
+.hub-payment-card,
+.hub-staff-card,
+.hub-result-card,
+.hub-helpdesk-banner,
+.featured-section,
+.alumni-card,
+.family-kpi-card,
+.family-spotlight-card,
+.family-highlights-box,
+.family-voice-card,
+.family-cta-banner,
+#faq article,
+.footer-top-ribbon,
+.footer-contact-card,
+.footer-map-card,
+.ask-chat-panel {
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease !important;
+}
+
+/* 26C. Show Crisp Institutional Box-Shadow ONLY on :hover */
+.shadow-xs:hover,
+.shadow-sm:hover,
+.shadow:hover,
+.shadow-md:hover,
+.shadow-lg:hover,
+.shadow-xl:hover,
+.shadow-2xl:hover,
+.registration-form:hover,
+.quote-box:hover,
+.excellence-auto-banner:hover,
+.achievement-card:hover,
+.vision-card:hover,
+.toghather-right .box:hover,
+.stat-box:hover,
+.certificate-item:hover,
+.life-featured-banner:hover,
+.life-photo-card:hover,
+.life-kpi-card:hover,
+.life-cta-strip:hover,
+.metric-block:hover,
+.menu-option:hover,
+.image-card:hover,
+.space-facility-card:hover,
+.campus-event-card:hover,
+.prospectus-callback-banner:hover,
+.prospectus-action-card:hover,
+.prospectus-app-card:hover,
+.callback-input-group:hover,
+.work-gallery-card:hover,
+.work-stat-pill:hover,
+.hub-kpi-card:hover,
+.hub-notice-card:hover,
+.hub-routine-card:hover,
+.hub-exam-card:hover,
+.hub-house-card:hover,
+.hub-bus-card:hover,
+.hub-fee-stage-card:hover,
+.hub-payment-card:hover,
+.hub-staff-card:hover,
+.hub-result-card:hover,
+.hub-helpdesk-banner:hover,
+.featured-section:hover,
+.alumni-card:hover,
+.family-kpi-card:hover,
+.family-spotlight-card:hover,
+.family-highlights-box:hover,
+.family-voice-card:hover,
+.family-cta-banner:hover,
+#faq article:hover,
+.footer-top-ribbon:hover,
+.footer-contact-card:hover,
+.footer-map-card:hover,
+.ask-chat-panel:hover {
+  box-shadow: 0 14px 32px rgba(12, 45, 87, 0.18) !important;
+}
+
