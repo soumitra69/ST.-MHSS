@@ -1,24 +1,169 @@
 import React, { useState } from 'react';
-import { 
-  Bell, 
-  Calendar, 
-  Clock, 
-  Download, 
-  Users, 
-  CreditCard, 
-  Bus, 
-  Shield, 
-  Search, 
-  CheckCircle, 
+import {
+  Bell,
+  Calendar,
+  Clock,
+  Download,
+  Users,
+  CreditCard,
+  Bus,
+  Shield,
+  Search,
+  CheckCircle,
   Award,
   ChevronRight,
   Check,
-  X
+  X,
+  FileText,
+  Phone,
+  MapPin,
+  Trophy,
+  BookOpen,
+  ClipboardCheck,
+  Lock,
+  Sparkles,
+  Printer,
+  AlertCircle,
+  ArrowUpRight,
+  GraduationCap,
+  Layers,
 } from 'lucide-react';
-import { NOTICES, HOUSES, FEE_STRUCTURE, BUS_ROUTES, SCHOOL_INFO, Notice } from '../data/schoolData';
+import {
+  NOTICES,
+  HOUSES,
+  FEE_STRUCTURE,
+  BUS_ROUTES,
+  SCHOOL_INFO,
+  Notice,
+} from '../data/schoolData';
+
+const HOUSE_THEMES = [
+  {
+    accent: '#DC2626',
+    softBg: 'rgba(220, 38, 38, 0.08)',
+    border: 'rgba(220, 38, 38, 0.28)',
+    badgeBg: '#B91C1C',
+    patron: 'Archangel of Courage & Justice',
+  },
+  {
+    accent: '#1D4ED8',
+    softBg: 'rgba(29, 78, 216, 0.08)',
+    border: 'rgba(29, 78, 216, 0.28)',
+    badgeBg: '#1E40AF',
+    patron: 'Archangel of Strength & Heraldry',
+  },
+  {
+    accent: '#047857',
+    softBg: 'rgba(4, 120, 87, 0.08)',
+    border: 'rgba(4, 120, 87, 0.28)',
+    badgeBg: '#065F46',
+    patron: 'Archangel of Healing & Science',
+  },
+  {
+    accent: '#D97706',
+    softBg: 'rgba(217, 119, 6, 0.08)',
+    border: 'rgba(217, 119, 6, 0.28)',
+    badgeBg: '#B45309',
+    patron: 'Archangel of Wisdom & Light',
+  },
+];
+
+const BELL_SCHEDULE = [
+  { time: '08:30 AM', period: 'Assembly', title: 'First Bell & Courtyard Line Formation', detail: 'House-wise alignment on the central amphitheatre arena' },
+  { time: '08:45 AM', period: 'Prayer', title: 'Morning Prayer, School Hymn & Campus News', detail: 'Choral hymn in English & Khasi followed by announcements' },
+  { time: '09:00 AM', period: 'Period 1', title: 'Core Academic Block I', detail: 'Mathematics, First Language & Core Stream Lectures' },
+  { time: '09:45 AM', period: 'Period 2', title: 'Science & Computer Laboratory Block', detail: 'Physics, Chemistry, Biology & Digital Lab Practicals' },
+  { time: '10:30 AM', period: 'Period 3', title: 'Humanities, Social Studies & Commerce', detail: 'History, Geography, Accountancy & Political Science' },
+  { time: '11:15 AM', period: 'Interval', title: 'Morning Recess & Refreshment Break', detail: 'Supervised courtyard break & canteen access (30 mins)' },
+  { time: '11:45 AM', period: 'Period 4', title: 'Core Academic Block II', detail: 'Literature, Economics, Alternative English & Khasi MIL' },
+  { time: '12:30 PM', period: 'Period 5', title: 'Library, Seminar & Project Work', detail: 'Reading room research, CCE assignments & lab journals' },
+  { time: '01:15 PM', period: 'Interval', title: 'Afternoon Lunch Interval', detail: 'Midday break across designated house zones (30 mins)' },
+  { time: '01:45 PM', period: 'Period 6', title: 'Electives & Synchronized PT Drill Practice', detail: 'Physical conditioning, choir rehearsal & house activities' },
+  { time: '02:45 PM', period: 'Dispersal', title: 'Final Bell & NH-6 Bus Fleet Boarding', detail: 'Supervised dispersal & route-wise bus boarding' },
+];
+
+const CALENDAR_EVENTS = [
+  {
+    month: 'APR',
+    day: '15',
+    tag: 'Admissions',
+    title: 'Class XI Higher Secondary Admissions Window',
+    dateRange: 'April 15 – May 20, 2026',
+    desc: 'Direct merit admission for SSLC rank holders and entrance counseling for Science, Arts & Commerce streams.',
+  },
+  {
+    month: 'JUN',
+    day: '22',
+    tag: 'Examination',
+    title: 'First Terminal Assessment (Classes I to XII)',
+    dateRange: 'June 22 – June 28, 2026',
+    desc: 'Written and practical terminal evaluations under MBOSE Continuous & Comprehensive Evaluation (CCE).',
+  },
+  {
+    month: 'SEP',
+    day: '29',
+    tag: 'Patron Feast',
+    title: 'Feast of St. Michael the Archangel & Founder’s Day',
+    dateRange: 'September 29, 2026',
+    desc: 'Solemn thanksgiving liturgy, choral concert, inter-house cultural showcase, and alumni felicitation.',
+  },
+  {
+    month: 'NOV',
+    day: '10',
+    tag: 'Athletics',
+    title: 'Annual Sports Meet & 2,000-Student Synchronized Drill',
+    dateRange: 'November 10 – November 14, 2026',
+    desc: 'Track and field championships, march-past, and choreographed musical PT drill on the main ground.',
+  },
+  {
+    month: 'DEC',
+    day: '01',
+    tag: 'Board Prep',
+    title: 'MBOSE SSLC & HSSLC Selection Examinations',
+    dateRange: 'December 01 – December 12, 2026',
+    desc: 'Pre-board qualifying examinations for Class X and Class XII candidates prior to state board registration.',
+  },
+];
+
+const STAFF_MODULES = [
+  {
+    title: 'Daily Attendance & Roll Call Register',
+    code: 'OPS-ATT-01',
+    schedule: 'Mandatory by 09:15 AM',
+    desc: 'Submit section-wise morning and afternoon attendance from Nursery to Class XII with automated guardian SMS alerts for absentees.',
+    actionLabel: 'Open Attendance Register',
+    icon: ClipboardCheck,
+  },
+  {
+    title: 'MBOSE CCE & Terminal Marks Ledger',
+    code: 'OPS-EXM-02',
+    schedule: 'Term I / Term II / Pre-Board',
+    desc: 'Enter unit test scores, laboratory practical grades, and internal assessment marks for official MBOSE report card generation.',
+    actionLabel: 'Launch Marks Portal',
+    icon: Award,
+  },
+  {
+    title: 'Departmental Lesson Plans & Syllabus',
+    code: 'OPS-ACD-03',
+    schedule: 'Weekly Academic Review',
+    desc: 'Access and upload structured weekly teaching diaries, laboratory experiment schedules, and remedial coaching rosters.',
+    actionLabel: 'View Syllabus Vault',
+    icon: BookOpen,
+  },
+  {
+    title: 'Staff Leave, Duty & Invigilation Desk',
+    code: 'OPS-ADM-04',
+    schedule: 'Secretariat Approved',
+    desc: 'Apply for casual/medical leave, check period substitution assignments, and download examination hall invigilation charts.',
+    actionLabel: 'Manage Leave & Roster',
+    icon: Calendar,
+  },
+];
 
 export const StudentStaffHub: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'notices' | 'timetables' | 'houses' | 'fees' | 'bus' | 'staff' | 'results'>('notices');
+  const [activeTab, setActiveTab] = useState<
+    'notices' | 'timetables' | 'houses' | 'fees' | 'bus' | 'staff' | 'results'
+  >('notices');
   const [selectedNoticeCategory, setSelectedNoticeCategory] = useState<string>('All');
   const [noticeSearch, setNoticeSearch] = useState<string>('');
   const [activeNoticeModal, setActiveNoticeModal] = useState<Notice | null>(null);
@@ -29,48 +174,86 @@ export const StudentStaffHub: React.FC = () => {
   const [hasBusService, setHasBusService] = useState<boolean>(false);
   const [busRouteFee, setBusRouteFee] = useState<number>(1200);
 
+  // Staff Login State
+  const [staffIdInput, setStaffIdInput] = useState<string>('');
+  const [staffDeptInput, setStaffDeptInput] = useState<string>('Science & Laboratories');
+
   const showNoticeToast = (msg: string) => {
     setToastMessage(msg);
   };
 
   // Filter Notices
   const filteredNotices = NOTICES.filter((n) => {
-    const matchesCategory = selectedNoticeCategory === 'All' || n.category === selectedNoticeCategory;
-    const matchesSearch = n.title.toLowerCase().includes(noticeSearch.toLowerCase()) || 
-                          n.description.toLowerCase().includes(noticeSearch.toLowerCase());
+    const matchesCategory =
+      selectedNoticeCategory === 'All' || n.category === selectedNoticeCategory;
+    const matchesSearch =
+      n.title.toLowerCase().includes(noticeSearch.toLowerCase()) ||
+      n.description.toLowerCase().includes(noticeSearch.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
   const selectedFee = FEE_STRUCTURE[selectedClassIndex];
+  const numericAnnualEstimate =
+    Number(selectedFee.totalAnnualEstimate.replace(/[^0-9]/g, '')) || 0;
+  const totalWithBus = hasBusService
+    ? numericAnnualEstimate + busRouteFee * 10
+    : numericAnnualEstimate;
+
+  const handleStaffLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!staffIdInput.trim()) {
+      showNoticeToast('Please enter your official Educator ID (e.g., SMHSS-FAC-014) to continue.');
+      return;
+    }
+    showNoticeToast(
+      `Verification request sent for Educator ID "${staffIdInput.toUpperCase()}" (${staffDeptInput}). Please complete 2-step verification on the campus intranet terminal.`
+    );
+    setStaffIdInput('');
+  };
 
   return (
-    <section id="hub" className="w-full py-16 md:py-24 bg-slate-50 border-b border-slate-200">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="hub" className="hub-section">
+      <div className="container">
+        {/* Executive Section Header */}
+        <div className="hub-header-wrap">
+          <div className="hub-header-left">
+            <span className="hub-eyebrow">
+              <Sparkles className="w-3.5 h-3.5" />
+              CENTRAL DIGITAL CAMPUS • 2,000+ LEARNERS &amp; 68+ EDUCATORS
+            </span>
+            <h2 className="hub-main-title">Student &amp; Staff Operations Hub</h2>
+            <p className="hub-subtitle">
+              Unified institutional portal for official circulars, daily bell routines, Archangel house standings, transparent fee schedules, NH-6 transit routes, and academic administration.
+            </p>
+          </div>
 
-        {/* Section Header */}
-        <div className="max-w-3xl mb-10">
-          <span className="text-xs uppercase font-mono tracking-wider text-[#D97706] font-bold block mb-2">
-            Central Digital Campus • 2,000+ Learners
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1B365D] tracking-tight">
-            Student &amp; Staff Operations Hub
-          </h2>
-          <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed">
-            Instant daily access for learners, parents, and educators to official circulars, bell routines, Archangel house standings, fee schedules, bus routes, and examination notices.
-          </p>
+          <div className="hub-kpi-strip">
+            <div className="hub-kpi-card">
+              <span className="hub-kpi-val">{NOTICES.length} Active</span>
+              <span className="hub-kpi-lbl">Official Circulars</span>
+            </div>
+            <div className="hub-kpi-card">
+              <span className="hub-kpi-val">4 Houses</span>
+              <span className="hub-kpi-lbl">Archangel System</span>
+            </div>
+            <div className="hub-kpi-card">
+              <span className="hub-kpi-val">4 Routes</span>
+              <span className="hub-kpi-lbl">NH-6 Bus Fleet</span>
+            </div>
+          </div>
         </div>
 
         {/* Inline Notification Banner */}
         {toastMessage && (
-          <div className="mb-6 p-4 rounded-xl bg-[#1B365D] text-white flex items-center justify-between gap-4 shadow-md">
-            <div className="flex items-center gap-3 text-xs sm:text-sm font-medium">
+          <div className="hub-toast-banner" role="status">
+            <div className="hub-toast-content">
               <CheckCircle className="w-5 h-5 text-[#F59E0B] shrink-0" />
               <span>{toastMessage}</span>
             </div>
             <button
               type="button"
               onClick={() => setToastMessage(null)}
-              className="p-1 rounded hover:bg-white/10 text-white/80 hover:text-white"
+              className="hub-toast-close"
               aria-label="Dismiss notification"
             >
               <X className="w-4 h-4" />
@@ -78,450 +261,875 @@ export const StudentStaffHub: React.FC = () => {
           </div>
         )}
 
-        {/* Tab Navigation Ribbon */}
-        <div className="border-b-2 border-slate-200 mb-8 overflow-x-auto">
-          <div className="flex items-center gap-2 min-w-max pb-1">
-            {[
-              { id: 'notices', label: 'Notice Board', icon: Bell, badge: `${NOTICES.length} Active` },
-              { id: 'timetables', label: 'Timetable & Bell Routine', icon: Clock },
-              { id: 'houses', label: 'House System', icon: Shield },
-              { id: 'fees', label: 'Fee Schedule & Calculator', icon: CreditCard },
-              { id: 'bus', label: 'Bus Transport Routes', icon: Bus },
-              { id: 'staff', label: 'Staff Portal', icon: Users },
-              { id: 'results', label: 'MBOSE Result Desk', icon: Award }
-            ].map((tab) => {
-              const Icon = tab.icon;
-              const isActive = activeTab === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  type="button"
-                  onClick={() => setActiveTab(tab.id as typeof activeTab)}
-                  className={`flex items-center gap-2 px-4 py-3 text-xs sm:text-sm font-bold border-b-2 whitespace-nowrap transition-all duration-200 rounded-t-lg ${
-                    isActive
-                      ? 'border-[#1B365D] text-[#1B365D] bg-white shadow-xs'
-                      : 'border-transparent text-slate-600 hover:text-[#1B365D] hover:bg-slate-100'
-                  }`}
-                >
-                  <Icon className={`w-4 h-4 ${isActive ? 'text-[#D97706]' : 'text-slate-400'}`} />
-                  <span>{tab.label}</span>
-                  {tab.badge && (
-                    <span className="text-[10px] font-mono font-bold bg-amber-100 text-[#D97706] px-1.5 py-0.5 rounded border border-amber-300">
-                      {tab.badge}
-                    </span>
-                  )}
-                </button>
-              );
-            })}
-          </div>
+        {/* Executive Tab Navigation Bar */}
+        <div className="hub-tabs-bar" role="tablist" aria-label="Operations Hub Sections">
+          {[
+            { id: 'notices', label: 'Notice Board', icon: Bell, badge: `${NOTICES.length}` },
+            { id: 'timetables', label: 'Timetable & Calendar', icon: Clock },
+            { id: 'houses', label: 'House Championship', icon: Shield },
+            { id: 'fees', label: 'Fee Schedule & Calculator', icon: CreditCard },
+            { id: 'bus', label: 'Bus Transit Fleet', icon: Bus },
+            { id: 'staff', label: 'Faculty & Staff Desk', icon: Users },
+            { id: 'results', label: 'MBOSE Result Desk', icon: Award },
+          ].map((tab) => {
+            const Icon = tab.icon;
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                onClick={() => setActiveTab(tab.id as typeof activeTab)}
+                className={`hub-tab-btn ${isActive ? 'active' : ''}`}
+              >
+                <Icon className="hub-tab-icon" />
+                <span>{tab.label}</span>
+                {tab.badge && <span className="hub-tab-badge">{tab.badge}</span>}
+              </button>
+            );
+          })}
         </div>
 
-        {/* TAB 1: NOTICE BOARD */}
+        {/* =========================================================
+            TAB 1: OFFICIAL NOTICE BOARD CARDS
+           ========================================================= */}
         {activeTab === 'notices' && (
-          <div className="space-y-6">
-            <div className="p-4 bg-white rounded-xl border border-slate-200 flex flex-col md:flex-row gap-4 items-center justify-between shadow-xs">
-              <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
-                {['All', 'Academic', 'Admissions', 'Sports', 'Examination', 'General'].map((cat) => (
-                  <button
-                    key={cat}
-                    type="button"
-                    onClick={() => setSelectedNoticeCategory(cat)}
-                    className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-colors ${
-                      selectedNoticeCategory === cat
-                        ? 'bg-[#1B365D] text-white shadow-xs'
-                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                ))}
+          <div className="hub-tab-panel">
+            {/* Filter & Search Toolbar Card */}
+            <div className="hub-toolbar-card">
+              <div className="hub-category-pills">
+                {['All', 'Academic', 'Admissions', 'Sports', 'Examination', 'General'].map(
+                  (cat) => (
+                    <button
+                      key={cat}
+                      type="button"
+                      onClick={() => setSelectedNoticeCategory(cat)}
+                      className={`hub-filter-pill ${
+                        selectedNoticeCategory === cat ? 'active' : ''
+                      }`}
+                    >
+                      {cat}
+                    </button>
+                  )
+                )}
               </div>
 
-              <div className="relative w-full md:w-72">
-                <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+              <div className="hub-search-box">
+                <Search className="hub-search-icon" />
                 <input
                   type="text"
-                  placeholder="Search circulars, exams..."
+                  placeholder="Search circulars by keyword, exam, or stream..."
                   value={noticeSearch}
                   onChange={(e) => setNoticeSearch(e.target.value)}
-                  className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#1B365D]"
+                  className="hub-search-input"
                 />
+                {noticeSearch && (
+                  <button
+                    type="button"
+                    onClick={() => setNoticeSearch('')}
+                    className="hub-search-clear"
+                    aria-label="Clear search"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                )}
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredNotices.map((notice) => (
-                <div
-                  key={notice.id}
-                  onClick={() => setActiveNoticeModal(notice)}
-                  className="p-6 bg-white rounded-xl border-2 border-slate-200 hover:border-[#1B365D] transition-all duration-200 cursor-pointer flex flex-col justify-between group shadow-xs hover:shadow-md"
-                >
-                  <div>
-                    <div className="flex items-center justify-between text-xs text-slate-500 mb-3">
-                      <span className="font-bold text-[#D97706] uppercase tracking-wider">{notice.category}</span>
-                      <span className="font-mono text-[11px]">{notice.date}</span>
+            {/* Notices Card Grid */}
+            {filteredNotices.length === 0 ? (
+              <div className="hub-empty-card">
+                <AlertCircle className="w-8 h-8 text-slate-400 mx-auto mb-2" />
+                <h4>No Matching Circulars Found</h4>
+                <p>Try clearing your search filter or selecting &ldquo;All&rdquo; categories.</p>
+              </div>
+            ) : (
+              <div className="hub-notice-grid">
+                {filteredNotices.map((notice, index) => (
+                  <article
+                    key={notice.id}
+                    onClick={() => setActiveNoticeModal(notice)}
+                    className={`hub-notice-card ${notice.isUrgent ? 'urgent' : ''}`}
+                  >
+                    <div className="hub-notice-top">
+                      <div className="hub-notice-badges">
+                        <span className={`hub-cat-badge cat-${notice.category.toLowerCase()}`}>
+                          {notice.category}
+                        </span>
+                        {notice.isUrgent && (
+                          <span className="hub-urgent-pill">
+                            <span className="hub-pulse-dot" />
+                            PRIORITY
+                          </span>
+                        )}
+                      </div>
+                      <span className="hub-ref-code">
+                        REF: SMHSS/2026/0{index + 1}
+                      </span>
                     </div>
 
-                    <h3 className="text-base font-bold text-[#1B365D] group-hover:text-[#D97706] transition-colors line-clamp-2 mb-2 leading-snug">
-                      {notice.title}
-                    </h3>
-                    <p className="text-xs text-slate-600 line-clamp-3 mb-4 leading-relaxed">
-                      {notice.description}
-                    </p>
-                  </div>
+                    <div className="hub-notice-body">
+                      <div className="hub-notice-date">
+                        <Calendar className="w-3.5 h-3.5 text-[#D97706]" />
+                        <span>Published: {notice.date}</span>
+                      </div>
+                      <h3 className="hub-notice-title">{notice.title}</h3>
+                      <p className="hub-notice-desc">{notice.description}</p>
+                    </div>
 
-                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#1B365D] group-hover:text-[#D97706]">
-                    <span>Read Full Circular</span>
-                    <ChevronRight className="w-4 h-4" />
-                  </div>
-                </div>
-              ))}
-            </div>
+                    <div className="hub-notice-footer">
+                      <div className="hub-file-meta">
+                        <FileText className="w-3.5 h-3.5 text-slate-400" />
+                        <span>{notice.fileSize || 'Official Circular PDF'}</span>
+                      </div>
+                      <span className="hub-card-action">
+                        <span>Read Circular</span>
+                        <ChevronRight className="w-4 h-4" />
+                      </span>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            )}
           </div>
         )}
 
-        {/* TAB 2: TIMETABLES & BELL ROUTINE */}
+        {/* =========================================================
+            TAB 2: TIMETABLE & ACADEMIC CALENDAR CARDS
+           ========================================================= */}
         {activeTab === 'timetables' && (
-          <div className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              
-              <div className="p-6 bg-white rounded-xl border-2 border-slate-200 shadow-xs">
-                <div className="flex items-center gap-2 mb-4 pb-3 border-b border-slate-100">
-                  <Clock className="w-5 h-5 text-[#D97706]" />
-                  <h3 className="text-lg font-bold text-[#1B365D]">Daily Campus Bell Routine</h3>
+          <div className="hub-tab-panel">
+            <div className="hub-two-col-grid">
+              {/* Left Card: Daily Campus Bell Schedule */}
+              <div className="hub-exec-card">
+                <div className="hub-exec-card-header">
+                  <div>
+                    <span className="hub-card-kicker">MONDAY – FRIDAY ROUTINE</span>
+                    <h3 className="hub-exec-card-title">
+                      <Clock className="w-5 h-5 text-[#D97706]" />
+                      <span>Daily Campus Bell Schedule</span>
+                    </h3>
+                  </div>
+                  <span className="hub-status-pill">08:30 AM – 02:45 PM</span>
                 </div>
-                <div className="space-y-3">
-                  {[
-                    { time: "08:30 AM", event: "First Bell & Assembly Line Formation" },
-                    { time: "08:45 AM", event: "Morning Prayer, School Hymn & News" },
-                    { time: "09:00 AM", event: "Period 1 (Morning Core Subject)" },
-                    { time: "09:45 AM", event: "Period 2 (Science & Math Lab Block)" },
-                    { time: "10:30 AM", event: "Period 3 (Languages / Social Studies)" },
-                    { time: "11:15 AM", event: "Recess & Midday Break" },
-                    { time: "11:45 AM", event: "Period 4 (Commerce / Humanities / Electives)" },
-                    { time: "12:30 PM", event: "Period 5 (Library & Practical Session)" },
-                    { time: "01:15 PM", event: "Afternoon Interval" },
-                    { time: "01:45 PM", event: "Period 6 & Physical Drill Conditioning" },
-                    { time: "02:45 PM", event: "Dispersal & Bus Boarding (NH-6 Fleet)" }
-                  ].map((r, i) => (
-                    <div key={i} className="flex items-center justify-between py-1.5 border-b border-slate-100 text-xs">
-                      <span className="font-mono font-bold text-[#1B365D]">{r.time}</span>
-                      <span className="text-slate-700 font-medium">{r.event}</span>
+
+                <div className="hub-bell-list">
+                  {BELL_SCHEDULE.map((slot, i) => (
+                    <div
+                      key={i}
+                      className={`hub-bell-item ${
+                        slot.period === 'Interval' ? 'is-break' : ''
+                      }`}
+                    >
+                      <div className="hub-bell-time-col">
+                        <span className="hub-bell-time">{slot.time}</span>
+                        <span className="hub-bell-tag">{slot.period}</span>
+                      </div>
+                      <div className="hub-bell-info-col">
+                        <h4>{slot.title}</h4>
+                        <p>{slot.detail}</p>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="p-6 bg-white rounded-xl border-2 border-slate-200 shadow-xs flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center gap-2 mb-4 pb-3 border-b border-slate-100">
-                    <Calendar className="w-5 h-5 text-[#1B365D]" />
-                    <h3 className="text-lg font-bold text-[#1B365D]">Academic Calendar 2026–27</h3>
+              {/* Right Column: Academic Calendar Card + Weekly Special Card */}
+              <div className="hub-stack-col">
+                <div className="hub-exec-card">
+                  <div className="hub-exec-card-header">
+                    <div>
+                      <span className="hub-card-kicker">MBOSE SESSION 2026–27</span>
+                      <h3 className="hub-exec-card-title">
+                        <Calendar className="w-5 h-5 text-[#1B365D]" />
+                        <span>Institutional Academic Calendar</span>
+                      </h3>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        showNoticeToast(
+                          'Preparing official Academic Calendar 2026–27 for printing...'
+                        );
+                        window.print();
+                      }}
+                      className="hub-mini-action-btn"
+                    >
+                      <Printer className="w-3.5 h-3.5" />
+                      <span>Print</span>
+                    </button>
                   </div>
-                  <div className="space-y-3 text-xs text-slate-700">
-                    <div className="p-3 bg-amber-50 rounded-lg border border-amber-200">
-                      <span className="font-bold text-[#D97706] block">Class XI &amp; XII Admissions Window</span>
-                      <span className="text-slate-600">April 15 to May 20, 2026 • Science, Arts &amp; Commerce</span>
+
+                  <div className="hub-calendar-list">
+                    {CALENDAR_EVENTS.map((ev, idx) => (
+                      <div key={idx} className="hub-calendar-card-item">
+                        <div className="hub-cal-date-badge">
+                          <span className="hub-cal-month">{ev.month}</span>
+                          <span className="hub-cal-day">{ev.day}</span>
+                        </div>
+                        <div className="hub-cal-content">
+                          <div className="hub-cal-meta">
+                            <span className="hub-cal-tag">{ev.tag}</span>
+                            <span className="hub-cal-range">{ev.dateRange}</span>
+                          </div>
+                          <h4>{ev.title}</h4>
+                          <p>{ev.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="hub-exec-card-footer">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        showNoticeToast(
+                          'Official St. Michael Academic Calendar 2026–27 opened in print/PDF view.'
+                        );
+                        window.print();
+                      }}
+                      className="hub-primary-btn-full"
+                    >
+                      <Download className="w-4 h-4 text-[#F59E0B]" />
+                      <span>Download / Print Full Academic Calendar 2026–27</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Special Weekly Traditions Card */}
+                <div className="hub-highlight-navy-card">
+                  <div className="hub-navy-card-top">
+                    <span className="hub-navy-kicker">WEEKLY CAMPUS TRADITIONS</span>
+                    <h4>Co-Curricular &amp; Pastoral Formation Hours</h4>
+                  </div>
+                  <div className="hub-navy-grid">
+                    <div className="hub-navy-stat">
+                      <strong>Friday 08:30 AM</strong>
+                      <span>2,000-Student Mass Aerobic &amp; Musical PT Drill</span>
                     </div>
-                    <div className="p-3 bg-slate-50 rounded-lg border border-slate-200">
-                      <span className="font-bold text-[#1B365D] block">First Terminal Examinations</span>
-                      <span className="text-slate-600">June 22 to June 28, 2026</span>
+                    <div className="hub-navy-stat">
+                      <strong>Saturday 09:00 AM</strong>
+                      <span>Remedial Coaching, Eco Club &amp; Choir Practice</span>
                     </div>
-                    <div className="p-3 bg-slate-50 rounded-lg border border-slate-200">
-                      <span className="font-bold text-[#1B365D] block">Annual Sports Meet &amp; Mass Synchronized Drill</span>
-                      <span className="text-slate-600">November 10 to November 14, 2026</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* =========================================================
+            TAB 3: ARCHANGEL HOUSE SYSTEM CARDS
+           ========================================================= */}
+        {activeTab === 'houses' && (
+          <div className="hub-tab-panel">
+            <div className="hub-houses-grid">
+              {HOUSES.map((h, i) => {
+                const theme = HOUSE_THEMES[i % HOUSE_THEMES.length];
+                const progressPct = Math.min(100, Math.round((h.points / 1400) * 100));
+
+                return (
+                  <article
+                    key={h.name}
+                    className="hub-house-card"
+                    style={{
+                      borderTopColor: theme.accent,
+                    }}
+                  >
+                    <div className="hub-house-header">
+                      <div className="hub-house-badge-row">
+                        <span
+                          className="hub-house-color-pill"
+                          style={{ backgroundColor: theme.badgeBg }}
+                        >
+                          <Shield className="w-3.5 h-3.5" />
+                          <span>{h.color} House</span>
+                        </span>
+                        <span className="hub-house-rank">
+                          <Trophy className="w-3.5 h-3.5 text-[#D97706]" />
+                          <span>Rank #{i + 1}</span>
+                        </span>
+                      </div>
+
+                      <h3 className="hub-house-name">{h.name}</h3>
+                      <p className="hub-house-patron">{theme.patron}</p>
+                      <div
+                        className="hub-house-motto"
+                        style={{
+                          backgroundColor: theme.softBg,
+                          borderColor: theme.border,
+                        }}
+                      >
+                        &ldquo;{h.motto}&rdquo;
+                      </div>
                     </div>
-                    <div className="p-3 bg-slate-50 rounded-lg border border-slate-200">
-                      <span className="font-bold text-[#1B365D] block">MBOSE Board Selection Examinations</span>
-                      <span className="text-slate-600">December 01 to December 12, 2026</span>
+
+                    <div className="hub-house-leaders">
+                      <div className="hub-leader-row">
+                        <span className="hub-leader-lbl">House Captain</span>
+                        <strong className="hub-leader-val">{h.captain}</strong>
+                      </div>
+                      <div className="hub-leader-row">
+                        <span className="hub-leader-lbl">Vice Captain</span>
+                        <strong className="hub-leader-val">{h.viceCaptain}</strong>
+                      </div>
+                      <div className="hub-leader-row">
+                        <span className="hub-leader-lbl">Current Honour</span>
+                        <strong className="hub-leader-trophy">{h.trophies}</strong>
+                      </div>
+                    </div>
+
+                    <div className="hub-house-points-box">
+                      <div className="hub-points-top">
+                        <span>Championship Standings</span>
+                        <strong style={{ color: theme.accent }}>
+                          {h.points.toLocaleString()} pts
+                        </strong>
+                      </div>
+                      <div className="hub-progress-track">
+                        <div
+                          className="hub-progress-fill"
+                          style={{
+                            width: `${progressPct}%`,
+                            backgroundColor: theme.accent,
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* =========================================================
+            TAB 4: FEE SCHEDULE & INTERACTIVE CALCULATOR CARDS
+           ========================================================= */}
+        {activeTab === 'fees' && (
+          <div className="hub-tab-panel">
+            {/* Quick Stage Selector Cards */}
+            <div className="hub-fee-stage-grid">
+              {FEE_STRUCTURE.map((item, idx) => {
+                const isSelected = selectedClassIndex === idx;
+                return (
+                  <button
+                    key={item.classGroup}
+                    type="button"
+                    onClick={() => setSelectedClassIndex(idx)}
+                    className={`hub-fee-stage-card ${isSelected ? 'active' : ''}`}
+                  >
+                    <div className="hub-fee-stage-top">
+                      <span className="hub-fee-stage-num">Stage 0{idx + 1}</span>
+                      {isSelected && (
+                        <span className="hub-fee-selected-dot">Selected</span>
+                      )}
+                    </div>
+                    <h4>{item.classGroup}</h4>
+                    <div className="hub-fee-stage-price">
+                      <span>{item.totalAnnualEstimate}</span>
+                      <small>/ year est.</small>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Detailed Calculator Split Grid */}
+            <div className="hub-fee-calculator-grid">
+              {/* Left Card: Itemized Fee Ledger */}
+              <div className="hub-exec-card">
+                <div className="hub-exec-card-header">
+                  <div>
+                    <span className="hub-card-kicker">OFFICIAL MBOSE FEE LEDGER 2026–27</span>
+                    <h3 className="hub-exec-card-title">
+                      <Layers className="w-5 h-5 text-[#D97706]" />
+                      <span>{selectedFee.classGroup}</span>
+                    </h3>
+                  </div>
+                  <span className="hub-status-pill">Transparent Structure</span>
+                </div>
+
+                <div className="hub-ledger-table">
+                  <div className="hub-ledger-row">
+                    <div>
+                      <strong>Annual Admission &amp; Registration Fee</strong>
+                      <span>Payable at the start of the academic session</span>
+                    </div>
+                    <span className="hub-ledger-amount">{selectedFee.admissionFee}</span>
+                  </div>
+                  <div className="hub-ledger-row">
+                    <div>
+                      <strong>Quarterly Tuition Fee</strong>
+                      <span>Instructional &amp; classroom academic fee per quarter</span>
+                    </div>
+                    <span className="hub-ledger-amount">{selectedFee.tuitionFeeQuarterly}</span>
+                  </div>
+                  <div className="hub-ledger-row">
+                    <div>
+                      <strong>Examination &amp; Continuous Assessment Fee</strong>
+                      <span>Covers unit tests, terminal exams &amp; progress reports</span>
+                    </div>
+                    <span className="hub-ledger-amount">{selectedFee.examFeeAnnual}</span>
+                  </div>
+                  <div className="hub-ledger-row">
+                    <div>
+                      <strong>Science, Computer Lab &amp; Practical Fee</strong>
+                      <span>Laboratory consumables, digital systems &amp; fieldwork</span>
+                    </div>
+                    <span className="hub-ledger-amount">{selectedFee.labAndComputerAnnual}</span>
+                  </div>
+                  <div className="hub-ledger-row">
+                    <div>
+                      <strong>Library, Sports &amp; House Activity Fee</strong>
+                      <span>Archangel house events, PT drill, library &amp; ID card</span>
+                    </div>
+                    <span className="hub-ledger-amount">{selectedFee.sportsAndLibraryAnnual}</span>
+                  </div>
+                </div>
+
+                {/* Bus Add-on Toggle Card */}
+                <div className="hub-bus-addon-box">
+                  <label className="hub-bus-toggle-row">
+                    <div>
+                      <strong>Include Daily School Bus Transit (Optional)</strong>
+                      <span>Pick-up and drop service along the NH-6 Umsning corridor (10 months)</span>
+                    </div>
+                    <input
+                      type="checkbox"
+                      checked={hasBusService}
+                      onChange={(e) => setHasBusService(e.target.checked)}
+                      className="hub-checkbox"
+                    />
+                  </label>
+
+                  {hasBusService && (
+                    <div className="hub-bus-zone-selector">
+                      <label htmlFor="hub-transit-zone">Select Pick-up Transit Zone:</label>
+                      <select
+                        id="hub-transit-zone"
+                        value={busRouteFee}
+                        onChange={(e) => setBusRouteFee(Number(e.target.value))}
+                        className="hub-select-input"
+                      >
+                        <option value={900}>Zone A: Umsning Town Core (₹900 / month)</option>
+                        <option value={1200}>Zone B: Umden / Sumer Route (₹1,200 / month)</option>
+                        <option value={1500}>Zone C: Nongpoh Road Corridor (₹1,500 / month)</option>
+                        <option value={1800}>Zone D: Bhoirymbong / Umroi Link (₹1,800 / month)</option>
+                      </select>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Right Card: Executive Outlay Summary Card */}
+              <div className="hub-fee-summary-card">
+                <div>
+                  <span className="hub-summary-kicker">ESTIMATED ANNUAL OUTLAY</span>
+                  <h4 className="hub-summary-class">{selectedFee.classGroup}</h4>
+
+                  <div className="hub-summary-total-box">
+                    <span className="hub-summary-total-lbl">Combined Annual Estimate</span>
+                    <div className="hub-summary-total-val">
+                      ₹{totalWithBus.toLocaleString('en-IN')}
+                    </div>
+                    <span className="hub-summary-sub">
+                      Academic Base: {selectedFee.totalAnnualEstimate}
+                      {hasBusService
+                        ? ` + Bus Transit: ₹${(busRouteFee * 10).toLocaleString('en-IN')}`
+                        : ' (Excludes Optional Bus)'}
+                    </span>
+                  </div>
+
+                  <div className="hub-summary-perks">
+                    <div className="hub-perk-item">
+                      <Check className="w-4 h-4 text-[#F59E0B] shrink-0" />
+                      <span>Payable in 4 quarterly installments or 2 term challans</span>
+                    </div>
+                    <div className="hub-perk-item">
+                      <Check className="w-4 h-4 text-[#F59E0B] shrink-0" />
+                      <span>100% tuition waiver for MBOSE State Top 20 Merit Rankers</span>
+                    </div>
+                    <div className="hub-perk-item">
+                      <Check className="w-4 h-4 text-[#F59E0B] shrink-0" />
+                      <span>Sibling concession available through the Principal&apos;s office</span>
+                    </div>
+                    <div className="hub-perk-item">
+                      <Check className="w-4 h-4 text-[#F59E0B] shrink-0" />
+                      <span>Zero capitation fee or hidden development donations</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-100">
+                <div className="hub-summary-actions">
                   <button
                     type="button"
-                    onClick={() => {
-                      showNoticeToast("Official Academic Calendar 2026–27 prepared. Opening print-ready view...");
-                      window.print();
-                    }}
-                    className="w-full py-2.5 bg-[#1B365D] hover:bg-[#0F1D38] text-white text-xs font-bold uppercase tracking-wider rounded-lg flex items-center justify-center gap-2 transition-colors"
+                    onClick={() =>
+                      showNoticeToast(
+                        `Fee challan estimate for ${selectedFee.classGroup} (₹${totalWithBus.toLocaleString('en-IN')}) generated. Visit the Accounts Secretariat or call ${SCHOOL_INFO.phoneMobile}.`
+                      )
+                    }
+                    className="hub-gold-cta-btn"
                   >
-                    <Download className="w-4 h-4 text-[#F59E0B]" />
-                    <span>Print / Save Academic Calendar</span>
+                    <CreditCard className="w-4 h-4" />
+                    <span>Request Official Fee Challan</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => window.print()}
+                    className="hub-outline-light-btn"
+                  >
+                    <Printer className="w-4 h-4" />
+                    <span>Print Fee Estimate Slip</span>
                   </button>
                 </div>
               </div>
-
             </div>
           </div>
         )}
 
-        {/* TAB 3: HOUSE SYSTEM */}
-        {activeTab === 'houses' && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {HOUSES.map((h, i) => (
-              <div key={i} className="p-6 bg-white rounded-xl border-2 border-slate-200 shadow-xs hover:border-[#1B365D] transition-all">
-                <div className="flex items-center justify-between mb-4">
-                  <span className={`px-2.5 py-1 text-xs font-extrabold uppercase rounded ${h.bgClass}`}>
-                    {h.name}
-                  </span>
-                  <span className="text-xs font-bold text-slate-500 font-mono">Rank #{i + 1}</span>
-                </div>
-                <h4 className="text-base font-bold text-[#1B365D] mb-2">{h.motto}</h4>
-                <div className="text-xs text-slate-600 mb-4 space-y-1.5">
-                  <div><strong>Captain:</strong> {h.captain}</div>
-                  <div><strong>Vice Captain:</strong> {h.viceCaptain}</div>
-                  <div><strong>Accolades:</strong> {h.trophies}</div>
-                </div>
-                
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-xs text-slate-500 font-medium">Annual Points</span>
-                  <span className="text-xl font-extrabold font-mono text-[#D97706]">{h.points} pts</span>
-                </div>
-              </div>
-            ))}
+        {/* =========================================================
+            TAB 5: BUS TRANSPORT FLEET CARDS
+           ========================================================= */}
+        {activeTab === 'bus' && (
+          <div className="hub-tab-panel">
+            <div className="hub-bus-grid">
+              {BUS_ROUTES.map((b, i) => (
+                <article key={b.routeNo} className="hub-bus-card">
+                  <div className="hub-bus-card-top">
+                    <div className="hub-bus-badge-group">
+                      <span className="hub-route-badge">
+                        <Bus className="w-3.5 h-3.5" />
+                        <span>{b.routeNo}</span>
+                      </span>
+                      <span className="hub-corridor-tag">NH-6 Corridor Fleet #0{i + 1}</span>
+                    </div>
+                    <div className="hub-bus-timings">
+                      <span className="hub-time-pill pickup">
+                        Pickup: {b.pickupTime}
+                      </span>
+                      <span className="hub-time-pill drop">
+                        Drop: {b.dropTime}
+                      </span>
+                    </div>
+                  </div>
+
+                  <h3 className="hub-bus-title">{b.busName}</h3>
+
+                  {/* Visual Stop Timeline */}
+                  <div className="hub-stops-timeline">
+                    <span className="hub-stops-label">Designated Boarding &amp; Drop Points:</span>
+                    <div className="hub-stops-chain">
+                      {b.stops.map((stop, sIdx) => (
+                        <div key={stop} className="hub-stop-node">
+                          <span className="hub-stop-index">{sIdx + 1}</span>
+                          <span className="hub-stop-name">{stop}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="hub-bus-footer">
+                    <div className="hub-bus-coordinator">
+                      <span className="hub-coord-lbl">Route Coordinator</span>
+                      <strong className="hub-coord-name">{b.inCharge}</strong>
+                    </div>
+                    <a
+                      href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`}
+                      className="hub-call-coord-btn"
+                    >
+                      <Phone className="w-3.5 h-3.5" />
+                      <span>Call Desk</span>
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         )}
 
-        {/* TAB 4: FEES & CALCULATOR */}
-        {activeTab === 'fees' && (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-xl border-2 border-slate-200 shadow-xs">
-              <h3 className="text-lg font-bold text-[#1B365D] mb-4 pb-2 border-b border-slate-100">
-                Official MBOSE Tuition &amp; Activity Fee Breakdown
-              </h3>
-              
-              <div className="space-y-4">
-                <div>
-                  <label className="text-xs font-bold text-slate-700 block mb-1.5 uppercase tracking-wide">
-                    Select Academic Class Level:
-                  </label>
-                  <select 
-                    value={selectedClassIndex}
-                    onChange={(e) => setSelectedClassIndex(Number(e.target.value))}
-                    className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded-lg text-xs font-semibold text-slate-800 focus:ring-2 focus:ring-[#1B365D]"
-                  >
-                    {FEE_STRUCTURE.map((f, idx) => (
-                      <option key={idx} value={idx}>{f.classGroup}</option>
-                    ))}
-                  </select>
-                </div>
+        {/* =========================================================
+            TAB 6: FACULTY & STAFF OPERATIONS PORTAL CARDS
+           ========================================================= */}
+        {activeTab === 'staff' && (
+          <div className="hub-tab-panel">
+            <div className="hub-staff-layout">
+              {/* Left 4 Operational Cards */}
+              <div className="hub-staff-modules-grid">
+                {STAFF_MODULES.map((mod) => {
+                  const Icon = mod.icon;
+                  return (
+                    <article key={mod.code} className="hub-staff-card">
+                      <div className="hub-staff-card-top">
+                        <div className="hub-staff-icon-box">
+                          <Icon className="w-5 h-5 text-[#1B365D]" />
+                        </div>
+                        <span className="hub-staff-code">{mod.code}</span>
+                      </div>
 
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                  <div>
-                    <span className="text-xs font-bold text-slate-800 block">School Bus Transit Service (Optional)</span>
-                    <span className="text-[11px] text-slate-500">Pick-up and drop along NH-6 Umsning corridor</span>
+                      <span className="hub-staff-schedule">{mod.schedule}</span>
+                      <h3 className="hub-staff-title">{mod.title}</h3>
+                      <p className="hub-staff-desc">{mod.desc}</p>
+
+                      <button
+                        type="button"
+                        onClick={() =>
+                          showNoticeToast(
+                            `${mod.title} (${mod.code}): Please authenticate via the Educator SSO Console on the right.`
+                          )
+                        }
+                        className="hub-staff-action-btn"
+                      >
+                        <span>{mod.actionLabel}</span>
+                        <ArrowUpRight className="w-4 h-4" />
+                      </button>
+                    </article>
+                  );
+                })}
+              </div>
+
+              {/* Right Card: Educator SSO Login Card */}
+              <div className="hub-staff-sso-card">
+                <div className="hub-sso-header">
+                  <div className="hub-sso-badge">
+                    <Lock className="w-4 h-4 text-[#F59E0B]" />
+                    <span>EDUCATOR INTRANET SSO</span>
                   </div>
-                  <input
-                    type="checkbox"
-                    checked={hasBusService}
-                    onChange={(e) => setHasBusService(e.target.checked)}
-                    className="w-5 h-5 text-[#1B365D] rounded border-slate-300 focus:ring-[#1B365D]"
-                  />
+                  <h3>Faculty &amp; Secretariat Sign-In</h3>
+                  <p>
+                    Authorized portal for St. Michael&apos;s 68+ teaching faculty and administrative staff.
+                  </p>
                 </div>
 
-                {hasBusService && (
-                  <div className="p-3 bg-amber-50 rounded-lg border border-amber-200">
-                    <label className="text-[11px] font-bold text-[#D97706] block mb-1">Select Transit Zone:</label>
+                <form onSubmit={handleStaffLogin} className="hub-sso-form">
+                  <div className="hub-sso-field">
+                    <label htmlFor="staff-id-input">Educator / Staff ID *</label>
+                    <input
+                      id="staff-id-input"
+                      type="text"
+                      value={staffIdInput}
+                      onChange={(e) => setStaffIdInput(e.target.value)}
+                      placeholder="e.g., SMHSS-FAC-014"
+                      className="hub-sso-input"
+                    />
+                  </div>
+
+                  <div className="hub-sso-field">
+                    <label htmlFor="staff-dept-select">Academic Department</label>
                     <select
-                      value={busRouteFee}
-                      onChange={(e) => setBusRouteFee(Number(e.target.value))}
-                      className="w-full p-2 bg-white border border-amber-300 rounded text-xs text-slate-800 font-medium"
+                      id="staff-dept-select"
+                      value={staffDeptInput}
+                      onChange={(e) => setStaffDeptInput(e.target.value)}
+                      className="hub-sso-input"
                     >
-                      <option value={900}>Zone A: Umsning Town Core (₹900/mo)</option>
-                      <option value={1200}>Zone B: Umden / Sumer Route (₹1,200/mo)</option>
-                      <option value={1500}>Zone C: Nongpoh Road Link (₹1,500/mo)</option>
-                      <option value={1800}>Zone D: Bhoirymbong Link (₹1,800/mo)</option>
+                      <option value="Science & Laboratories">Science &amp; Laboratories</option>
+                      <option value="Arts & Humanities">Arts &amp; Humanities</option>
+                      <option value="Commerce & Accountancy">Commerce &amp; Accountancy</option>
+                      <option value="Secondary Section (IX–X)">Secondary Section (IX–X)</option>
+                      <option value="Primary & Kindergarten">Primary &amp; Kindergarten</option>
+                      <option value="Administration & Secretariat">Administration &amp; Secretariat</option>
                     </select>
                   </div>
-                )}
-              </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-200 grid grid-cols-2 gap-4 text-xs">
-                <div>
-                  <span className="text-slate-500 block">Admission Fee:</span>
-                  <span className="font-bold font-mono text-slate-800">{selectedFee.admissionFee}</span>
-                </div>
-                <div>
-                  <span className="text-slate-500 block">Tuition Fee (Quarterly):</span>
-                  <span className="font-bold font-mono text-slate-800">{selectedFee.tuitionFeeQuarterly}</span>
-                </div>
-                <div>
-                  <span className="text-slate-500 block">Annual Exam Fee:</span>
-                  <span className="font-bold font-mono text-slate-800">{selectedFee.examFeeAnnual}</span>
-                </div>
-                <div>
-                  <span className="text-slate-500 block">Lab &amp; Computer (Annual):</span>
-                  <span className="font-bold font-mono text-slate-800">{selectedFee.labAndComputerAnnual}</span>
+                  <button type="submit" className="hub-gold-cta-btn w-full">
+                    <Lock className="w-4 h-4" />
+                    <span>Authenticate Educator Session</span>
+                  </button>
+                </form>
+
+                <div className="hub-sso-footer">
+                  <span>Need IT or Secretariat assistance?</span>
+                  <a href="#faculty" className="hub-sso-link">
+                    View Full Faculty Directory →
+                  </a>
                 </div>
               </div>
             </div>
+          </div>
+        )}
 
-            <div className="lg:col-span-5 bg-[#1B365D] text-white p-6 sm:p-8 rounded-xl shadow-md flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-mono font-bold text-[#F59E0B] uppercase tracking-wider block mb-2">
-                  Total Annual Institutional Outlay
-                </span>
-                <div className="text-4xl font-extrabold font-mono text-white mb-2">
-                  {selectedFee.totalAnnualEstimate}
+        {/* =========================================================
+            TAB 7: MBOSE EXAMINATION & RESULT DESK CARDS
+           ========================================================= */}
+        {activeTab === 'results' && (
+          <div className="hub-tab-panel">
+            <div className="hub-results-grid">
+              {/* Card 1: Board Honour & Performance Card */}
+              <div className="hub-result-card">
+                <div className="hub-result-card-top">
+                  <span className="hub-card-kicker">ACADEMIC DISTINCTION RECORD</span>
+                  <Award className="w-6 h-6 text-[#D97706]" />
                 </div>
-                {hasBusService && (
-                  <p className="text-xs text-[#FDE68A] font-medium mb-3">
-                    + Optional Bus Transit: ₹{(busRouteFee * 10).toLocaleString()} (10 Months)
-                  </p>
-                )}
-                <p className="text-xs text-slate-300 leading-relaxed mb-6 font-normal">
-                  Payable quarterly or in two installments at the school office or via official bank challan. Concessions available for siblings and merit scholarship holders.
+                <h3>MBOSE SSLC &amp; HSSLC Excellence</h3>
+                <p>
+                  St. Michael&apos;s Higher Secondary School (Affiliation Code:{' '}
+                  <strong>{SCHOOL_INFO.schoolCode}</strong>) maintains a proud legacy of State Top 20 Merit Rankers and 100% board pass performance.
                 </p>
-
-                <div className="space-y-2 text-xs text-slate-200">
-                  <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-[#D97706]" />
-                    <span>Includes sports, library, identity badge &amp; exams</span>
+                <div className="hub-result-stats-grid">
+                  <div className="hub-result-mini-stat">
+                    <strong>100%</strong>
+                    <span>Board Pass Record</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-[#D97706]" />
-                    <span>Zero capitation fee or hidden development charge</span>
+                  <div className="hub-result-mini-stat">
+                    <strong>Top 20</strong>
+                    <span>State Merit Rank</span>
+                  </div>
+                  <div className="hub-result-mini-stat">
+                    <strong>₹20,000</strong>
+                    <span>Topper Cash Award</span>
+                  </div>
+                  <div className="hub-result-mini-stat">
+                    <strong>1961</strong>
+                    <span>Diocesan Heritage</span>
                   </div>
                 </div>
+                <a href="#toppers" className="hub-result-link-btn">
+                  <GraduationCap className="w-4 h-4" />
+                  <span>View State Topper Felicitation Gallery</span>
+                </a>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-white/20">
+              {/* Card 2: Official Document & Marksheet Collection Card */}
+              <div className="hub-result-card">
+                <div className="hub-result-card-top">
+                  <span className="hub-card-kicker">EXAMINATION CELL PROTOCOL</span>
+                  <FileText className="w-6 h-6 text-[#1B365D]" />
+                </div>
+                <h3>Marksheet &amp; Certificate Verification</h3>
+                <p>
+                  To safeguard student privacy, individual marksheets and pass certificates are issued directly through the School Examination Secretariat upon presentation of the admit card.
+                </p>
+                <ul className="hub-result-checklist">
+                  <li>
+                    <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Original MBOSE SSLC (Class X) &amp; HSSLC (Class XII) Marksheets</span>
+                  </li>
+                  <li>
+                    <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Provisional Pass, Character &amp; Transfer Certificates (TC)</span>
+                  </li>
+                  <li>
+                    <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Class XI Stream Allocation &amp; Merit Scholarship Letters</span>
+                  </li>
+                </ul>
                 <button
                   type="button"
                   onClick={() =>
                     showNoticeToast(
-                      `For ${selectedFee.classGroup} fee challan or digital transfer details, please contact the Accounts Desk at ${SCHOOL_INFO.phoneMobile}.`
+                      `Examination Cell Hours: ${SCHOOL_INFO.officeHours}. Please bring your MBOSE Roll Number and Admit Card.`
                     )
                   }
-                  className="w-full py-3 bg-[#D97706] hover:bg-[#B45309] text-white font-bold text-xs uppercase tracking-wider rounded-lg shadow transition-colors"
+                  className="hub-result-secondary-btn"
                 >
-                  Request Fee Challan &amp; Bank Details
+                  <span>Check Document Collection Requirements</span>
+                  <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
-            </div>
-          </div>
-        )}
 
-        {/* TAB 5: BUS TRANSPORT ROUTES */}
-        {activeTab === 'bus' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {BUS_ROUTES.map((b, i) => (
-              <div key={i} className="p-6 bg-white rounded-xl border-2 border-slate-200 shadow-xs">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="px-2.5 py-1 text-xs font-bold text-white bg-[#1B365D] rounded">
-                    {b.routeNo}
-                  </span>
-                  <span className="text-xs font-mono font-bold text-[#D97706]">
-                    Pickup: {b.pickupTime}
-                  </span>
+              {/* Card 3: Examination Cell Direct Contact Card */}
+              <div className="hub-result-card navy-accent">
+                <div className="hub-result-card-top">
+                  <span className="hub-summary-kicker">OFFICIAL VERIFICATION DESK</span>
+                  <Shield className="w-6 h-6 text-[#F59E0B]" />
                 </div>
-                <h4 className="text-base font-bold text-[#1B365D] mb-1">{b.busName}</h4>
-                <p className="text-xs text-slate-500 mb-3">{b.stops.join(" ➔ ")}</p>
-                <div className="text-xs text-slate-700 space-y-1">
-                  <div><strong className="text-slate-900">Assigned In-Charge:</strong> {b.inCharge}</div>
-                  <div><strong className="text-slate-900">Campus Dispersal:</strong> {b.dropTime} (Afternoon)</div>
+                <h3>Contact the Examination Cell</h3>
+                <p>
+                  For official institutional verification, board result queries, or Class XI admission cutoffs, contact our Examination Secretariat directly.
+                </p>
+
+                <div className="hub-exam-contact-box">
+                  <div className="hub-exam-contact-item">
+                    <MapPin className="w-4 h-4 text-[#F59E0B] shrink-0" />
+                    <span>Umsning Town, NH-6 Corridor, Ri Bhoi District</span>
+                  </div>
+                  <div className="hub-exam-contact-item">
+                    <Clock className="w-4 h-4 text-[#F59E0B] shrink-0" />
+                    <span>{SCHOOL_INFO.officeHours}</span>
+                  </div>
+                  <div className="hub-exam-contact-item">
+                    <Phone className="w-4 h-4 text-[#F59E0B] shrink-0" />
+                    <span>{SCHOOL_INFO.phoneMobile} / {SCHOOL_INFO.phone}</span>
+                  </div>
                 </div>
+
+                <a
+                  href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`}
+                  className="hub-gold-cta-btn w-full"
+                >
+                  <Phone className="w-4 h-4" />
+                  <span>Call Examination Secretariat</span>
+                </a>
               </div>
-            ))}
-          </div>
-        )}
-
-        {/* TAB 6: STAFF PORTAL */}
-        {activeTab === 'staff' && (
-          <div className="p-8 bg-white rounded-xl border-2 border-slate-200 shadow-xs max-w-2xl mx-auto text-center">
-            <Users className="w-12 h-12 text-[#1B365D] mx-auto mb-3" />
-            <h3 className="text-xl font-bold text-[#1B365D] mb-2">Faculty &amp; Educator Intranet</h3>
-            <p className="text-xs sm:text-sm text-slate-600 mb-6 leading-relaxed">
-              Internal portal for St. Michael&apos;s educators to upload lesson plans, record daily attendance, and submit terminal marks for 2,000 enrolled students.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <button
-                type="button"
-                onClick={() =>
-                  showNoticeToast("Educator SSO requires campus network authentication or a registered @stmichaelsumsning.edu.in staff account.")
-                }
-                className="py-2.5 px-6 bg-[#1B365D] hover:bg-[#0F1D38] text-white text-xs font-bold uppercase tracking-wider rounded-lg shadow transition-colors"
-              >
-                Educator SSO Login
-              </button>
-              <button
-                type="button"
-                onClick={() =>
-                  showNoticeToast("Staff Leave & Attendance Desk is accessible from the Principal's Secretariat terminal during school hours (8:00 AM – 4:00 PM).")
-                }
-                className="py-2.5 px-6 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold uppercase tracking-wider rounded-lg transition-colors"
-              >
-                Leave &amp; Attendance Desk
-              </button>
             </div>
           </div>
         )}
 
-        {/* TAB 7: MBOSE RESULT CHECK */}
-        {activeTab === 'results' && (
-          <div className="mx-auto max-w-3xl rounded-xl border border-slate-200 bg-white p-6 text-center shadow-xs sm:p-8">
-            <Award className="mx-auto mb-4 h-10 w-10 text-[#1B365D]" aria-hidden="true" />
-            <h3 className="text-lg font-bold text-[#1B365D]">Official MBOSE &amp; Terminal Examination Results</h3>
-            <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-slate-600">
-              To protect student privacy and official academic records, individual marksheets are verified through the school examination cell or official MBOSE result portals (`mbose.in` / `megresults.nic.in`).
-            </p>
-            <div className="mt-5 flex flex-wrap justify-center gap-3">
-              <a
-                href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`}
-                className="inline-flex rounded-lg bg-[#1B365D] px-5 py-3 text-xs sm:text-sm font-bold text-white transition-colors hover:bg-[#244876]"
-              >
-                Call Examination Desk ({SCHOOL_INFO.phoneMobile})
-              </a>
-              <a
-                href="#toppers"
-                className="inline-flex rounded-lg border border-slate-300 bg-slate-50 px-5 py-3 text-xs sm:text-sm font-bold text-[#1B365D] transition-colors hover:bg-slate-100"
-              >
-                View State Merit Toppers
-              </a>
-            </div>
-          </div>
-        )}
-
-        {/* Notice Modal */}
+        {/* Official Circular Modal */}
         {activeNoticeModal && (
-          <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4" onClick={() => setActiveNoticeModal(null)}>
-            <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200" onClick={(e) => e.stopPropagation()}>
-              <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
-                <span className="text-xs font-bold text-[#D97706] uppercase tracking-wider">{activeNoticeModal.category}</span>
+          <div
+            className="hub-modal-backdrop"
+            onClick={() => setActiveNoticeModal(null)}
+          >
+            <div
+              className="hub-modal-card"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="hub-modal-header">
+                <div className="hub-notice-badges">
+                  <span
+                    className={`hub-cat-badge cat-${activeNoticeModal.category.toLowerCase()}`}
+                  >
+                    {activeNoticeModal.category}
+                  </span>
+                  {activeNoticeModal.isUrgent && (
+                    <span className="hub-urgent-pill">PRIORITY CIRCULAR</span>
+                  )}
+                </div>
                 <button
                   type="button"
                   onClick={() => setActiveNoticeModal(null)}
-                  className="text-slate-400 hover:text-slate-700 font-bold text-lg"
+                  className="hub-modal-close"
                   aria-label="Close circular"
                 >
-                  ✕
+                  <X className="w-5 h-5" />
                 </button>
               </div>
-              <h3 className="text-lg font-bold text-[#1B365D] mb-2">{activeNoticeModal.title}</h3>
-              <p className="text-xs font-mono text-slate-500 mb-4">Date of Notification: {activeNoticeModal.date}</p>
-              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mb-6">{activeNoticeModal.description}</p>
-              <div className="flex justify-end gap-3">
+
+              <div className="hub-modal-body">
+                <span className="hub-modal-school">
+                  {SCHOOL_INFO.name.toUpperCase()} • {SCHOOL_INFO.schoolCode}
+                </span>
+                <h3>{activeNoticeModal.title}</h3>
+                <div className="hub-modal-meta">
+                  <span>Published: {activeNoticeModal.date}</span>
+                  <span>•</span>
+                  <span>Attachment: {activeNoticeModal.fileSize || 'Official PDF'}</span>
+                </div>
+                <p className="hub-modal-text">{activeNoticeModal.description}</p>
+              </div>
+
+              <div className="hub-modal-footer">
                 <button
                   type="button"
                   onClick={() => window.print()}
-                  className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold rounded-lg"
+                  className="hub-modal-print-btn"
                 >
-                  Print Circular
+                  <Printer className="w-4 h-4" />
+                  <span>Print Circular</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => setActiveNoticeModal(null)}
-                  className="px-4 py-2 bg-[#1B365D] text-white text-xs font-bold rounded-lg"
+                  className="hub-modal-done-btn"
                 >
-                  Close Notice
+                  Close Window
                 </button>
               </div>
             </div>
           </div>
         )}
-
       </div>
     </section>
   );
