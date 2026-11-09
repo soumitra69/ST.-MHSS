@@ -13,6 +13,7 @@ import { WhyUsSection } from './components/WhyUsSection';
 import { StudentLifeSection } from './components/StudentLifeSection';
 import { VideoDrillSection } from './components/VideoDrillSection';
 import { ResearchSection } from './components/ResearchSection';
+import { CampusSpacesAndEventsSection } from './components/CampusSpacesAndEventsSection';
 import { StudentWorkSection } from './components/StudentWorkSection';
 import { StudentStaffHub } from './components/StudentStaffHub';
 import { AlumniSection } from './components/AlumniSection';
@@ -177,6 +178,9 @@ export default function App() {
 
         {/* Section H: Academic Spotlight & Labs */}
         <ResearchSection />
+
+        {/* Section H2: Modern Learning Spaces, Latest Events & Prospectus Callback (stxaviersumoid.com parity) */}
+        <CampusSpacesAndEventsSection />
 
         {/* Section I: Faculty Directory */}
         <FacultyDirectory />

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { resolveSchoolAsset } from '../data/schoolAssets';
+import React, { useState, useEffect } from 'react';
+import { SCHOOL_IMAGES } from '../data/schoolAssets';
 
 const excellenceQuotes = [
   "During the State SSLC Toppers Felicitation, Hon'ble Chief Minister Conrad K. Sangma and Education Minister Lahkmen Rymbui honored St. Michael's student for securing rank in the Meghalaya State Top 20 Order of Merit.",
@@ -7,8 +7,58 @@ const excellenceQuotes = [
   "St. Michael's Secondary School Leaving Certificate Award Body provides ₹20,000 scholarship endowments and full tuition waivers to encourage academic brilliance and holistic growth.",
 ];
 
+const excellenceBannerSlides = [
+  {
+    src: SCHOOL_IMAGES.campus,
+    tag: 'Cultural Heritage • Central Amphitheatre',
+    title: 'Traditional Khasi Cultural Dance before 2,000+ Scholars on the Courtyard Stage',
+    icon: 'fas fa-music',
+  },
+  {
+    src: SCHOOL_IMAGES.foundingCampus,
+    tag: 'Historic Landmark • Estd. 1961',
+    title: "St. Michael's Archangel Tower & Main Academic Building, Umsning",
+    icon: 'fas fa-landmark',
+  },
+  {
+    src: SCHOOL_IMAGES.houseAssembly,
+    tag: '4-House Brotherhood • Morning Drill',
+    title: 'Synchronized Four-House Assembly on the Pine-Ringed Main Ground',
+    icon: 'fas fa-shield-alt',
+  },
+  {
+    src: SCHOOL_IMAGES.awardPresentation,
+    tag: 'MBOSE State Merit • Top 20 Honour',
+    title: "State Felicitation of St. Michael's SSLC Merit Rank Holder by the Hon'ble Chief Minister",
+    icon: 'fas fa-trophy',
+  },
+  {
+    src: SCHOOL_IMAGES.sportsBlueChampions,
+    tag: 'Athletics & Sportsmanship • National Sports Day',
+    title: 'Inter-House Championship Trophies & Track Medalists at Umsning',
+    icon: 'fas fa-running',
+  },
+  {
+    src: SCHOOL_IMAGES.choir,
+    tag: 'Diocesan Choral Tradition • School Choir',
+    title: 'Multi-Part Choral Ensemble Performing English & Khasi Hymns',
+    icon: 'fas fa-microphone-alt',
+  },
+];
+
 export const ExcellenceSection: React.FC = () => {
   const [quoteIndex, setQuoteIndex] = useState(0);
+  const [bannerIndex, setBannerIndex] = useState(0);
+  const [isBannerPaused, setIsBannerPaused] = useState(false);
+
+  // Auto-advance the 6 campus banner photos every 2 seconds (2000ms)
+  useEffect(() => {
+    if (isBannerPaused) return;
+    const timer = window.setInterval(() => {
+      setBannerIndex((prev) => (prev + 1) % excellenceBannerSlides.length);
+    }, 2000);
+    return () => window.clearInterval(timer);
+  }, [isBannerPaused]);
 
   const handlePrevQuote = () => {
     setQuoteIndex((prev) => (prev - 1 + excellenceQuotes.length) % excellenceQuotes.length);
@@ -17,6 +67,18 @@ export const ExcellenceSection: React.FC = () => {
   const handleNextQuote = () => {
     setQuoteIndex((prev) => (prev + 1) % excellenceQuotes.length);
   };
+
+  const handlePrevBanner = () => {
+    setBannerIndex(
+      (prev) => (prev - 1 + excellenceBannerSlides.length) % excellenceBannerSlides.length
+    );
+  };
+
+  const handleNextBanner = () => {
+    setBannerIndex((prev) => (prev + 1) % excellenceBannerSlides.length);
+  };
+
+  const currentBanner = excellenceBannerSlides[bannerIndex];
 
   return (
     <div id="excellence">
@@ -68,15 +130,74 @@ export const ExcellenceSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Bottom Wide Banner Image */}
-          <div className="excellence-banner-wrapper" data-aos="fade-up" data-aos-delay="200">
-            <img
-              src={resolveSchoolAsset('./Assets/Rectangle 25.png')}
-              alt="St. Michael's Higher Secondary School Umsning cultural assembly on campus amphitheatre"
-              loading="lazy"
-              decoding="async"
-              className="excellence-main-banner"
-            />
+          {/* Bottom Wide 6-Photo Auto-Sliding Banner (Changes Every 2 Seconds) */}
+          <div
+            className="excellence-banner-wrapper excellence-carousel-stage"
+            data-aos="fade-up"
+            data-aos-delay="180"
+            onMouseEnter={() => setIsBannerPaused(true)}
+            onMouseLeave={() => setIsBannerPaused(false)}
+          >
+            <div className="excellence-slides-viewport">
+              {excellenceBannerSlides.map((slide, idx) => (
+                <img
+                  key={slide.src}
+                  src={slide.src}
+                  alt={slide.title}
+                  loading={idx === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                  className={`excellence-main-banner excellence-slide-img ${
+                    idx === bannerIndex ? 'active' : ''
+                  }`}
+                />
+              ))}
+
+              {/* Gradient Overlay & Live Caption Bar */}
+              <div className="excellence-banner-overlay">
+                <div className="excellence-banner-caption">
+                  <span className="excellence-banner-pill">
+                    <i className={currentBanner.icon} aria-hidden="true"></i>
+                    {currentBanner.tag}
+                  </span>
+                  <h3>{currentBanner.title}</h3>
+                </div>
+
+                <div className="excellence-banner-controls">
+                  <button
+                    type="button"
+                    className="excellence-ctrl-btn"
+                    onClick={handlePrevBanner}
+                    aria-label="Previous campus photo"
+                  >
+                    <i className="fas fa-chevron-left" aria-hidden="true"></i>
+                  </button>
+                  <div className="excellence-dots-row" role="tablist" aria-label="Campus photo slides">
+                    {excellenceBannerSlides.map((slide, idx) => (
+                      <button
+                        key={slide.tag}
+                        type="button"
+                        role="tab"
+                        aria-selected={idx === bannerIndex}
+                        aria-label={`View slide ${idx + 1}: ${slide.tag}`}
+                        className={`excellence-dot ${idx === bannerIndex ? 'active' : ''}`}
+                        onClick={() => setBannerIndex(idx)}
+                      />
+                    ))}
+                  </div>
+                  <button
+                    type="button"
+                    className="excellence-ctrl-btn"
+                    onClick={handleNextBanner}
+                    aria-label="Next campus photo"
+                  >
+                    <i className="fas fa-chevron-right" aria-hidden="true"></i>
+                  </button>
+                  <span className="excellence-slide-count">
+                    0{bannerIndex + 1} / 0{excellenceBannerSlides.length}
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
