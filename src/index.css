@@ -10916,56 +10916,81 @@ button,
 .family-merit-btn:hover,
 .hub-gold-cta-btn:hover,
 .ask-chat-trigger:hover,
-.callback-submit-btn:hover {
+.ask-send-btn:hover,
+.callback-submit-btn:hover,
+#academics .mt-8 button:hover,
+#faq .mt-12 button:first-child:hover,
+#media .inline-flex button.bg-\[\#ea580c\]:hover {
   background: #0c4a8a !important;
   color: #ffffff !important;
-  border-color: #ffffff !important;
+  border-color: #fde047 !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 12px 26px rgba(12, 74, 138, 0.35) !important;
+  box-shadow: 0 12px 26px rgba(12, 74, 138, 0.38) !important;
 }
 
-/* Primary Royal Blue / Navy Buttons -> Solid Institutional Gold (#d97706) on Hover */
+/* Primary Royal Blue / Navy Buttons & Active Filter Tabs -> Solid Institutional Gold (#d97706) on Hover */
 .submit-btn:hover,
 .read-button:hover,
 .footer-cta-call:hover,
 .footer-cta-whatsapp:hover,
+.footer-social-btn:hover,
 .family-explore-btn:hover,
 .hub-result-link-btn:hover,
 .hub-result-secondary-btn:hover,
 .hub-staff-action-btn:hover,
 .hub-call-coord-btn:hover,
 .hub-outline-light-btn:hover,
+.hub-modal-done-btn:hover,
+.search-submit-btn:hover,
+.life-zoom-trigger:hover,
+.life-card-expand-btn:hover,
+.gallery-lightbox-nav:hover,
+.gallery-lightbox-close:hover,
 .ask-footer-btn:hover,
 .back-to-top-btn:hover,
-#academics button:hover,
-#faculty button:hover,
-#media button:hover,
-#faq .mt-12 button:hover {
+.work-filter-pill.active:hover,
+.family-filter-btn.active:hover,
+.hub-tab-btn.active:hover,
+.hub-filter-pill.active:hover,
+.spaces-filter-btn.active:hover,
+.events-filter-btn.active:hover,
+.menu-option.active:hover,
+#academics button[aria-selected="true"]:hover,
+#faculty button.bg-\[\#0c4a8a\]:hover,
+#media button:not(.bg-\[\#ea580c\]):hover,
+#faq .mt-12 button:last-child:hover {
   background: #d97706 !important;
   color: #ffffff !important;
   border-color: #fde047 !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 12px 24px rgba(217, 119, 6, 0.32) !important;
+  box-shadow: 0 12px 24px rgba(217, 119, 6, 0.35) !important;
 }
 
-/* Secondary / Filter / Tab / Arrow Buttons -> Solid Royal Blue (#0c4a8a) on Hover */
-.work-filter-pill:hover,
-.family-filter-btn:hover,
-.hub-tab-btn:hover,
-.hub-filter-pill:hover,
+/* Secondary / Inactive Filter / Tab / Arrow / Outline Buttons -> Solid Royal Blue (#0c4a8a) on Hover */
+.work-filter-pill:not(.active):hover,
+.family-filter-btn:not(.active):hover,
+.hub-tab-btn:not(.active):hover,
+.hub-filter-pill:not(.active):hover,
+.spaces-filter-btn:not(.active):hover,
+.events-filter-btn:not(.active):hover,
+#academics button[aria-selected="false"]:hover,
+#faculty button:not(.bg-\[\#0c4a8a\]):hover,
 .quote-arrow-btn:hover,
 .family-arrow-btn:hover,
 .nav-btn:hover,
 .ask-topic-btn:hover,
+.ask-close-btn:hover,
 .umoid-box:hover,
 .search-btn:hover,
+.mobile-search-toggle:hover,
+.hamburger-btn:hover,
 .footer-map-btn:hover,
-.spaces-filter-btn:hover,
-.events-filter-btn:hover,
 .space-view-more-btn:hover,
 .event-read-btn:hover,
 .prospectus-download-btn:hover,
-.excellence-ctrl-btn:hover {
+.excellence-ctrl-btn:hover,
+.hub-modal-print-btn:hover,
+.hub-modal-close:hover {
   background: #0c4a8a !important;
   color: #ffffff !important;
   border-color: #0c4a8a !important;
@@ -10973,21 +10998,30 @@ button,
   box-shadow: 0 8px 20px rgba(12, 74, 138, 0.25) !important;
 }
 
-/* Read More Pill Links -> Solid Institutional Royal Blue on Hover */
+.hamburger-btn:hover span {
+  background-color: #ffffff !important;
+}
+
+/* Read More Pill Links & Gallery Action Links -> Solid Institutional Royal Blue on Hover */
 .vision-read-more,
-.family-card-read-btn {
+.family-card-read-btn,
+.event-gallery-link {
   background: #eff6ff !important;
   border: 1px solid #bfdbfe !important;
   color: #0c4a8a !important;
+  padding: 5px 12px !important;
+  border-radius: 999px !important;
+  text-decoration: none !important;
 }
 
 .vision-read-more:hover,
-.family-card-read-btn:hover {
-  background: #0c4a8a !important;
+.family-card-read-btn:hover,
+.event-gallery-link:hover {
+  background: #d97706 !important;
   color: #ffffff !important;
-  border-color: #0c4a8a !important;
+  border-color: #d97706 !important;
   transform: translateX(3px) !important;
-  box-shadow: 0 6px 16px rgba(12, 74, 138, 0.24) !important;
+  box-shadow: 0 6px 16px rgba(217, 119, 6, 0.28) !important;
 }
 
 /* FAQ Accordion Question Row Hover -> Solid Royal Blue (#0c4a8a) */
