@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { SCHOOL_INFO } from '../data/schoolData';
 
 const alertMessages = [
-  'Admissions 2026-27 now open for undergraduate and diploma pathways',
-  'Scholarships and merit support available for deserving students',
-  'Campus life, co-curricular excellence and leadership opportunities are in full swing',
-  'Academic counselling and orientation sessions are open for new entrants',
+  'Admissions 2026–27 open for Nursery to Class XII (Arts, Science & Commerce)',
+  'Congratulations to our MBOSE SSLC State Top 20 Merit Holder felicitated by Hon’ble Chief Minister',
+  'St. Michael’s ₹20,000 Academic Merit Scholarship & full tuition waivers open for rank holders',
+  'Campus NH-6 bus transit registration open across Umsning, Nongpoh, Bhoirymbong & Sumer routes',
 ];
 
 interface AlertBarProps {
@@ -15,13 +15,14 @@ interface AlertBarProps {
 export const AlertBar: React.FC<AlertBarProps> = ({ onRegisterClick }) => {
   const [currentAlert, setCurrentAlert] = useState(0);
   const [animating, setAnimating] = useState(false);
+  const [paused, setPaused] = useState(false);
 
   const changeSlide = (newIndex: number) => {
     setAnimating(true);
     setTimeout(() => {
       setCurrentAlert(newIndex);
       setAnimating(false);
-    }, 200);
+    }, 180);
   };
 
   const handlePrev = () => {
@@ -33,14 +34,19 @@ export const AlertBar: React.FC<AlertBarProps> = ({ onRegisterClick }) => {
   };
 
   useEffect(() => {
+    if (paused) return;
     const timer = setInterval(() => {
       setCurrentAlert((prev) => (prev + 1) % alertMessages.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [paused]);
 
   return (
-    <div className="alert-bar" data-aos="fade-down" data-aos-duration="800">
+    <div
+      className="alert-bar"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
       <div className="container">
         <div className="alert-row">
           <div className="alert-content">
@@ -51,18 +57,24 @@ export const AlertBar: React.FC<AlertBarProps> = ({ onRegisterClick }) => {
                 onClick={handlePrev}
                 aria-label="Previous announcement"
               >
-                <i className="fas fa-chevron-left"></i>
+                <i className="fas fa-chevron-left" aria-hidden="true"></i>
               </button>
 
-              <div className={`alert-message ${animating ? 'fade-out' : 'fade-in'}`}>
+              <div
+                className={`alert-message ${animating ? 'fade-out' : 'fade-in'}`}
+                aria-live="polite"
+              >
                 <span className="pulse-dot" aria-hidden="true"></span>
+                <span className="hidden sm:inline-block text-[10px] font-mono font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-amber-400/20 text-amber-200 border border-amber-300/30">
+                  MBOSE • 01961
+                </span>
                 <p className="alert-text">{alertMessages[currentAlert]}</p>
                 <button
                   type="button"
                   className="register-btn btn-shine"
                   onClick={onRegisterClick}
                 >
-                  REGISTER NOW
+                  APPLY 2026–27
                 </button>
               </div>
 
@@ -72,7 +84,7 @@ export const AlertBar: React.FC<AlertBarProps> = ({ onRegisterClick }) => {
                 onClick={handleNext}
                 aria-label="Next announcement"
               >
-                <i className="fas fa-chevron-right"></i>
+                <i className="fas fa-chevron-right" aria-hidden="true"></i>
               </button>
             </div>
           </div>
@@ -85,19 +97,21 @@ export const AlertBar: React.FC<AlertBarProps> = ({ onRegisterClick }) => {
                 rel="noreferrer"
                 className="utility-link"
               >
-                <i className="fab fa-whatsapp"></i>
-                <span>Whatsapp</span>
+                <i className="fab fa-whatsapp text-emerald-400" aria-hidden="true"></i>
+                <span>WhatsApp Desk</span>
               </a>
-              <a href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`} className="utility-link">
-                <i className="fas fa-phone-alt"></i>
-                <span>Call Us</span>
+              <a
+                href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`}
+                className="utility-link"
+              >
+                <i className="fas fa-phone-alt text-amber-300" aria-hidden="true"></i>
+                <span>{SCHOOL_INFO.phoneMobile}</span>
               </a>
-              <a href="#campus-life" className="utility-link">
-                <i className="fas fa-compass"></i>
-                <span>360°</span>
+              <a href="#media-drill" className="utility-link">
+                <i className="fas fa-play-circle text-amber-300" aria-hidden="true"></i>
+                <span>Campus Video</span>
               </a>
             </div>
-
           </div>
         </div>
       </div>

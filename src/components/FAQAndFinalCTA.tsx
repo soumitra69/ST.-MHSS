@@ -9,20 +9,30 @@ interface FAQAndFinalCTAProps {
 
 const frequentlyAskedQuestions = [
   {
-    question: 'Which school levels are offered?',
-    answer: SCHOOL_INFO.classes,
+    question: 'Which school levels and streams are offered at St. Michael’s?',
+    answer: `${SCHOOL_INFO.classes}. At the Higher Secondary stage (Class XI & XII), students can choose between Science (Physics, Chemistry, Biology, Mathematics, Computer Science), Arts & Humanities (History, Political Science, Sociology, Economics, Education, Khasi), and Commerce (Accountancy, Business Studies, Entrepreneurship, Economics).`,
   },
   {
     question: 'Which education board is the school affiliated with?',
-    answer: SCHOOL_INFO.affiliation,
+    answer: `${SCHOOL_INFO.affiliation} (School Code: ${SCHOOL_INFO.schoolCode}). Students appear for the state-level SSLC (Class X) and HSSLC (Class XII) board examinations.`,
+  },
+  {
+    question: 'Are merit scholarships and fee concessions available?',
+    answer:
+      "Yes. St. Michael's SSLC Award Body awards ₹20,000 cash scholarships and 100% tuition fee waivers for Class XI & XII to students securing ranks in the MBOSE State Top 20 Merit List, along with sibling and diocesan need-based concessions.",
+  },
+  {
+    question: 'Does the school provide daily bus transport?',
+    answer:
+      'Yes, our 4-route school bus fleet operates daily along the NH-6 corridor covering Umsning Town Core, Nongpoh Road, Bhoirymbong, Umroi Airport Junction, Umden, and Sumer.',
   },
   {
     question: 'Where is St. Michael’s Higher Secondary School located?',
-    answer: SCHOOL_INFO.address,
+    answer: `${SCHOOL_INFO.address}.`,
   },
   {
-    question: 'How can I contact the school?',
-    answer: `Call ${SCHOOL_INFO.phoneMobile} or ${SCHOOL_INFO.phone}, or email ${SCHOOL_INFO.email}.`,
+    question: 'How can parents contact the school office for admission enquiries?',
+    answer: `You can visit the school Secretariat during office hours (${SCHOOL_INFO.officeHours}), call ${SCHOOL_INFO.phoneMobile} or ${SCHOOL_INFO.phone}, or email ${SCHOOL_INFO.email}.`,
   },
 ];
 
@@ -38,10 +48,10 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
         <div className="mx-auto max-w-4xl">
           <div className="mb-10 text-center">
             <span className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">
-              Information for families
+              Information for Students &amp; Families
             </span>
             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#1B365D] sm:text-4xl">
-              Frequently asked questions
+              Frequently Asked Questions
             </h2>
           </div>
 
@@ -53,7 +63,7 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
               return (
                 <article
                   key={item.question}
-                  className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50"
+                  className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50 transition-colors"
                 >
                   <h3>
                     <button
@@ -73,7 +83,7 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
                     </button>
                   </h3>
                   {isOpen && (
-                    <div id={answerId} className="border-t border-slate-200 px-5 py-4">
+                    <div id={answerId} className="border-t border-slate-200 px-5 py-4 bg-white">
                       <p className="text-sm leading-7 text-slate-600">{item.answer}</p>
                     </div>
                   )}
@@ -82,11 +92,11 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
             })}
           </div>
 
-          <div className="mt-10 flex flex-col gap-6 rounded-2xl bg-[#1B365D] p-6 text-white sm:flex-row sm:items-center sm:justify-between sm:p-8">
+          <div className="mt-10 flex flex-col gap-6 rounded-2xl bg-[#1B365D] p-6 text-white sm:flex-row sm:items-center sm:justify-between sm:p-8 shadow-xl">
             <div className="max-w-2xl">
-              <h3 className="text-xl font-bold sm:text-2xl">Contact St. Michael&apos;s</h3>
+              <h3 className="text-xl font-bold sm:text-2xl">Connect with St. Michael&apos;s, Umsning</h3>
               <p className="mt-2 text-sm leading-7 text-slate-200">
-                Please contact the school for current admission information or other enquiries.
+                Ready to apply for Academic Session 2026–27 or have questions about streams, fees, or campus facilities?
               </p>
               <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-100">
                 <a className="inline-flex items-center gap-2 hover:text-amber-300" href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`}>
@@ -105,7 +115,7 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
                 onClick={onOpenAdmission}
                 className="rounded-lg bg-amber-500 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-amber-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                Admission enquiry
+                Online Admission Form
               </button>
               <button
                 type="button"
@@ -113,7 +123,7 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
                 className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 <MapPin className="h-4 w-4" aria-hidden="true" />
-                Contact details
+                Location &amp; Contact
               </button>
             </div>
           </div>

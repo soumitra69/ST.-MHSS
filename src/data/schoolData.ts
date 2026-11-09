@@ -48,25 +48,26 @@ export interface FeeItem {
 }
 
 export const SCHOOL_INFO = {
-  name: "Don Bosco College Tura",
-  subTitle: "A mission-driven campus for learning, leadership and service · Tura, Meghalaya",
-  mottoLatin: "Fides, Scientia, Servitium",
-  mottoKhasi: "Ka jingialam bad ka jingiarap",
-  mottoMeaning: "Faith, Knowledge, Service",
-  established: 1985,
-  affiliation: "Affiliated with the NEHU academic framework and rooted in the Don Bosco educational tradition",
-  schoolCode: "DBCT-TURA-1985",
-  district: "West Garo Hills",
+  name: "St. Michael's Higher Secondary School",
+  shortName: "St. Michael's Umsning",
+  subTitle: "A premier Diocesan coeducational institution for learning, character & service · Umsning, Meghalaya",
+  mottoLatin: "Excelsior",
+  mottoKhasi: "Shaphrang",
+  mottoMeaning: "Ever Upward · Step Forward with Courage",
+  established: 1961,
+  affiliation: "Affiliated with the Meghalaya Board of School Education (MBOSE) under the Catholic Diocese of Shillong",
+  schoolCode: "MBOSE-01961",
+  district: "Ri Bhoi District",
   state: "Meghalaya",
-  pincode: "794001",
-  address: "Tura, West Garo Hills, Meghalaya - 794001, India",
-  phone: "+91 365 223 0066",
-  phoneMobile: "+91 94363 10234",
-  email: "admissions@dbctura.edu.in",
-  officeHours: "Monday to Friday: 9:00 AM – 4:00 PM | Saturday: 9:00 AM – 1:00 PM",
-  studentCount: "3,500+",
-  facultyCount: "120+",
-  classes: "Undergraduate and post-graduate academic pathways",
+  pincode: "793105",
+  address: "Umsning Town, NH-6 Corridor, Ri Bhoi District, Meghalaya - 793105, India",
+  phone: "+91 3638 264218",
+  phoneMobile: "+91 94361 02845",
+  email: "stmichaelumsning@gmail.com",
+  officeHours: "Monday to Friday: 8:30 AM – 3:30 PM | Saturday: 8:30 AM – 12:30 PM",
+  studentCount: "2,000+",
+  facultyCount: "68+",
+  classes: "Nursery & Kindergarten to Class XII (Arts, Science & Commerce)",
   logo: SCHOOL_IMAGES.logo,
   campusHero: SCHOOL_IMAGES.campus,
   liveUrl: "https://soumitra69.github.io/ST.-MHSS/",
@@ -294,24 +295,24 @@ export const HOUSES = [
 export const STREAMS: StreamInfo[] = [
   {
     name: "Higher Secondary Science (Class XI - XII)",
-    tagline: "Rigorous laboratory research & foundational preparation for engineering, medicine, and research.",
+    tagline: "Rigorous laboratory research & foundational preparation for engineering, medicine, and scientific inquiry.",
     subjects: ["English", "MIL Khasi / Alt English", "Physics", "Chemistry", "Mathematics", "Biology", "Computer Science"],
-    features: ["Dedicated Physics, Chemistry & Biology laboratories", "Experienced subject lecturers with M.Sc & B.Ed", "Special coaching for NEET, JEE & CUET"],
+    features: ["Dedicated Physics, Chemistry & Biology laboratories", "Experienced subject lecturers with M.Sc & B.Ed", "Special mentorship for NEET, JEE & CUET"],
     careerPaths: ["Medicine (MBBS / BDS)", "Engineering (B.Tech / BE)", "Biotechnology & Pharmacy", "Pure & Applied Scientific Research"]
   },
   {
     name: "Higher Secondary Arts / Humanities (Class XI - XII)",
-    tagline: "Empowering thinkers, historians, civil servants, educators, and cultural leaders.",
+    tagline: "Empowering critical thinkers, historians, civil servants, educators, and regional leaders.",
     subjects: ["English", "MIL Khasi / Alt English", "Political Science", "History", "Economics", "Geography (with Fieldwork)", "Sociology"],
-    features: ["Annual geographical field excursions across Meghalaya", "Debating society, mock parliament & legal literacy", "State rank track record in MBOSE HSSLC"],
-    careerPaths: ["Civil Services (UPSC / MPSC)", "Law & Judiciary", "Journalism & Media", "Higher Education & Research"]
+    features: ["Annual geographical field excursions across Meghalaya", "Debating society, mock parliament & legal literacy", "Consistent state rank record in MBOSE HSSLC"],
+    careerPaths: ["Civil Services (UPSC / MPSC)", "Law & Judiciary", "Journalism & Public Policy", "Higher Education & Research"]
   },
   {
     name: "Higher Secondary Commerce (Class XI - XII)",
-    tagline: "Developing financial acumen, business ethics, accounting principles, and entrepreneurship.",
+    tagline: "Developing financial acumen, business ethics, accounting principles, and regional entrepreneurship.",
     subjects: ["English", "MIL Khasi / Alt English", "Accountancy", "Business Studies", "Economics", "Mathematics / Entrepreneurship"],
-    features: ["Modern computer lab with accounting software exposure", "Case studies of regional Northeast enterprise", "Mentorship from practicing Chartered Accountants"],
-    careerPaths: ["Chartered Accountancy (CA / CMA)", "Banking & Finance Management", "Corporate Leadership & Startups", "Economic Policy & Trade"]
+    features: ["Modern computer lab with accounting software exposure", "Case studies of Northeast enterprise & trade", "Mentorship from financial & commerce specialists"],
+    careerPaths: ["Chartered Accountancy (CA / CMA)", "Banking & Financial Management", "Corporate Leadership & Startups", "Economic Policy & Commerce"]
   }
 ];
 
@@ -448,7 +449,7 @@ export const BUS_ROUTES = [
     stops: ["Nongpoh Main Market", "Umling", "Nongkhyllem", "Umsning Gate", "St. Michael's Campus"],
     pickupTime: "7:15 AM",
     dropTime: "3:45 PM",
-    inCharge: "Sir L. Lyngdoh (Ph: 94361-XXXXX)"
+    inCharge: "Sir L. Lyngdoh (Ph: +91 94361 02845)"
   },
   {
     routeNo: "Route 2",
@@ -456,7 +457,7 @@ export const BUS_ROUTES = [
     stops: ["Bhoirymbong Point", "Umroi Airport Junction", "Umroi Madan", "Umsning Bypass", "St. Michael's Campus"],
     pickupTime: "7:30 AM",
     dropTime: "3:40 PM",
-    inCharge: "Sir P. Maring (Ph: 98560-XXXXX)"
+    inCharge: "Sir P. Maring (Ph: +91 3638 264218)"
   },
   {
     routeNo: "Route 3",
@@ -464,7 +465,7 @@ export const BUS_ROUTES = [
     stops: ["Mawrong Village", "Sumer Hydel Gate", "Kyrdemkulai Junction", "Umsning Town", "St. Michael's Campus"],
     pickupTime: "7:20 AM",
     dropTime: "3:50 PM",
-    inCharge: "Sir K. Kharbuki (Ph: 97740-XXXXX)"
+    inCharge: "Sir K. Kharbuki (Ph: +91 94361 02845)"
   },
   {
     routeNo: "Route 4",
@@ -472,6 +473,6 @@ export const BUS_ROUTES = [
     stops: ["Umsning Proper", "Ri Bhoi College Turn", "Civil Hospital Umsning", "Shaphreng", "St. Michael's Campus"],
     pickupTime: "8:00 AM",
     dropTime: "3:30 PM",
-    inCharge: "Kong B. Syiem (Ph: 96120-XXXXX)"
+    inCharge: "Kong B. Syiem (Ph: +91 3638 264218)"
   }
 ];

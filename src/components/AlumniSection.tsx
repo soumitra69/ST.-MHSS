@@ -20,17 +20,17 @@ const alumniData = [
     featuredImage: resolveSchoolAsset('./Assets/Rectangle 89.png'),
     avatar: resolveSchoolAsset('./Assets/Rectangle 89.png'),
     quote:
-      "From daily morning drill on the amphitheatre stairs to rigorous practical experiments in the physics and chemistry labs, St. Michael formed me as a disciplined leader ready for university engineering.",
+      "From daily morning drill on the amphitheatre stairs to rigorous practical experiments in the physics and chemistry labs, St. Michael's formed me as a disciplined leader ready for university engineering.",
   },
   {
     id: 2,
     name: 'Grace Lyngdoh',
     role: 'House Captain & Choral Lead (2024 Batch)',
-    company: 'St. Anthony\'s College',
+    company: "St. Anthony's College",
     featuredImage: resolveSchoolAsset('./Assets/Rectangle 90.png'),
     avatar: resolveSchoolAsset('./Assets/Rectangle 90.png'),
     quote:
-      "The value of community and service instilled by the Reverend Sisters and Diocesan mentors continues to guide me. St. Michael is more than a school; it is a family that nurtures every student's God-given talents.",
+      "The value of community and service instilled by the Reverend Sisters and Diocesan mentors continues to guide me. St. Michael's is more than a school; it is a family that nurtures every student's God-given talents.",
   },
   {
     id: 3,
@@ -40,7 +40,7 @@ const alumniData = [
     featuredImage: resolveSchoolAsset('./Assets/Rectangle 91.png'),
     avatar: resolveSchoolAsset('./Assets/Rectangle 91.png'),
     quote:
-      "The geography field excursions across Ri Bhoi and regular debating competitions helped me understand our regional society deeply. St. Michael instilled in me the motto 'Shaphrang' — to always step forward with courage.",
+      "The geography field excursions across Ri Bhoi and regular debating competitions helped me understand our regional society deeply. St. Michael's instilled in me the motto 'Shaphrang' — to always step forward with courage.",
   },
 ];
 
@@ -62,7 +62,7 @@ export const AlumniSection: React.FC = () => {
       <div className="container">
         {/* Header Section */}
         <div className="alumini-header" data-aos="fade-down" data-aos-duration="900">
-          <h1>ST. MICHAEL'S UMSNING Family Speaks</h1>
+          <h1>ST. MICHAEL&apos;S UMSNING FAMILY SPEAKS</h1>
           <nav className="navigation" aria-label="Testimonial Navigation">
             <button
               type="button"
@@ -87,7 +87,12 @@ export const AlumniSection: React.FC = () => {
         <div className="main-content" data-aos="zoom-in" data-aos-duration="800">
           <div className="featured-section" key={current.id}>
             <div className="profile-image">
-              <img src={current.featuredImage} alt={current.name} />
+              <img
+                src={current.featuredImage}
+                alt={current.name}
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div className="content-area">
               <span className="badge">ALUMNI &amp; SCHOLARS</span>
@@ -119,6 +124,8 @@ export const AlumniSection: React.FC = () => {
                 src={person.avatar}
                 alt={person.name}
                 className="alumni-image"
+                loading="lazy"
+                decoding="async"
               />
               <div className="alumni-card-meta">
                 <p className="alumni-name">{person.name}</p>

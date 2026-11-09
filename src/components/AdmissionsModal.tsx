@@ -41,7 +41,7 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const randomId = `DBCT-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+    const randomId = `SMHSS-2026-${Math.floor(1000 + Math.random() * 9000)}`;
     setApplicationId(randomId);
     setSubmitted(true);
   };
@@ -57,8 +57,11 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-      <div className="bg-white rounded-2xl max-w-xl w-full shadow-2xl border-2 border-slate-200 overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-150">
+    <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto" onClick={resetForm}>
+      <div
+        className="bg-white rounded-2xl max-w-xl w-full shadow-2xl border-2 border-slate-200 overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-150"
+        onClick={(e) => e.stopPropagation()}
+      >
         
         {/* Header */}
         <div className="p-5 bg-[#1B365D] text-white flex items-center justify-between">
@@ -68,16 +71,18 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
             </div>
             <div>
               <h3 className="text-base font-extrabold uppercase tracking-tight">
-                Academic Session 2026-27 Admission
+                Academic Session 2026–27 Admission
               </h3>
               <p className="text-xs text-slate-200">
-                Don Bosco College Tura
+                {SCHOOL_INFO.name}
               </p>
             </div>
           </div>
           <button
+            type="button"
             onClick={resetForm}
             className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+            aria-label="Close modal"
           >
             <X className="w-5 h-5" />
           </button>
@@ -91,11 +96,11 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
             </span>
             <span className="text-slate-300">➔</span>
             <span className={`font-bold ${step === 2 ? 'text-[#1B365D]' : 'text-slate-400'}`}>
-              2. Guardian & Contact
+              2. Guardian &amp; Contact
             </span>
             <span className="text-slate-300">➔</span>
             <span className={`font-bold ${step === 3 ? 'text-[#1B365D]' : 'text-slate-400'}`}>
-              3. Verification & Submit
+              3. Verification &amp; Submit
             </span>
           </div>
         )}
@@ -111,7 +116,7 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
                 Application Successfully Registered!
               </h4>
               <p className="text-xs text-slate-600 max-w-md mx-auto leading-relaxed">
-                Your online admission enquiry has been filed with the Don Bosco College Tura admissions office.
+                Your online admission enquiry has been filed with the {SCHOOL_INFO.name} Admissions Secretariat.
               </p>
 
               <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 text-left max-w-md mx-auto text-xs space-y-1.5">
@@ -135,15 +140,17 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
 
               <div className="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
                 <button
+                  type="button"
                   onClick={handlePrint}
-                  className="py-2.5 px-5 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold uppercase tracking-wider rounded flex items-center justify-center gap-2"
+                  className="py-2.5 px-5 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold uppercase tracking-wider rounded-lg flex items-center justify-center gap-2"
                 >
                   <Printer className="w-4 h-4 text-[#1B365D]" />
                   <span>Print Acknowledgement Slip</span>
                 </button>
                 <button
+                  type="button"
                   onClick={resetForm}
-                  className="py-2.5 px-6 bg-[#1B365D] text-white text-xs font-bold uppercase tracking-wider rounded"
+                  className="py-2.5 px-6 bg-[#1B365D] text-white text-xs font-bold uppercase tracking-wider rounded-lg"
                 >
                   Done
                 </button>
@@ -255,7 +262,7 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
                       type="button"
                       onClick={() => setStep(2)}
                       disabled={!formData.studentName || !formData.dob}
-                      className="py-2.5 px-6 bg-[#1B365D] hover:bg-[#0F1D38] disabled:opacity-50 text-white text-xs font-bold uppercase tracking-wider rounded flex items-center gap-1.5"
+                      className="py-2.5 px-6 bg-[#1B365D] hover:bg-[#0F1D38] disabled:opacity-50 text-white text-xs font-bold uppercase tracking-wider rounded-lg flex items-center gap-1.5"
                     >
                       <span>Proceed to Guardian Info</span>
                       <ChevronRight className="w-4 h-4" />
@@ -342,7 +349,7 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
                     <button
                       type="button"
                       onClick={() => setStep(1)}
-                      className="py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded flex items-center gap-1"
+                      className="py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg flex items-center gap-1"
                     >
                       <ChevronLeft className="w-4 h-4" />
                       <span>Back</span>
@@ -351,9 +358,9 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
                       type="button"
                       onClick={() => setStep(3)}
                       disabled={!formData.parentName || !formData.parentPhone}
-                      className="py-2.5 px-6 bg-[#1B365D] hover:bg-[#0F1D38] disabled:opacity-50 text-white text-xs font-bold uppercase tracking-wider rounded flex items-center gap-1.5"
+                      className="py-2.5 px-6 bg-[#1B365D] hover:bg-[#0F1D38] disabled:opacity-50 text-white text-xs font-bold uppercase tracking-wider rounded-lg flex items-center gap-1.5"
                     >
-                      <span>Review & Confirm</span>
+                      <span>Review &amp; Confirm</span>
                       <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
@@ -396,7 +403,7 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
                     <button
                       type="button"
                       onClick={() => setStep(2)}
-                      className="py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded flex items-center gap-1"
+                      className="py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg flex items-center gap-1"
                     >
                       <ChevronLeft className="w-4 h-4" />
                       <span>Back</span>
@@ -404,7 +411,7 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
                     <button
                       type="submit"
                       disabled={!formData.agreeRules}
-                      className="py-2.5 px-7 bg-[#D97706] hover:bg-[#B45309] disabled:opacity-50 text-white text-xs font-bold uppercase tracking-wider rounded shadow"
+                      className="py-2.5 px-7 bg-[#D97706] hover:bg-[#B45309] disabled:opacity-50 text-white text-xs font-bold uppercase tracking-wider rounded-lg shadow"
                     >
                       Submit Official Application
                     </button>

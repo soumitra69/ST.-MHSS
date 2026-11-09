@@ -2,24 +2,24 @@ import React from 'react';
 import { SCHOOL_INFO } from '../data/schoolData';
 
 const admissionsLinks = [
-  { label: 'Admission enquiry', href: '#apply-form' },
-  { label: 'School levels and streams', href: '#academics' },
-  { label: 'Frequently asked questions', href: '#faq' },
-  { label: 'Contact the school', href: '#footer' },
+  { label: 'Online Admission Enquiry', href: '#apply-form' },
+  { label: 'School Levels & Class XI–XII Streams', href: '#academics' },
+  { label: 'Fee Structure & Transit Calculator', href: '#hub' },
+  { label: 'Frequently Asked Questions', href: '#faq' },
 ];
 
 const academicsLinks = [
-  { label: 'School levels and MBOSE', href: '#academics' },
-  { label: 'Academic spotlight', href: '#research' },
-  { label: 'Student and family notices', href: '#hub' },
-  { label: 'Student work and gallery', href: '#student-work' },
+  { label: 'MBOSE Curriculum & Streams', href: '#academics' },
+  { label: 'State Board Merit Toppers', href: '#toppers' },
+  { label: 'Academic Faculty Directory', href: '#faculty' },
+  { label: 'Academic Spotlight & Labs', href: '#research' },
 ];
 
 const othersLinks = [
-  { label: 'Notice board and student hub', href: '#hub' },
-  { label: 'Campus life', href: '#campus-life' },
-  { label: 'School gallery', href: '#student-work' },
-  { label: 'Frequently asked questions', href: '#faq' },
+  { label: 'Student & Staff Operations Hub', href: '#hub' },
+  { label: 'Campus Life & Synchronized Drill', href: '#campus-life' },
+  { label: 'School Gallery & Student Work', href: '#student-work' },
+  { label: 'Alumni & Scholar Testimonials', href: '#alumni' },
   { label: 'Live Portal (GitHub Pages)', href: 'https://soumitra69.github.io/ST.-MHSS/' },
 ];
 
@@ -34,23 +34,23 @@ export const FooterSection: React.FC = () => {
               <div className="logo-symbol">
                 <img
                   src={SCHOOL_INFO.logo}
-                  alt="Don Bosco College Tura logo"
+                  alt="St. Michael's Higher Secondary School crest"
                   className="rounded-full object-contain"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="university-identity">
-                <h2>DON BOSCO COLLEGE TURA</h2>
-                <p>Faith, learning and service • Meghalaya, India</p>
+                <h2>ST. MICHAEL&apos;S HIGHER SECONDARY SCHOOL</h2>
+                <p>Estd. 1961 • Umsning, Ri Bhoi District, Meghalaya</p>
               </div>
             </div>
 
             <div className="location-details">
-              <h4>—— Locate Us</h4>
+              <h4>—— Locate Our Campus</h4>
               <div className="address-block">
-                <h3>DON BOSCO COLLEGE TURA</h3>
-                <p>
-                  {SCHOOL_INFO.address}
-                </p>
+                <h3>ST. MICHAEL&apos;S HIGHER SECONDARY SCHOOL</h3>
+                <p>{SCHOOL_INFO.address}</p>
               </div>
 
               <div className="contact-details">
@@ -83,7 +83,7 @@ export const FooterSection: React.FC = () => {
                 className="navigation-button"
               >
                 <i className="fas fa-arrow-right"></i>
-                <span>Get Direction</span>
+                <span>Get Directions on Google Maps</span>
               </a>
             </div>
           </div>
@@ -114,15 +114,20 @@ export const FooterSection: React.FC = () => {
 
           {/* Others Section */}
           <div className="footer-column" data-aos="fade-up" data-aos-delay="300">
-            <h3>OTHERS &amp; PORTAL</h3>
+            <h3>CAMPUS &amp; PORTAL</h3>
             <ul className="footer-menu">
               {othersLinks.map((item) => (
                 <li key={item.label}>
-                  <a href={item.href}>{item.label}</a>
+                  <a
+                    href={item.href}
+                    target={item.href.startsWith('http') ? '_blank' : undefined}
+                    rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
+                  >
+                    {item.label}
+                  </a>
                 </li>
               ))}
             </ul>
-
           </div>
         </div>
       </footer>
@@ -130,7 +135,7 @@ export const FooterSection: React.FC = () => {
       <div className="footer-base">
         <div className="base-content">
           <p className="copyright-text">
-            Copyrights © 1985-{new Date().getFullYear()} All Rights Reserved by Don Bosco College Tura
+            Copyright © 1961–{new Date().getFullYear()} All Rights Reserved by St. Michael&apos;s Higher Secondary School, Umsning • MBOSE School Code: {SCHOOL_INFO.schoolCode}
           </p>
         </div>
       </div>

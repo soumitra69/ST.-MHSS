@@ -3,18 +3,20 @@ import AOS from 'aos';
 import { AlertBar } from './components/AlertBar';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
+import { QuickLinksSection } from './components/QuickLinksSection';
 import { ExcellenceSection } from './components/ExcellenceSection';
 import { InstitutionalSection } from './components/InstitutionalSection';
-import { QuickLinksSection } from './components/QuickLinksSection';
 import { AcademicsSection } from './components/AcademicsSection';
+import { TopperFelicitation } from './components/TopperFelicitation';
+import { FacultyDirectory } from './components/FacultyDirectory';
 import { WhyUsSection } from './components/WhyUsSection';
 import { StudentLifeSection } from './components/StudentLifeSection';
+import { VideoDrillSection } from './components/VideoDrillSection';
 import { ResearchSection } from './components/ResearchSection';
 import { StudentWorkSection } from './components/StudentWorkSection';
+import { StudentStaffHub } from './components/StudentStaffHub';
 import { AlumniSection } from './components/AlumniSection';
 import { FAQAndFinalCTA } from './components/FAQAndFinalCTA';
-import { VideoDrillSection } from './components/VideoDrillSection';
-import { StudentStaffHub } from './components/StudentStaffHub';
 import { FooterSection } from './components/FooterSection';
 import { ChatBot } from './components/ChatBot';
 import { SearchModal } from './components/SearchModal';
@@ -27,11 +29,22 @@ export default function App() {
 
   useEffect(() => {
     AOS.init({
-      duration: 900,
+      duration: 850,
       easing: 'ease-out-cubic',
       once: true,
-      offset: 60,
+      offset: 50,
     });
+  }, []);
+
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setSearchModalOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleGlobalKeyDown);
+    return () => window.removeEventListener('keydown', handleGlobalKeyDown);
   }, []);
 
   const scrollToForm = () => {
@@ -54,8 +67,8 @@ export default function App() {
       {/* Site header and admissions hero */}
       <header>
         <AlertBar onRegisterClick={scrollToForm} />
-        <Navbar 
-          onApplyClick={scrollToForm} 
+        <Navbar
+          onApplyClick={scrollToForm}
           onOpenSearch={() => setSearchModalOpen(true)}
         />
         <HeroSection formRef={formRef} />
@@ -68,33 +81,42 @@ export default function App() {
         {/* Section A: Together We Have Achieved Excellence */}
         <ExcellenceSection />
 
+        {/* Section B: Who We Are, Mission, Vision, Founder & Principal */}
         <InstitutionalSection />
 
+        {/* Section C: Academic Levels & Class XI–XII Streams */}
         <AcademicsSection onOpenAdmission={() => setAdmissionModalOpen(true)} />
 
-        {/* School background and academic highlights */}
+        {/* Section D: State Board Topper Felicitation */}
+        <TopperFelicitation />
+
+        {/* Section E: Why St. Michael's Umsning */}
         <WhyUsSection />
 
-        {/* Section C: Student Life Bento Grid */}
+        {/* Section F: Student Life Bento Grid */}
         <StudentLifeSection />
 
-        {/* Section D: Live 2,000-Student Synchronized Drill & Choral Media */}
+        {/* Section G: Live 2,000-Student Synchronized Drill & Choral Media */}
         <div id="media-drill">
           <VideoDrillSection />
         </div>
 
-        {/* Section E: Research & Academic Spotlight */}
+        {/* Section H: Academic Spotlight & Labs */}
         <ResearchSection />
 
-        {/* Section F: Student Work & Innovation Gallery */}
+        {/* Section I: Faculty Directory */}
+        <FacultyDirectory />
+
+        {/* Section J: Student Work & Campus Gallery */}
         <StudentWorkSection />
 
-        {/* Section G: 2,000-Student Daily Digital Operations Hub */}
+        {/* Section K: 2,000-Student Daily Digital Operations Hub */}
         <StudentStaffHub />
 
-        {/* Section H: Alumni & Family Speaks Testimonials */}
+        {/* Section L: Alumni & Scholar Testimonials */}
         <AlumniSection />
 
+        {/* Section M: Frequently Asked Questions & Final CTA */}
         <FAQAndFinalCTA
           onOpenAdmission={() => setAdmissionModalOpen(true)}
           onNavigate={handleNavigate}
@@ -104,7 +126,7 @@ export default function App() {
       {/* School contact and footer */}
       <FooterSection />
 
-      {/* 4. Interactive Live Help Desk & Back To Top */}
+      {/* Interactive Live Help Desk & Back To Top */}
       <ChatBot />
 
       {/* Global Search Modal */}

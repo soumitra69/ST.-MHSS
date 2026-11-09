@@ -5,17 +5,17 @@ const researchCategories = [
   {
     title: 'Regional Geography Fieldwork',
     description:
-      'Class XII geography and environmental science students participate in annual field surveys across the Ri Bhoi watershed, mapping soil conservation, forest ecology, and local livelihoods.',
+      'Class XII Geography and Environmental Science students participate in annual field surveys across the Ri Bhoi watershed, mapping soil conservation, forest ecology, and local rural livelihoods.',
   },
   {
     title: 'Modern Science Laboratories',
     description:
-      'Dedicated Physics, Chemistry, and Biology laboratories equipped for hands-on experiments, scientific demonstrations, and MBOSE practical examinations.',
+      'Dedicated Physics, Chemistry, Biology, and Computer Science laboratories equipped for hands-on experiments, scientific demonstrations, and MBOSE practical examinations.',
   },
   {
     title: 'State Honors & Scholarships',
     description:
-      'St. Michael\'s SSLC Award Body provides merit recognition and scholarships of ₹20,000 for state board toppers, felicitated by the Chief Minister of Meghalaya.',
+      "St. Michael's SSLC Award Body provides merit recognition and scholarships of ₹20,000 for state board toppers, felicitated by the Hon'ble Chief Minister of Meghalaya.",
   },
 ];
 
@@ -47,7 +47,7 @@ const researchGalleryPairs = [
 ];
 
 const metrics = [
-  { value: '2,000+', label: 'Learners Enrolled (KG-XII)' },
+  { value: '2,000+', label: 'Learners Enrolled (KG–XII)' },
   { value: '100%', label: 'MBOSE Board Pass Record' },
   { value: 'Top 20', label: 'Meghalaya State Merit Rank' },
   { value: '₹20,000', label: 'Scholarship Award Endowment' },
@@ -119,7 +119,12 @@ export const ResearchSection: React.FC = () => {
             <div className="gallery-section">
               {researchGalleryPairs[galleryPage].map((photo) => (
                 <div key={photo.url} className="photo-container">
-                  <img src={photo.url} alt={photo.alt} />
+                  <img
+                    src={photo.url}
+                    alt={photo.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <span className="photo-tag">{photo.tag}</span>
                 </div>
               ))}

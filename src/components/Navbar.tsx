@@ -3,12 +3,12 @@ import { SCHOOL_INFO } from '../data/schoolData';
 
 const secondaryLinks = [
   { label: 'NOTICES', href: '#hub' },
-  { label: 'HAPPENINGS', href: '#student-work' },
-  { label: 'HR.SEC', href: '#why-us' },
+  { label: 'STATE HONORS', href: '#toppers' },
+  { label: 'HR. SEC STREAMS', href: '#academics' },
   { label: 'STUDENT HUB', href: '#hub' },
   { label: 'HOUSES', href: '#hub' },
-  { label: 'DRILL VIDEO', href: '#media-drill' },
-  { label: 'FACULTY', href: '#why-us' },
+  { label: 'DRILL & CHOIR', href: '#media-drill' },
+  { label: 'FACULTY', href: '#faculty' },
   { label: 'CONTACT', href: '#footer' },
 ];
 
@@ -18,9 +18,10 @@ const primaryLinks = [
     href: '#about',
     hasDropdown: true,
     subItems: [
+      { label: 'Who We Are (Estd. 1961)', href: '#about' },
       { label: 'Our Mission', href: '#mission' },
-      { label: 'Our Vision', href: '#vision' },
-      { label: 'Founder’s Message', href: '#founder-message' },
+      { label: 'Our Vision (Excelsior)', href: '#vision' },
+      { label: 'Founder’s Heritage', href: '#founder-message' },
       { label: 'Principal’s Desk', href: '#principal-message' },
     ],
   },
@@ -29,9 +30,10 @@ const primaryLinks = [
     href: '#apply-form',
     hasDropdown: true,
     subItems: [
-      { label: 'Admission enquiry', href: '#apply-form' },
-      { label: 'Academic pathways', href: '#academics' },
-      { label: 'Contact the school', href: '#footer' },
+      { label: '2026–27 Admission Enquiry', href: '#apply-form' },
+      { label: 'Fee Structure & Calculator', href: '#hub' },
+      { label: 'School Bus Routes (NH-6)', href: '#hub' },
+      { label: 'Frequently Asked Questions', href: '#faq' },
     ],
   },
   {
@@ -39,14 +41,15 @@ const primaryLinks = [
     href: '#academics',
     hasDropdown: true,
     subItems: [
-      { label: 'School levels and streams', href: '#academics' },
-      { label: 'Academic spotlight', href: '#research' },
-      { label: 'Notice board', href: '#hub' },
+      { label: 'School Levels (Nursery – XII)', href: '#academics' },
+      { label: 'Higher Secondary Streams', href: '#streams' },
+      { label: 'Academic & Fieldwork Spotlight', href: '#research' },
+      { label: 'Faculty & Mentors Directory', href: '#faculty' },
     ],
   },
-  { label: 'INFRASTRUCTURE', href: '#campus-life', hasDropdown: false },
   { label: 'CAMPUS LIFE', href: '#campus-life', hasDropdown: false },
-  { label: 'HONORS', href: '#student-work', hasDropdown: false },
+  { label: 'HONORS', href: '#toppers', hasDropdown: false },
+  { label: 'GALLERY', href: '#student-work', hasDropdown: false },
   { label: 'STUDENT HUB', href: '#hub', hasDropdown: false },
 ];
 
@@ -64,9 +67,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onApplyClick, onOpenSearch }) =>
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 40);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -94,13 +98,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onApplyClick, onOpenSearch }) =>
               <div className="logo-placeholder">
                 <img
                   src={SCHOOL_INFO.logo}
-                  alt="Don Bosco College Tura logo"
-                  className="rounded-full object-contain"
+                  alt="St. Michael's Higher Secondary School Crest"
+                  width="60"
+                  height="60"
+                  decoding="async"
+                  className="rounded-full object-contain shadow-xs"
                 />
               </div>
               <div className="university-name">
-                <h1>DON BOSCO COLLEGE TURA</h1>
-                <p>West Garo Hills, Meghalaya, India • Estd. 1985</p>
+                <h1>ST. MICHAEL&apos;S HR. SEC. SCHOOL</h1>
+                <p>Umsning, Ri Bhoi District, Meghalaya • Estd. 1961</p>
               </div>
             </a>
 
@@ -113,7 +120,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onApplyClick, onOpenSearch }) =>
                       {item.label}
                     </a>
                   ))}
-                  <div className="umoid-box">UMSNING</div>
+                  <a href="#why-us" className="umoid-box" title="Umsning Campus • MBOSE Affiliated">
+                    UMSNING • 1961
+                  </a>
                 </div>
               </div>
 
@@ -126,7 +135,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onApplyClick, onOpenSearch }) =>
                       onClick={() => handleNavClick(item.label)}
                     >
                       {item.label}
-                      {item.hasDropdown && <i className="fas fa-chevron-down"></i>}
+                      {item.hasDropdown && <i className="fas fa-chevron-down" aria-hidden="true"></i>}
                     </a>
 
                     {item.hasDropdown && (
@@ -153,9 +162,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onApplyClick, onOpenSearch }) =>
                     if (onOpenSearch) onOpenSearch();
                     else setSearchOpen(!searchOpen);
                   }}
-                  aria-label="Toggle Search"
+                  aria-label="Open Global Search (Ctrl+K)"
+                  title="Search notices, streams, faculty & routes (Ctrl+K)"
                 >
-                  <i className={`fas ${searchOpen ? 'fa-times' : 'fa-search'}`}></i>
+                  <i className={`fas ${searchOpen ? 'fa-times' : 'fa-search'}`} aria-hidden="true"></i>
                   <span>Search</span>
                 </button>
 
@@ -164,7 +174,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onApplyClick, onOpenSearch }) =>
                   className="apply-now-btn btn-shine"
                   onClick={onApplyClick}
                 >
-                  APPLY NOW
+                  ADMISSIONS
                 </button>
               </nav>
             </div>
@@ -174,12 +184,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onApplyClick, onOpenSearch }) =>
               <button
                 type="button"
                 className="mobile-search-toggle"
-                onClick={() => setSearchOpen(!searchOpen)}
+                onClick={() => {
+                  if (onOpenSearch) onOpenSearch();
+                  else setSearchOpen(!searchOpen);
+                }}
                 aria-label="Search"
-                aria-controls="mobile-search-form"
-                aria-expanded={searchOpen}
               >
-                <i className={`fas ${searchOpen ? 'fa-times' : 'fa-search'}`}></i>
+                <i className={`fas ${searchOpen ? 'fa-times' : 'fa-search'}`} aria-hidden="true"></i>
               </button>
               <button
                 type="button"
@@ -203,10 +214,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onApplyClick, onOpenSearch }) =>
         <div className="search-overlay">
           <div className="container">
             <form id="mobile-search-form" onSubmit={handleSearchSubmit} className="search-form">
-              <i className="fas fa-search search-icon"></i>
+              <i className="fas fa-search search-icon" aria-hidden="true"></i>
               <input
                 type="text"
-                placeholder="Search programs, admissions, circulars, campus life, faculty..."
+                placeholder="Search streams, admissions, circulars, campus life, faculty..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 autoFocus
@@ -236,13 +247,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onApplyClick, onOpenSearch }) =>
                 onClick={() => handleNavClick(item.label)}
               >
                 <span>{item.label}</span>
-                <i className="fas fa-arrow-right"></i>
+                <i className="fas fa-arrow-right" aria-hidden="true"></i>
               </a>
             ))}
           </div>
 
           <div className="mobile-secondary-links">
-            <div className="mobile-sec-title">Quick Operational Links</div>
+            <div className="mobile-sec-title">Quick Campus Portals</div>
             <div className="mobile-sec-grid">
               {secondaryLinks.map((item) => (
                 <a
@@ -265,7 +276,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onApplyClick, onOpenSearch }) =>
                 onApplyClick();
               }}
             >
-              ADMISSION ENQUIRY
+              ADMISSION ENQUIRY 2026–27
             </button>
           </div>
         </div>

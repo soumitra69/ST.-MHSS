@@ -1,21 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { SCHOOL_INFO } from '../data/schoolData';
 
 const quickQuestions = [
   {
-    q: 'How do I apply for 2026 Admissions?',
-    a: 'You can fill out the "Apply Today" registration form at the top of this page or click "APPLY NOW" in the header.',
+    q: 'How do I apply for 2026–27 Admissions?',
+    a: 'You can complete the "Apply Today" form at the top of this page or click "Online Admission Form" in the FAQ section to generate your provisional application slip.',
   },
   {
-    q: 'What streams are available in Class XI?',
-    a: 'St. Michael offers Science, Arts/Humanities, and Commerce streams under MBOSE with full lab facilities and scholarships.',
+    q: 'What streams are available in Class XI & XII?',
+    a: "St. Michael's offers Science (PCM/PCB/CS), Arts & Humanities, and Commerce streams under MBOSE with dedicated laboratories.",
   },
   {
     q: 'Are scholarships available for rank holders?',
-    a: 'Yes! St. Michael SSLC Award Body grants ₹20,000 cash scholarships and full tuition waivers to state board distinction holders.',
+    a: "Yes! St. Michael's SSLC Award Body grants ₹20,000 cash scholarships and 100% tuition waivers to MBOSE State Top 20 Merit holders.",
   },
   {
     q: 'Does the school provide bus transit?',
-    a: 'Yes, our 4-route school bus fleet covers Umsning, Nongpoh, Bhoirymbong, Umroi, and Sumer along the NH-6 corridor.',
+    a: 'Yes, our 4-route school bus fleet covers Umsning Town Core, Nongpoh Road, Bhoirymbong, Umroi, Umden, and Sumer along the NH-6 corridor.',
   },
 ];
 
@@ -27,17 +28,24 @@ export const ChatBot: React.FC = () => {
   const [messages, setMessages] = useState([
     {
       sender: 'bot',
-      text: "Welcome to St. Michael's Umsning! How may our admissions & student help desk assist you today?",
+      text: "Welcome to St. Michael's Higher Secondary School, Umsning! How may our admissions & student help desk assist you today?",
     },
   ]);
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const onScroll = () => {
       setShowBackToTop(window.scrollY > 400);
     };
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  useEffect(() => {
+    if (chatOpen && messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages, chatOpen]);
 
   const handleQuestionClick = (item: { q: string; a: string }) => {
     setMessages((prev) => [
@@ -57,7 +65,7 @@ export const ChatBot: React.FC = () => {
       { sender: 'user', text: userText },
       {
         sender: 'bot',
-        text: 'Thank you for reaching out! Our administrative team at St. Michael\'s Umsning is available Mon-Fri (8:30 AM – 3:30 PM) at +91 94361 02845 or stmichaelumsning@gmail.com.',
+        text: `Thank you for your enquiry! Our Secretariat at St. Michael's Umsning is available (${SCHOOL_INFO.officeHours}) at ${SCHOOL_INFO.phoneMobile} or ${SCHOOL_INFO.email}.`,
       },
     ]);
   };
@@ -81,8 +89,8 @@ export const ChatBot: React.FC = () => {
       {/* Floating Chat Widget */}
       <div className="chatbot-wrapper">
         {showTooltip && !chatOpen && (
-          <div className="chatbot-tooltip animate-bounce">
-            <span>Ask St. Michael Desk</span>
+          <div className="chatbot-tooltip">
+            <span>Ask St. Michael&apos;s Desk</span>
             <button
               type="button"
               className="tooltip-close"
@@ -107,13 +115,13 @@ export const ChatBot: React.FC = () => {
         </button>
 
         {chatOpen && (
-          <div className="chatbot-modal" data-aos="zoom-in-up" data-aos-duration="300">
+          <div className="chatbot-modal" role="dialog" aria-label="St. Michael's Help Desk">
             <div className="chatbot-header">
               <div className="chatbot-title">
                 <i className="fas fa-graduation-cap"></i>
                 <div>
-                  <h4>St. Michael's Help Desk</h4>
-                  <span>Online • Serving 2,000 Students</span>
+                  <h4>St. Michael&apos;s Help Desk</h4>
+                  <span>Online • Admissions &amp; Campus Support</span>
                 </div>
               </div>
               <button
@@ -132,10 +140,11 @@ export const ChatBot: React.FC = () => {
                   <p>{msg.text}</p>
                 </div>
               ))}
+              <div ref={messagesEndRef} />
             </div>
 
             <div className="chatbot-quick-questions">
-              <p className="quick-label">Frequently Asked:</p>
+              <p className="quick-label">Quick Questions:</p>
               <div className="quick-chips">
                 {quickQuestions.map((item, idx) => (
                   <button
@@ -153,7 +162,7 @@ export const ChatBot: React.FC = () => {
             <form onSubmit={handleSendMessage} className="chatbot-input-bar">
               <input
                 type="text"
-                placeholder="Type your question..."
+                placeholder="Ask about admissions, fees, streams..."
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
               />

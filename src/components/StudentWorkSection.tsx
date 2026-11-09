@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { resolveSchoolAsset } from '../data/schoolAssets';
 
 const subWorkCards = [
   {
     src: resolveSchoolAsset('./Assets/Rectangle 61.png'),
-    title: 'Students celebrating academic achievements',
-    category: 'Student Achievement',
+    title: 'Students Celebrating State Board Merit & Distinctions',
+    category: 'Academic Achievement',
   },
   {
     src: resolveSchoolAsset('./Assets/Rectangle 62.png'),
-    title: 'Campus environmental activities',
+    title: 'Ri Bhoi Watershed & Campus Environmental Conservation',
     category: 'Geography & Ecology',
   },
   {
     src: resolveSchoolAsset('./Assets/Rectangle 63.png'),
-    title: 'Student leadership and campus activities',
+    title: 'Student Council Leadership & Youth Awareness Rallies',
     category: 'Student Leadership',
   },
   {
@@ -25,16 +25,27 @@ const subWorkCards = [
 ];
 
 const galleryImages = [
-  { src: resolveSchoolAsset('./Assets/Rectangle 71.png'), title: 'Annual cultural performances' },
-  { src: resolveSchoolAsset('./Assets/Rectangle 72.png'), title: 'State Board SSLC Topper Felicitation' },
+  { src: resolveSchoolAsset('./Assets/Rectangle 71.png'), title: 'Annual Cultural & Traditional Khasi Dance Showcase' },
+  { src: resolveSchoolAsset('./Assets/Rectangle 72.png'), title: 'State Board SSLC Topper Felicitation Ceremony' },
   { src: resolveSchoolAsset('./Assets/Rectangle 73.png'), title: 'Class XII Geography Fieldwork Excursion' },
   { src: resolveSchoolAsset('./Assets/Rectangle 74.png'), title: 'Community Awareness & Anti-Tobacco Rally' },
-  { src: resolveSchoolAsset('./Assets/Rectangle 75.png'), title: 'World Environment Day Tree Plantation' },
+  { src: resolveSchoolAsset('./Assets/Rectangle 75.png'), title: 'World Environment Day Tree Plantation Drive' },
   { src: resolveSchoolAsset('./Assets/Rectangle 76.png'), title: 'Senior Choral Ensemble and School Hymn' },
 ];
 
 export const StudentWorkSection: React.FC = () => {
   const [lightboxImg, setLightboxImg] = useState<{ src: string; title: string } | null>(null);
+
+  useEffect(() => {
+    if (!lightboxImg) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setLightboxImg(null);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [lightboxImg]);
 
   return (
     <div id="student-work">
@@ -42,11 +53,11 @@ export const StudentWorkSection: React.FC = () => {
         <div className="container">
           <div className="student-work-content" data-aos="fade-down" data-aos-duration="900">
             <div>
-              <span className="section-eyebrow">INNOVATION & DISCIPLINE IN ACTION</span>
-              <h3>STUDENTS WORK</h3>
+              <span className="section-eyebrow">INNOVATION &amp; DISCIPLINE IN ACTION</span>
+              <h3>CAMPUS GALLERY &amp; STUDENT WORK</h3>
             </div>
             <a href="#hub" className="view-more-link">
-              <span>View More in Hub</span>
+              <span>Explore Digital Hub</span>
               <span aria-hidden="true">→</span>
             </a>
           </div>
@@ -60,16 +71,21 @@ export const StudentWorkSection: React.FC = () => {
               onClick={() =>
                 setLightboxImg({
                   src: resolveSchoolAsset('./Assets/Rectangle 60.png'),
-                  title: "Students learning and taking part in campus activities at St. Michael's.",
+                  title: "Students learning and participating in campus activities at St. Michael's Higher Secondary School, Umsning.",
                 })
               }
             >
               <div className="image-wrapper">
-                <img src={resolveSchoolAsset('./Assets/Rectangle 60.png')} alt="Students at work on a campus field study" />
+                <img
+                  src={resolveSchoolAsset('./Assets/Rectangle 60.png')}
+                  alt="Students at work on a campus field study"
+                  loading="lazy"
+                  decoding="async"
+                />
                 <div className="caption">
                   <span className="caption-badge">CAMPUS MOMENT</span>
                   <p>
-                        Discover student learning, campus activities, and community life at St. Michael's Higher Secondary School, Umsning.
+                    Discover student learning, science exhibitions, and community life at St. Michael&apos;s Higher Secondary School, Umsning.
                   </p>
                 </div>
               </div>
@@ -85,7 +101,12 @@ export const StudentWorkSection: React.FC = () => {
                   data-aos-delay={100 * (idx + 1)}
                   onClick={() => setLightboxImg(item)}
                 >
-                  <img src={item.src} alt={item.title} />
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div className="work-subcard-overlay">
                     <span className="work-tag">{item.category}</span>
                     <h4>{item.title}</h4>
@@ -105,10 +126,15 @@ export const StudentWorkSection: React.FC = () => {
                 key={img.src}
                 className="gallery-grid-item"
                 data-aos="zoom-in"
-                data-aos-delay={80 * (index + 1)}
+                data-aos-delay={70 * (index + 1)}
                 onClick={() => setLightboxImg(img)}
               >
-                <img src={img.src} alt={img.title} />
+                <img
+                  src={img.src}
+                  alt={img.title}
+                  loading="lazy"
+                  decoding="async"
+                />
                 <div className="gallery-item-hover">
                   <i className="fas fa-expand-alt"></i>
                   <span>{img.title}</span>

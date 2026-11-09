@@ -2,7 +2,7 @@ const assetUrl = (filename: string) =>
   `${import.meta.env.BASE_URL}assets/${encodeURIComponent(filename)}`;
 
 export const SCHOOL_IMAGES = {
-  logo: assetUrl('don-bosco-college-mark.svg'),
+  logo: assetUrl('st-michaels-mark.svg'),
   campus: assetUrl('WhatsApp Image 2026-11-08 at 2.05.14 PM.jpeg'),
   foundingCampus: assetUrl('WhatsApp Image 2026-11-08 at 2.05.22 PM (1).jpeg'),
   schoolStaff: assetUrl('WhatsApp Image 2026-11-08 at 2.05.20 PM.jpeg'),
