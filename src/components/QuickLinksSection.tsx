@@ -38,11 +38,11 @@ const quickLinks = [
     arrowClass: 'bg-white/20 text-white group-hover:bg-white group-hover:text-[#0c4a8a]',
   },
   {
-    title: 'Student & Parent Hub',
-    detail: 'Notices, fees, bus & bell routine',
-    href: '#hub',
-    badge: '6 Notices',
-    icon: 'fas fa-th-large',
+    title: 'Campus Photo Gallery',
+    detail: 'Events, science labs & cultural archive',
+    href: '#gallery',
+    badge: 'Archive',
+    icon: 'fas fa-images',
     cardClass:
       'bg-[#0c2d57] hover:bg-[#d97706] text-white border-[#0c2d57] hover:border-[#fde047]',
     badgeClass: 'bg-amber-300 text-slate-950 group-hover:bg-white group-hover:text-[#0c2d57]',

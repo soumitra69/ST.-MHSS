@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { SCHOOL_INFO } from '../data/schoolData';
 
 const secondaryLinks = [
-  { label: 'NOTICES', href: '#hub', icon: 'fas fa-bullhorn' },
+  { label: 'NOTICES', href: '#apply-form', icon: 'fas fa-bullhorn' },
   { label: 'STATE HONORS', href: '#toppers', icon: 'fas fa-trophy' },
   { label: 'HR. SEC STREAMS', href: '#academics', icon: 'fas fa-graduation-cap' },
-  { label: 'STUDENT HUB', href: '#hub', icon: 'fas fa-th-large' },
-  { label: 'HOUSES', href: '#hub', icon: 'fas fa-shield-alt' },
+  { label: 'HOUSES', href: '#campus-life', icon: 'fas fa-shield-alt' },
   { label: 'DRILL & CHOIR', href: '#media-drill', icon: 'fas fa-music' },
   { label: 'CONTACT', href: '#footer', icon: 'fas fa-phone-alt' },
 ];
@@ -33,7 +32,6 @@ const primaryLinks = [
     hasDropdown: true,
     subItems: [
       { label: '2026–27 Admission Enquiry', href: '#apply-form', icon: 'fas fa-file-signature' },
-      { label: 'Fee Structure & Calculator', href: '#hub', icon: 'fas fa-calculator' },
       { label: 'Frequently Asked Questions', href: '#faq', icon: 'fas fa-question-circle' },
     ],
   },
@@ -51,7 +49,6 @@ const primaryLinks = [
   { label: 'CAMPUS LIFE', href: '#campus-life', icon: 'fas fa-futbol', hasDropdown: false },
   { label: 'HONORS', href: '#toppers', icon: 'fas fa-medal', hasDropdown: false },
   { label: 'GALLERY', href: '#gallery', icon: 'fas fa-images', hasDropdown: false },
-  { label: 'STUDENT HUB', href: '#hub', icon: 'fas fa-laptop-house', hasDropdown: false },
 ];
 
 interface NavbarProps {

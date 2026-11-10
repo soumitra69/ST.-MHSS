@@ -14,8 +14,6 @@ import { VideoDrillSection } from './components/VideoDrillSection';
 import { ResearchSection } from './components/ResearchSection';
 import { CampusSpacesAndEventsSection } from './components/CampusSpacesAndEventsSection';
 import { StudentWorkSection } from './components/StudentWorkSection';
-import { StudentStaffHub } from './components/StudentStaffHub';
-import { AlumniSection } from './components/AlumniSection';
 import { FAQAndFinalCTA } from './components/FAQAndFinalCTA';
 import { FooterSection } from './components/FooterSection';
 import { ChatBot } from './components/ChatBot';
@@ -182,12 +180,6 @@ export default function App() {
 
         {/* Section J: Student Work & Campus Gallery */}
         <StudentWorkSection />
-
-        {/* Section K: 2,000-Student Daily Digital Operations Hub */}
-        <StudentStaffHub />
-
-        {/* Section L: Alumni & Scholar Testimonials */}
-        <AlumniSection />
 
         {/* Section M: Frequently Asked Questions & Final CTA */}
         <FAQAndFinalCTA

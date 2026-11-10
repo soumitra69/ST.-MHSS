@@ -4,7 +4,6 @@ import { SCHOOL_INFO } from '../data/schoolData';
 const admissionsLinks = [
   { label: 'Online Admission Enquiry 2026–27', href: '#apply-form', icon: 'fas fa-file-signature' },
   { label: 'School Levels & Stream Pathways', href: '#academics', icon: 'fas fa-layer-group' },
-  { label: 'Fee Structure & Calculator', href: '#hub', icon: 'fas fa-calculator' },
   { label: 'SSLC ₹20,000 Merit Scholarship', href: '#toppers', icon: 'fas fa-award' },
   { label: 'Frequently Asked Questions (FAQ)', href: '#faq', icon: 'fas fa-question-circle' },
 ];
@@ -18,11 +17,9 @@ const academicsLinks = [
 ];
 
 const campusPortalLinks = [
-  { label: 'Student & Staff Operations Hub', href: '#hub', icon: 'fas fa-th-large' },
   { label: '4-House Brotherhood & Drill', href: '#campus-life', icon: 'fas fa-shield-alt' },
   { label: 'Campus Photo Gallery & Archive', href: '#gallery', icon: 'fas fa-images' },
   { label: 'Synchronized Drill & Choir Video', href: '#media-drill', icon: 'fas fa-film' },
-  { label: 'Alumni & State Topper Speaks', href: '#alumni', icon: 'fas fa-user-graduate' },
   {
     label: 'Official Live Portal (GitHub Pages)',
     href: 'https://soumitra69.github.io/ST.-MHSS/',
