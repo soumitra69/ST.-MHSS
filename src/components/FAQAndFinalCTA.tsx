@@ -9,29 +9,31 @@ interface FAQAndFinalCTAProps {
 const frequentlyAskedQuestions = [
   {
     question: 'Which school levels and streams are offered at St. Michael’s?',
-    answer: `${SCHOOL_INFO.classes}. At the Higher Secondary stage (Class XI & XII), students can choose between Science (Physics, Chemistry, Biology, Mathematics, Computer Science), Arts & Humanities (History, Political Science, Sociology, Economics, Education, Khasi), and Commerce (Accountancy, Business Studies, Entrepreneurship, Economics).`,
+    answer: `${SCHOOL_INFO.classes}. Founded in 1961 by Rev. Fr. Michel Balawan, SDB under the Catholic Mission of Umsning, Archdiocese of Shillong, the school offers English-medium education from Nursery to Class XII, including Science, Arts & Humanities, and Commerce streams at the Higher Secondary stage.`,
   },
   {
-    question: 'Which education board is the school affiliated with?',
-    answer: `${SCHOOL_INFO.affiliation} (School Code: ${SCHOOL_INFO.schoolCode}). Students appear for the state-level SSLC (Class X) and HSSLC (Class XII) board examinations.`,
-  },
-  {
-    question: 'Are merit scholarships and fee concessions available?',
+    question: 'What are the official school hours and office visiting timings?',
     answer:
-      "Yes. St. Michael's SSLC Award Body awards ₹20,000 cash scholarships and 100% tuition fee waivers for Class XI & XII to students securing ranks in the MBOSE State Top 20 Merit List, along with sibling and diocesan need-based concessions.",
+      'School hours are from 8:45 a.m. to 3:00 p.m. (Monday to Friday) for Secondary and Higher Secondary (Classes VI – XII), and 8:45 a.m. to 2:00 p.m. for the Primary Section. Morning assembly begins with prayer at 8:45 a.m. Office visiting hours are Monday to Friday from 8:45 a.m. – 11:55 a.m. and 12:35 p.m. – 3:00 p.m. (Closed on Saturdays, Sundays, and Public/School Holidays).',
   },
   {
-    question: 'Does the school provide daily bus transport?',
+    question: 'What are the Transfer Certificate (TC) and admission requirements?',
     answer:
-      'Yes, our 4-route school bus fleet operates daily along the NH-6 corridor covering Umsning Town Core, Nongpoh Road, Bhoirymbong, Umroi Airport Junction, Umden, and Sumer.',
+      'A pupil who has attended a recognised school is admitted only on the strength of a Transfer Certificate (TC) from the school last attended and must present himself/herself to the Principal before admission. Only a parent/guardian can apply for a TC in writing along with the necessary fees, provided no fees are in arrears.',
   },
   {
-    question: 'Where is St. Michael’s Higher Secondary School located?',
-    answer: `${SCHOOL_INFO.address}.`,
+    question: 'What is the annual examination and promotion schedule?',
+    answer:
+      'In a single academic year, the school conducts two major examinations: Pre-Promotion and Promotion Exams for Class XI, Pre-Selection and Selection Exams for Class XII, Half-Yearly/Pre-Selection and Selection/Promotion for Secondary (Classes VI – X), and two Term Examinations for the Primary Section, in addition to regular weekly/unit tests. Merit ranks are awarded only to students who pass all subjects (Top 20 in Higher Secondary).',
   },
   {
-    question: 'How can parents contact the school office for admission enquiries?',
-    answer: `You can visit the school Secretariat during office hours (${SCHOOL_INFO.officeHours}), call ${SCHOOL_INFO.phoneMobile} or ${SCHOOL_INFO.phone}, or email ${SCHOOL_INFO.email}.`,
+    question: 'What is the weekly school uniform and track-suit schedule?',
+    answer:
+      'Regular school uniform must be worn on every Monday, Tuesday, and Thursday. On Wednesday and Friday, students wear their prescribed track-suits along with their House/Team T-Shirt and white shoes/canvas. Every student must also bring the School Diary and Student ID daily.',
+  },
+  {
+    question: 'Where is St. Michael’s located and how can parents contact the school office?',
+    answer: `St. Michael’s is situated at Umsning (PIN - 793105) between Shillong and Nongpoh on the left side of the old National Highway and right side of the Shillong–Guwahati Bypass road. You can visit the Secretariat during office hours (${SCHOOL_INFO.officeHours}), call ${SCHOOL_INFO.phoneMobile} or ${SCHOOL_INFO.phone}, or email ${SCHOOL_INFO.email}.`,
   },
 ];
 

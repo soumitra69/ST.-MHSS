@@ -13016,3 +13016,1620 @@ section,
   border: 0;
   display: block;
 }
+
+/* 5. Uniform Compact Box Layout for Mission, Vision, Founder, Secretary & Principal Cards Across All Screens */
+.institutional-msg-card {
+  width: 100%;
+  align-items: stretch;
+}
+
+@media (min-width: 1024px) {
+  .institutional-msg-card {
+    min-height: 265px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  #mission .institutional-msg-card,
+  #founder-message .institutional-msg-card,
+  #principal-message .institutional-msg-card {
+    grid-template-columns: 280px 1fr !important;
+  }
+
+  #vision .institutional-msg-card,
+  #secretary-message .institutional-msg-card {
+    grid-template-columns: 1fr 280px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .institutional-msg-card {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ==========================================================================
+   6. CLASSIC PREMIUM SCHOOL WEBSITE FOOTER (PROPER MARGIN, PADDING & SPACING)
+   ========================================================================== */
+
+.school-footer {
+  width: 100%;
+  background: linear-gradient(180deg, #071b36 0%, #092244 100%);
+  color: #e2e8f0;
+  border-top: 4px solid #d97706;
+  margin-top: 0;
+}
+
+.school-footer-main {
+  padding: 64px 0 56px !important;
+}
+
+.school-footer-grid {
+  display: grid;
+  grid-template-columns: 1.45fr 0.9fr 1fr 1.15fr;
+  gap: 44px;
+  align-items: start;
+}
+
+.school-footer-col {
+  min-width: 0;
+}
+
+.school-footer-brand-col,
+.school-footer-contact-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 22px;
+}
+
+.school-footer-brand-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  text-decoration: none;
+}
+
+.school-footer-crest {
+  width: 68px !important;
+  height: 68px !important;
+  flex-shrink: 0;
+  border-radius: 0 !important;
+  background: transparent !important;
+  padding: 0 !important;
+  object-fit: contain !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.school-footer-eyebrow {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #fbbf24 !important;
+  margin-bottom: 4px;
+}
+
+.school-footer-title {
+  font-size: 1.12rem !important;
+  font-weight: 800 !important;
+  line-height: 1.28 !important;
+  color: #ffffff !important;
+  margin: 0 0 4px 0 !important;
+  letter-spacing: 0.02em;
+}
+
+.school-footer-subtitle {
+  font-size: 0.78rem !important;
+  font-weight: 500 !important;
+  color: #cbd5e1 !important;
+  margin: 0 !important;
+}
+
+.school-footer-desc {
+  margin: 18px 0 0 0 !important;
+  font-size: 0.84rem !important;
+  line-height: 1.68 !important;
+  color: #cbd5e1 !important;
+}
+
+.school-footer-motto-box {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(12, 42, 82, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 3.5px solid #fbbf24;
+}
+
+.school-footer-motto-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #fde047 !important;
+}
+
+.school-footer-code-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.school-footer-code-badges span {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f1f5f9 !important;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.school-footer-social-block {
+  padding-top: 4px;
+}
+
+.school-footer-social-label {
+  font-size: 0.7rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #94a3b8 !important;
+  margin: 0 0 10px 0 !important;
+}
+
+.school-footer-social-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.school-footer-social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #ffffff !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.school-footer-social-btn:hover {
+  background: #d97706;
+  border-color: #fbbf24;
+  transform: translateY(-2px);
+}
+
+.school-footer-social-btn.whatsapp:hover {
+  background: #059669;
+  border-color: #34d399;
+}
+
+.school-footer-heading {
+  position: relative;
+  font-size: 0.85rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #ffffff !important;
+  margin: 0 0 20px 0 !important;
+  padding-bottom: 12px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.school-footer-heading::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 42px;
+  height: 2.5px;
+  background: #d97706;
+  border-radius: 2px;
+}
+
+.school-footer-list,
+.school-footer-contact-list {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.school-footer-list li {
+  margin-bottom: 11px !important;
+  padding: 0 !important;
+}
+
+.school-footer-list li:last-child {
+  margin-bottom: 0 !important;
+}
+
+.school-footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: #cbd5e1 !important;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.school-footer-link i {
+  font-size: 0.75rem;
+  color: #fbbf24 !important;
+  transition: transform 0.2s ease;
+}
+
+.school-footer-link:hover {
+  color: #fde047 !important;
+  transform: translateX(3px);
+}
+
+.school-footer-contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px !important;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: #cbd5e1 !important;
+}
+
+.school-footer-contact-list li:last-child {
+  margin-bottom: 0 !important;
+}
+
+.school-footer-contact-list li > i {
+  color: #fbbf24 !important;
+  font-size: 0.85rem;
+  margin-top: 4px;
+  width: 16px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.school-footer-contact-list strong {
+  display: block;
+  color: #ffffff !important;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.school-footer-contact-list a {
+  color: #cbd5e1 !important;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.school-footer-contact-list a:hover {
+  color: #fde047 !important;
+}
+
+.school-footer-map-wrap {
+  margin-top: 6px;
+}
+
+.school-footer-map-box {
+  width: 100%;
+  height: 125px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  background: #061529;
+}
+
+.school-footer-map-box iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.school-footer-map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #fde047 !important;
+  text-decoration: none;
+}
+
+.school-footer-map-link:hover {
+  color: #ffffff !important;
+}
+
+.school-footer-bottom {
+  background: #041022;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 20px 0 !important;
+}
+
+.school-footer-bottom-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.school-footer-copy,
+.school-footer-credit {
+  margin: 0 !important;
+  font-size: 0.8rem !important;
+  color: #cbd5e1 !important;
+}
+
+.school-footer-credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.school-footer-credit strong {
+  color: #fde047 !important;
+  font-weight: 700;
+}
+
+@media (max-width: 1080px) {
+  .school-footer-main {
+    padding: 52px 0 44px !important;
+  }
+
+  .school-footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .school-footer-main {
+    padding: 42px 0 36px !important;
+  }
+
+  .school-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .school-footer-bottom-inner {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   7. SINGLE-LINE SCHOOL NAME ACROSS ALL SCREENS & FULL CRISP HERO BANNER
+   ========================================================================== */
+
+/* 1. Force School Name onto One Single Line Across Desktop, Laptop, Tablet & Mobile */
+.logo-section {
+  max-width: none !important;
+  flex-shrink: 0 !important;
+}
+
+.university-name {
+  min-width: 0 !important;
+  overflow: visible !important;
+}
+
+.university-name h1 {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  font-size: clamp(0.75rem, 3.2vw, 1.16rem) !important;
+  line-height: 1.2 !important;
+}
+
+@media (min-width: 1141px) {
+  .logo-section {
+    max-width: none !important;
+    padding: 12px 14px 12px 0 !important;
+  }
+
+  .university-name h1 {
+    white-space: nowrap !important;
+    font-size: clamp(0.92rem, 1.08vw, 1.18rem) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-placeholder {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .university-name h1 {
+    font-size: clamp(0.7rem, 3.7vw, 0.92rem) !important;
+    letter-spacing: 0.01em !important;
+  }
+
+  .university-name p {
+    font-size: 0.6rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+}
+
+.school-footer-title {
+  white-space: normal !important;
+  font-size: clamp(0.95rem, 1.12vw, 1.12rem) !important;
+  line-height: 1.26 !important;
+}
+
+/* 2. Full-Frame, Crystal-Clear Hero Banner Image (Zero Hazy Overlay, Zero Zoom-Cropping) */
+.hero-bg-layer,
+.hero-bg-layer.active,
+img.hero-bg-layer {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  transform: none !important;
+  filter: contrast(1.04) saturate(1.06) brightness(1.03) !important;
+}
+
+.hero-bg-overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(6, 18, 36, 0.32) 0%,
+    rgba(6, 18, 36, 0.03) 48%,
+    rgba(6, 18, 36, 0.1) 100%
+  ) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* ==========================================================================
+   8. FIX ALWAYS-ACTIVE HOVERS, LARGER SUB-HEADER & FOOTER FONTS,
+      UMSNING CREST BADGE, STUDENT LOGIN BUTTON & MOBILE RESPONSIVENESS
+   ========================================================================== */
+
+/* 1. Fix Always-Active Hover States (Only Highlight on Actual :hover) */
+.primary-nav-link,
+.primary-nav-link.active {
+  color: #0c2d57 !important;
+  background: transparent !important;
+}
+
+.primary-nav-link::after,
+.primary-nav-link.active::after {
+  width: 0% !important;
+  background-color: #d97706 !important;
+}
+
+.primary-nav-link:hover {
+  color: #d97706 !important;
+}
+
+.primary-nav-link:hover::after {
+  width: 100% !important;
+}
+
+.hero-nb-item.highlighted {
+  background: rgba(6, 18, 38, 0.16) !important;
+  border-color: rgba(255, 255, 255, 0.32) !important;
+}
+
+.hero-nb-item.highlighted:hover {
+  background: rgba(12, 74, 138, 0.38) !important;
+  border-color: #fde047 !important;
+}
+
+/* 2. Increase Font Size of Sub-Header (NOTICES to CONTACT) & Footer Links/Contact */
+@media (min-width: 1141px) {
+  .secondary-nav {
+    padding: 8px 0 8px clamp(12px, 1.4vw, 22px) !important;
+  }
+
+  .secondary-nav-content {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    gap: clamp(6px, 0.7vw, 14px) !important;
+  }
+
+  .sec-nav-link {
+    font-size: clamp(0.76rem, 0.84vw, 0.88rem) !important;
+    padding: 5px clamp(8px, 0.75vw, 12px) !important;
+    font-weight: 700 !important;
+  }
+
+  .umoid-box {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: clamp(0.74rem, 0.82vw, 0.85rem) !important;
+    padding: 4px 12px !important;
+    border-radius: 999px !important;
+    background: #fef3c7 !important;
+    color: #92400e !important;
+    border: 1.5px solid #f59e0b !important;
+    font-weight: 800 !important;
+    text-decoration: none !important;
+  }
+}
+
+.umoid-logo-badge {
+  width: 18px !important;
+  height: 18px !important;
+  border-radius: 999px !important;
+  object-fit: contain !important;
+  background: #ffffff !important;
+  flex-shrink: 0 !important;
+}
+
+.logo-placeholder {
+  border-radius: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: visible !important;
+  width: 58px !important;
+  height: 58px !important;
+}
+
+.logo-placeholder img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Larger, More Legible Footer Links & Contact Text */
+.school-footer-desc {
+  font-size: 0.9rem !important;
+  line-height: 1.7 !important;
+}
+
+.school-footer-heading {
+  font-size: 0.92rem !important;
+}
+
+.school-footer-link {
+  font-size: 0.92rem !important;
+  font-weight: 600 !important;
+}
+
+.school-footer-contact-list li {
+  font-size: 0.9rem !important;
+  line-height: 1.6 !important;
+}
+
+.school-footer-copy,
+.school-footer-credit {
+  font-size: 0.86rem !important;
+}
+
+/* 3. Student Login Button (Desktop & Mobile) + Student Portal Modal */
+.student-login-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  padding: 10px 16px !important;
+  border-radius: 8px !important;
+  background: #0c4a8a !important;
+  color: #ffffff !important;
+  border: 1.5px solid #0c4a8a !important;
+  font-size: 0.78rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  transition: all 0.22s ease !important;
+}
+
+.student-login-btn i {
+  color: #fde047 !important;
+  font-size: 0.82rem !important;
+}
+
+.student-login-btn:hover {
+  background: #0c2d57 !important;
+  border-color: #d97706 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(12, 45, 87, 0.28) !important;
+}
+
+.mobile-login-toggle {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  height: 38px !important;
+  padding: 0 11px !important;
+  border-radius: 8px !important;
+  background: #0c4a8a !important;
+  color: #ffffff !important;
+  border: 1.5px solid #d97706 !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  flex-shrink: 0 !important;
+}
+
+.mobile-login-toggle i {
+  color: #fde047 !important;
+  font-size: 0.76rem !important;
+}
+
+.mobile-cta-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.mobile-student-login-btn {
+  width: 100% !important;
+  padding: 13px 16px !important;
+  font-size: 0.86rem !important;
+}
+
+.mobile-nav-group {
+  border-bottom: 1px solid #eef2f6;
+}
+
+.mobile-nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.mobile-nav-row .mobile-nav-link {
+  flex: 1;
+}
+
+.mobile-sub-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid #dbe3ee;
+  background: #f8fafc;
+  color: #0c4a8a;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.mobile-sub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px 8px 12px 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+
+.mobile-sub-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #1e293b;
+  text-decoration: none;
+}
+
+.mobile-sub-item:hover {
+  background: #0c4a8a;
+  color: #ffffff;
+}
+
+/* Student Login Modal */
+.student-login-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(4, 14, 30, 0.72);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.student-login-modal {
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 2px solid #0c4a8a;
+  border-top: 5px solid #d97706;
+  box-shadow: 0 24px 60px rgba(4, 14, 30, 0.45);
+  overflow: hidden;
+}
+
+.student-login-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 20px;
+  background: #0c2d57;
+  color: #ffffff;
+}
+
+.student-login-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.student-login-brand img {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: #ffffff;
+  padding: 2px;
+  border: 1.5px solid #fbbf24;
+  object-fit: contain;
+}
+
+.student-login-kicker {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #fbbf24;
+  text-transform: uppercase;
+}
+
+.student-login-brand h3 {
+  margin: 2px 0 0;
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.student-login-close {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.student-login-form {
+  padding: 22px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.student-login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.student-login-field label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #0c2d57;
+}
+
+.student-login-field input {
+  width: 100%;
+  padding: 11px 13px;
+  border-radius: 10px;
+  border: 1.5px solid #cbd5e1;
+  font-size: 0.88rem;
+  color: #0f172a;
+  outline: none;
+}
+
+.student-login-field input:focus {
+  border-color: #0c4a8a;
+}
+
+.student-login-alert {
+  padding: 11px 13px;
+  border-radius: 10px;
+  background: #eff6ff;
+  border: 1px solid #93c5fd;
+  color: #0c4a8a;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.student-login-submit {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: #0c4a8a;
+  color: #ffffff;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.student-login-submit:hover {
+  background: #d97706;
+}
+
+.student-login-footer {
+  padding-top: 10px;
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.75rem;
+  color: #475569;
+  text-align: center;
+}
+
+/* 4. Comprehensive Mobile & Tablet Polish (Zero Cramped Elements or Cropping) */
+@media (max-width: 767px) {
+  .main-header .container {
+    padding-inline: 12px !important;
+  }
+
+  .logo-nav {
+    gap: 8px !important;
+    padding: 8px 0 !important;
+  }
+
+  .logo-section {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+    gap: 8px !important;
+    padding: 4px 0 !important;
+  }
+
+  .logo-placeholder {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .university-name h1 {
+    font-size: clamp(0.68rem, 3.4vw, 0.92rem) !important;
+    white-space: nowrap !important;
+  }
+
+  .university-name p {
+    font-size: clamp(0.54rem, 2.4vw, 0.66rem) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .mobile-header-actions {
+    gap: 6px !important;
+  }
+
+  .mobile-login-toggle {
+    height: 34px !important;
+    padding: 0 8px !important;
+    font-size: 0.66rem !important;
+  }
+
+  .hamburger-btn {
+    width: 36px !important;
+    height: 34px !important;
+  }
+
+  .school-footer-title {
+    white-space: normal !important;
+    font-size: 0.96rem !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .mobile-login-toggle span {
+    display: none !important;
+  }
+
+  .mobile-login-toggle {
+    width: 34px !important;
+    padding: 0 !important;
+  }
+}
+
+/* ==========================================================================
+   9. OFFICIAL SCHOOL MOBILE APP COMING SOON SECTION (TOP OF FOOTER)
+   ========================================================================== */
+
+.school-app-section {
+  width: 100%;
+  background: #f4f7fb;
+  padding: 56px 0 64px;
+  border-top: 1px solid #dbe3ee;
+}
+
+.school-app-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 44px;
+  align-items: center;
+  background: linear-gradient(135deg, #0c2d57 0%, #0c4a8a 60%, #092346 100%);
+  border-radius: 24px;
+  border: 2px solid rgba(251, 191, 36, 0.4);
+  border-top: 5px solid #d97706;
+  padding: 44px 48px;
+  color: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 22px 54px rgba(7, 27, 54, 0.22);
+}
+
+.school-app-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.school-app-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.school-app-coming-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(217, 119, 6, 0.25);
+  border: 1.5px solid #fbbf24;
+  color: #fde047 !important;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.school-app-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #22c55e;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.28);
+  animation: pulseDot 1.8s infinite;
+}
+
+.school-app-code-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  color: #ffffff !important;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.school-app-heading {
+  font-family: 'Merriweather', Georgia, serif !important;
+  font-size: clamp(1.65rem, 2.5vw, 2.35rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.24 !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+}
+
+.school-app-highlight {
+  color: #fbbf24 !important;
+}
+
+.school-app-description {
+  margin: 0 !important;
+  font-size: 0.94rem !important;
+  line-height: 1.68 !important;
+  color: #e2e8f0 !important;
+  max-width: 600px;
+}
+
+.school-app-description strong {
+  color: #ffffff !important;
+}
+
+.school-app-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.school-app-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 13px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+}
+
+.school-app-feature-item:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.13);
+  border-color: #fbbf24;
+}
+
+.school-app-feature-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #d97706;
+  color: #ffffff !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.school-app-feature-item h3 {
+  margin: 0 0 3px 0 !important;
+  font-size: 0.86rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  line-height: 1.25 !important;
+}
+
+.school-app-feature-item p {
+  margin: 0 !important;
+  font-size: 0.75rem !important;
+  line-height: 1.45 !important;
+  color: #cbd5e1 !important;
+}
+
+.school-app-stores-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+.school-store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 20px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 2px solid #ffffff;
+  color: #0c2d57;
+  cursor: pointer;
+  transition: all 0.24s ease;
+  box-shadow: 0 10px 24px rgba(4, 12, 28, 0.25);
+}
+
+.school-store-btn:hover {
+  background: #fde047;
+  border-color: #fde047;
+  transform: translateY(-3px);
+}
+
+.school-store-icon {
+  font-size: 1.55rem;
+}
+
+.school-store-icon.play {
+  color: #0c4a8a;
+}
+
+.school-store-icon.apple {
+  color: #0f172a;
+}
+
+.school-store-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.15;
+}
+
+.school-store-text small {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #d97706;
+}
+
+.school-store-text strong {
+  font-size: 0.98rem;
+  font-weight: 900;
+  color: #0c2d57;
+}
+
+.school-app-toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border-radius: 12px;
+  background: rgba(4, 18, 38, 0.78);
+  border: 1px solid #fbbf24;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #f8fafc !important;
+  line-height: 1.45;
+}
+
+/* Right Visual: Animated Smartphone Mockup */
+.school-app-visual {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.school-phone-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+}
+
+.school-phone-glow {
+  position: absolute;
+  width: 290px;
+  height: 290px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.28) 0%, rgba(12, 74, 138, 0) 70%);
+  pointer-events: none;
+}
+
+.school-floating-chip {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 13px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1.5px solid #fbbf24;
+  box-shadow: 0 14px 30px rgba(4, 14, 30, 0.35);
+  color: #0c2d57;
+}
+
+.school-floating-chip.chip-top-left {
+  top: 26px;
+  left: -18px;
+}
+
+.school-floating-chip.chip-bottom-right {
+  bottom: 34px;
+  right: -18px;
+}
+
+.chip-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.chip-icon.emerald {
+  background: #059669;
+}
+
+.chip-icon.gold {
+  background: #d97706;
+}
+
+.school-floating-chip strong {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #0c2d57;
+  line-height: 1.2;
+}
+
+.school-floating-chip span {
+  display: block;
+  font-size: 0.64rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.school-phone-device {
+  position: relative;
+  width: 276px;
+  background: #0f172a;
+  border-radius: 38px;
+  padding: 10px;
+  border: 3px solid #475569;
+  box-shadow: 0 26px 60px rgba(2, 8, 20, 0.6);
+}
+
+.school-phone-notch {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 78px;
+  height: 18px;
+  background: #020617;
+  border-radius: 999px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+.notch-camera {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #1e3a8a;
+}
+
+.school-phone-screen {
+  background: #f1f5f9;
+  border-radius: 29px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: #0f172a;
+}
+
+.phone-app-header {
+  background: linear-gradient(180deg, #0c4a8a 0%, #0c2d57 100%);
+  padding: 32px 14px 14px;
+  color: #ffffff;
+}
+
+.phone-user-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.phone-user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.phone-user-info img {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: #ffffff;
+  object-fit: contain;
+  padding: 1px;
+}
+
+.phone-user-info strong {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.phone-user-info span {
+  display: block;
+  font-size: 0.62rem;
+  color: #cbd5e1;
+}
+
+.phone-bell-badge {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fde047;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+}
+
+.phone-search-bar {
+  margin-top: 10px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.64rem;
+  color: #e2e8f0;
+}
+
+.phone-attendance-row {
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: 7px;
+  padding: 10px 10px 0;
+}
+
+.phone-week-card {
+  background: #0c2d57;
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 8px 9px;
+}
+
+.phone-card-lbl {
+  display: block;
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #cbd5e1;
+  margin-bottom: 6px;
+}
+
+.phone-week-dots {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.phone-day-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.phone-dot.present {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #22c55e;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.52rem;
+}
+
+.phone-day-col small {
+  font-size: 0.54rem;
+  color: #cbd5e1;
+}
+
+.phone-pct-card {
+  background: #d97706;
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.phone-pct-card small {
+  font-size: 0.55rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.phone-pct-card strong {
+  font-size: 0.95rem;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.phone-pct-card span {
+  font-size: 0.52rem;
+  opacity: 0.92;
+}
+
+.phone-event-card {
+  margin: 8px 10px 0;
+  padding: 9px 10px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+.phone-event-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.phone-event-pill {
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 0.55rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.phone-event-top small {
+  font-size: 0.56rem;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.phone-event-card h4 {
+  margin: 0 !important;
+  font-size: 0.7rem !important;
+  font-weight: 800 !important;
+  color: #0c2d57 !important;
+}
+
+.phone-event-card p {
+  margin: 2px 0 0 !important;
+  font-size: 0.6rem !important;
+  color: #475569 !important;
+}
+
+.phone-diary-card {
+  margin: 8px 10px 10px;
+  padding: 9px 10px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.phone-diary-heading {
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: #d97706;
+  text-transform: uppercase;
+}
+
+.phone-diary-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding-top: 5px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.phone-diary-item strong {
+  display: block;
+  font-size: 0.66rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.phone-diary-item small {
+  display: block;
+  font-size: 0.56rem;
+  color: #64748b;
+}
+
+.phone-tag-blue,
+.phone-tag-gold {
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 0.54rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.phone-tag-blue {
+  background: #0c4a8a;
+}
+
+.phone-tag-gold {
+  background: #d97706;
+}
+
+.phone-bottom-nav {
+  background: #0c2d57;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: #94a3b8;
+}
+
+.phone-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-size: 0.55rem;
+  font-weight: 700;
+}
+
+.phone-nav-item.active {
+  color: #fde047;
+}
+
+.phone-nav-item i {
+  font-size: 0.72rem;
+}
+
+@media (max-width: 1024px) {
+  .school-app-card {
+    grid-template-columns: 1fr;
+    padding: 34px 28px;
+    gap: 36px;
+  }
+
+  .school-floating-chip.chip-top-left {
+    left: -6px;
+  }
+
+  .school-floating-chip.chip-bottom-right {
+    right: -6px;
+  }
+}
+
+@media (max-width: 640px) {
+  .school-app-section {
+    padding: 38px 0 44px;
+  }
+
+  .school-app-card {
+    padding: 26px 18px;
+    border-radius: 18px;
+  }
+
+  .school-app-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .school-floating-chip {
+    display: none;
+  }
+
+  .school-phone-stage {
+    padding: 4px 0;
+  }
+}

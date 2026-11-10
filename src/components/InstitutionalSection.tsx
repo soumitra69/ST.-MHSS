@@ -50,19 +50,48 @@ const heritagePillars = [
   },
 ];
 
-const diaryObjectives = [
-  'To provide intellectual formation',
-  'To educate skill acquisition',
-  'To enhance appreciation of culture',
-  'To impart moral integrity',
-  'To provide spiritual formation',
-  'To foster psychological growth',
-  'To instil a sense of social responsibility',
+const missionHighlights = [
+  'Intellectual & skill formation',
+  'Moral integrity & spiritual growth',
+  'Cultural appreciation & social service',
+];
+
+const visionHighlights = [
+  'Confidence & academic competency',
+  'Psychological & character growth',
+  'Responsible citizenship & leadership',
+];
+
+const schoolProfileStats = [
+  {
+    label: 'Total Enrolment',
+    value: '2,000+ Students',
+    sub: '980+ Boys • 1,020+ Girls',
+    icon: 'fas fa-user-graduate',
+  },
+  {
+    label: 'Teaching & Admin Staff',
+    value: '68+ Teaching • 18+ Support',
+    sub: 'Librarian, Accountant & Lab Staff',
+    icon: 'fas fa-chalkboard-teacher',
+  },
+  {
+    label: 'Classrooms & Labs',
+    value: '48+ Classrooms & 4 Labs',
+    sub: 'Nursery to Class XII Sections',
+    icon: 'fas fa-school',
+  },
+  {
+    label: 'Board & Registration',
+    value: 'MBOSE Code: 01961',
+    sub: 'UDISE+: 17050200108 • Estd. 1961',
+    icon: 'fas fa-certificate',
+  },
 ];
 
 export const InstitutionalSection: React.FC = () => (
   <>
-    {/* SECTION 1: Who We Are, Our Mission & Our Vision */}
+    {/* SECTION 1: Who We Are & Official School Profile Statistics */}
     <section
       id="about"
       className="w-full bg-[#f4f7fb] py-12 md:py-16 border-t border-slate-200"
@@ -123,83 +152,287 @@ export const InstitutionalSection: React.FC = () => (
           </div>
         </div>
 
-        {/* Our Mission & Our Vision Side-by-Side */}
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          <article
-            id="mission"
-            className="scroll-mt-28 relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-md sm:p-7"
-            data-aos="fade-up"
-            data-aos-duration="700"
-          >
-            <div className="absolute inset-x-0 top-0 h-1.5 bg-[#0c4a8a]" />
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <h3 className="vision-serif-heading text-xl sm:text-2xl text-[#0c4a8a]">
-                <span className="vision-double-angle" aria-hidden="true">
-                  &raquo;
-                </span>{' '}
-                Our Aim &amp; Mission
-              </h3>
-              <span className="rounded-full bg-blue-50 px-3 py-0.5 text-[11px] font-extrabold uppercase tracking-wider text-[#0c4a8a] border border-blue-200">
-                Aim: Overall Development of the Child
-              </span>
+        {/* Official School Strength & Registration At-a-Glance Strip */}
+        <div
+          className="mt-6 grid grid-cols-1 gap-3.5 sm:grid-cols-2 lg:grid-cols-4"
+          data-aos="fade-up"
+          data-aos-delay="120"
+        >
+          {schoolProfileStats.map((stat, idx) => (
+            <div
+              key={stat.label}
+              className="flex items-center gap-3.5 rounded-xl border border-slate-200 border-t-4 border-t-[#0c4a8a] bg-white p-4 shadow-xs"
+            >
+              <div
+                className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-white ${
+                  idx % 2 === 0 ? 'bg-[#0c4a8a]' : 'bg-[#d97706]'
+                }`}
+              >
+                <i className={`${stat.icon} text-sm`} aria-hidden="true"></i>
+              </div>
+              <div className="min-w-0">
+                <span className="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500">
+                  {stat.label}
+                </span>
+                <strong className="block truncate text-sm font-extrabold text-[#0c4a8a]">
+                  {stat.value}
+                </strong>
+                <span className="block truncate text-[11px] font-semibold text-slate-600">
+                  {stat.sub}
+                </span>
+              </div>
             </div>
-            <p className="vision-body-copy mt-3.5 text-sm sm:text-base text-[#0c4a8a]">
-              Guided by our supreme institutional aim — <strong>Overall Development of the Child</strong> — St. Michael&apos;s Higher Secondary School provides an inclusive, values-led education that forms every learner intellectually, morally, spiritually, culturally, and socially in the Catholic tradition.
-            </p>
-            <a href="#academics" className="vision-read-more mt-4 inline-flex items-center gap-1.5">
-              <span>Explore Academic Stages</span>
-              <i className="fas fa-arrow-right text-xs" aria-hidden="true"></i>
-            </a>
-          </article>
-
-          <article
-            id="vision"
-            className="scroll-mt-28 relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-md sm:p-7"
-            data-aos="fade-up"
-            data-aos-delay="120"
-            data-aos-duration="700"
-          >
-            <div className="absolute inset-x-0 top-0 h-1.5 bg-[#d97706]" />
-            <h3 className="vision-serif-heading text-xl sm:text-2xl text-[#0c4a8a]">
-              <span className="vision-double-angle" aria-hidden="true">
-                &raquo;
-              </span>{' '}
-              Our Seven Core Objectives
-            </h3>
-            <ul className="mt-3.5 grid grid-cols-1 sm:grid-cols-2 gap-2">
-              {diaryObjectives.map((obj) => (
-                <li
-                  key={obj}
-                  className="flex items-center gap-2 rounded-lg bg-slate-50 px-3 py-1.5 text-xs font-semibold text-[#0c4a8a] border border-slate-200"
-                >
-                  <i className="fas fa-check-circle text-[#d97706] shrink-0" aria-hidden="true"></i>
-                  <span>{obj}</span>
-                </li>
-              ))}
-            </ul>
-          </article>
+          ))}
         </div>
       </div>
     </section>
 
-    {/* MESSAGE 0 (HOME PAGE): Founder's Message — Rev. Fr. Michel Balawan, SDB (#founder-message) */}
+    {/* SECTION 1A: Our Mission — Identical Compact Box Size & Layout as Secretary & Vice Principal's Message */}
     <section
-      id="founder-message"
+      id="mission"
       className="w-full bg-white py-9 md:py-12 scroll-mt-24 border-t border-slate-200"
     >
       <div className="container">
         <article
-          className="group relative grid w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:grid-cols-[1fr_340px]"
+          className="institutional-msg-card group relative grid w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:grid-cols-[340px_1fr]"
           data-aos="fade-up"
           data-aos-duration="750"
         >
-          <div className="absolute inset-x-0 top-0 h-1.5 bg-[#d97706] z-10" />
+          <div className="absolute inset-x-0 top-0 h-1.5 bg-[#0c4a8a] z-10" />
+
+          {/* Left Compact Image Column */}
+          <div
+            className="relative h-56 sm:h-64 md:h-full md:min-h-[265px] bg-slate-900 overflow-hidden"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <img
+              src={SCHOOL_IMAGES.campusAssembly}
+              alt="Morning assembly and holistic student formation at St. Michael's Higher Secondary School, Umsning"
+              className="h-full w-full md:absolute md:inset-0 object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent" />
+            <div className="absolute top-3 left-3 rounded-full bg-[#0c4a8a] px-3 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-md border border-white/25">
+              <i className="fas fa-bullseye mr-1 text-amber-300" aria-hidden="true"></i>
+              Institutional Mission
+            </div>
+            <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-[#0c2d57]/95 border border-amber-400/40 px-3 py-1.5 text-[11px] font-bold text-white shadow-md backdrop-blur-xs">
+              <i className="fas fa-graduation-cap mr-1.5 text-amber-300" aria-hidden="true"></i>
+              Our Mission • St. Michael&apos;s Umsning
+            </div>
+          </div>
+
+          {/* Right Compact Text Column */}
+          <div
+            className="flex flex-col justify-center bg-white p-5 sm:p-6 md:px-8 md:py-6"
+            data-aos="fade-left"
+            data-aos-delay="140"
+          >
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#0c4a8a] border border-blue-200">
+                <i className="fas fa-bullseye mr-1.5 text-[#d97706]" aria-hidden="true"></i>
+                Institutional Aim &amp; Mission
+              </span>
+              <span className="rounded-full bg-amber-50 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-amber-900 border border-amber-200">
+                <i className="fas fa-cross mr-1 text-[#d97706]" aria-hidden="true"></i>
+                Aim: Overall Development of the Child
+              </span>
+            </div>
+
+            <h2 className="vision-serif-heading mt-2.5 text-xl sm:text-2xl text-[#0c4a8a]">
+              <span className="vision-double-angle" aria-hidden="true">
+                &raquo;
+              </span>{' '}
+              Our Mission
+            </h2>
+
+            <p className="mt-2 text-xs sm:text-sm font-medium leading-6 text-slate-700">
+              Guided by our supreme institutional aim — <strong>Overall Development of the Child</strong> — St. Michael&apos;s Higher Secondary School provides an inclusive, values-led education that forms every learner intellectually, morally, spiritually, culturally, and socially in the Catholic tradition from Nursery to Class XII, nurturing disciplined and compassionate citizens.
+            </p>
+
+            <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-2">
+              {missionHighlights.map((item, idx) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-1.5 rounded-lg bg-slate-50 px-2.5 py-1.5 text-[11px] font-semibold text-[#0c4a8a] border border-slate-200"
+                  data-aos="zoom-in"
+                  data-aos-delay={140 + idx * 60}
+                >
+                  <i
+                    className="fas fa-check-circle text-[#d97706] shrink-0 text-xs"
+                    aria-hidden="true"
+                  ></i>
+                  <span className="leading-tight">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 pt-3 text-xs">
+              <div>
+                <span className="font-bold text-[#0c4a8a]">
+                  Institutional Mission • Estd. 1961
+                </span>
+                <span className="hidden sm:inline text-slate-400 mx-1.5">•</span>
+                <span className="block sm:inline text-[11px] font-medium text-slate-600">
+                  St. Michael&apos;s Higher Secondary School, Umsning
+                </span>
+              </div>
+              <a href="#academics" className="vision-read-more inline-flex items-center gap-1.5">
+                <span>Explore Academic Stages</span>
+                <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    {/* SECTION 1B: Our Vision — Image on Right Side */}
+    <section
+      id="vision"
+      className="w-full bg-[#f4f7fb] py-9 md:py-12 scroll-mt-24 border-t border-slate-200"
+    >
+      <div className="container">
+        <article
+          className="institutional-msg-card group relative grid w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:grid-cols-[1fr_340px]"
+          data-aos="fade-up"
+          data-aos-duration="750"
+        >
+          <div className="absolute inset-x-0 top-0 h-1.5 bg-[#0c4a8a] z-10" />
 
           {/* Left Compact Text Column */}
           <div
             className="order-2 md:order-1 flex flex-col justify-center bg-white p-5 sm:p-6 md:px-8 md:py-6"
             data-aos="fade-right"
             data-aos-delay="100"
+          >
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#0c4a8a] border border-blue-200">
+                <i className="fas fa-eye mr-1.5 text-[#d97706]" aria-hidden="true"></i>
+                Torch of the Michaelians
+              </span>
+              <span className="rounded-full bg-amber-50 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-amber-900 border border-amber-200">
+                <i className="fas fa-cross mr-1 text-[#d97706]" aria-hidden="true"></i>
+                Motto: Excelsior &amp; Shaphrang
+              </span>
+            </div>
+
+            <h2 className="vision-serif-heading mt-2.5 text-xl sm:text-2xl text-[#0c4a8a]">
+              <span className="vision-double-angle" aria-hidden="true">
+                &raquo;
+              </span>{' '}
+              Our Vision
+            </h2>
+
+            <p className="mt-2 text-xs sm:text-sm font-medium leading-6 text-slate-700">
+              Our vision is to empower every <strong>&ldquo;Michaelian&rdquo;</strong> to step forward with confidence, character, and competence under our motto <em>{SCHOOL_INFO.mottoLatin}</em> (Ever Upward) &amp; <em>{SCHOOL_INFO.mottoKhasi}</em> (Step Forward) — nurturing responsible leaders who serve Meghalaya and the nation with excellence, cultural pride, and moral conviction.
+            </p>
+
+            <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-2">
+              {visionHighlights.map((item, idx) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-1.5 rounded-lg bg-slate-50 px-2.5 py-1.5 text-[11px] font-semibold text-[#0c4a8a] border border-slate-200"
+                  data-aos="zoom-in"
+                  data-aos-delay={140 + idx * 60}
+                >
+                  <i
+                    className="fas fa-check-circle text-[#d97706] shrink-0 text-xs"
+                    aria-hidden="true"
+                  ></i>
+                  <span className="leading-tight">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 pt-3 text-xs">
+              <div>
+                <span className="font-bold text-[#0c4a8a]">
+                  Institutional Vision • Catholic Mission of Umsning
+                </span>
+                <span className="hidden sm:inline text-slate-400 mx-1.5">•</span>
+                <span className="block sm:inline text-[11px] font-medium text-slate-600">
+                  St. Michael&apos;s Higher Secondary School, Umsning
+                </span>
+              </div>
+              <a href="#school-handbook" className="vision-read-more inline-flex items-center gap-1.5">
+                <span>School Diary Rules</span>
+                <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          {/* Right Compact Image Column */}
+          <div
+            className="relative order-1 md:order-2 h-56 sm:h-64 md:h-full md:min-h-[265px] bg-slate-900 overflow-hidden"
+            data-aos="zoom-in"
+            data-aos-delay="140"
+          >
+            <img
+              src={SCHOOL_IMAGES.studentLeaders}
+              alt="Michaelian student leaders embodying the school's vision at St. Michael's Higher Secondary School, Umsning"
+              className="h-full w-full md:absolute md:inset-0 object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent" />
+            <div className="absolute top-3 right-3 rounded-full bg-[#0c4a8a] px-3 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-md border border-white/25">
+              <i className="fas fa-eye mr-1 text-amber-300" aria-hidden="true"></i>
+              Institutional Vision
+            </div>
+            <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-[#0c2d57]/95 border border-amber-400/40 px-3 py-1.5 text-[11px] font-bold text-white shadow-md backdrop-blur-xs">
+              <i className="fas fa-landmark mr-1.5 text-amber-300" aria-hidden="true"></i>
+              Our Vision • St. Michael&apos;s Umsning
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    {/* MESSAGE 0 (HOME PAGE): Founder's Message — Rev. Fr. Michel Balawan, SDB (#founder-message) — Image on Left Side */}
+    <section
+      id="founder-message"
+      className="w-full bg-white py-9 md:py-12 scroll-mt-24 border-t border-slate-200"
+    >
+      <div className="container">
+        <article
+          className="institutional-msg-card group relative grid w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:grid-cols-[340px_1fr]"
+          data-aos="fade-up"
+          data-aos-duration="750"
+        >
+          <div className="absolute inset-x-0 top-0 h-1.5 bg-[#d97706] z-10" />
+
+          {/* Left Compact Image Column */}
+          <div
+            className="relative h-56 sm:h-64 md:h-full md:min-h-[265px] bg-slate-900 overflow-hidden"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <img
+              src={SCHOOL_IMAGES.campus}
+              alt="St. Michael's Higher Secondary School campus and Archangel monument founded in 1961"
+              className="h-full w-full md:absolute md:inset-0 object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent" />
+            <div className="absolute top-3 left-3 rounded-full bg-[#d97706] px-3 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-md">
+              <i className="fas fa-landmark mr-1" aria-hidden="true"></i>
+              Founded 1961
+            </div>
+            <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-slate-950/85 border border-amber-400/50 px-3 py-1.5 text-[11px] font-bold text-white backdrop-blur-xs">
+              <i className="fas fa-cross mr-1.5 text-amber-300" aria-hidden="true"></i>
+              Rev. Fr. Michel Balawan, SDB • Founder&apos;s Legacy
+            </div>
+          </div>
+
+          {/* Right Compact Text Column */}
+          <div
+            className="flex flex-col justify-center bg-white p-5 sm:p-6 md:px-8 md:py-6"
+            data-aos="fade-left"
+            data-aos-delay="140"
           >
             <div className="flex flex-wrap items-center justify-between gap-2">
               <span className="inline-flex items-center rounded-full bg-amber-50 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-amber-900 border border-amber-200">
@@ -216,7 +449,7 @@ export const InstitutionalSection: React.FC = () => (
               <span className="vision-double-angle" aria-hidden="true">
                 &raquo;
               </span>{' '}
-              Founder&apos;s Message &amp; Heritage
+              Founder&apos;s Message
             </h2>
 
             <p className="mt-2 text-xs sm:text-sm font-medium leading-6 text-slate-700">
@@ -262,76 +495,28 @@ export const InstitutionalSection: React.FC = () => (
               </a>
             </div>
           </div>
-
-          {/* Right Compact Image Column */}
-          <div
-            className="relative order-1 md:order-2 h-60 md:h-full md:min-h-[270px] bg-slate-900 overflow-hidden"
-            data-aos="zoom-in"
-            data-aos-delay="140"
-          >
-            <img
-              src={SCHOOL_IMAGES.campus}
-              alt="St. Michael's Higher Secondary School campus and Archangel monument founded in 1961"
-              className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-              decoding="async"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent" />
-            <div className="absolute top-3 right-3 rounded-full bg-[#d97706] px-3 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-md">
-              <i className="fas fa-landmark mr-1" aria-hidden="true"></i>
-              Founded 1961
-            </div>
-            <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-slate-950/85 border border-amber-400/50 px-3 py-1.5 text-[11px] font-bold text-white backdrop-blur-xs">
-              <i className="fas fa-cross mr-1.5 text-amber-300" aria-hidden="true"></i>
-              Rev. Fr. Michel Balawan, SDB • Founder&apos;s Legacy
-            </div>
-          </div>
         </article>
       </div>
     </section>
 
-    {/* MESSAGE 1 (HOME PAGE): Secretary & Vice Principal's Message (Same Person) (#secretary-message) */}
+    {/* MESSAGE 1 (HOME PAGE): Secretary & Vice Principal's Message (#secretary-message) — Image on Right Side */}
     <section
       id="secretary-message"
       className="w-full bg-[#f4f7fb] py-9 md:py-12 scroll-mt-24 border-t border-slate-200"
     >
       <div className="container">
         <article
-          className="group relative grid w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:grid-cols-[340px_1fr]"
+          className="institutional-msg-card group relative grid w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:grid-cols-[1fr_340px]"
           data-aos="fade-up"
           data-aos-duration="750"
         >
           <div className="absolute inset-x-0 top-0 h-1.5 bg-[#0c4a8a] z-10" />
 
-          {/* Left Compact Image Column */}
+          {/* Left Compact Text Column */}
           <div
-            className="relative h-60 md:h-full md:min-h-[270px] bg-slate-900 overflow-hidden"
-            data-aos="zoom-in"
+            className="order-2 md:order-1 flex flex-col justify-center bg-white p-5 sm:p-6 md:px-8 md:py-6"
+            data-aos="fade-right"
             data-aos-delay="100"
-          >
-            <img
-              src={SCHOOL_IMAGES.foundingCampus}
-              alt="Office of the Secretary and Vice Principal at St. Michael's Higher Secondary School, Umsning"
-              className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-              decoding="async"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent" />
-            <div className="absolute top-3 left-3 rounded-full bg-[#0c4a8a] px-3 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-md border border-white/25">
-              <i className="fas fa-user-shield mr-1 text-amber-300" aria-hidden="true"></i>
-              Administration &amp; Governance
-            </div>
-            <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-[#0c2d57]/95 border border-amber-400/40 px-3 py-1.5 text-[11px] font-bold text-white shadow-md backdrop-blur-xs">
-              <i className="fas fa-landmark mr-1.5 text-amber-300" aria-hidden="true"></i>
-              Secretary &amp; Vice Principal • St. Michael&apos;s Umsning
-            </div>
-          </div>
-
-          {/* Right Compact Text Column */}
-          <div
-            className="flex flex-col justify-center bg-white p-5 sm:p-6 md:px-8 md:py-6"
-            data-aos="fade-left"
-            data-aos-delay="140"
           >
             <div className="flex flex-wrap items-center justify-between gap-2">
               <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#0c4a8a] border border-blue-200">
@@ -393,28 +578,76 @@ export const InstitutionalSection: React.FC = () => (
               </a>
             </div>
           </div>
+
+          {/* Right Compact Image Column */}
+          <div
+            className="relative order-1 md:order-2 h-56 sm:h-64 md:h-full md:min-h-[265px] bg-slate-900 overflow-hidden"
+            data-aos="zoom-in"
+            data-aos-delay="140"
+          >
+            <img
+              src={SCHOOL_IMAGES.foundingCampus}
+              alt="Office of the Secretary and Vice Principal at St. Michael's Higher Secondary School, Umsning"
+              className="h-full w-full md:absolute md:inset-0 object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent" />
+            <div className="absolute top-3 right-3 rounded-full bg-[#0c4a8a] px-3 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-md border border-white/25">
+              <i className="fas fa-user-shield mr-1 text-amber-300" aria-hidden="true"></i>
+              Administration &amp; Governance
+            </div>
+            <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-[#0c2d57]/95 border border-amber-400/40 px-3 py-1.5 text-[11px] font-bold text-white shadow-md backdrop-blur-xs">
+              <i className="fas fa-landmark mr-1.5 text-amber-300" aria-hidden="true"></i>
+              Secretary &amp; Vice Principal • St. Michael&apos;s Umsning
+            </div>
+          </div>
         </article>
       </div>
     </section>
 
-    {/* MESSAGE 2 (HOME PAGE): Principal's Message (#principal-message) */}
+    {/* MESSAGE 2 (HOME PAGE): Principal's Message (#principal-message) — Image on Left Side */}
     <section
       id="principal-message"
       className="w-full bg-[#0c2d57] py-9 md:py-12 scroll-mt-24 border-t border-slate-800"
     >
       <div className="container">
         <article
-          className="group relative grid w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl transition-all duration-300 hover:-translate-y-1 md:grid-cols-[1fr_340px]"
+          className="institutional-msg-card group relative grid w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl transition-all duration-300 hover:-translate-y-1 md:grid-cols-[340px_1fr]"
           data-aos="fade-up"
           data-aos-duration="750"
         >
           <div className="absolute inset-x-0 top-0 h-1.5 bg-[#d97706] z-10" />
 
-          {/* Left Compact Text Column */}
+          {/* Left Compact Image Column */}
           <div
-            className="order-2 md:order-1 flex flex-col justify-center bg-white p-5 sm:p-6 md:px-8 md:py-6"
-            data-aos="fade-right"
+            className="relative h-56 sm:h-64 md:h-full md:min-h-[265px] bg-slate-900 overflow-hidden"
+            data-aos="zoom-in"
             data-aos-delay="100"
+          >
+            <img
+              src={SCHOOL_IMAGES.principalPhoto}
+              alt="Rev. Sister Principal at her desk in St. Michael's Higher Secondary School, Umsning"
+              className="h-full w-full md:absolute md:inset-0 object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent" />
+            <div className="absolute top-3 left-3 rounded-full bg-amber-400 px-3 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-slate-950 shadow-md">
+              <i className="fas fa-user-tie mr-1" aria-hidden="true"></i>
+              Principal&apos;s Office
+            </div>
+            <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-slate-950/85 border border-amber-400/50 px-3 py-1.5 text-[11px] font-bold text-white backdrop-blur-xs">
+              <i className="fas fa-award mr-1.5 text-amber-300" aria-hidden="true"></i>
+              Rev. Sister Principal • St. Michael&apos;s Umsning
+            </div>
+          </div>
+
+          {/* Right Compact Text Column */}
+          <div
+            className="flex flex-col justify-center bg-white p-5 sm:p-6 md:px-8 md:py-6"
+            data-aos="fade-left"
+            data-aos-delay="140"
           >
             <div className="flex flex-wrap items-center justify-between gap-2">
               <span className="inline-flex items-center rounded-full bg-amber-50 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-amber-900 border border-amber-200">
@@ -472,30 +705,6 @@ export const InstitutionalSection: React.FC = () => (
                 <span>Explore Academics</span>
                 <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
               </a>
-            </div>
-          </div>
-
-          {/* Right Compact Image Column */}
-          <div
-            className="relative order-1 md:order-2 h-60 md:h-full md:min-h-[270px] bg-slate-900 overflow-hidden"
-            data-aos="zoom-in"
-            data-aos-delay="140"
-          >
-            <img
-              src={SCHOOL_IMAGES.principalPhoto}
-              alt="Rev. Sister Principal at her desk in St. Michael's Higher Secondary School, Umsning"
-              className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-              decoding="async"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent" />
-            <div className="absolute top-3 right-3 rounded-full bg-amber-400 px-3 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-slate-950 shadow-md">
-              <i className="fas fa-user-tie mr-1" aria-hidden="true"></i>
-              Principal&apos;s Office
-            </div>
-            <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-slate-950/85 border border-amber-400/50 px-3 py-1.5 text-[11px] font-bold text-white backdrop-blur-xs">
-              <i className="fas fa-award mr-1.5 text-amber-300" aria-hidden="true"></i>
-              Rev. Sister Principal • St. Michael&apos;s Umsning
             </div>
           </div>
         </article>

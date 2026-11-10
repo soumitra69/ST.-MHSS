@@ -4,16 +4,16 @@ import { NOTICES, Notice } from '../data/schoolData';
 
 const bannerSlides = [
   {
+    src: SCHOOL_IMAGES.panoramicAssembly,
+    alt: "St. Michael's Higher Secondary School panoramic campus and 2,000-scholar assembly in Umsning",
+  },
+  {
     src: SCHOOL_IMAGES.campus,
     alt: "St. Michael's Higher Secondary School amphitheatre & cultural assembly in Umsning",
   },
   {
-    src: SCHOOL_IMAGES.foundingCampus,
-    alt: "St. Michael's Higher Secondary School main building and Archangel tower (Estd. 1961)",
-  },
-  {
-    src: SCHOOL_IMAGES.campusAssembly,
-    alt: "Morning assembly of 2,000 students at St. Michael's Umsning ground",
+    src: SCHOOL_IMAGES.graduatingBatch,
+    alt: "St. Michael's Higher Secondary School scholars and faculty in front of the main campus",
   },
   {
     src: SCHOOL_IMAGES.sports,

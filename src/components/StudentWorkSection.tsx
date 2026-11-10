@@ -184,14 +184,21 @@ const FILTER_TABS: { id: GalleryCategory; label: string; iconClass: string }[] =
   { id: 'culture', label: 'Cultural, Choir & Eco', iconClass: 'fas fa-music' },
 ];
 
+const INITIAL_VISIBLE_COUNT = 6; // 2 rows of 3 cards
+
 export const StudentWorkSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<GalleryCategory>('all');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [showAll, setShowAll] = useState<boolean>(false);
 
   const filteredItems = useMemo(() => {
     if (activeCategory === 'all') return GALLERY_ITEMS;
     return GALLERY_ITEMS.filter((item) => item.category === activeCategory);
   }, [activeCategory]);
+
+  const visibleItems = useMemo(() => {
+    return showAll ? filteredItems : filteredItems.slice(0, INITIAL_VISIBLE_COUNT);
+  }, [filteredItems, showAll]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -249,6 +256,7 @@ export const StudentWorkSection: React.FC = () => {
                   onClick={() => {
                     setActiveCategory(tab.id);
                     setLightboxIndex(null);
+                    setShowAll(false);
                   }}
                 >
                   <i className={tab.iconClass} aria-hidden="true"></i>
@@ -259,10 +267,10 @@ export const StudentWorkSection: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Framed 3-Column Photo Grid (Zero Cropped Heads, Zero Duplicate Images) */}
+        {/* Framed 3-Column Photo Grid (Shows 2 Rows Initially with Show More Toggle) */}
         <motion.div className="work-gallery-grid" layout>
           <AnimatePresence mode="popLayout">
-            {filteredItems.map((item, idx) => (
+            {visibleItems.map((item, idx) => (
               <motion.article
                 key={item.id}
                 layout
@@ -319,6 +327,27 @@ export const StudentWorkSection: React.FC = () => {
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {/* Show More / Show Less Button when there are more than 2 rows (6 items) */}
+        {filteredItems.length > INITIAL_VISIBLE_COUNT && (
+          <div className="mt-8 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAll((prev) => !prev)}
+              className="inline-flex min-h-11 items-center gap-2.5 rounded-xl bg-[#0c4a8a] px-6 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white shadow-lg transition-all hover:bg-[#0c2d57] hover:-translate-y-0.5 cursor-pointer"
+            >
+              <i
+                className={`fas ${showAll ? 'fa-chevron-up' : 'fa-images'} text-amber-300`}
+                aria-hidden="true"
+              ></i>
+              <span>
+                {showAll
+                  ? 'Show Less Photos'
+                  : `Show More Photos (+${filteredItems.length - INITIAL_VISIBLE_COUNT} More)`}
+              </span>
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Fullscreen Lightbox with Next / Previous Navigation */}

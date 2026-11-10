@@ -13,8 +13,10 @@ import { StudentLifeSection } from './components/StudentLifeSection';
 import { VideoDrillSection } from './components/VideoDrillSection';
 import { ResearchSection } from './components/ResearchSection';
 import { CampusSpacesAndEventsSection } from './components/CampusSpacesAndEventsSection';
+import { AlumniSection } from './components/AlumniSection';
 import { StudentWorkSection } from './components/StudentWorkSection';
 import { FAQAndFinalCTA } from './components/FAQAndFinalCTA';
+import { SchoolAppSection } from './components/SchoolAppSection';
 import { FooterSection } from './components/FooterSection';
 import { ChatBot } from './components/ChatBot';
 import { SearchModal } from './components/SearchModal';
@@ -181,11 +183,17 @@ export default function App() {
         {/* Section J: Student Work & Campus Gallery */}
         <StudentWorkSection />
 
+        {/* Section K: Alumni, Scholars & Parent Community */}
+        <AlumniSection />
+
         {/* Section M: Frequently Asked Questions & Final CTA */}
         <FAQAndFinalCTA
           onOpenAdmission={() => setAdmissionModalOpen(true)}
           onNavigate={handleNavigate}
         />
+
+        {/* Section N: Official School Mobile App Coming Soon (Top of Footer) */}
+        <SchoolAppSection />
       </main>
 
       {/* School contact and footer */}

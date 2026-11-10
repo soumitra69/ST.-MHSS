@@ -101,7 +101,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                   <button
                     key={n.id}
                     type="button"
-                    onClick={() => handleSelect('hub')}
+                    onClick={() => handleSelect('school-handbook')}
                     className="w-full text-left p-2.5 rounded-lg hover:bg-slate-100 transition-colors flex items-center justify-between group cursor-pointer"
                   >
                     <div>
@@ -165,7 +165,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                   <button
                     key={idx}
                     type="button"
-                    onClick={() => handleSelect('hub')}
+                    onClick={() => handleSelect('why-us')}
                     className="w-full text-left p-2.5 rounded-lg hover:bg-slate-100 transition-colors flex items-center justify-between group cursor-pointer"
                   >
                     <div>

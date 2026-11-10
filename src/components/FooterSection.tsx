@@ -5,171 +5,114 @@ const OFFICIAL_MAP_SHARE_URL = 'https://share.google/xohLhc6GWxPh6H3cc';
 const OFFICIAL_MAP_EMBED_URL =
   "https://maps.google.com/maps?q=St.+Michael's+Higher+Secondary+School+Umsning+Meghalaya+793105&t=&z=15&ie=UTF8&iwloc=&output=embed";
 
-const leadershipAndAboutLinks = [
-  { label: 'Who We Are (Founded 1961)', href: '#about', icon: 'fas fa-school' },
-  { label: 'Aim & 7 Core Objectives', href: '#mission', icon: 'fas fa-bullseye' },
-  { label: 'Founder’s Message (Fr. Michel Balawan)', href: '#founder-message', icon: 'fas fa-cross' },
-  { label: 'Secretary & Vice Principal’s Message', href: '#secretary-message', icon: 'fas fa-user-shield' },
-  { label: 'Principal’s Message', href: '#principal-message', icon: 'fas fa-user-tie' },
-  { label: 'Headmistress – Secondary Section', href: '#hm-secondary-message', icon: 'fas fa-chalkboard-teacher' },
-  { label: 'Headmistress – LP Section', href: '#hm-lp-message', icon: 'fas fa-child' },
+const aboutAndLeadershipLinks = [
+  { label: 'Who We Are (Estd. 1961)', href: '#about' },
+  { label: 'Our Mission', href: '#mission' },
+  { label: 'Our Vision', href: '#vision' },
+  { label: "Founder's Message", href: '#founder-message' },
+  { label: "Secretary & Vice Principal's Message", href: '#secretary-message' },
+  { label: "Principal's Message", href: '#principal-message' },
+  { label: 'Headmistress – Secondary Section', href: '#hm-secondary-message' },
+  { label: 'Headmistress – LP Section', href: '#hm-lp-message' },
 ];
 
-const academicsAndAdmissionsLinks = [
-  { label: '2026–27 Online Admission Enquiry', href: '#apply-form', icon: 'fas fa-file-signature' },
-  { label: 'LP & Primary Section (Nursery – V)', href: '#academics', icon: 'fas fa-seedling' },
-  { label: 'Secondary Section (Classes VI – X)', href: '#academics', icon: 'fas fa-book-reader' },
-  { label: 'Higher Secondary Science (XI – XII)', href: '#streams', icon: 'fas fa-atom' },
-  { label: 'Higher Secondary Arts & Commerce', href: '#streams', icon: 'fas fa-landmark' },
-  { label: 'Frequently Asked Questions (FAQ)', href: '#faq', icon: 'fas fa-question-circle' },
+const academicsAndCampusLinks = [
+  { label: 'Admissions 2026–27 Enquiry', href: '#apply-form' },
+  { label: 'School Stages (Nursery – Class XII)', href: '#academics' },
+  { label: 'Higher Secondary Streams (XI – XII)', href: '#streams' },
+  { label: 'School Diary, Uniforms & Syllabus', href: '#school-handbook' },
+  { label: 'MBOSE State Board Merit Honors', href: '#toppers' },
+  { label: 'Campus Life & 4 Archangel Houses', href: '#campus-life' },
+  { label: 'Campus Photo Gallery', href: '#gallery' },
+  { label: 'Alumni & Parent Community', href: '#alumni' },
+  { label: 'Frequently Asked Questions (FAQ)', href: '#faq' },
 ];
 
 export const FooterSection: React.FC = () => {
   return (
-    <div id="footer">
-      <footer className="university-footer premium-school-footer">
+    <footer id="footer" className="school-footer scroll-mt-20">
+      {/* Main 4-Column Classic School Footer */}
+      <div className="school-footer-main">
         <div className="container">
-          {/* Top Executive Accreditation & Quick Connect Ribbon */}
-          <div className="footer-top-ribbon" data-aos="fade-up" data-aos-duration="750">
-            <div className="footer-ribbon-brand">
-              <div className="footer-ribbon-crest">
-                <img
-                  src={SCHOOL_INFO.logo}
-                  alt="St. Michael's Higher Secondary School Crest"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div className="footer-ribbon-text">
-                <div className="footer-ribbon-badges">
-                  <span className="footer-pill-gold">
-                    <i className="fas fa-certificate" aria-hidden="true"></i> MBOSE CODE:{' '}
-                    {SCHOOL_INFO.schoolCode}
-                  </span>
-                  <span className="footer-pill-blue">
-                    <i className="fas fa-cross" aria-hidden="true"></i> ESTD.{' '}
-                    {SCHOOL_INFO.established} • CATHOLIC MISSION OF UMSNING
-                  </span>
-                  <span className="footer-pill-emerald">
-                    <i className="fas fa-award" aria-hidden="true"></i> ARCHDIOCESE OF SHILLONG
-                  </span>
-                </div>
-                <h2>ST. MICHAEL&apos;S HIGHER SECONDARY SCHOOL, UMSNING</h2>
-                <p>
-                  Founded in 1961 by <strong>Rev. Fr. Michel Balawan, SDB</strong> • Motto:{' '}
-                  <strong>{SCHOOL_INFO.mottoLatin}</strong> &amp;{' '}
-                  <strong>{SCHOOL_INFO.mottoKhasi}</strong> ({SCHOOL_INFO.mottoMeaning})
+          <div className="school-footer-grid">
+            {/* Column 1: School Crest, Identity, Motto & Quick Connect */}
+            <div className="school-footer-col school-footer-brand-col">
+              <div>
+                <a href="#about" className="school-footer-brand-link group">
+                  <img
+                    src={SCHOOL_INFO.logo}
+                    alt="St. Michael's Higher Secondary School Crest"
+                    width="64"
+                    height="64"
+                    loading="lazy"
+                    decoding="async"
+                    className="school-footer-crest"
+                  />
+                  <div>
+                    <span className="school-footer-eyebrow">
+                      Catholic Mission of Umsning • Estd. {SCHOOL_INFO.established}
+                    </span>
+                    <h2 className="school-footer-title">
+                      ST. MICHAEL&apos;S HIGHER
+                      <br />
+                      SECONDARY SCHOOL
+                    </h2>
+                    <p className="school-footer-subtitle">
+                      Umsning, Ri Bhoi District, Meghalaya – 793105
+                    </p>
+                  </div>
+                </a>
+
+                <p className="school-footer-desc">
+                  Founded in 1961 by{' '}
+                  <strong className="text-white">Rev. Fr. Michel Balawan, SDB</strong> under the
+                  Archdiocese of Shillong. Dedicated to the overall intellectual, moral, spiritual,
+                  and cultural formation of every learner from Nursery to Class XII.
                 </p>
-              </div>
-            </div>
 
-            <div className="footer-ribbon-actions">
-              <a
-                href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`}
-                className="footer-cta-btn footer-cta-call"
-              >
-                <i className="fas fa-phone-alt" aria-hidden="true"></i>
-                <span>Call Secretariat</span>
-              </a>
-              <a
-                href={`https://wa.me/${SCHOOL_INFO.phoneMobile.replace(/\D/g, '')}`}
-                target="_blank"
-                rel="noreferrer"
-                className="footer-cta-btn footer-cta-whatsapp"
-              >
-                <i className="fab fa-whatsapp" aria-hidden="true"></i>
-                <span>WhatsApp Desk</span>
-              </a>
-              <a href="#apply-form" className="footer-cta-btn footer-cta-apply">
-                <i className="fas fa-paper-plane" aria-hidden="true"></i>
-                <span>Admissions 2026–27</span>
-              </a>
-            </div>
-          </div>
-
-          {/* 4-Card Balanced Executive Footer Grid */}
-          <div className="footer-content-grid" data-aos="fade-up" data-aos-delay="100">
-            {/* Column 1: Campus Secretariat & Location */}
-            <div className="footer-column footer-panel-card footer-panel-gold">
-              <div className="footer-panel-top">
-                <h3>
-                  <span className="footer-col-icon">
-                    <i className="fas fa-map-marked-alt" aria-hidden="true"></i>
-                  </span>
-                  <span>CAMPUS SECRETARIAT</span>
-                </h3>
-
-                <div className="footer-contact-card">
-                  <div className="footer-contact-row">
-                    <span className="footer-contact-icon">
-                      <i className="fas fa-map-marker-alt" aria-hidden="true"></i>
+                {/* Motto & Official Codes */}
+                <div className="school-footer-motto-box">
+                  <div className="school-footer-motto-line">
+                    <i className="fas fa-award text-amber-300" aria-hidden="true"></i>
+                    <span>
+                      Motto: &ldquo;{SCHOOL_INFO.mottoLatin}&rdquo; &amp; &ldquo;
+                      {SCHOOL_INFO.mottoKhasi}&rdquo; ({SCHOOL_INFO.mottoMeaning})
                     </span>
-                    <div>
-                      <strong>Campus Location (PIN - 793105)</strong>
-                      <p>
-                        Umsning, Ri Bhoi District, Meghalaya (Between Shillong &amp; Nongpoh along
-                        NH-6 Corridor)
-                      </p>
-                    </div>
                   </div>
-
-                  <div className="footer-contact-row">
-                    <span className="footer-contact-icon">
-                      <i className="fas fa-phone-alt" aria-hidden="true"></i>
-                    </span>
-                    <div>
-                      <strong>Admission &amp; Office Helpline</strong>
-                      <p>
-                        <a href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`}>
-                          {SCHOOL_INFO.phoneMobile}
-                        </a>{' '}
-                        /{' '}
-                        <a href={`tel:${SCHOOL_INFO.phone.replace(/\s/g, '')}`}>
-                          {SCHOOL_INFO.phone}
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="footer-contact-row">
-                    <span className="footer-contact-icon">
-                      <i className="fas fa-envelope" aria-hidden="true"></i>
-                    </span>
-                    <div>
-                      <strong>Official Email Desk</strong>
-                      <p>
-                        <a href={`mailto:${SCHOOL_INFO.email}`}>{SCHOOL_INFO.email}</a>
-                      </p>
-                    </div>
+                  <div className="school-footer-code-badges">
+                    <span>MBOSE Code: {SCHOOL_INFO.schoolCode}</span>
+                    <span>UDISE+: 17050200108</span>
                   </div>
                 </div>
               </div>
 
-              <div className="footer-panel-bottom">
-                <div className="footer-social-strip">
+              {/* Social & Direct Action Icons */}
+              <div className="school-footer-social-block">
+                <p className="school-footer-social-label">Connect With The School Office</p>
+                <div className="school-footer-social-row">
+                  <a
+                    href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`}
+                    className="school-footer-social-btn"
+                    aria-label="Call School Office"
+                    title="Call School Office"
+                  >
+                    <i className="fas fa-phone-alt" aria-hidden="true"></i>
+                  </a>
                   <a
                     href={`https://wa.me/${SCHOOL_INFO.phoneMobile.replace(/\D/g, '')}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="footer-social-pill"
+                    className="school-footer-social-btn whatsapp"
                     aria-label="WhatsApp Help Desk"
                     title="WhatsApp Help Desk"
                   >
                     <i className="fab fa-whatsapp" aria-hidden="true"></i>
                   </a>
                   <a
-                    href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`}
-                    className="footer-social-pill"
-                    aria-label="Call School Secretariat"
-                    title="Call School Secretariat"
-                  >
-                    <i className="fas fa-phone-alt" aria-hidden="true"></i>
-                  </a>
-                  <a
                     href={`mailto:${SCHOOL_INFO.email}`}
-                    className="footer-social-pill"
-                    aria-label="Email School Office"
-                    title="Email School Office"
+                    className="school-footer-social-btn"
+                    aria-label="Email School Secretariat"
+                    title="Email School Secretariat"
                   >
                     <i className="fas fa-envelope" aria-hidden="true"></i>
                   </a>
@@ -177,107 +120,103 @@ export const FooterSection: React.FC = () => {
                     href={OFFICIAL_MAP_SHARE_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="footer-social-pill"
-                    aria-label="Open Official Google Map"
-                    title="Open Official Google Map"
+                    className="school-footer-social-btn"
+                    aria-label="Google Maps Location"
+                    title="Google Maps Location"
                   >
-                    <i className="fas fa-location-arrow" aria-hidden="true"></i>
-                  </a>
-                  <a
-                    href="https://soumitra69.github.io/ST.-MHSS/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="footer-social-pill"
-                    aria-label="Official Website"
-                    title="Official Website"
-                  >
-                    <i className="fas fa-globe" aria-hidden="true"></i>
+                    <i className="fas fa-map-marker-alt" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
             </div>
 
-            {/* Column 2: About & Leadership Messages */}
-            <div className="footer-column footer-panel-card footer-panel-blue">
-              <div className="footer-panel-top">
-                <h3>
-                  <span className="footer-col-icon">
-                    <i className="fas fa-landmark" aria-hidden="true"></i>
-                  </span>
-                  <span>LEADERSHIP &amp; HERITAGE</span>
-                </h3>
-                <ul className="footer-menu">
-                  {leadershipAndAboutLinks.map((item) => (
-                    <li key={item.label}>
-                      <a href={item.href}>
-                        <span className="footer-link-left">
-                          <i className={`${item.icon} footer-link-icon`} aria-hidden="true"></i>
-                          <span>{item.label}</span>
-                        </span>
-                        <i className="fas fa-chevron-right footer-link-arrow" aria-hidden="true"></i>
-                      </a>
-                    </li>
-                  ))}
+            {/* Column 2: About & Leadership */}
+            <div className="school-footer-col">
+              <h3 className="school-footer-heading">About &amp; Leadership</h3>
+              <ul className="school-footer-list">
+                {aboutAndLeadershipLinks.map((item) => (
+                  <li key={item.label}>
+                    <a href={item.href} className="school-footer-link">
+                      <i className="fas fa-angle-right" aria-hidden="true"></i>
+                      <span>{item.label}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 3: Academics & Quick Links */}
+            <div className="school-footer-col">
+              <h3 className="school-footer-heading">Academics &amp; Quick Links</h3>
+              <ul className="school-footer-list">
+                {academicsAndCampusLinks.map((item) => (
+                  <li key={item.label}>
+                    <a href={item.href} className="school-footer-link">
+                      <i className="fas fa-angle-right" aria-hidden="true"></i>
+                      <span>{item.label}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 4: Contact Info, Timings & Campus Map */}
+            <div className="school-footer-col school-footer-contact-col">
+              <div>
+                <h3 className="school-footer-heading">Contact &amp; School Hours</h3>
+
+                <ul className="school-footer-contact-list">
+                  <li>
+                    <i className="fas fa-map-marker-alt" aria-hidden="true"></i>
+                    <div>
+                      <strong>Campus Address:</strong>
+                      <span>Umsning, Ri Bhoi District, Meghalaya – 793105 (NH-6 Corridor)</span>
+                    </div>
+                  </li>
+
+                  <li>
+                    <i className="fas fa-phone-alt" aria-hidden="true"></i>
+                    <div>
+                      <strong>Phone &amp; Helpline:</strong>
+                      <span>
+                        <a href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`}>
+                          {SCHOOL_INFO.phoneMobile}
+                        </a>{' '}
+                        /{' '}
+                        <a href={`tel:${SCHOOL_INFO.phone.replace(/\s/g, '')}`}>
+                          {SCHOOL_INFO.phone}
+                        </a>
+                      </span>
+                    </div>
+                  </li>
+
+                  <li>
+                    <i className="fas fa-envelope" aria-hidden="true"></i>
+                    <div>
+                      <strong>Official Email:</strong>
+                      <span>
+                        <a href={`mailto:${SCHOOL_INFO.email}`}>{SCHOOL_INFO.email}</a>
+                      </span>
+                    </div>
+                  </li>
+
+                  <li>
+                    <i className="fas fa-clock" aria-hidden="true"></i>
+                    <div>
+                      <strong>School Timings (Mon – Fri):</strong>
+                      <span>
+                        Sec &amp; Hr. Sec: 8:45 AM – 3:00 PM
+                        <br />
+                        Primary Section: 8:45 AM – 2:00 PM
+                      </span>
+                    </div>
+                  </li>
                 </ul>
               </div>
 
-              <div className="footer-panel-bottom">
-                <div className="footer-mini-badge-box">
-                  <i className="fas fa-torch text-amber-300" aria-hidden="true"></i>
-                  <div>
-                    <strong>Proudly Called &ldquo;Michaelians&rdquo;</strong>
-                    <span>Aim: Overall Development of the Child</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Column 3: Academic Wings & Official Timings */}
-            <div className="footer-column footer-panel-card footer-panel-orange">
-              <div className="footer-panel-top">
-                <h3>
-                  <span className="footer-col-icon">
-                    <i className="fas fa-graduation-cap" aria-hidden="true"></i>
-                  </span>
-                  <span>ACADEMICS &amp; TIMINGS</span>
-                </h3>
-                <ul className="footer-menu">
-                  {academicsAndAdmissionsLinks.map((item) => (
-                    <li key={item.label}>
-                      <a href={item.href}>
-                        <span className="footer-link-left">
-                          <i className={`${item.icon} footer-link-icon`} aria-hidden="true"></i>
-                          <span>{item.label}</span>
-                        </span>
-                        <i className="fas fa-chevron-right footer-link-arrow" aria-hidden="true"></i>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="footer-panel-bottom">
-                <div className="footer-mini-badge-box">
-                  <i className="fas fa-clock text-amber-300" aria-hidden="true"></i>
-                  <div>
-                    <strong>School: 8:45 AM – 3:00 PM (Mon–Fri)</strong>
-                    <span>Primary: 8:45 AM – 2:00 PM • Sat &amp; Sun Closed</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Column 4: Live Interactive Campus Map & Directions */}
-            <div className="footer-column footer-panel-card footer-panel-emerald">
-              <div className="footer-panel-top">
-                <h3>
-                  <span className="footer-col-icon">
-                    <i className="fas fa-map-location-dot" aria-hidden="true"></i>
-                  </span>
-                  <span>CAMPUS LOCATION MAP</span>
-                </h3>
-
-                <div className="footer-live-map-frame">
+              {/* Compact Embedded Campus Map */}
+              <div className="school-footer-map-wrap">
+                <div className="school-footer-map-box">
                   <iframe
                     src={OFFICIAL_MAP_EMBED_URL}
                     title="St. Michael's Higher Secondary School, Umsning Location Map"
@@ -286,55 +225,39 @@ export const FooterSection: React.FC = () => {
                     allowFullScreen
                   />
                 </div>
-
-                <div className="footer-schedule-item mt-2.5">
-                  <span className="footer-schedule-label">
-                    <i className="fas fa-briefcase text-emerald-300" aria-hidden="true"></i>
-                    Office Visiting Hours (Mon – Fri)
-                  </span>
-                  <strong>8:45–11:55 AM &amp; 12:35–3:00 PM</strong>
-                  <small>Closed on Saturday, Sunday &amp; Public Holidays</small>
-                </div>
-              </div>
-
-              <div className="footer-panel-bottom">
                 <a
                   href={OFFICIAL_MAP_SHARE_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="footer-map-btn"
+                  className="school-footer-map-link"
                 >
                   <i className="fas fa-directions" aria-hidden="true"></i>
-                  <span>Open on Google Maps</span>
+                  <span>Get Directions on Google Maps</span>
+                  <i className="fas fa-external-link-alt text-[10px]" aria-hidden="true"></i>
                 </a>
               </div>
             </div>
           </div>
         </div>
-      </footer>
+      </div>
 
-      {/* Bottom Legal & Accreditation Bar */}
-      <div className="footer-base">
-        <div className="container footer-base-inner">
-          <p className="copyright-text">
-            <i className="fas fa-shield-alt text-amber-400 mr-1.5" aria-hidden="true"></i>
-            Copyright © 1961–{new Date().getFullYear()}{' '}
-            <strong>St. Michael&apos;s Higher Secondary School, Umsning</strong> • Catholic Mission
-            of Umsning, Archdiocese of Shillong.
-          </p>
-          <div className="footer-base-links">
-            <a href="#about">About Us</a>
-            <span>•</span>
-            <a href="#founder-message">Founder&apos;s Message</a>
-            <span>•</span>
-            <a href="#principal-message">Principal&apos;s Desk</a>
-            <span>•</span>
-            <a href={OFFICIAL_MAP_SHARE_URL} target="_blank" rel="noreferrer">
-              Google Map
-            </a>
+      {/* Bottom Copyright & Attribution Bar */}
+      <div className="school-footer-bottom">
+        <div className="container">
+          <div className="school-footer-bottom-inner">
+            <p className="school-footer-copy">
+              &copy; {new Date().getFullYear()} St. Michael&apos;s Higher Secondary School, Umsning.
+              All Rights Reserved.
+            </p>
+            <p className="school-footer-credit">
+              <i className="fas fa-shield-alt text-amber-400" aria-hidden="true"></i>
+              <span>
+                Designed by <strong>Marak Technology</strong>
+              </span>
+            </p>
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };

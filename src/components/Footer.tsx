@@ -168,7 +168,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmission }) =
       <div className="border-t border-white/10 py-6">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
           <div>
-            © 1961-{new Date().getFullYear()} St. Michael's Higher Secondary School, Umsning. All rights reserved.
+            Designed by <strong>Marak Technology</strong>
           </div>
           <div className="flex items-center gap-4">
             <span className="hover:text-white transition-colors">MBOSE Code: 01961</span>

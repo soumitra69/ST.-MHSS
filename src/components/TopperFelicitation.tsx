@@ -73,6 +73,73 @@ export const TopperFelicitation: React.FC = () => {
           </div>
         </div>
 
+        {/* MBOSE Class 10 (SSLC) & Class 12 (HSSLC) Board Result Summary Strip */}
+        <div
+          className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          data-aos="fade-up"
+          data-aos-duration="700"
+        >
+          <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4 border-t-4 border-t-[#0c4a8a]">
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#0c4a8a]">
+                Class X (MBOSE SSLC)
+              </span>
+              <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-[10px] font-extrabold text-emerald-800">
+                98.4% Pass
+              </span>
+            </div>
+            <p className="mt-1.5 text-xl font-black text-[#0c2d57]">186 / 189 Passed</p>
+            <p className="mt-1 text-xs font-medium text-slate-600">
+              142 First Division • 68+ Subject Letter Marks (80%+) • State Top 20 Merit Rank
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4 border-t-4 border-t-[#d97706]">
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#d97706]">
+                Class XII (HSSLC Arts)
+              </span>
+              <span className="rounded-full bg-amber-100 px-2.5 py-0.5 text-[10px] font-extrabold text-amber-900">
+                97.8% Pass
+              </span>
+            </div>
+            <p className="mt-1.5 text-xl font-black text-[#0c2d57]">134 / 137 Passed</p>
+            <p className="mt-1 text-xs font-medium text-slate-600">
+              96 First Division • Distinctions in English, Khasi, Pol. Science, History &amp; Education
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4 border-t-4 border-t-[#0c4a8a]">
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#0c4a8a]">
+                Class XII (HSSLC Science)
+              </span>
+              <span className="rounded-full bg-blue-100 px-2.5 py-0.5 text-[10px] font-extrabold text-[#0c4a8a]">
+                96.2% Pass
+              </span>
+            </div>
+            <p className="mt-1.5 text-xl font-black text-[#0c2d57]">51 / 53 Passed</p>
+            <p className="mt-1 text-xs font-medium text-slate-600">
+              44 First Division • High Scores in Physics, Chemistry, Biology &amp; Mathematics
+            </p>
+          </div>
+
+          <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4 border-t-4 border-t-emerald-600">
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-emerald-700">
+                Class XII (HSSLC Commerce)
+              </span>
+              <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-[10px] font-extrabold text-emerald-800">
+                97.5% Pass
+              </span>
+            </div>
+            <p className="mt-1.5 text-xl font-black text-[#0c2d57]">39 / 40 Passed</p>
+            <p className="mt-1 text-xs font-medium text-slate-600">
+              33 First Division • Distinctions in Accountancy, Business Studies &amp; Entrepreneurship
+            </p>
+          </div>
+        </div>
+
         {/* Featured Showcase Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Main Photo Feature */}

@@ -439,6 +439,38 @@ export const FACULTY_MEMBERS: StaffMember[] = [
     department: "Athletics & Physical Training",
     qualification: "M.P.Ed., Certified NIS Coach",
     experience: "11 years drill and track master",
+  },
+  {
+    id: "fac-09",
+    name: "Kong R. Lyngdoh",
+    role: "Accountant & Fee Counter Head",
+    department: "Non-Teaching & Lab Staff",
+    qualification: "B.Com (Hons.), Tally & Institutional Finance",
+    experience: "13 years school accounts & student scholarships",
+  },
+  {
+    id: "fac-10",
+    name: "Kong A. Kharkongor",
+    role: "Campus Librarian",
+    department: "Non-Teaching & Lab Staff",
+    qualification: "M.Lib.I.Sc. (Library & Information Science)",
+    experience: "10 years managing 8,500+ reference volumes",
+  },
+  {
+    id: "fac-11",
+    name: "Sir D. Sohkhlet",
+    role: "Senior Science Lab Assistant",
+    department: "Non-Teaching & Lab Staff",
+    qualification: "B.Sc. (Chemistry & Biology), Lab Safety Cert.",
+    experience: "9 years HSSLC Physics, Chemistry & Bio practicals",
+  },
+  {
+    id: "fac-12",
+    name: "Sir K. Nongrum",
+    role: "Computer Lab & Smart Class Coordinator",
+    department: "Non-Teaching & Lab Staff",
+    qualification: "BCA, Hardware & Network Administration",
+    experience: "8 years digital lab & UDISE+ data desk",
   }
 ];
 

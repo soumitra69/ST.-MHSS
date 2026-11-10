@@ -41,6 +41,7 @@ export const FacultyDirectory: React.FC = () => {
     'Mathematics & Statistics',
     'Social Sciences & Field Studies',
     'Athletics & Physical Training',
+    'Non-Teaching & Lab Staff',
   ];
 
   const filteredFaculty = FACULTY_MEMBERS.filter((member) => {

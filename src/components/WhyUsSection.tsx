@@ -5,12 +5,12 @@ import { SCHOOL_IMAGES } from '../data/schoolAssets';
 const schoolFacts = [
   {
     label: 'Established',
-    value: `${SCHOOL_INFO.established} (65 Years of Educational Service)`,
+    value: `${SCHOOL_INFO.established} (65 Years of Service)`,
     icon: 'fas fa-landmark',
   },
   {
     label: 'Affiliation',
-    value: SCHOOL_INFO.affiliation,
+    value: 'MBOSE (Code: 01961)',
     icon: 'fas fa-certificate',
   },
   {
@@ -19,85 +19,110 @@ const schoolFacts = [
     icon: 'fas fa-graduation-cap',
   },
   {
-    label: 'Student Body',
-    value: `${SCHOOL_INFO.studentCount} Learners & ${SCHOOL_INFO.facultyCount} Educators`,
+    label: 'Student & Staff',
+    value: `${SCHOOL_INFO.studentCount} Learners • ${SCHOOL_INFO.facultyCount} Educators`,
     icon: 'fas fa-users',
-  },
-  {
-    label: 'Campus Location',
-    value: SCHOOL_INFO.address,
-    icon: 'fas fa-map-marker-alt',
   },
 ];
 
 export const WhyUsSection: React.FC = () => (
   <section
     id="why-us"
-    className="w-full bg-gradient-to-br from-[#eff6ff] via-[#fff7ed] to-[#f0fdfa] py-16 md:py-24 scroll-mt-20 border-t border-blue-200"
+    className="w-full bg-[#f4f7fb] py-12 md:py-16 scroll-mt-20 border-t border-slate-200"
   >
-    <div className="mx-auto grid max-w-7xl gap-9 px-4 sm:px-6 md:grid-cols-[0.95fr_1.05fr] md:items-center md:gap-14 lg:px-8">
-      <div className="relative overflow-hidden rounded-2xl border-2 border-blue-300 shadow-2xl">
-        <img
-          src={SCHOOL_IMAGES.campusCommunity}
-          alt="The St. Michael’s Higher Secondary School community in Umsning"
-          loading="lazy"
-          decoding="async"
-          className="aspect-[4/3] w-full object-cover md:aspect-[5/4]"
-        />
-        <div className="absolute bottom-0 left-0 bg-gradient-to-r from-[#0c2d57]/95 to-[#1d4ed8]/95 px-5 py-4 text-white backdrop-blur-xs sm:px-7 sm:py-5 rounded-tr-2xl border-t border-r border-amber-300/50">
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-amber-300">
-            <i className="fas fa-school mr-1.5" aria-hidden="true"></i>
+    <div className="container">
+      <article
+        className="group relative grid w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl lg:grid-cols-[44%_56%] items-stretch"
+        data-aos="fade-up"
+        data-aos-duration="750"
+      >
+        <div className="absolute inset-x-0 top-0 h-1.5 bg-[#0c4a8a] z-10" />
+
+        {/* Left Fitted Photo Column */}
+        <div className="relative h-64 sm:h-80 lg:h-full lg:min-h-[380px] bg-slate-900 overflow-hidden">
+          <img
+            src={SCHOOL_IMAGES.campusCommunity}
+            alt="The St. Michael’s Higher Secondary School community in Umsning"
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full lg:absolute lg:inset-0 object-cover object-center transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/15 to-transparent" />
+          <div className="absolute top-3 left-3 rounded-full bg-[#0c4a8a] px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-md">
+            <i className="fas fa-school mr-1.5 text-amber-300" aria-hidden="true"></i>
             {SCHOOL_INFO.shortName}
-          </p>
-          <p className="mt-1 text-sm font-medium sm:text-base">
-            Umsning, Ri Bhoi District • Estd. {SCHOOL_INFO.established}
-          </p>
+          </div>
+          <div className="absolute bottom-3 left-3 right-3 rounded-xl bg-slate-950/85 border border-amber-400/50 px-3.5 py-2.5 text-white backdrop-blur-xs">
+            <p className="text-[11px] font-extrabold uppercase tracking-wider text-amber-300">
+              <i className="fas fa-map-marker-alt mr-1.5" aria-hidden="true"></i>
+              Umsning, Ri Bhoi District • Estd. {SCHOOL_INFO.established}
+            </p>
+            <p className="mt-0.5 text-xs font-medium text-slate-200">
+              Catholic Mission of Umsning • Archdiocese of Shillong
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div>
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#1d4ed8] to-[#ea580c] px-4 py-1 text-xs font-bold uppercase tracking-[0.16em] text-white shadow-sm">
-          <i className="fas fa-star" aria-hidden="true"></i>
-          Why Families Choose St. Michael&apos;s
-        </span>
-        <h2 className="vision-serif-heading mt-3 max-w-xl text-3xl font-extrabold leading-tight tracking-tight text-[#0c4a8a] sm:text-4xl">
-          <span className="vision-double-angle" aria-hidden="true">
-            &raquo;
-          </span>{' '}
-          A place to learn, grow, and step forward with confidence.
-        </h2>
-        <p className="mt-4 max-w-xl text-base font-medium leading-7 text-slate-700">
-          St. Michael&apos;s Higher Secondary School is a cornerstone of the Umsning community in Ri
-          Bhoi District. Our learning journey spans from Nursery to Class XII, combining MBOSE
-          academic rigor with character formation, athletics, and dedicated pastoral mentorship.
-        </p>
+        {/* Right Fitted Content Column */}
+        <div className="flex flex-col justify-center p-5 sm:p-7 lg:p-8">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#0c4a8a] px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-xs">
+              <i className="fas fa-star text-amber-300" aria-hidden="true"></i>
+              Why Families Choose St. Michael&apos;s
+            </span>
+            <span className="rounded-full bg-amber-50 border border-amber-200 px-3 py-0.5 text-[11px] font-bold text-amber-900">
+              Nursery to Class XII
+            </span>
+          </div>
 
-        <dl className="mt-7 border-t border-blue-200">
-          {schoolFacts.map(({ label, value, icon }) => (
-            <div
-              key={label}
-              className="grid gap-1 border-b border-blue-200/80 py-3.5 sm:grid-cols-[165px_1fr] sm:gap-4"
-            >
-              <dt className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.08em] text-[#ea580c]">
-                <i className={`${icon} text-[#1d4ed8] w-4 text-center`} aria-hidden="true"></i>
-                {label}
-              </dt>
-              <dd className="text-sm font-semibold leading-6 text-slate-800">{value}</dd>
+          <h2 className="vision-serif-heading mt-3 text-2xl font-extrabold leading-snug text-[#0c4a8a] sm:text-3xl">
+            <span className="vision-double-angle" aria-hidden="true">
+              &raquo;
+            </span>{' '}
+            A place to learn, grow, and step forward with confidence.
+          </h2>
+
+          <p className="mt-2.5 text-xs sm:text-sm font-medium leading-6 text-slate-700">
+            St. Michael&apos;s Higher Secondary School is a cornerstone of the Umsning community in
+            Ri Bhoi District. Our learning journey spans from Nursery to Class XII, combining MBOSE
+            academic rigor with character formation, athletics, and dedicated pastoral mentorship.
+          </p>
+
+          <div className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+            {schoolFacts.map(({ label, value, icon }) => (
+              <div
+                key={label}
+                className="flex items-start gap-2.5 rounded-xl border border-slate-200 bg-[#f8fafc] p-3"
+              >
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#0c4a8a] text-xs text-amber-300">
+                  <i className={icon} aria-hidden="true"></i>
+                </span>
+                <div className="min-w-0">
+                  <p className="text-[10px] font-extrabold uppercase tracking-wider text-[#d97706]">
+                    {label}
+                  </p>
+                  <p className="mt-0.5 text-xs font-bold leading-snug text-[#0c2d57]">{value}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 pt-4">
+            <div className="flex items-center gap-2 text-xs font-semibold text-slate-600">
+              <i className="fas fa-location-arrow text-[#d97706]" aria-hidden="true"></i>
+              <span>{SCHOOL_INFO.address}</span>
             </div>
-          ))}
-        </dl>
-
-        <div className="mt-6 flex flex-wrap items-center gap-4">
-          <a
-            href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`}
-            className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-gradient-to-r from-[#1d4ed8] to-[#ea580c] px-5 py-2.5 text-sm font-bold text-white shadow-md transition-transform hover:scale-[1.02]"
-          >
-            <i className="fas fa-phone-alt" aria-hidden="true"></i>
-            Call School Office ({SCHOOL_INFO.phoneMobile})
-            <i className="fas fa-arrow-right text-xs" aria-hidden="true"></i>
-          </a>
+            <a
+              href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`}
+              className="inline-flex min-h-10 items-center gap-2 rounded-xl bg-[#0c4a8a] px-4 py-2 text-xs font-bold text-white shadow-sm transition-transform hover:scale-[1.02]"
+            >
+              <i className="fas fa-phone-alt text-amber-300" aria-hidden="true"></i>
+              <span>Call Office ({SCHOOL_INFO.phoneMobile})</span>
+              <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
+            </a>
+          </div>
         </div>
-      </div>
+      </article>
     </div>
   </section>
 );
