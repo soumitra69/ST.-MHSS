@@ -316,9 +316,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ formRef, onOpenAdmissi
 
           {/* Footer Actions */}
           <div className="hero-nb-footer">
-            <a href="#hub" className="hero-nb-action-secondary">
-              <i className="fas fa-folder-open mr-1.5" aria-hidden="true"></i>
-              All Circulars &amp; Hub
+            <a href="#latest-events" className="hero-nb-action-secondary">
+              <i className="fas fa-calendar-check mr-1.5" aria-hidden="true"></i>
+              Campus Events
             </a>
             {onOpenAdmission ? (
               <button
@@ -330,7 +330,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ formRef, onOpenAdmissi
                 Apply 2026–27
               </button>
             ) : (
-              <a href="#hub" className="hero-nb-action-primary btn-shine">
+              <a href="#academics" className="hero-nb-action-primary btn-shine">
                 <i className="fas fa-user-graduate mr-1.5" aria-hidden="true"></i>
                 Admissions Desk
               </a>

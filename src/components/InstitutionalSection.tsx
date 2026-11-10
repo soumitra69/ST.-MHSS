@@ -14,34 +14,50 @@ const secretaryHighlights = [
   'Modern infrastructure & laboratory advancement',
 ];
 
+const founderHighlights = [
+  'Founded in 1961 by Rev. Fr. Michel Balawan, SDB',
+  'Catholic Mission of Umsning, Archdiocese of Shillong',
+  'Motto: "Excelsior" & "Shaphrang" — Torch of Michaelians',
+];
+
 const heritagePillars = [
   {
-    title: 'Diocesan Heritage',
-    badge: 'Since 1961',
+    title: 'Founded in 1961',
+    badge: 'Fr. Michel Balawan, SDB',
     icon: 'fas fa-church',
     detail:
-      'Serving families across Ri Bhoi District under the Catholic Diocese of Shillong since 1961.',
+      'Started as a Lower Primary School in 1961 by French Catholic Missionary Rev. Fr. Michel Balawan, SDB under the Catholic Mission of Umsning, Archdiocese of Shillong.',
     cardStyle: 'border-l-4 border-l-[#0c4a8a] border-slate-200 bg-white',
     badgeStyle: 'bg-[#0c4a8a] text-white',
   },
   {
-    title: 'Holistic Formation',
-    badge: '4 Houses',
+    title: 'Spirit of "Michaelians"',
+    badge: 'Motto: Excelsior',
     icon: 'fas fa-shield-alt',
     detail:
-      'Integrating classroom excellence with synchronized drill, choral music, and ecological stewardship.',
+      'Students are proudly called "Michaelians" — carrying the torch of confidence, competency, and moral integrity from Nursery to Class XII.',
     cardStyle: 'border-l-4 border-l-[#d97706] border-slate-200 bg-white',
     badgeStyle: 'bg-[#d97706] text-white',
   },
   {
-    title: 'Inclusive Community',
-    badge: '2,000+ Scholars',
-    icon: 'fas fa-users',
+    title: 'Prime NH-6 Location',
+    badge: 'Umsning • 793105',
+    icon: 'fas fa-map-marker-alt',
     detail:
-      'Welcoming over 2,000 boys and girls from Umsning and surrounding towns from Nursery to Class XII.',
+      'Situated between Shillong and Nongpoh on the left side of the old National Highway and right side of the Shillong–Guwahati Bypass road.',
     cardStyle: 'border-l-4 border-l-[#0c2d57] border-slate-200 bg-white',
     badgeStyle: 'bg-[#0c2d57] text-white',
   },
+];
+
+const diaryObjectives = [
+  'To provide intellectual formation',
+  'To educate skill acquisition',
+  'To enhance appreciation of culture',
+  'To impart moral integrity',
+  'To provide spiritual formation',
+  'To foster psychological growth',
+  'To instil a sense of social responsibility',
 ];
 
 export const InstitutionalSection: React.FC = () => (
@@ -66,18 +82,16 @@ export const InstitutionalSection: React.FC = () => (
               <span className="vision-double-angle" aria-hidden="true">
                 &raquo;
               </span>{' '}
-              Who We Are
+              Who We Are (General Information)
             </h2>
             <p className="vision-body-copy mt-4 text-sm sm:text-base text-[#0c4a8a]">
-              Since {SCHOOL_INFO.established}, St. Michael&apos;s Higher Secondary School, Umsning
-              has formed men and women of faith, scholarship, leadership, and service in the
-              Catholic Diocesan tradition, fostering a culture of excellence and core values of
-              respect, discipline, and care for the whole person under the guiding motto{' '}
-              <strong>{SCHOOL_INFO.mottoLatin}</strong> &amp;{' '}
-              <strong>{SCHOOL_INFO.mottoKhasi}</strong> ({SCHOOL_INFO.mottoMeaning}).
+              The School is under the management of the <strong>Catholic Mission of Umsning, Archdiocese of Shillong</strong>, and is one of the oldest co-educational institutions in the Ri Bhoi District of Meghalaya. It was started as a Lower Primary School in <strong>{SCHOOL_INFO.established}</strong> by the great Educationist and French Catholic Missionary, <strong>Rev. Fr. Michel Balawan, SDB</strong>.
             </p>
-            <a href="#why-us" className="vision-read-more mt-4 inline-flex items-center gap-1.5">
-              <span>Read More</span>
+            <p className="vision-body-copy mt-3 text-sm sm:text-base text-[#0c4a8a]">
+              The institution is backboned by its committed teachers who spark the imagination of their students and give wings to their dreams. The spirit of confidence and competency is the hallmark that <strong>&ldquo;Michaelians&rdquo;</strong> carry with them from the torch of their school&apos;s motto <strong>&ldquo;{SCHOOL_INFO.mottoLatin}&rdquo;</strong> &amp; <strong>&ldquo;{SCHOOL_INFO.mottoKhasi}&rdquo;</strong>. The school runs classes from <strong>Nursery to Class XII</strong> with <strong>English</strong> as the medium of instruction.
+            </p>
+            <a href="#school-handbook" className="vision-read-more mt-4 inline-flex items-center gap-1.5">
+              <span>View Official School Diary Rules</span>
               <i className="fas fa-arrow-right text-xs" aria-hidden="true"></i>
             </a>
           </div>
@@ -118,20 +132,22 @@ export const InstitutionalSection: React.FC = () => (
             data-aos-duration="700"
           >
             <div className="absolute inset-x-0 top-0 h-1.5 bg-[#0c4a8a]" />
-            <h3 className="vision-serif-heading text-xl sm:text-2xl text-[#0c4a8a]">
-              <span className="vision-double-angle" aria-hidden="true">
-                &raquo;
-              </span>{' '}
-              Our Mission
-            </h3>
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <h3 className="vision-serif-heading text-xl sm:text-2xl text-[#0c4a8a]">
+                <span className="vision-double-angle" aria-hidden="true">
+                  &raquo;
+                </span>{' '}
+                Our Aim &amp; Mission
+              </h3>
+              <span className="rounded-full bg-blue-50 px-3 py-0.5 text-[11px] font-extrabold uppercase tracking-wider text-[#0c4a8a] border border-blue-200">
+                Aim: Overall Development of the Child
+              </span>
+            </div>
             <p className="vision-body-copy mt-3.5 text-sm sm:text-base text-[#0c4a8a]">
-              To provide an inclusive, values-led education that helps every student develop
-              intellectually, spiritually, socially, and physically, encouraging curiosity,
-              discipline, compassion, and confidence so learners make a lasting difference in their
-              families and communities.
+              Guided by our supreme institutional aim — <strong>Overall Development of the Child</strong> — St. Michael&apos;s Higher Secondary School provides an inclusive, values-led education that forms every learner intellectually, morally, spiritually, culturally, and socially in the Catholic tradition.
             </p>
             <a href="#academics" className="vision-read-more mt-4 inline-flex items-center gap-1.5">
-              <span>Read More</span>
+              <span>Explore Academic Stages</span>
               <i className="fas fa-arrow-right text-xs" aria-hidden="true"></i>
             </a>
           </article>
@@ -148,27 +164,136 @@ export const InstitutionalSection: React.FC = () => (
               <span className="vision-double-angle" aria-hidden="true">
                 &raquo;
               </span>{' '}
-              Our Vision
+              Our Seven Core Objectives
             </h3>
-            <p className="vision-body-copy mt-3.5 text-sm sm:text-base text-[#0c4a8a]">
-              To form men and women of faith, scholarship, leadership, and service in the Catholic
-              Diocesan tradition, fostering a culture of excellence and core values of respect,
-              justice, and holistic care for the whole person — ever upward,{' '}
-              <em>{SCHOOL_INFO.mottoLatin}</em> and <em>{SCHOOL_INFO.mottoKhasi}</em>.
-            </p>
-            <a href="#apply-form" className="vision-read-more mt-4 inline-flex items-center gap-1.5">
-              <span>Read More</span>
-              <i className="fas fa-arrow-right text-xs" aria-hidden="true"></i>
-            </a>
+            <ul className="mt-3.5 grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {diaryObjectives.map((obj) => (
+                <li
+                  key={obj}
+                  className="flex items-center gap-2 rounded-lg bg-slate-50 px-3 py-1.5 text-xs font-semibold text-[#0c4a8a] border border-slate-200"
+                >
+                  <i className="fas fa-check-circle text-[#d97706] shrink-0" aria-hidden="true"></i>
+                  <span>{obj}</span>
+                </li>
+              ))}
+            </ul>
           </article>
         </div>
+      </div>
+    </section>
+
+    {/* MESSAGE 0 (HOME PAGE): Founder's Message — Rev. Fr. Michel Balawan, SDB (#founder-message) */}
+    <section
+      id="founder-message"
+      className="w-full bg-white py-9 md:py-12 scroll-mt-24 border-t border-slate-200"
+    >
+      <div className="container">
+        <article
+          className="group relative grid w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:grid-cols-[1fr_340px]"
+          data-aos="fade-up"
+          data-aos-duration="750"
+        >
+          <div className="absolute inset-x-0 top-0 h-1.5 bg-[#d97706] z-10" />
+
+          {/* Left Compact Text Column */}
+          <div
+            className="order-2 md:order-1 flex flex-col justify-center bg-white p-5 sm:p-6 md:px-8 md:py-6"
+            data-aos="fade-right"
+            data-aos-delay="100"
+          >
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <span className="inline-flex items-center rounded-full bg-amber-50 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-amber-900 border border-amber-200">
+                <i className="fas fa-cross mr-1.5 text-[#d97706]" aria-hidden="true"></i>
+                Founder&apos;s Vision &amp; Legacy • Estd. 1961
+              </span>
+              <span className="rounded-full bg-[#0c4a8a] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white">
+                <i className="fas fa-church mr-1 text-amber-300" aria-hidden="true"></i>
+                Rev. Fr. Michel Balawan, SDB
+              </span>
+            </div>
+
+            <h2 className="vision-serif-heading mt-2.5 text-xl sm:text-2xl text-[#0c4a8a]">
+              <span className="vision-double-angle" aria-hidden="true">
+                &raquo;
+              </span>{' '}
+              Founder&apos;s Message &amp; Heritage
+            </h2>
+
+            <p className="mt-2 text-xs sm:text-sm font-medium leading-6 text-slate-700">
+              Started as a Lower Primary School in <strong>1961</strong> by the great Educationist
+              and French Catholic Missionary, <strong>Rev. Fr. Michel Balawan, SDB</strong>, under
+              the Catholic Mission of Umsning, Archdiocese of Shillong, St. Michael&apos;s was born
+              to bring the light of knowledge, moral integrity, and spiritual formation to every
+              child in Ri Bhoi. That founding missionary spirit lives on in every{' '}
+              <strong>&ldquo;Michaelian&rdquo;</strong> who strives ever higher under our motto{' '}
+              <em>{SCHOOL_INFO.mottoLatin}</em> &amp; <em>{SCHOOL_INFO.mottoKhasi}</em>.
+            </p>
+
+            <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-2">
+              {founderHighlights.map((item, idx) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-1.5 rounded-lg bg-amber-50/70 px-2.5 py-1.5 text-[11px] font-semibold text-[#0c4a8a] border border-amber-200/80"
+                  data-aos="zoom-in"
+                  data-aos-delay={140 + idx * 60}
+                >
+                  <i
+                    className="fas fa-check-circle text-[#d97706] shrink-0 text-xs"
+                    aria-hidden="true"
+                  ></i>
+                  <span className="leading-tight">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 pt-3 text-xs">
+              <div>
+                <span className="font-bold text-[#0c4a8a]">
+                  Rev. Fr. Michel Balawan, SDB (Founder, 1961)
+                </span>
+                <span className="hidden sm:inline text-slate-400 mx-1.5">•</span>
+                <span className="block sm:inline text-[11px] font-medium text-slate-600">
+                  Catholic Mission of Umsning, Archdiocese of Shillong
+                </span>
+              </div>
+              <a href="#about" className="vision-read-more inline-flex items-center gap-1.5">
+                <span>Our Heritage</span>
+                <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          {/* Right Compact Image Column */}
+          <div
+            className="relative order-1 md:order-2 h-60 md:h-full md:min-h-[270px] bg-slate-900 overflow-hidden"
+            data-aos="zoom-in"
+            data-aos-delay="140"
+          >
+            <img
+              src={SCHOOL_IMAGES.campus}
+              alt="St. Michael's Higher Secondary School campus and Archangel monument founded in 1961"
+              className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent" />
+            <div className="absolute top-3 right-3 rounded-full bg-[#d97706] px-3 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-md">
+              <i className="fas fa-landmark mr-1" aria-hidden="true"></i>
+              Founded 1961
+            </div>
+            <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-slate-950/85 border border-amber-400/50 px-3 py-1.5 text-[11px] font-bold text-white backdrop-blur-xs">
+              <i className="fas fa-cross mr-1.5 text-amber-300" aria-hidden="true"></i>
+              Rev. Fr. Michel Balawan, SDB • Founder&apos;s Legacy
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
     {/* MESSAGE 1 (HOME PAGE): Secretary & Vice Principal's Message (Same Person) (#secretary-message) */}
     <section
       id="secretary-message"
-      className="w-full bg-white py-9 md:py-12 scroll-mt-24 border-t border-slate-200"
+      className="w-full bg-[#f4f7fb] py-9 md:py-12 scroll-mt-24 border-t border-slate-200"
     >
       <div className="container">
         <article
@@ -262,8 +387,8 @@ export const InstitutionalSection: React.FC = () => (
                   St. Michael&apos;s Higher Secondary School, Umsning
                 </span>
               </div>
-              <a href="#hub" className="vision-read-more inline-flex items-center gap-1.5">
-                <span>Operations Hub</span>
+              <a href="#academics" className="vision-read-more inline-flex items-center gap-1.5">
+                <span>Academic Wings</span>
                 <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
               </a>
             </div>

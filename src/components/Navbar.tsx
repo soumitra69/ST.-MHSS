@@ -19,6 +19,7 @@ const primaryLinks = [
     subItems: [
       { label: 'Who We Are (Estd. 1961)', href: '#about', icon: 'fas fa-school' },
       { label: 'Our Mission & Vision', href: '#mission', icon: 'fas fa-bullseye' },
+      { label: 'Founder’s Message (Fr. Michel Balawan)', href: '#founder-message', icon: 'fas fa-cross' },
       { label: 'Secretary & Vice Principal’s Message', href: '#secretary-message', icon: 'fas fa-user-shield' },
       { label: 'Principal’s Message', href: '#principal-message', icon: 'fas fa-user-tie' },
       { label: 'Headmistress – Secondary Section', href: '#hm-secondary-message', icon: 'fas fa-chalkboard-teacher' },

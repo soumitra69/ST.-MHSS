@@ -1,9 +1,14 @@
 import React from 'react';
 import { SCHOOL_INFO } from '../data/schoolData';
 
+const OFFICIAL_MAP_SHARE_URL = 'https://share.google/xohLhc6GWxPh6H3cc';
+const OFFICIAL_MAP_EMBED_URL =
+  "https://maps.google.com/maps?q=St.+Michael's+Higher+Secondary+School+Umsning+Meghalaya+793105&t=&z=15&ie=UTF8&iwloc=&output=embed";
+
 const leadershipAndAboutLinks = [
   { label: 'Who We Are (Founded 1961)', href: '#about', icon: 'fas fa-school' },
   { label: 'Aim & 7 Core Objectives', href: '#mission', icon: 'fas fa-bullseye' },
+  { label: 'Founder’s Message (Fr. Michel Balawan)', href: '#founder-message', icon: 'fas fa-cross' },
   { label: 'Secretary & Vice Principal’s Message', href: '#secretary-message', icon: 'fas fa-user-shield' },
   { label: 'Principal’s Message', href: '#principal-message', icon: 'fas fa-user-tie' },
   { label: 'Headmistress – Secondary Section', href: '#hm-secondary-message', icon: 'fas fa-chalkboard-teacher' },
@@ -17,13 +22,6 @@ const academicsAndAdmissionsLinks = [
   { label: 'Higher Secondary Science (XI – XII)', href: '#streams', icon: 'fas fa-atom' },
   { label: 'Higher Secondary Arts & Commerce', href: '#streams', icon: 'fas fa-landmark' },
   { label: 'Frequently Asked Questions (FAQ)', href: '#faq', icon: 'fas fa-question-circle' },
-];
-
-const campusQuickPortals = [
-  { label: '4 Archangel Houses & Sports', href: '#campus-life', icon: 'fas fa-shield-alt' },
-  { label: 'State Merit Topper Honors', href: '#toppers', icon: 'fas fa-trophy' },
-  { label: 'Synchronized Drill & Choir', href: '#media-drill', icon: 'fas fa-music' },
-  { label: 'Campus Photo Gallery', href: '#gallery', icon: 'fas fa-images' },
 ];
 
 export const FooterSection: React.FC = () => {
@@ -176,12 +174,12 @@ export const FooterSection: React.FC = () => {
                     <i className="fas fa-envelope" aria-hidden="true"></i>
                   </a>
                   <a
-                    href={`https://maps.google.com/?q=${encodeURIComponent(SCHOOL_INFO.address)}`}
+                    href={OFFICIAL_MAP_SHARE_URL}
                     target="_blank"
                     rel="noreferrer"
                     className="footer-social-pill"
-                    aria-label="Open Google Maps"
-                    title="Open Google Maps"
+                    aria-label="Open Official Google Map"
+                    title="Open Official Google Map"
                   >
                     <i className="fas fa-location-arrow" aria-hidden="true"></i>
                   </a>
@@ -234,14 +232,14 @@ export const FooterSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Column 3: Academic Wings & Admissions */}
+            {/* Column 3: Academic Wings & Official Timings */}
             <div className="footer-column footer-panel-card footer-panel-orange">
               <div className="footer-panel-top">
                 <h3>
                   <span className="footer-col-icon">
                     <i className="fas fa-graduation-cap" aria-hidden="true"></i>
                   </span>
-                  <span>ACADEMICS &amp; ADMISSIONS</span>
+                  <span>ACADEMICS &amp; TIMINGS</span>
                 </h3>
                 <ul className="footer-menu">
                   {academicsAndAdmissionsLinks.map((item) => (
@@ -260,69 +258,54 @@ export const FooterSection: React.FC = () => {
 
               <div className="footer-panel-bottom">
                 <div className="footer-mini-badge-box">
-                  <i className="fas fa-book-open text-amber-300" aria-hidden="true"></i>
+                  <i className="fas fa-clock text-amber-300" aria-hidden="true"></i>
                   <div>
-                    <strong>Nursery to Class XII (MBOSE)</strong>
-                    <span>Arts, Science &amp; Commerce • English Medium</span>
+                    <strong>School: 8:45 AM – 3:00 PM (Mon–Fri)</strong>
+                    <span>Primary: 8:45 AM – 2:00 PM • Sat &amp; Sun Closed</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Column 4: Official School Diary Hours & Campus Portals */}
+            {/* Column 4: Live Interactive Campus Map & Directions */}
             <div className="footer-column footer-panel-card footer-panel-emerald">
               <div className="footer-panel-top">
                 <h3>
                   <span className="footer-col-icon">
-                    <i className="fas fa-clock" aria-hidden="true"></i>
+                    <i className="fas fa-map-location-dot" aria-hidden="true"></i>
                   </span>
-                  <span>SCHOOL &amp; OFFICE HOURS</span>
+                  <span>CAMPUS LOCATION MAP</span>
                 </h3>
 
-                <div className="footer-diary-schedule">
-                  <div className="footer-schedule-item">
-                    <span className="footer-schedule-label">
-                      <i className="fas fa-user-graduate text-amber-300" aria-hidden="true"></i>
-                      Secondary &amp; Hr. Sec (VI–XII)
-                    </span>
-                    <strong>Mon – Fri: 8:45 AM – 3:00 PM</strong>
-                  </div>
-                  <div className="footer-schedule-item">
-                    <span className="footer-schedule-label">
-                      <i className="fas fa-child text-sky-300" aria-hidden="true"></i>
-                      Primary Section
-                    </span>
-                    <strong>Mon – Fri: 8:45 AM – 2:00 PM</strong>
-                  </div>
-                  <div className="footer-schedule-item">
-                    <span className="footer-schedule-label">
-                      <i className="fas fa-briefcase text-emerald-300" aria-hidden="true"></i>
-                      Office Hours (Mon – Fri)
-                    </span>
-                    <strong>8:45–11:55 AM &amp; 12:35–3:00 PM</strong>
-                    <small>Closed on Saturday, Sunday &amp; Public Holidays</small>
-                  </div>
+                <div className="footer-live-map-frame">
+                  <iframe
+                    src={OFFICIAL_MAP_EMBED_URL}
+                    title="St. Michael's Higher Secondary School, Umsning Location Map"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                  />
                 </div>
 
-                <div className="footer-compact-pills">
-                  {campusQuickPortals.map((item) => (
-                    <a key={item.label} href={item.href} className="footer-quick-chip">
-                      <i className={item.icon} aria-hidden="true"></i>
-                      <span>{item.label}</span>
-                    </a>
-                  ))}
+                <div className="footer-schedule-item mt-2.5">
+                  <span className="footer-schedule-label">
+                    <i className="fas fa-briefcase text-emerald-300" aria-hidden="true"></i>
+                    Office Visiting Hours (Mon – Fri)
+                  </span>
+                  <strong>8:45–11:55 AM &amp; 12:35–3:00 PM</strong>
+                  <small>Closed on Saturday, Sunday &amp; Public Holidays</small>
                 </div>
               </div>
 
               <div className="footer-panel-bottom">
                 <a
-                  href={`https://maps.google.com/?q=${encodeURIComponent(SCHOOL_INFO.address)}`}
+                  href={OFFICIAL_MAP_SHARE_URL}
                   target="_blank"
                   rel="noreferrer"
                   className="footer-map-btn"
                 >
                   <i className="fas fa-directions" aria-hidden="true"></i>
-                  <span>Get Directions on Google Maps</span>
+                  <span>Open on Google Maps</span>
                 </a>
               </div>
             </div>
@@ -342,11 +325,13 @@ export const FooterSection: React.FC = () => {
           <div className="footer-base-links">
             <a href="#about">About Us</a>
             <span>•</span>
+            <a href="#founder-message">Founder&apos;s Message</a>
+            <span>•</span>
             <a href="#principal-message">Principal&apos;s Desk</a>
             <span>•</span>
-            <a href="#academics">Academics</a>
-            <span>•</span>
-            <a href="#apply-form">Admissions 2026–27</a>
+            <a href={OFFICIAL_MAP_SHARE_URL} target="_blank" rel="noreferrer">
+              Google Map
+            </a>
           </div>
         </div>
       </div>

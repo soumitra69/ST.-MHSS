@@ -12847,3 +12847,172 @@ section,
     grid-template-columns: 1fr !important;
   }
 }
+
+/* ==========================================================================
+   30. FULL-WIDTH NAVBAR SPACING, CRYSTAL-CLEAR HERO BACKGROUND IMAGE,
+       FULLY TRANSPARENT NOTICE BOARD & EMBEDDED FOOTER GOOGLE MAP
+   ========================================================================== */
+
+/* 1. Navbar Full-Space Fill (Eliminates Empty Middle Gap on Desktop) */
+@media (min-width: 1141px) {
+  .logo-section {
+    flex: 0 0 auto !important;
+    max-width: clamp(295px, 24vw, 375px) !important;
+    padding: 14px 16px 14px 0 !important;
+  }
+
+  .university-name h1 {
+    font-size: clamp(0.95rem, 1.12vw, 1.2rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  .university-name p {
+    font-size: clamp(0.64rem, 0.72vw, 0.74rem) !important;
+  }
+
+  .primary-secondery-nav {
+    flex: 1 1 0% !important;
+    width: 100% !important;
+  }
+
+  .secondary-nav {
+    padding: 8px 0 8px clamp(18px, 2vw, 32px) !important;
+  }
+
+  .secondary-nav-content {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    gap: clamp(8px, 1vw, 18px) !important;
+  }
+
+  .sec-nav-link {
+    font-size: clamp(0.66rem, 0.74vw, 0.76rem) !important;
+    padding: 5px clamp(8px, 0.8vw, 12px) !important;
+  }
+
+  .umoid-box {
+    display: inline-flex !important;
+    font-size: clamp(0.64rem, 0.72vw, 0.75rem) !important;
+    padding: 5px 12px !important;
+  }
+
+  .primary-nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    gap: clamp(12px, 1.4vw, 26px) !important;
+    padding: 2px 0 2px clamp(18px, 2vw, 32px) !important;
+  }
+
+  .primary-nav-link {
+    font-size: clamp(0.78rem, 0.88vw, 0.92rem) !important;
+    padding: 15px 4px !important;
+  }
+
+  .search-btn {
+    padding: 8px 14px !important;
+    font-size: 0.76rem !important;
+  }
+
+  .apply-now-btn {
+    padding: 11px 20px !important;
+    font-size: 0.82rem !important;
+  }
+}
+
+/* 2. Sharp, Vivid Hero Background Photo (Removes Hazy/Foggy Dark Overlay) */
+.hero-bg-layer {
+  object-fit: cover !important;
+  object-position: center 24% !important;
+  filter: contrast(1.06) saturate(1.1) brightness(1.02) !important;
+}
+
+.hero-bg-overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(6, 18, 36, 0.42) 0%,
+    rgba(6, 18, 36, 0.08) 50%,
+    rgba(6, 18, 36, 0.16) 100%
+  ) !important;
+}
+
+/* 3. Fully Transparent Hero Notice Board (Background Image Clearly Visible Behind It) */
+.hero-notice-board {
+  background: rgba(6, 18, 38, 0.12) !important;
+  backdrop-filter: blur(2px) !important;
+  -webkit-backdrop-filter: blur(2px) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.45) !important;
+  border-top: 3px solid #fbbf24 !important;
+}
+
+.hero-notice-board:hover {
+  background: rgba(6, 18, 38, 0.2) !important;
+  border-color: rgba(251, 191, 36, 0.78) !important;
+}
+
+.hero-nb-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28) !important;
+}
+
+.hero-nb-heading,
+.hero-nb-kicker,
+.hero-nb-item-title,
+.hero-nb-item-desc {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85) !important;
+}
+
+.hero-nb-tab {
+  background: rgba(6, 18, 38, 0.24) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+}
+
+.hero-nb-item {
+  background: rgba(6, 18, 38, 0.16) !important;
+  border: 1px solid rgba(255, 255, 255, 0.32) !important;
+}
+
+.hero-nb-item.highlighted {
+  background: rgba(12, 45, 87, 0.26) !important;
+  border-color: rgba(251, 191, 36, 0.72) !important;
+}
+
+.hero-nb-item:hover {
+  background: rgba(12, 74, 138, 0.38) !important;
+  border-color: #fde047 !important;
+}
+
+.hero-nb-date-box {
+  background: rgba(6, 18, 38, 0.42) !important;
+  border: 1px solid rgba(251, 191, 36, 0.65) !important;
+}
+
+.hero-nb-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.28) !important;
+}
+
+.hero-nb-action-secondary {
+  background: rgba(6, 18, 38, 0.28) !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+}
+
+/* 4. Live Embedded Google Map inside Footer Column 4 */
+.footer-live-map-frame {
+  width: 100%;
+  height: 175px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid rgba(251, 191, 36, 0.45);
+  background: #0a2547;
+}
+
+.footer-live-map-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
