@@ -3,6 +3,7 @@ const assetUrl = (filename: string) =>
 
 export const SCHOOL_IMAGES = {
   logo: assetUrl('st-michaels-logo.jpg'),
+  principalPhoto: assetUrl('WhatsApp Image 2026-11-09 at 11.56.08 PM.jpeg'),
   campus: assetUrl('WhatsApp Image 2026-11-08 at 2.05.14 PM.jpeg'),
   foundingCampus: assetUrl('WhatsApp Image 2026-11-08 at 2.05.22 PM (1).jpeg'),
   schoolStaff: assetUrl('WhatsApp Image 2026-11-08 at 2.05.20 PM.jpeg'),

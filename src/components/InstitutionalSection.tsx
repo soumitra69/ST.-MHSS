@@ -159,14 +159,14 @@ export const InstitutionalSection: React.FC = () => (
       </div>
     </section>
 
-    {/* SECTION 3 (SEPARATE COMPACT SECTION): Principal's Desk (#principal-message) */}
+    {/* SECTION 3 (SEPARATE COMPACT SECTION): Principal's Message (#principal-message) */}
     <section
       id="principal-message"
       className="w-full bg-[#0c2d57] py-9 md:py-12 scroll-mt-24 border-t border-slate-800"
     >
       <div className="container">
         <article
-          className="group relative grid w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl transition-all duration-300 hover:-translate-y-1 md:grid-cols-[1fr_310px]"
+          className="group relative grid w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl transition-all duration-300 hover:-translate-y-1 md:grid-cols-[1fr_340px]"
           data-aos="fade-up"
           data-aos-duration="750"
         >
@@ -193,7 +193,7 @@ export const InstitutionalSection: React.FC = () => (
               <span className="vision-double-angle" aria-hidden="true">
                 &raquo;
               </span>{' '}
-              Principal&apos;s Welcome
+              Principal&apos;s Message
             </h2>
 
             <p className="mt-2 text-xs sm:text-sm font-medium leading-6 text-slate-700">
@@ -223,11 +223,11 @@ export const InstitutionalSection: React.FC = () => (
             <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-blue-200/80 pt-3 text-xs">
               <div>
                 <span className="font-bold text-[#0c4a8a]">
-                  Office of the Principal &amp; Management
+                  Rev. Sister Principal
                 </span>
                 <span className="hidden sm:inline text-slate-400 mx-1.5">•</span>
                 <span className="block sm:inline text-[11px] font-medium text-slate-600">
-                  St. Michael&apos;s H.S. School, Umsning
+                  Principal, St. Michael&apos;s H.S. School, Umsning
                 </span>
               </div>
               <a href="#academics" className="vision-read-more inline-flex items-center gap-1.5">
@@ -239,25 +239,25 @@ export const InstitutionalSection: React.FC = () => (
 
           {/* Right Compact Image Column */}
           <div
-            className="relative order-1 md:order-2 h-48 md:h-full md:max-h-[260px] bg-slate-900 overflow-hidden"
+            className="relative order-1 md:order-2 h-60 md:h-full md:min-h-[270px] bg-slate-900 overflow-hidden"
             data-aos="zoom-in"
             data-aos-delay="140"
           >
             <img
-              src={SCHOOL_IMAGES.schoolStaff}
-              alt="St. Michael's Higher Secondary School leadership, Reverend Sisters, and faculty"
+              src={SCHOOL_IMAGES.principalPhoto}
+              alt="Rev. Sister Principal at her desk in St. Michael's Higher Secondary School, Umsning"
               className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
               decoding="async"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent" />
             <div className="absolute top-3 right-3 rounded-full bg-amber-400 px-3 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-slate-950 shadow-md">
-              <i className="fas fa-chalkboard-teacher mr-1" aria-hidden="true"></i>
-              68+ Educators
+              <i className="fas fa-user-tie mr-1" aria-hidden="true"></i>
+              Principal&apos;s Office
             </div>
-            <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-slate-950/80 border border-amber-400/50 px-3 py-1.5 text-[11px] font-bold text-white backdrop-blur-xs">
+            <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-slate-950/85 border border-amber-400/50 px-3 py-1.5 text-[11px] font-bold text-white backdrop-blur-xs">
               <i className="fas fa-award mr-1.5 text-amber-300" aria-hidden="true"></i>
-              Leadership &amp; Faculty Council
+              Rev. Sister Principal • St. Michael&apos;s Umsning
             </div>
           </div>
         </article>
