@@ -8,7 +8,6 @@ import { ExcellenceSection } from './components/ExcellenceSection';
 import { InstitutionalSection } from './components/InstitutionalSection';
 import { AcademicsSection } from './components/AcademicsSection';
 import { TopperFelicitation } from './components/TopperFelicitation';
-import { FacultyDirectory } from './components/FacultyDirectory';
 import { WhyUsSection } from './components/WhyUsSection';
 import { StudentLifeSection } from './components/StudentLifeSection';
 import { VideoDrillSection } from './components/VideoDrillSection';
@@ -115,11 +114,7 @@ export default function App() {
   }, []);
 
   const scrollToForm = () => {
-    if (formRef.current) {
-      smoothScrollToElement(formRef.current);
-    } else {
-      setAdmissionModalOpen(true);
-    }
+    setAdmissionModalOpen(true);
   };
 
   const handleNavigate = (sectionId: string) => {
@@ -146,7 +141,10 @@ export default function App() {
           onApplyClick={scrollToForm}
           onOpenSearch={() => setSearchModalOpen(true)}
         />
-        <HeroSection formRef={formRef} />
+        <HeroSection
+          formRef={formRef}
+          onOpenAdmission={() => setAdmissionModalOpen(true)}
+        />
       </header>
 
       {/* Main school sections */}
@@ -181,9 +179,6 @@ export default function App() {
 
         {/* Section H2: Modern Learning Spaces, Latest Events & Prospectus Callback (stxaviersumoid.com parity) */}
         <CampusSpacesAndEventsSection />
-
-        {/* Section I: Faculty Directory */}
-        <FacultyDirectory />
 
         {/* Section J: Student Work & Campus Gallery */}
         <StudentWorkSection />

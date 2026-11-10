@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { SCHOOL_IMAGES } from '../data/schoolAssets';
+import { NOTICES, Notice } from '../data/schoolData';
 
 const bannerSlides = [
   {
@@ -54,24 +55,45 @@ const heroStats = [
   { value: '100%', label: 'Board Pass' },
 ];
 
+const CATEGORY_META: Record<Notice['category'], { icon: string; badgeClass: string }> = {
+  Academic: {
+    icon: 'fas fa-graduation-cap',
+    badgeClass: 'hero-nb-cat-academic',
+  },
+  Admissions: {
+    icon: 'fas fa-user-plus',
+    badgeClass: 'hero-nb-cat-admissions',
+  },
+  Examination: {
+    icon: 'fas fa-file-signature',
+    badgeClass: 'hero-nb-cat-exam',
+  },
+  Sports: {
+    icon: 'fas fa-trophy',
+    badgeClass: 'hero-nb-cat-sports',
+  },
+  Holiday: {
+    icon: 'fas fa-calendar-day',
+    badgeClass: 'hero-nb-cat-general',
+  },
+  General: {
+    icon: 'fas fa-bullhorn',
+    badgeClass: 'hero-nb-cat-general',
+  },
+};
+
 interface HeroSectionProps {
   formRef: React.RefObject<HTMLDivElement | null>;
+  onOpenAdmission?: () => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ formRef }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ formRef, onOpenAdmission }) => {
   const [currentBanner, setCurrentBanner] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [submitted, setSubmitted] = useState(false);
-  const [refCode, setRefCode] = useState('');
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    mobile: '',
-    dob: '',
-    city: '',
-    discipline: '',
-    program: '',
-  });
+  const [activeCategory, setActiveCategory] = useState<'All' | 'Urgent' | 'Admissions' | 'Academic'>('All');
+  const [selectedNotice, setSelectedNotice] = useState<Notice | null>(null);
+  const [activeNoticeIndex, setActiveNoticeIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     const bannerTimer = setInterval(() => {
@@ -87,28 +109,27 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ formRef }) => {
     return () => clearInterval(slideTimer);
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  const filteredNotices = NOTICES.filter((notice) => {
+    if (activeCategory === 'All') return true;
+    if (activeCategory === 'Urgent') return Boolean(notice.isUrgent);
+    return notice.category === activeCategory;
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setRefCode(`SMHSS-2026-${Math.floor(1000 + Math.random() * 9000)}`);
-    setSubmitted(true);
-  };
+  useEffect(() => {
+    if (isPaused || filteredNotices.length <= 1) return;
+    const noticeTimer = setInterval(() => {
+      setActiveNoticeIndex((prev) => (prev + 1) % filteredNotices.length);
+    }, 4200);
+    return () => clearInterval(noticeTimer);
+  }, [isPaused, filteredNotices.length]);
 
-  const handleReset = () => {
-    setSubmitted(false);
-    setFormData({
-      name: '',
-      email: '',
-      mobile: '',
-      dob: '',
-      city: '',
-      discipline: '',
-      program: '',
-    });
+  const parseNoticeDate = (dateStr: string) => {
+    const parts = dateStr.replace(',', '').split(' ');
+    return {
+      month: (parts[0] || 'APR').slice(0, 3).toUpperCase(),
+      day: parts[1] || '18',
+      year: parts[2] || '2026',
+    };
   };
 
   return (
@@ -183,161 +204,223 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ formRef }) => {
           </div>
         </div>
 
-        {/* Right: Registration Form */}
-        <div
-          className="registration-form"
+        {/* Right: Transparent Glassmorphism Official Notice Board */}
+        <aside
+          className="hero-notice-board"
           ref={formRef}
+          aria-label="Official Campus Notice Board"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
           data-aos="fade-left"
           data-aos-duration="800"
           data-aos-delay="150"
         >
-          <div className="form-header">
-            <h2>Admission Enquiry 2026–27</h2>
-            <h3>
-              ST. MICHAEL&apos;S HIGHER SECONDARY
-              <br />
-              SCHOOL • UMSNING
-            </h3>
-            <div className="registration-date">
-              <i className="far fa-calendar-check" aria-hidden="true"></i> Nursery to Class XII
-              (Arts, Science &amp; Commerce)
+          {/* Top Glass Header */}
+          <div className="hero-nb-header">
+            <div className="hero-nb-title-row">
+              <div className="hero-nb-title-group">
+                <span className="hero-nb-kicker">
+                  <span className="hero-nb-live-dot" aria-hidden="true"></span>
+                  OFFICIAL DIGITAL DESK • 2026–27
+                </span>
+                <h2 className="hero-nb-heading">
+                  <i className="fas fa-bullhorn text-amber-300 mr-2" aria-hidden="true"></i>
+                  NOTICE BOARD
+                </h2>
+              </div>
+              <span className="hero-nb-count-badge">
+                {NOTICES.length} CIRCULARS
+              </span>
+            </div>
+
+            {/* Category Filter Pills */}
+            <div className="hero-nb-tabs" role="tablist" aria-label="Filter notices">
+              {(['All', 'Urgent', 'Admissions', 'Academic'] as const).map((tab) => (
+                <button
+                  key={tab}
+                  type="button"
+                  role="tab"
+                  aria-selected={activeCategory === tab}
+                  onClick={() => {
+                    setActiveCategory(tab);
+                    setActiveNoticeIndex(0);
+                  }}
+                  className={`hero-nb-tab ${activeCategory === tab ? 'active' : ''}`}
+                >
+                  {tab === 'Urgent' && (
+                    <i className="fas fa-bolt mr-1 text-amber-300" aria-hidden="true"></i>
+                  )}
+                  {tab}
+                </button>
+              ))}
             </div>
           </div>
 
-          {submitted ? (
-            <div className="form-success-card">
-              <div className="success-icon">
-                <i className="fas fa-check-circle" aria-hidden="true"></i>
-              </div>
-              <h4>Enquiry Registered!</h4>
-              <p>
-                Thank you, <strong>{formData.name}</strong>. Your admission enquiry (Ref:{' '}
-                <strong className="font-mono text-amber-700">{refCode}</strong>) has been logged
-                with the St. Michael&apos;s Umsning office.
-              </p>
+          {/* Notice Feed List */}
+          <div className="hero-nb-list" role="region" aria-live="polite">
+            {filteredNotices.map((notice, idx) => {
+              const { month, day } = parseNoticeDate(notice.date);
+              const meta = CATEGORY_META[notice.category] || CATEGORY_META.General;
+              const isHighlighted = idx === activeNoticeIndex % Math.max(1, filteredNotices.length);
+
+              return (
+                <article
+                  key={notice.id}
+                  onClick={() => setSelectedNotice(notice)}
+                  className={`hero-nb-item ${isHighlighted ? 'highlighted' : ''}`}
+                >
+                  <div className="hero-nb-date-box" aria-hidden="true">
+                    <span className="hero-nb-date-month">{month}</span>
+                    <strong className="hero-nb-date-day">{day}</strong>
+                  </div>
+
+                  <div className="hero-nb-item-content">
+                    <div className="hero-nb-item-meta">
+                      <span className={`hero-nb-cat-pill ${meta.badgeClass}`}>
+                        <i className={`${meta.icon} mr-1`} aria-hidden="true"></i>
+                        {notice.category}
+                      </span>
+                      {notice.isUrgent && (
+                        <span className="hero-nb-urgent-badge">
+                          <i className="fas fa-circle text-[6px] mr-1" aria-hidden="true"></i>
+                          NEW
+                        </span>
+                      )}
+                      {notice.fileSize && (
+                        <span className="hero-nb-filesize">
+                          <i className="far fa-file-pdf mr-1" aria-hidden="true"></i>
+                          {notice.fileSize}
+                        </span>
+                      )}
+                    </div>
+
+                    <h3 className="hero-nb-item-title">{notice.title}</h3>
+                    <p className="hero-nb-item-desc">{notice.description}</p>
+                  </div>
+
+                  <button
+                    type="button"
+                    className="hero-nb-item-arrow"
+                    aria-label={`Read circular: ${notice.title}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedNotice(notice);
+                    }}
+                  >
+                    <i className="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                  </button>
+                </article>
+              );
+            })}
+          </div>
+
+          {/* Footer Actions */}
+          <div className="hero-nb-footer">
+            <a href="#hub" className="hero-nb-action-secondary">
+              <i className="fas fa-folder-open mr-1.5" aria-hidden="true"></i>
+              All Circulars &amp; Hub
+            </a>
+            {onOpenAdmission ? (
               <button
                 type="button"
-                onClick={handleReset}
-                className="mt-5 inline-flex items-center justify-center rounded-lg bg-[#1B365D] px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-[#244876] transition-colors"
+                onClick={onOpenAdmission}
+                className="hero-nb-action-primary btn-shine"
               >
-                Submit Another Enquiry
+                <i className="fas fa-user-graduate mr-1.5" aria-hidden="true"></i>
+                Apply 2026–27
+              </button>
+            ) : (
+              <a href="#hub" className="hero-nb-action-primary btn-shine">
+                <i className="fas fa-user-graduate mr-1.5" aria-hidden="true"></i>
+                Admissions Desk
+              </a>
+            )}
+          </div>
+        </aside>
+      </div>
+
+      {/* Circular Detail Modal */}
+      {selectedNotice && (
+        <div
+          className="hero-nb-modal-backdrop"
+          onClick={() => setSelectedNotice(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="hero-nb-modal-title"
+        >
+          <div
+            className="hero-nb-modal-card"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="hero-nb-modal-header">
+              <div>
+                <span className="hero-nb-modal-kicker">
+                  OFFICIAL SCHOOL CIRCULAR • {selectedNotice.id.toUpperCase()}
+                </span>
+                <h3 id="hero-nb-modal-title" className="hero-nb-modal-title">
+                  {selectedNotice.title}
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setSelectedNotice(null)}
+                className="hero-nb-modal-close"
+                aria-label="Close circular preview"
+              >
+                <i className="fas fa-times" aria-hidden="true"></i>
               </button>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit}>
-              <div className="form-row">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="STUDENT FULL NAME *"
-                    aria-label="Student Full Name"
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="PARENT / STUDENT EMAIL *"
-                    aria-label="Parent or Student Email"
-                    required
-                  />
-                </div>
+
+            <div className="hero-nb-modal-body">
+              <div className="hero-nb-modal-badges">
+                <span className="hero-nb-modal-pill">
+                  <i className="far fa-calendar-alt mr-1.5 text-amber-300" aria-hidden="true"></i>
+                  {selectedNotice.date}
+                </span>
+                <span className="hero-nb-modal-pill">
+                  <i className="fas fa-tag mr-1.5 text-sky-300" aria-hidden="true"></i>
+                  {selectedNotice.category}
+                </span>
+                {selectedNotice.fileSize && (
+                  <span className="hero-nb-modal-pill">
+                    <i className="far fa-file-pdf mr-1.5 text-rose-300" aria-hidden="true"></i>
+                    {selectedNotice.fileSize}
+                  </span>
+                )}
               </div>
 
-              <div className="form-group">
-                <input
-                  type="tel"
-                  name="mobile"
-                  value={formData.mobile}
-                  onChange={handleChange}
-                  placeholder="GUARDIAN MOBILE NUMBER (10 DIGITS) *"
-                  aria-label="Guardian Mobile Number"
-                  required
-                />
-              </div>
+              <p className="hero-nb-modal-text">{selectedNotice.description}</p>
 
-              <div className="form-row">
-                <div className="form-group">
-                  <input
-                    type="date"
-                    name="dob"
-                    value={formData.dob}
-                    onChange={handleChange}
-                    aria-label="Student Date of Birth"
-                    required
-                  />
+              <div className="hero-nb-modal-signoff">
+                <div>
+                  <strong>Office of the Principal</strong>
+                  <span>St. Michael&apos;s Higher Secondary School, Umsning</span>
                 </div>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="city"
-                    value={formData.city}
-                    onChange={handleChange}
-                    placeholder="TOWN / VILLAGE (e.g. UMSNING) *"
-                    aria-label="Town or Village"
-                    required
-                  />
-                </div>
+                <span className="hero-nb-modal-stamp">MBOSE • 01961</span>
               </div>
+            </div>
 
-              <div className="form-row">
-                <div className="form-group">
-                  <select
-                    name="discipline"
-                    value={formData.discipline}
-                    onChange={handleChange}
-                    aria-label="Select Class or Stream"
-                    required
-                  >
-                    <option value="">SELECT CLASS / STREAM *</option>
-                    <option value="science">Higher Secondary Science (Class XI – XII)</option>
-                    <option value="arts">Higher Secondary Arts / Humanities (Class XI – XII)</option>
-                    <option value="commerce">Higher Secondary Commerce (Class XI – XII)</option>
-                    <option value="secondary">Secondary MBOSE SSLC (Class IX – X)</option>
-                    <option value="primary">Primary &amp; Upper Primary (Class I – VIII)</option>
-                    <option value="kg">Kindergarten &amp; Nursery</option>
-                  </select>
-                </div>
-
-                <div className="form-group">
-                  <select
-                    name="program"
-                    value={formData.program}
-                    onChange={handleChange}
-                    aria-label="Select Enrollment Mode"
-                    required
-                  >
-                    <option value="">SELECT ENROLLMENT MODE *</option>
-                    <option value="regular">Regular Day Scholar</option>
-                    <option value="bus">Day Scholar with Bus Transit (NH-6 Fleet)</option>
-                    <option value="scholarship">SSLC Merit Scholarship Applicant</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="terms">
-                By submitting this form, you authorise St. Michael&apos;s Higher Secondary School,
-                Umsning to contact you regarding admissions &amp; academic counselling.
-              </div>
-
-              <button type="submit" className="submit-btn btn-shine">
-                SUBMIT ADMISSION ENQUIRY <i className="fas fa-arrow-right" aria-hidden="true"></i>
+            <div className="hero-nb-modal-footer">
+              <a
+                href="#hub"
+                onClick={() => setSelectedNotice(null)}
+                className="hero-nb-action-secondary"
+              >
+                <i className="fas fa-th-large mr-1.5" aria-hidden="true"></i>
+                Open Operations Hub
+              </a>
+              <button
+                type="button"
+                onClick={() => window.print()}
+                className="hero-nb-action-primary"
+              >
+                <i className="fas fa-print mr-1.5" aria-hidden="true"></i>
+                Print Circular
               </button>
-
-              <div className="login-link">
-                Looking for Fee Schedule or Circulars?{' '}
-                <a href="#hub">Open Student &amp; Parent Hub</a>
-              </div>
-            </form>
-          )}
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

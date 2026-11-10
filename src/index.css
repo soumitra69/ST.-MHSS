@@ -11737,3 +11737,780 @@ section,
   box-shadow: 0 14px 32px rgba(12, 45, 87, 0.18) !important;
 }
 
+/* ==========================================================================
+   27. HERO TRANSPARENT GLASSMORPHISM NOTICE BOARD
+       Replaces the Hero Registration Card with a Professional Transparent
+       Institutional Circulars & Announcements Board
+   ========================================================================== */
+
+.hero-notice-board {
+  width: 480px;
+  max-width: 100%;
+  background: rgba(10, 28, 58, 0.42) !important;
+  backdrop-filter: blur(18px) saturate(165%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(165%) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.28) !important;
+  border-top: 3px solid #fbbf24 !important;
+  border-radius: 20px;
+  padding: 22px 22px 18px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease !important;
+}
+
+.hero-notice-board:hover {
+  background: rgba(10, 28, 58, 0.54) !important;
+  border-color: rgba(251, 191, 36, 0.65) !important;
+  box-shadow: 0 22px 50px rgba(4, 15, 35, 0.45) !important;
+}
+
+.hero-nb-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.hero-nb-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.hero-nb-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.hero-nb-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fde047 !important;
+}
+
+.hero-nb-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  display: inline-block;
+  animation: pulseDot 1.8s infinite;
+}
+
+.hero-nb-heading {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: #ffffff !important;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+}
+
+.hero-nb-count-badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(251, 191, 36, 0.2);
+  border: 1px solid rgba(251, 191, 36, 0.55);
+  color: #fde047 !important;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.hero-nb-tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.hero-nb-tab {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.22s ease !important;
+}
+
+.hero-nb-tab:hover {
+  background: rgba(255, 255, 255, 0.22) !important;
+  color: #ffffff !important;
+  border-color: #fde047 !important;
+  transform: translateY(-1px) !important;
+}
+
+.hero-nb-tab.active {
+  background: #d97706 !important;
+  border-color: #fde047 !important;
+  color: #ffffff !important;
+}
+
+/* Scrollable Glass Notice Feed */
+.hero-nb-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  max-height: 335px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.hero-nb-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.hero-nb-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+}
+
+.hero-nb-list::-webkit-scrollbar-thumb {
+  background: rgba(251, 191, 36, 0.45);
+  border-radius: 999px;
+}
+
+.hero-nb-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 11px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease !important;
+}
+
+.hero-nb-item.highlighted {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(251, 191, 36, 0.55);
+}
+
+.hero-nb-item:hover {
+  background: rgba(12, 74, 138, 0.62) !important;
+  border-color: #fde047 !important;
+  transform: translateX(3px);
+}
+
+.hero-nb-date-box {
+  flex: 0 0 46px;
+  height: 50px;
+  border-radius: 10px;
+  background: rgba(12, 45, 87, 0.72);
+  border: 1px solid rgba(251, 191, 36, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.05;
+  text-align: center;
+}
+
+.hero-nb-date-month {
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #fde047 !important;
+  text-transform: uppercase;
+}
+
+.hero-nb-date-day {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #ffffff !important;
+}
+
+.hero-nb-item-content {
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+.hero-nb-item-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.hero-nb-cat-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff !important;
+}
+
+.hero-nb-cat-academic {
+  background: rgba(29, 78, 216, 0.75);
+  border: 1px solid rgba(147, 197, 253, 0.5);
+}
+
+.hero-nb-cat-admissions {
+  background: rgba(217, 119, 6, 0.82);
+  border: 1px solid rgba(253, 224, 71, 0.6);
+}
+
+.hero-nb-cat-exam {
+  background: rgba(124, 58, 237, 0.75);
+  border: 1px solid rgba(196, 181, 253, 0.5);
+}
+
+.hero-nb-cat-sports {
+  background: rgba(5, 150, 105, 0.78);
+  border: 1px solid rgba(110, 231, 183, 0.5);
+}
+
+.hero-nb-cat-general {
+  background: rgba(71, 85, 105, 0.78);
+  border: 1px solid rgba(203, 213, 225, 0.45);
+}
+
+.hero-nb-urgent-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: rgba(220, 38, 38, 0.85);
+  border: 1px solid rgba(254, 202, 202, 0.6);
+  color: #ffffff !important;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.hero-nb-filesize {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+.hero-nb-item-title {
+  margin: 0 0 3px;
+  font-family: 'Inter', 'Manrope', sans-serif !important;
+  font-size: 0.84rem;
+  font-weight: 800;
+  line-height: 1.32;
+  color: #ffffff !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.hero-nb-item-desc {
+  margin: 0;
+  font-size: 0.73rem;
+  line-height: 1.42;
+  color: rgba(241, 245, 249, 0.84) !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.hero-nb-item-arrow {
+  flex: 0 0 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #fde047 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  cursor: pointer;
+  align-self: center;
+}
+
+.hero-nb-item:hover .hero-nb-item-arrow {
+  background: #d97706 !important;
+  color: #ffffff !important;
+  border-color: #fde047 !important;
+}
+
+/* Notice Board Footer Actions */
+.hero-nb-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.hero-nb-action-secondary,
+.hero-nb-action-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: all 0.25s ease !important;
+}
+
+.hero-nb-action-secondary {
+  background: rgba(255, 255, 255, 0.14) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+}
+
+.hero-nb-action-secondary:hover {
+  background: #0c4a8a !important;
+  border-color: #fde047 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+}
+
+.hero-nb-action-primary {
+  background: #d97706 !important;
+  border: 1px solid #fde047 !important;
+  color: #ffffff !important;
+}
+
+.hero-nb-action-primary:hover {
+  background: #0c4a8a !important;
+  border-color: #fde047 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Transparent Glass Circular Detail Modal */
+.hero-nb-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(4, 12, 28, 0.72);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.hero-nb-modal-card {
+  width: 100%;
+  max-width: 540px;
+  background: rgba(12, 34, 68, 0.88);
+  backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(251, 191, 36, 0.55);
+  border-radius: 20px;
+  padding: 24px;
+  color: #ffffff;
+}
+
+.hero-nb-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.hero-nb-modal-kicker {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #fde047 !important;
+  margin-bottom: 4px;
+}
+
+.hero-nb-modal-title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff !important;
+  line-height: 1.32;
+}
+
+.hero-nb-modal-close {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.hero-nb-modal-body {
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hero-nb-modal-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hero-nb-modal-pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #ffffff !important;
+}
+
+.hero-nb-modal-text {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.hero-nb-modal-signoff {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.hero-nb-modal-signoff strong {
+  display: block;
+  font-size: 0.8rem;
+  color: #fde047 !important;
+}
+
+.hero-nb-modal-signoff span {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.hero-nb-modal-stamp {
+  padding: 4px 10px;
+  border-radius: 8px;
+  border: 1px dashed rgba(253, 224, 71, 0.65);
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #fde047 !important;
+}
+
+.hero-nb-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+@media (max-width: 1080px) {
+  .hero-notice-board {
+    width: 100% !important;
+    max-width: 640px !important;
+    margin: 0 auto !important;
+  }
+}
+
+@media (max-width: 540px) {
+  .hero-notice-board {
+    padding: 16px 14px !important;
+  }
+  .hero-nb-footer {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ==========================================================================
+   28. DESKTOP HEADER FIT FIX & BALANCED HERO BANNER HEIGHT
+       Fixes Sub-Header Overlap on Laptop Screens and Restores Proper
+       Hero Banner Height & Framing
+   ========================================================================== */
+
+@media (min-width: 1141px) {
+  /* 1. Top Alert Bar & Main Header — Taller & Cleanly Spaced Without Any Overlap */
+  .alert-bar {
+    padding: 9px 0 !important;
+  }
+
+  .alert-text {
+    font-size: clamp(0.74rem, 0.8vw, 0.82rem) !important;
+  }
+
+  .register-btn {
+    padding: 6px 14px !important;
+    font-size: 0.72rem !important;
+  }
+
+  .utility-link {
+    padding: 4px 10px !important;
+    font-size: 0.72rem !important;
+  }
+
+  .main-header .container {
+    max-width: 1440px !important;
+    padding-inline: clamp(14px, 1.8vw, 24px) !important;
+  }
+
+  .logo-nav {
+    gap: clamp(10px, 1.1vw, 18px) !important;
+  }
+
+  .logo-section {
+    flex: 0 0 auto !important;
+    max-width: clamp(240px, 20vw, 315px) !important;
+    gap: clamp(9px, 0.85vw, 12px) !important;
+    padding: 13px 0 !important;
+    overflow: hidden !important;
+  }
+
+  .logo-placeholder {
+    width: clamp(48px, 3.8vw, 56px) !important;
+    height: clamp(48px, 3.8vw, 56px) !important;
+    flex-shrink: 0 !important;
+  }
+
+  .university-name {
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .university-name h1 {
+    font-size: clamp(0.86rem, 1.02vw, 1.12rem) !important;
+    line-height: 1.18 !important;
+    margin-bottom: 2px !important;
+    white-space: normal !important;
+  }
+
+  .university-name p {
+    font-size: clamp(0.58rem, 0.65vw, 0.68rem) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .primary-secondery-nav {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+
+  .secondary-nav {
+    padding: 7px 0 7px clamp(8px, 1vw, 16px) !important;
+  }
+
+  .secondary-nav-content {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex-wrap: nowrap !important;
+    gap: clamp(2px, 0.28vw, 5px) !important;
+    min-width: 0 !important;
+  }
+
+  .sec-nav-link {
+    font-size: clamp(0.58rem, 0.64vw, 0.7rem) !important;
+    padding: 4px clamp(4px, 0.5vw, 8px) !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  .umoid-box {
+    font-size: clamp(0.58rem, 0.64vw, 0.7rem) !important;
+    padding: 4px clamp(6px, 0.6vw, 10px) !important;
+    margin-left: clamp(3px, 0.4vw, 6px) !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Hide the decorative UMSNING • 1961 badge on narrower laptops so sub-header never crowds */
+  @media (max-width: 1290px) {
+    .umoid-box {
+      display: none !important;
+    }
+  }
+
+  .primary-nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex-wrap: nowrap !important;
+    gap: clamp(8px, 1vw, 18px) !important;
+    padding-left: clamp(8px, 1vw, 16px) !important;
+  }
+
+  .primary-nav-link {
+    font-size: clamp(0.72rem, 0.8vw, 0.86rem) !important;
+    padding: 14px 2px !important;
+    white-space: nowrap !important;
+  }
+
+  .search-btn {
+    padding: 7px clamp(8px, 0.85vw, 13px) !important;
+    font-size: 0.72rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .apply-now-btn {
+    padding: 10px clamp(12px, 1.1vw, 18px) !important;
+    font-size: clamp(0.72rem, 0.8vw, 0.82rem) !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+@media (min-width: 1081px) {
+  /* 2. Balanced, Full-View Hero Banner Height on Computer/Laptop Screens */
+  .hero-section {
+    min-height: 615px !important;
+    max-height: none !important;
+    padding: 42px 0 54px !important;
+  }
+
+  .hero-bg-layer {
+    object-fit: cover !important;
+    object-position: center 22% !important;
+  }
+
+  .hero-left-column {
+    max-width: 550px !important;
+  }
+
+  .slider-container {
+    min-height: 390px !important;
+  }
+
+  .slide {
+    padding: 20px 44px 20px 0 !important;
+  }
+
+  .hero-section .hero-pill-badge {
+    margin-bottom: 10px !important;
+    padding: 5px 14px !important;
+    font-size: 0.72rem !important;
+  }
+
+  .hero-section .content-wrapper .subtitle {
+    font-size: 0.9rem !important;
+    margin-bottom: 14px !important;
+    padding: 5px 12px !important;
+  }
+
+  .hero-section .slide-headings h3 {
+    font-size: clamp(1.75rem, 2.25vw, 2.2rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  .hero-section .hero-slide-desc {
+    font-size: 0.92rem !important;
+    line-height: 1.56 !important;
+    margin-top: 12px !important;
+  }
+
+  .hero-section .slide-accent {
+    margin-top: 18px !important;
+  }
+
+  .hero-stats-strip {
+    margin-top: 14px !important;
+    gap: 12px !important;
+  }
+
+  .hero-section .hero-stat-pill {
+    padding: 10px 14px !important;
+  }
+
+  /* Spacious, Proportionate Transparent Notice Board */
+  .hero-notice-board {
+    width: clamp(420px, 34vw, 470px) !important;
+    padding: 20px 20px 16px !important;
+    gap: 12px !important;
+  }
+
+  .hero-nb-header {
+    gap: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .hero-nb-heading {
+    font-size: 1.26rem !important;
+  }
+
+  .hero-nb-list {
+    max-height: 300px !important;
+    gap: 8px !important;
+  }
+
+  .hero-nb-item {
+    padding: 10px 12px !important;
+    gap: 11px !important;
+  }
+
+  .hero-nb-date-box {
+    flex: 0 0 44px !important;
+    height: 48px !important;
+  }
+
+  .hero-nb-date-day {
+    font-size: 1rem !important;
+  }
+
+  .hero-nb-item-title {
+    font-size: 0.82rem !important;
+    -webkit-line-clamp: 2 !important;
+  }
+
+  .hero-nb-item-desc {
+    font-size: 0.72rem !important;
+    -webkit-line-clamp: 1 !important;
+  }
+
+  .hero-nb-footer {
+    padding-top: 10px !important;
+  }
+
+  .hero-nb-action-secondary,
+  .hero-nb-action-primary {
+    padding: 9px 12px !important;
+    font-size: 0.74rem !important;
+  }
+}
+
+
+

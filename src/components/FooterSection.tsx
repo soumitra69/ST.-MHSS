@@ -16,7 +16,6 @@ const academicsLinks = [
   { label: 'Higher Secondary Science (XI – XII)', href: '#streams', icon: 'fas fa-atom' },
   { label: 'Higher Secondary Arts & Commerce', href: '#streams', icon: 'fas fa-landmark' },
   { label: 'Academic Spotlight & Science Labs', href: '#research', icon: 'fas fa-flask' },
-  { label: 'Faculty & Mentors Directory (68+)', href: '#faculty', icon: 'fas fa-chalkboard-teacher' },
 ];
 
 const campusPortalLinks = [

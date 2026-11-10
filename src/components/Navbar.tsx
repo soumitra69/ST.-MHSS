@@ -8,7 +8,6 @@ const secondaryLinks = [
   { label: 'STUDENT HUB', href: '#hub', icon: 'fas fa-th-large' },
   { label: 'HOUSES', href: '#hub', icon: 'fas fa-shield-alt' },
   { label: 'DRILL & CHOIR', href: '#media-drill', icon: 'fas fa-music' },
-  { label: 'FACULTY', href: '#faculty', icon: 'fas fa-chalkboard-teacher' },
   { label: 'CONTACT', href: '#footer', icon: 'fas fa-phone-alt' },
 ];
 
@@ -47,7 +46,6 @@ const primaryLinks = [
       { label: 'School Levels (Nursery – XII)', href: '#academics', icon: 'fas fa-layer-group' },
       { label: 'Higher Secondary Streams', href: '#streams', icon: 'fas fa-microscope' },
       { label: 'Academic & Fieldwork Spotlight', href: '#research', icon: 'fas fa-compass' },
-      { label: 'Faculty & Mentors Directory', href: '#faculty', icon: 'fas fa-users' },
     ],
   },
   { label: 'CAMPUS LIFE', href: '#campus-life', icon: 'fas fa-futbol', hasDropdown: false },

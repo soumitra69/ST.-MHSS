@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NOTICES, FACULTY_MEMBERS, STREAMS, BUS_ROUTES } from '../data/schoolData';
+import { NOTICES, STREAMS, BUS_ROUTES } from '../data/schoolData';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -37,15 +37,6 @@ export const SearchModal: React.FC<SearchModalProps> = ({
           n.title.toLowerCase().includes(q) || n.description.toLowerCase().includes(q)
       )
     : NOTICES.slice(0, 3);
-
-  const matchedFaculty = q
-    ? FACULTY_MEMBERS.filter(
-        (f) =>
-          f.name.toLowerCase().includes(q) ||
-          f.department.toLowerCase().includes(q) ||
-          f.role.toLowerCase().includes(q)
-      )
-    : [];
 
   const matchedStreams = q
     ? STREAMS.filter(
@@ -162,37 +153,6 @@ export const SearchModal: React.FC<SearchModalProps> = ({
             </div>
           )}
 
-          {/* Faculty */}
-          {matchedFaculty.length > 0 && (
-            <div>
-              <span className="text-[11px] uppercase font-semibold text-[#1B365D] block mb-2 px-2">
-                <i className="fas fa-chalkboard-teacher mr-1.5" aria-hidden="true"></i>
-                Faculty Members
-              </span>
-              <div className="space-y-1">
-                {matchedFaculty.map((f) => (
-                  <button
-                    key={f.id}
-                    type="button"
-                    onClick={() => handleSelect('faculty')}
-                    className="w-full text-left p-2.5 rounded-lg hover:bg-slate-100 transition-colors flex items-center justify-between group cursor-pointer"
-                  >
-                    <div>
-                      <div className="text-xs font-bold text-[#0c4a8a]">{f.name}</div>
-                      <div className="text-[11px] text-slate-500">
-                        {f.role} • {f.department}
-                      </div>
-                    </div>
-                    <i
-                      className="fas fa-arrow-right text-xs text-slate-400 group-hover:text-[#1B365D]"
-                      aria-hidden="true"
-                    ></i>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
           {/* Bus Routes */}
           {matchedBus.length > 0 && (
             <div>
@@ -228,8 +188,8 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 
           {q &&
             matchedNotices.length === 0 &&
-            matchedFaculty.length === 0 &&
-            matchedStreams.length === 0 && (
+            matchedStreams.length === 0 &&
+            matchedBus.length === 0 && (
               <div className="py-8 text-center text-slate-500 text-xs">
                 No matching records found for &ldquo;{query}&rdquo;. Try searching
                 &ldquo;Science&rdquo;, &ldquo;Hostel&rdquo;, &ldquo;Exam&rdquo;, or

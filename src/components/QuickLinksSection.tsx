@@ -26,11 +26,11 @@ const quickLinks = [
     arrowClass: 'bg-white/20 text-white group-hover:bg-white group-hover:text-[#0c2d57]',
   },
   {
-    title: 'State Merit Honors',
-    detail: 'SSLC Top 20 & ₹20k Cash Award',
-    href: '#toppers',
-    badge: 'Top 20',
-    icon: 'fas fa-trophy',
+    title: 'Campus Life & Houses',
+    detail: '4 Archangel Houses, Sports & Choir',
+    href: '#campus-life',
+    badge: '4 Houses',
+    icon: 'fas fa-shield-alt',
     cardClass:
       'bg-[#0c4a8a] hover:bg-[#d97706] text-white border-[#0c4a8a] hover:border-[#fde047]',
     badgeClass: 'bg-amber-300 text-slate-950 group-hover:bg-white group-hover:text-[#0c4a8a]',
