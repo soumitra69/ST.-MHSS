@@ -20,36 +20,6 @@ const founderHighlights = [
   'Motto: "Excelsior" & "Shaphrang" — Torch of Michaelians',
 ];
 
-const heritagePillars = [
-  {
-    title: 'Founded in 1961',
-    badge: 'Fr. Michel Balawan, SDB',
-    icon: 'fas fa-church',
-    detail:
-      'Started as a Lower Primary School in 1961 by French Catholic Missionary Rev. Fr. Michel Balawan, SDB under the Catholic Mission of Umsning, Archdiocese of Shillong.',
-    cardStyle: 'border-l-4 border-l-[#0c4a8a] border-slate-200 bg-white',
-    badgeStyle: 'bg-[#0c4a8a] text-white',
-  },
-  {
-    title: 'Spirit of "Michaelians"',
-    badge: 'Motto: Excelsior',
-    icon: 'fas fa-shield-alt',
-    detail:
-      'Students are proudly called "Michaelians" — carrying the torch of confidence, competency, and moral integrity from Nursery to Class XII.',
-    cardStyle: 'border-l-4 border-l-[#d97706] border-slate-200 bg-white',
-    badgeStyle: 'bg-[#d97706] text-white',
-  },
-  {
-    title: 'Prime NH-6 Location',
-    badge: 'Umsning • 793105',
-    icon: 'fas fa-map-marker-alt',
-    detail:
-      'Situated between Shillong and Nongpoh on the left side of the old National Highway and right side of the Shillong–Guwahati Bypass road.',
-    cardStyle: 'border-l-4 border-l-[#0c2d57] border-slate-200 bg-white',
-    badgeStyle: 'bg-[#0c2d57] text-white',
-  },
-];
-
 const missionHighlights = [
   'Intellectual & skill formation',
   'Moral integrity & spiritual growth',
@@ -97,58 +67,64 @@ export const InstitutionalSection: React.FC = () => (
       className="w-full bg-[#f4f7fb] py-12 md:py-16 border-t border-slate-200"
     >
       <div className="container">
-        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+        <div className="grid gap-6 lg:grid-cols-2 lg:items-stretch">
           <div
-            className="rounded-2xl border border-slate-200 bg-white p-6 shadow-md sm:p-7"
+            className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-md sm:p-7"
             data-aos="fade-right"
             data-aos-duration="750"
           >
-            <span className="inline-block rounded-full bg-[#0c4a8a] px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-white shadow-xs">
-              <i className="fas fa-landmark mr-1.5 text-amber-300" aria-hidden="true"></i>
-              St. Michael&apos;s Higher Secondary School • Umsning
-            </span>
-            <h2 className="vision-serif-heading mt-3.5 text-2xl sm:text-3xl text-[#0c4a8a]">
-              <span className="vision-double-angle" aria-hidden="true">
-                &raquo;
-              </span>{' '}
-              Who We Are (General Information)
-            </h2>
-            <p className="vision-body-copy mt-4 text-sm sm:text-base text-[#0c4a8a]">
-              The School is under the management of the <strong>Catholic Mission of Umsning, Archdiocese of Shillong</strong>, and is one of the oldest co-educational institutions in the Ri Bhoi District of Meghalaya. It was started as a Lower Primary School in <strong>{SCHOOL_INFO.established}</strong> by the great Educationist and French Catholic Missionary, <strong>Rev. Fr. Michel Balawan, SDB</strong>.
-            </p>
-            <p className="vision-body-copy mt-3 text-sm sm:text-base text-[#0c4a8a]">
-              The institution is backboned by its committed teachers who spark the imagination of their students and give wings to their dreams. The spirit of confidence and competency is the hallmark that <strong>&ldquo;Michaelians&rdquo;</strong> carry with them from the torch of their school&apos;s motto <strong>&ldquo;{SCHOOL_INFO.mottoLatin}&rdquo;</strong> &amp; <strong>&ldquo;{SCHOOL_INFO.mottoKhasi}&rdquo;</strong>. The school runs classes from <strong>Nursery to Class XII</strong> with <strong>English</strong> as the medium of instruction.
-            </p>
-            <a href="#school-handbook" className="vision-read-more mt-4 inline-flex items-center gap-1.5">
-              <span>View Official School Diary Rules</span>
-              <i className="fas fa-arrow-right text-xs" aria-hidden="true"></i>
-            </a>
+            <div>
+              <span className="inline-block rounded-full bg-[#0c4a8a] px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-white shadow-xs">
+                <i className="fas fa-landmark mr-1.5 text-amber-300" aria-hidden="true"></i>
+                St. Michael&apos;s Higher Secondary School • Umsning
+              </span>
+              <h2 className="vision-serif-heading mt-3.5 text-2xl sm:text-3xl text-[#0c4a8a]">
+                <span className="vision-double-angle" aria-hidden="true">
+                  &raquo;
+                </span>{' '}
+                Who We Are (General Information)
+              </h2>
+              <p className="vision-body-copy mt-4 text-sm sm:text-base text-[#0c4a8a]">
+                The School is under the management of the <strong>Catholic Mission of Umsning, Archdiocese of Shillong</strong>, and is one of the oldest co-educational institutions in the Ri Bhoi District of Meghalaya. It was started as a Lower Primary School in <strong>{SCHOOL_INFO.established}</strong> by the great Educationist and French Catholic Missionary, <strong>Rev. Fr. Michel Balawan, SDB</strong>.
+              </p>
+              <p className="vision-body-copy mt-3 text-sm sm:text-base text-[#0c4a8a]">
+                The institution is backboned by its committed teachers who spark the imagination of their students and give wings to their dreams. The spirit of confidence and competency is the hallmark that <strong>&ldquo;Michaelians&rdquo;</strong> carry with them from the torch of their school&apos;s motto <strong>&ldquo;{SCHOOL_INFO.mottoLatin}&rdquo;</strong> &amp; <strong>&ldquo;{SCHOOL_INFO.mottoKhasi}&rdquo;</strong>. The school runs classes from <strong>Nursery to Class XII</strong> with <strong>English</strong> as the medium of instruction.
+              </p>
+            </div>
+            <div className="mt-5">
+              <a href="#academics" className="vision-read-more inline-flex items-center gap-1.5">
+                <span>Explore Academic Stages</span>
+                <i className="fas fa-arrow-right text-xs" aria-hidden="true"></i>
+              </a>
+            </div>
           </div>
 
-          <div className="grid gap-3.5 sm:grid-cols-3 lg:grid-cols-1">
-            {heritagePillars.map((pillar, idx) => (
-              <div
-                key={pillar.title}
-                className={`rounded-xl border p-4 shadow-sm transition-transform duration-200 hover:-translate-y-0.5 ${pillar.cardStyle}`}
-                data-aos="fade-left"
-                data-aos-delay={80 * (idx + 1)}
-              >
-                <div className="flex items-center justify-between gap-2">
-                  <div className="text-sm font-bold text-[#0c4a8a]">
-                    <i className={`${pillar.icon} mr-1.5 text-[#d97706]`} aria-hidden="true"></i>
-                    &raquo; {pillar.title}
-                  </div>
-                  <span
-                    className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${pillar.badgeStyle}`}
-                  >
-                    {pillar.badge}
-                  </span>
-                </div>
-                <p className="mt-1.5 text-xs font-medium leading-5 text-slate-700">
-                  {pillar.detail}
-                </p>
-              </div>
-            ))}
+          <div
+            className="group relative min-h-[300px] sm:min-h-[360px] lg:min-h-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 shadow-md"
+            data-aos="fade-left"
+            data-aos-duration="750"
+          >
+            <img
+              src={SCHOOL_IMAGES.schoolBuildingFront}
+              alt="St. Michael's Higher Secondary School Building, Umsning"
+              className="h-full w-full lg:absolute lg:inset-0 object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent" />
+            <div className="absolute top-4 left-4 rounded-full bg-[#0c4a8a] px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-white shadow-md border border-white/25">
+              <i className="fas fa-school mr-1.5 text-amber-300" aria-hidden="true"></i>
+              Estd. {SCHOOL_INFO.established} • Umsning Campus
+            </div>
+            <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-[#0c2d57]/90 border border-amber-400/40 px-4 py-3 text-white shadow-lg backdrop-blur-xs">
+              <p className="text-xs font-extrabold uppercase tracking-wider text-amber-300">
+                <i className="fas fa-award mr-1.5" aria-hidden="true"></i>
+                Motto: &ldquo;{SCHOOL_INFO.mottoLatin}&rdquo; &amp; &ldquo;{SCHOOL_INFO.mottoKhasi}&rdquo; ({SCHOOL_INFO.mottoMeaning})
+              </p>
+              <p className="mt-1 text-xs font-medium text-slate-200">
+                St. Michael&apos;s Higher Secondary School • Catholic Mission of Umsning, Archdiocese of Shillong
+              </p>
+            </div>
           </div>
         </div>
 
@@ -357,8 +333,8 @@ export const InstitutionalSection: React.FC = () => (
                   St. Michael&apos;s Higher Secondary School, Umsning
                 </span>
               </div>
-              <a href="#school-handbook" className="vision-read-more inline-flex items-center gap-1.5">
-                <span>School Diary Rules</span>
+              <a href="#academics" className="vision-read-more inline-flex items-center gap-1.5">
+                <span>Explore Academic Stages</span>
                 <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
               </a>
             </div>

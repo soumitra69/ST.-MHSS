@@ -20,18 +20,59 @@ const academicsAndCampusLinks = [
   { label: 'Admissions 2026–27 Enquiry', href: '#apply-form' },
   { label: 'School Stages (Nursery – Class XII)', href: '#academics' },
   { label: 'Higher Secondary Streams (XI – XII)', href: '#streams' },
-  { label: 'School Diary, Uniforms & Syllabus', href: '#school-handbook' },
   { label: 'MBOSE State Board Merit Honors', href: '#toppers' },
   { label: 'Campus Life & 4 Archangel Houses', href: '#campus-life' },
+  { label: '2,000-Student Drill & Choral Media', href: '#media-drill' },
   { label: 'Campus Photo Gallery', href: '#gallery' },
-  { label: 'Alumni & Parent Community', href: '#alumni' },
   { label: 'Frequently Asked Questions (FAQ)', href: '#faq' },
+];
+
+const accreditationHighlights = [
+  {
+    icon: 'fas fa-landmark',
+    label: 'ESTABLISHED',
+    value: '1961 • 65 Years of Legacy',
+  },
+  {
+    icon: 'fas fa-certificate',
+    label: 'BOARD AFFILIATION',
+    value: `MBOSE (${SCHOOL_INFO.schoolCode})`,
+  },
+  {
+    icon: 'fas fa-id-card',
+    label: 'UDISE+ REG. CODE',
+    value: '17050200108 • Meghalaya',
+  },
+  {
+    icon: 'fas fa-church',
+    label: 'MANAGEMENT',
+    value: 'Catholic Mission, Umsning',
+  },
 ];
 
 export const FooterSection: React.FC = () => {
   return (
     <footer id="footer" className="school-footer scroll-mt-20">
-      {/* Main 4-Column Classic School Footer */}
+      {/* Top Executive Institutional Ribbon */}
+      <div className="school-footer-ribbon">
+        <div className="container">
+          <div className="school-footer-ribbon-grid">
+            {accreditationHighlights.map((item) => (
+              <div key={item.label} className="school-footer-ribbon-item">
+                <span className="school-footer-ribbon-icon">
+                  <i className={item.icon} aria-hidden="true"></i>
+                </span>
+                <div>
+                  <span className="school-footer-ribbon-label">{item.label}</span>
+                  <strong className="school-footer-ribbon-value">{item.value}</strong>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Main 4-Column Executive School Footer */}
       <div className="school-footer-main">
         <div className="container">
           <div className="school-footer-grid">
@@ -39,15 +80,17 @@ export const FooterSection: React.FC = () => {
             <div className="school-footer-col school-footer-brand-col">
               <div>
                 <a href="#about" className="school-footer-brand-link group">
-                  <img
-                    src={SCHOOL_INFO.logo}
-                    alt="St. Michael's Higher Secondary School Crest"
-                    width="64"
-                    height="64"
-                    loading="lazy"
-                    decoding="async"
-                    className="school-footer-crest"
-                  />
+                  <div className="school-footer-crest-wrap">
+                    <img
+                      src={SCHOOL_INFO.logo}
+                      alt="St. Michael's Higher Secondary School Crest"
+                      width="72"
+                      height="72"
+                      loading="lazy"
+                      decoding="async"
+                      className="school-footer-crest"
+                    />
+                  </div>
                   <div>
                     <span className="school-footer-eyebrow">
                       Catholic Mission of Umsning • Estd. {SCHOOL_INFO.established}
@@ -80,15 +123,21 @@ export const FooterSection: React.FC = () => {
                     </span>
                   </div>
                   <div className="school-footer-code-badges">
-                    <span>MBOSE Code: {SCHOOL_INFO.schoolCode}</span>
-                    <span>UDISE+: 17050200108</span>
+                    <span>
+                      <i className="fas fa-check-circle mr-1 text-amber-300" aria-hidden="true"></i>
+                      MBOSE Code: {SCHOOL_INFO.schoolCode}
+                    </span>
+                    <span>
+                      <i className="fas fa-shield-alt mr-1 text-amber-300" aria-hidden="true"></i>
+                      UDISE+: 17050200108
+                    </span>
                   </div>
                 </div>
               </div>
 
-              {/* Social & Direct Action Icons */}
+              {/* Direct Action Channels */}
               <div className="school-footer-social-block">
-                <p className="school-footer-social-label">Connect With The School Office</p>
+                <p className="school-footer-social-label">Direct Secretariat Channels</p>
                 <div className="school-footer-social-row">
                   <a
                     href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`}
@@ -147,7 +196,7 @@ export const FooterSection: React.FC = () => {
 
             {/* Column 3: Academics & Quick Links */}
             <div className="school-footer-col">
-              <h3 className="school-footer-heading">Academics &amp; Quick Links</h3>
+              <h3 className="school-footer-heading">Academics &amp; Campus</h3>
               <ul className="school-footer-list">
                 {academicsAndCampusLinks.map((item) => (
                   <li key={item.label}>
@@ -167,7 +216,9 @@ export const FooterSection: React.FC = () => {
 
                 <ul className="school-footer-contact-list">
                   <li>
-                    <i className="fas fa-map-marker-alt" aria-hidden="true"></i>
+                    <span className="school-footer-contact-icon">
+                      <i className="fas fa-map-marker-alt" aria-hidden="true"></i>
+                    </span>
                     <div>
                       <strong>Campus Address:</strong>
                       <span>Umsning, Ri Bhoi District, Meghalaya – 793105 (NH-6 Corridor)</span>
@@ -175,7 +226,9 @@ export const FooterSection: React.FC = () => {
                   </li>
 
                   <li>
-                    <i className="fas fa-phone-alt" aria-hidden="true"></i>
+                    <span className="school-footer-contact-icon">
+                      <i className="fas fa-phone-alt" aria-hidden="true"></i>
+                    </span>
                     <div>
                       <strong>Phone &amp; Helpline:</strong>
                       <span>
@@ -191,7 +244,9 @@ export const FooterSection: React.FC = () => {
                   </li>
 
                   <li>
-                    <i className="fas fa-envelope" aria-hidden="true"></i>
+                    <span className="school-footer-contact-icon">
+                      <i className="fas fa-envelope" aria-hidden="true"></i>
+                    </span>
                     <div>
                       <strong>Official Email:</strong>
                       <span>
@@ -201,7 +256,9 @@ export const FooterSection: React.FC = () => {
                   </li>
 
                   <li>
-                    <i className="fas fa-clock" aria-hidden="true"></i>
+                    <span className="school-footer-contact-icon">
+                      <i className="fas fa-clock" aria-hidden="true"></i>
+                    </span>
                     <div>
                       <strong>School Timings (Mon – Fri):</strong>
                       <span>
@@ -249,12 +306,12 @@ export const FooterSection: React.FC = () => {
               &copy; {new Date().getFullYear()} St. Michael&apos;s Higher Secondary School, Umsning.
               All Rights Reserved.
             </p>
-            <p className="school-footer-credit">
+            <div className="school-footer-credit-pill">
               <i className="fas fa-shield-alt text-amber-400" aria-hidden="true"></i>
               <span>
-                Designed by <strong>Marak Technology</strong>
+                Designed And Developed By <strong>Marak Technologies Pvt. Ltd.</strong>
               </span>
-            </p>
+            </div>
           </div>
         </div>
       </div>

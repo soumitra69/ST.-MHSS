@@ -5,7 +5,6 @@ const secondaryLinks = [
   { label: 'NOTICES', href: '#apply-form', icon: 'fas fa-bullhorn' },
   { label: 'STATE HONORS', href: '#toppers', icon: 'fas fa-trophy' },
   { label: 'HR. SEC STREAMS', href: '#streams', icon: 'fas fa-graduation-cap' },
-  { label: 'ALUMNI', href: '#alumni', icon: 'fas fa-user-graduate' },
   { label: 'DRILL & CHOIR', href: '#media-drill', icon: 'fas fa-music' },
   { label: 'CONTACT', href: '#footer', icon: 'fas fa-phone-alt' },
 ];
@@ -34,7 +33,6 @@ const primaryLinks = [
     hasDropdown: true,
     subItems: [
       { label: '2026–27 Admission Enquiry', href: '#apply-form', icon: 'fas fa-file-signature' },
-      { label: 'TC, Uniforms & Diary Rules', href: '#school-handbook', icon: 'fas fa-book' },
       { label: 'Frequently Asked Questions', href: '#faq', icon: 'fas fa-question-circle' },
     ],
   },
@@ -46,7 +44,6 @@ const primaryLinks = [
     subItems: [
       { label: 'School Levels (Nursery – XII)', href: '#academics', icon: 'fas fa-layer-group' },
       { label: 'Higher Secondary Streams', href: '#streams', icon: 'fas fa-microscope' },
-      { label: 'School Diary, Syllabus & Routine', href: '#school-handbook', icon: 'fas fa-user-tie' },
       { label: 'Academic & Fieldwork Spotlight', href: '#research', icon: 'fas fa-compass' },
     ],
   },

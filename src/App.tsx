@@ -13,7 +13,6 @@ import { StudentLifeSection } from './components/StudentLifeSection';
 import { VideoDrillSection } from './components/VideoDrillSection';
 import { ResearchSection } from './components/ResearchSection';
 import { CampusSpacesAndEventsSection } from './components/CampusSpacesAndEventsSection';
-import { AlumniSection } from './components/AlumniSection';
 import { StudentWorkSection } from './components/StudentWorkSection';
 import { FAQAndFinalCTA } from './components/FAQAndFinalCTA';
 import { SchoolAppSection } from './components/SchoolAppSection';
@@ -182,9 +181,6 @@ export default function App() {
 
         {/* Section J: Student Work & Campus Gallery */}
         <StudentWorkSection />
-
-        {/* Section K: Alumni, Scholars & Parent Community */}
-        <AlumniSection />
 
         {/* Section M: Frequently Asked Questions & Final CTA */}
         <FAQAndFinalCTA

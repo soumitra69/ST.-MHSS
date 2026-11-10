@@ -13049,24 +13049,102 @@ section,
 }
 
 /* ==========================================================================
-   6. CLASSIC PREMIUM SCHOOL WEBSITE FOOTER (PROPER MARGIN, PADDING & SPACING)
+   6. EXECUTIVE PREMIUM SCHOOL WEBSITE FOOTER (PROPER MARGIN, PADDING & SPACING)
    ========================================================================== */
 
 .school-footer {
+  position: relative;
   width: 100%;
-  background: linear-gradient(180deg, #071b36 0%, #092244 100%);
+  background: radial-gradient(circle at 18% 0%, #103260 0%, #071932 55%, #040d1c 100%);
   color: #e2e8f0;
-  border-top: 4px solid #d97706;
+  border-top: 4px solid #f59e0b;
   margin-top: 0;
+  overflow: hidden;
+}
+
+.school-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+.school-footer-ribbon {
+  position: relative;
+  z-index: 2;
+  background: rgba(4, 15, 33, 0.72);
+  border-bottom: 1px solid rgba(251, 191, 36, 0.22);
+  backdrop-filter: blur(10px);
+  padding: 18px 0;
+}
+
+.school-footer-ribbon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.school-footer-ribbon-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform 0.24s ease, border-color 0.24s ease, background 0.24s ease;
+}
+
+.school-footer-ribbon-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(251, 191, 36, 0.55);
+  background: rgba(12, 74, 138, 0.35);
+}
+
+.school-footer-ribbon-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #041022 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.92rem;
+  flex-shrink: 0;
+}
+
+.school-footer-ribbon-label {
+  display: block;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fbbf24 !important;
+  line-height: 1.2;
+}
+
+.school-footer-ribbon-value {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: #ffffff !important;
+  line-height: 1.3;
 }
 
 .school-footer-main {
+  position: relative;
+  z-index: 2;
   padding: 64px 0 56px !important;
 }
 
 .school-footer-grid {
   display: grid;
-  grid-template-columns: 1.45fr 0.9fr 1fr 1.15fr;
+  grid-template-columns: 1.42fr 0.92fr 0.98fr 1.18fr;
   gap: 44px;
   align-items: start;
 }
@@ -13085,16 +13163,29 @@ section,
 
 .school-footer-brand-link {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 16px;
   text-decoration: none;
 }
 
-.school-footer-crest {
-  width: 68px !important;
-  height: 68px !important;
+.school-footer-crest-wrap {
+  width: 74px;
+  height: 74px;
   flex-shrink: 0;
-  border-radius: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 3px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.28) 0%, rgba(251, 191, 36, 0.04) 70%);
+  border: 1.5px solid rgba(251, 191, 36, 0.55);
+}
+
+.school-footer-crest {
+  width: 66px !important;
+  height: 66px !important;
+  flex-shrink: 0;
+  border-radius: 999px !important;
   background: transparent !important;
   padding: 0 !important;
   object-fit: contain !important;
@@ -13113,42 +13204,43 @@ section,
 }
 
 .school-footer-title {
+  font-family: 'Merriweather', Georgia, serif !important;
   font-size: 1.12rem !important;
-  font-weight: 800 !important;
-  line-height: 1.28 !important;
+  font-weight: 900 !important;
+  line-height: 1.3 !important;
   color: #ffffff !important;
   margin: 0 0 4px 0 !important;
   letter-spacing: 0.02em;
 }
 
 .school-footer-subtitle {
-  font-size: 0.78rem !important;
-  font-weight: 500 !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
   color: #cbd5e1 !important;
   margin: 0 !important;
 }
 
 .school-footer-desc {
   margin: 18px 0 0 0 !important;
-  font-size: 0.84rem !important;
-  line-height: 1.68 !important;
+  font-size: 0.88rem !important;
+  line-height: 1.72 !important;
   color: #cbd5e1 !important;
 }
 
 .school-footer-motto-box {
   margin-top: 18px;
-  padding: 14px 16px;
-  border-radius: 12px;
-  background: rgba(12, 42, 82, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-left: 3.5px solid #fbbf24;
+  padding: 15px 16px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(12, 45, 87, 0.82) 0%, rgba(7, 25, 50, 0.9) 100%);
+  border: 1px solid rgba(251, 191, 36, 0.28);
+  border-left: 4px solid #f59e0b;
 }
 
 .school-footer-motto-line {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: #fde047 !important;
 }
@@ -13157,16 +13249,18 @@ section,
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 10px;
+  margin-top: 11px;
 }
 
 .school-footer-code-badges span {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 11px;
+  border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
-  color: #f1f5f9 !important;
-  font-size: 0.72rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #f8fafc !important;
+  font-size: 0.73rem;
   font-weight: 700;
 }
 
@@ -13175,12 +13269,12 @@ section,
 }
 
 .school-footer-social-label {
-  font-size: 0.7rem !important;
+  font-size: 0.72rem !important;
   font-weight: 800 !important;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #94a3b8 !important;
-  margin: 0 0 10px 0 !important;
+  letter-spacing: 0.12em;
+  color: #fbbf24 !important;
+  margin: 0 0 11px 0 !important;
 }
 
 .school-footer-social-row {
@@ -13191,24 +13285,24 @@ section,
 }
 
 .school-footer-social-btn {
-  width: 38px;
-  height: 38px;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   color: #ffffff !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.22s ease;
 }
 
 .school-footer-social-btn:hover {
   background: #d97706;
-  border-color: #fbbf24;
-  transform: translateY(-2px);
+  border-color: #fde047;
+  transform: translateY(-3px);
 }
 
 .school-footer-social-btn.whatsapp:hover {
@@ -13218,24 +13312,25 @@ section,
 
 .school-footer-heading {
   position: relative;
-  font-size: 0.85rem !important;
+  font-family: 'Merriweather', Georgia, serif !important;
+  font-size: 0.94rem !important;
   font-weight: 800 !important;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   color: #ffffff !important;
-  margin: 0 0 20px 0 !important;
-  padding-bottom: 12px !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  margin: 0 0 22px 0 !important;
+  padding-bottom: 13px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .school-footer-heading::after {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -1px;
-  width: 42px;
-  height: 2.5px;
-  background: #d97706;
+  bottom: -1.5px;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, #f59e0b 0%, #fde047 100%);
   border-radius: 2px;
 }
 
@@ -13247,7 +13342,7 @@ section,
 }
 
 .school-footer-list li {
-  margin-bottom: 11px !important;
+  margin-bottom: 12px !important;
   padding: 0 !important;
 }
 
@@ -13258,24 +13353,28 @@ section,
 .school-footer-link {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
-  font-size: 0.84rem;
-  font-weight: 500;
+  gap: 10px;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
   line-height: 1.45;
   color: #cbd5e1 !important;
   text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color 0.22s ease, transform 0.22s ease;
 }
 
 .school-footer-link i {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   color: #fbbf24 !important;
-  transition: transform 0.2s ease;
+  transition: transform 0.22s ease;
 }
 
 .school-footer-link:hover {
   color: #fde047 !important;
-  transform: translateX(3px);
+  transform: translateX(4px);
+}
+
+.school-footer-link:hover i {
+  transform: translateX(2px);
 }
 
 .school-footer-contact-list li {
@@ -13283,8 +13382,8 @@ section,
   align-items: flex-start;
   gap: 12px;
   margin-bottom: 14px !important;
-  font-size: 0.82rem;
-  line-height: 1.55;
+  font-size: 0.86rem !important;
+  line-height: 1.55 !important;
   color: #cbd5e1 !important;
 }
 
@@ -13292,13 +13391,19 @@ section,
   margin-bottom: 0 !important;
 }
 
-.school-footer-contact-list li > i {
+.school-footer-contact-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: rgba(251, 191, 36, 0.14);
+  border: 1px solid rgba(251, 191, 36, 0.35);
   color: #fbbf24 !important;
-  font-size: 0.85rem;
-  margin-top: 4px;
-  width: 16px;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
   flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .school-footer-contact-list strong {
@@ -13309,8 +13414,9 @@ section,
 }
 
 .school-footer-contact-list a {
-  color: #cbd5e1 !important;
+  color: #e2e8f0 !important;
   text-decoration: none;
+  font-weight: 600;
   transition: color 0.2s ease;
 }
 
@@ -13324,10 +13430,10 @@ section,
 
 .school-footer-map-box {
   width: 100%;
-  height: 125px;
-  border-radius: 12px;
+  height: 132px;
+  border-radius: 14px;
   overflow: hidden;
-  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border: 1.5px solid rgba(251, 191, 36, 0.32);
   background: #061529;
 }
 
@@ -13343,18 +13449,27 @@ section,
   align-items: center;
   gap: 7px;
   margin-top: 10px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(251, 191, 36, 0.3);
   font-size: 0.78rem;
   font-weight: 700;
   color: #fde047 !important;
   text-decoration: none;
+  transition: all 0.2s ease;
 }
 
 .school-footer-map-link:hover {
+  background: #d97706;
+  border-color: #fde047;
   color: #ffffff !important;
 }
 
 .school-footer-bottom {
-  background: #041022;
+  position: relative;
+  z-index: 2;
+  background: #030b18;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   padding: 20px 0 !important;
 }
@@ -13367,25 +13482,36 @@ section,
   gap: 14px;
 }
 
-.school-footer-copy,
-.school-footer-credit {
+.school-footer-copy {
   margin: 0 !important;
-  font-size: 0.8rem !important;
+  font-size: 0.85rem !important;
+  font-weight: 500;
   color: #cbd5e1 !important;
 }
 
-.school-footer-credit {
+.school-footer-credit-pill {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
+  padding: 7px 15px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  font-size: 0.84rem !important;
+  color: #e2e8f0 !important;
 }
 
-.school-footer-credit strong {
+.school-footer-credit-pill strong {
   color: #fde047 !important;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: 0.02em;
 }
 
 @media (max-width: 1080px) {
+  .school-footer-ribbon-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .school-footer-main {
     padding: 52px 0 44px !important;
   }
@@ -13397,6 +13523,11 @@ section,
 }
 
 @media (max-width: 640px) {
+  .school-footer-ribbon-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
   .school-footer-main {
     padding: 42px 0 36px !important;
   }
