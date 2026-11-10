@@ -64,7 +64,7 @@ export const SCHOOL_INFO = {
   phone: "+91 3638 264218",
   phoneMobile: "+91 94361 02845",
   email: "stmichaelumsning@gmail.com",
-  officeHours: "Monday to Friday: 8:30 AM – 3:30 PM | Saturday: 8:30 AM – 12:30 PM",
+  officeHours: "Mon – Fri: 8:45 AM – 11:55 AM & 12:35 PM – 3:00 PM (Sat & Sun Closed)",
   studentCount: "2,000+",
   facultyCount: "68+",
   classes: "Nursery & Kindergarten to Class XII (Arts, Science & Commerce)",
