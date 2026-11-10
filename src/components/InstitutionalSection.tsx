@@ -159,91 +159,6 @@ export const InstitutionalSection: React.FC = () => (
       </div>
     </section>
 
-    {/* SECTION 2 (SEPARATE COMPACT SECTION): Founder's Heritage (#founder-message) */}
-    <section
-      id="founder-message"
-      className="w-full bg-white py-9 md:py-12 scroll-mt-24 border-t border-slate-200"
-    >
-      <div className="container">
-        <article
-          className="group relative grid w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:grid-cols-[310px_1fr]"
-          data-aos="fade-up"
-          data-aos-duration="750"
-        >
-          <div className="absolute inset-x-0 top-0 h-1.5 bg-[#0c4a8a] z-10" />
-
-          {/* Left Compact Image Column */}
-          <div
-            className="relative h-48 md:h-full md:max-h-[250px] bg-slate-900 overflow-hidden"
-            data-aos="zoom-in"
-            data-aos-delay="100"
-          >
-            <img
-              src={SCHOOL_IMAGES.foundingCampus}
-              alt="St. Michael's Higher Secondary School main campus building and tower, established in 1961"
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-              decoding="async"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent" />
-            <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-[#0c2d57]/95 px-3 py-1.5 text-[11px] font-bold text-white shadow-md backdrop-blur-xs">
-              <i className="fas fa-monument mr-1.5 text-amber-300" aria-hidden="true"></i>
-              S.M.H.S.S. Archangel Tower • Estd. 1961
-            </div>
-          </div>
-
-          {/* Right Compact Text Column */}
-          <div
-            className="flex flex-col justify-center bg-white p-5 sm:p-6 md:px-8 md:py-6"
-            data-aos="fade-left"
-            data-aos-delay="140"
-          >
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="inline-flex items-center rounded-full bg-amber-50 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-amber-900 border border-amber-200">
-                <i className="fas fa-history mr-1.5 text-[#d97706]" aria-hidden="true"></i>
-                Founded in 1961 • 65 Years of Service
-              </span>
-              <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#0c4a8a] border border-blue-200">
-                <i className="fas fa-cross mr-1 text-[#0c4a8a]" aria-hidden="true"></i>
-                Catholic Diocese of Shillong
-              </span>
-            </div>
-
-            <h2 className="vision-serif-heading mt-2.5 text-xl sm:text-2xl text-[#0c4a8a]">
-              <span className="vision-double-angle" aria-hidden="true">
-                &raquo;
-              </span>{' '}
-              Founder&apos;s Heritage
-            </h2>
-
-            <p className="mt-2 text-xs sm:text-sm font-medium leading-6 text-slate-700">
-              St. Michael&apos;s Higher Secondary School was established in 1961 in the conviction
-              that quality education opens doors and strengthens the entire Ri Bhoi region. That
-              founding spirit continues today: nurturing every student&apos;s potential and helping
-              young people step forward with courage (<em>{SCHOOL_INFO.mottoKhasi}</em>).
-            </p>
-
-            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 pt-3 text-xs font-bold">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-md bg-slate-100 px-2.5 py-1 text-[11px] text-[#0c4a8a]">
-                  <i className="fas fa-map-marker-alt mr-1 text-[#d97706]" aria-hidden="true"></i>
-                  NH-6, Umsning, Meghalaya
-                </span>
-                <span className="rounded-md bg-slate-100 px-2.5 py-1 text-[11px] text-[#0c4a8a]">
-                  <i className="fas fa-award mr-1 text-[#d97706]" aria-hidden="true"></i>
-                  1961 – 2026 Legacy
-                </span>
-              </div>
-              <a href="#why-us" className="vision-read-more inline-flex items-center gap-1.5">
-                <span>Our Legacy</span>
-                <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
     {/* SECTION 3 (SEPARATE COMPACT SECTION): Principal's Desk (#principal-message) */}
     <section
       id="principal-message"
@@ -315,8 +230,8 @@ export const InstitutionalSection: React.FC = () => (
                   St. Michael&apos;s H.S. School, Umsning
                 </span>
               </div>
-              <a href="#faculty" className="vision-read-more inline-flex items-center gap-1.5">
-                <span>Meet Faculty</span>
+              <a href="#academics" className="vision-read-more inline-flex items-center gap-1.5">
+                <span>Explore Academics</span>
                 <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
               </a>
             </div>

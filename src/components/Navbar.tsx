@@ -21,7 +21,6 @@ const primaryLinks = [
       { label: 'Who We Are (Estd. 1961)', href: '#about', icon: 'fas fa-school' },
       { label: 'Our Mission', href: '#mission', icon: 'fas fa-bullseye' },
       { label: 'Our Vision (Excelsior)', href: '#vision', icon: 'fas fa-eye' },
-      { label: 'Founder’s Heritage', href: '#founder-message', icon: 'fas fa-history' },
       { label: 'Principal’s Desk', href: '#principal-message', icon: 'fas fa-user-tie' },
     ],
   },
