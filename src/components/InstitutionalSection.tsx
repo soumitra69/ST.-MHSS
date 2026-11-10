@@ -8,6 +8,12 @@ const institutionalValues = [
   'Synchronized drill, cultural pride & service',
 ];
 
+const secretaryHighlights = [
+  'Unified Diocesan administration & governance',
+  'Academic discipline & student welfare mentorship',
+  'Modern infrastructure & laboratory advancement',
+];
+
 const heritagePillars = [
   {
     title: 'Diocesan Heritage',
@@ -159,7 +165,114 @@ export const InstitutionalSection: React.FC = () => (
       </div>
     </section>
 
-    {/* SECTION 3 (SEPARATE COMPACT SECTION): Principal's Message (#principal-message) */}
+    {/* MESSAGE 1 (HOME PAGE): Secretary & Vice Principal's Message (Same Person) (#secretary-message) */}
+    <section
+      id="secretary-message"
+      className="w-full bg-white py-9 md:py-12 scroll-mt-24 border-t border-slate-200"
+    >
+      <div className="container">
+        <article
+          className="group relative grid w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:grid-cols-[340px_1fr]"
+          data-aos="fade-up"
+          data-aos-duration="750"
+        >
+          <div className="absolute inset-x-0 top-0 h-1.5 bg-[#0c4a8a] z-10" />
+
+          {/* Left Compact Image Column */}
+          <div
+            className="relative h-60 md:h-full md:min-h-[270px] bg-slate-900 overflow-hidden"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <img
+              src={SCHOOL_IMAGES.foundingCampus}
+              alt="Office of the Secretary and Vice Principal at St. Michael's Higher Secondary School, Umsning"
+              className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent" />
+            <div className="absolute top-3 left-3 rounded-full bg-[#0c4a8a] px-3 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-md border border-white/25">
+              <i className="fas fa-user-shield mr-1 text-amber-300" aria-hidden="true"></i>
+              Administration &amp; Governance
+            </div>
+            <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-[#0c2d57]/95 border border-amber-400/40 px-3 py-1.5 text-[11px] font-bold text-white shadow-md backdrop-blur-xs">
+              <i className="fas fa-landmark mr-1.5 text-amber-300" aria-hidden="true"></i>
+              Secretary &amp; Vice Principal • St. Michael&apos;s Umsning
+            </div>
+          </div>
+
+          {/* Right Compact Text Column */}
+          <div
+            className="flex flex-col justify-center bg-white p-5 sm:p-6 md:px-8 md:py-6"
+            data-aos="fade-left"
+            data-aos-delay="140"
+          >
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#0c4a8a] border border-blue-200">
+                <i className="fas fa-user-shield mr-1.5 text-[#d97706]" aria-hidden="true"></i>
+                From The Desk of the Secretary &amp; Vice Principal
+              </span>
+              <span className="rounded-full bg-amber-50 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-amber-900 border border-amber-200">
+                <i className="fas fa-cross mr-1 text-[#d97706]" aria-hidden="true"></i>
+                Diocesan Secretariat • Estd. 1961
+              </span>
+            </div>
+
+            <h2 className="vision-serif-heading mt-2.5 text-xl sm:text-2xl text-[#0c4a8a]">
+              <span className="vision-double-angle" aria-hidden="true">
+                &raquo;
+              </span>{' '}
+              Secretary &amp; Vice Principal&apos;s Message
+            </h2>
+
+            <p className="mt-2 text-xs sm:text-sm font-medium leading-6 text-slate-700">
+              At St. Michael&apos;s Higher Secondary School, Umsning, our administrative mission and
+              academic stewardship work hand in hand to create a safe, disciplined, and inspiring
+              campus for over 2,000 learners. Serving in the unified role of Secretary and Vice
+              Principal, my priority is to ensure transparent governance, modern learning facilities,
+              and close mentorship so every student steps forward with confidence and moral
+              conviction (<em>{SCHOOL_INFO.mottoLatin}</em> &amp; <em>{SCHOOL_INFO.mottoKhasi}</em>).
+            </p>
+
+            <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-2">
+              {secretaryHighlights.map((item, idx) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-1.5 rounded-lg bg-slate-50 px-2.5 py-1.5 text-[11px] font-semibold text-[#0c4a8a] border border-slate-200"
+                  data-aos="zoom-in"
+                  data-aos-delay={140 + idx * 60}
+                >
+                  <i
+                    className="fas fa-check-circle text-[#d97706] shrink-0 text-xs"
+                    aria-hidden="true"
+                  ></i>
+                  <span className="leading-tight">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 pt-3 text-xs">
+              <div>
+                <span className="font-bold text-[#0c4a8a]">
+                  Office of the Secretary &amp; Vice Principal
+                </span>
+                <span className="hidden sm:inline text-slate-400 mx-1.5">•</span>
+                <span className="block sm:inline text-[11px] font-medium text-slate-600">
+                  St. Michael&apos;s Higher Secondary School, Umsning
+                </span>
+              </div>
+              <a href="#hub" className="vision-read-more inline-flex items-center gap-1.5">
+                <span>Operations Hub</span>
+                <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    {/* MESSAGE 2 (HOME PAGE): Principal's Message (#principal-message) */}
     <section
       id="principal-message"
       className="w-full bg-[#0c2d57] py-9 md:py-12 scroll-mt-24 border-t border-slate-800"
@@ -261,6 +374,159 @@ export const InstitutionalSection: React.FC = () => (
             </div>
           </div>
         </article>
+      </div>
+    </section>
+
+    {/* MESSAGES 3 & 4: Headmistress – Secondary Section & Headmistress – LP Section */}
+    <section
+      id="headmistress-messages"
+      className="w-full bg-[#f4f7fb] py-10 md:py-14 scroll-mt-24 border-t border-slate-200"
+    >
+      <div className="container">
+        <div className="mb-7 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+          <div>
+            <span className="inline-flex items-center rounded-full bg-[#0c4a8a] px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-white">
+              <i className="fas fa-chalkboard-teacher mr-1.5 text-amber-300" aria-hidden="true"></i>
+              Sectional Academic Leadership • Nursery to Class X
+            </span>
+            <h2 className="vision-serif-heading mt-2.5 text-2xl sm:text-3xl text-[#0c4a8a]">
+              <span className="vision-double-angle" aria-hidden="true">
+                &raquo;
+              </span>{' '}
+              Messages from Our Section Headmistresses
+            </h2>
+          </div>
+          <p className="text-xs sm:text-sm font-medium text-slate-600 max-w-md">
+            Dedicated pastoral care and stage-wise academic supervision across our Lower Primary and
+            Secondary wings.
+          </p>
+        </div>
+
+        <div className="grid gap-6 lg:grid-cols-2">
+          {/* 3. Headmistress – Secondary Section */}
+          <article
+            id="hm-secondary-message"
+            className="scroll-mt-28 relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 sm:p-7"
+            data-aos="fade-right"
+            data-aos-duration="750"
+          >
+            <div className="absolute inset-x-0 top-0 h-1.5 bg-[#0c4a8a]" />
+            <div>
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#0c4a8a] border border-blue-200">
+                  <i className="fas fa-graduation-cap mr-1.5 text-[#d97706]" aria-hidden="true"></i>
+                  Secondary Wing • Classes VI to X (MBOSE SSLC)
+                </span>
+                <span className="rounded-full bg-[#0c4a8a] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white">
+                  Secondary Section
+                </span>
+              </div>
+
+              <h3 className="vision-serif-heading mt-3 text-xl sm:text-2xl text-[#0c4a8a]">
+                <span className="vision-double-angle" aria-hidden="true">
+                  &raquo;
+                </span>{' '}
+                Headmistress – Secondary Section
+              </h3>
+
+              <p className="mt-3 text-xs sm:text-sm font-medium leading-6 text-slate-700">
+                The Secondary years are a defining bridge where young learners build analytical
+                depth, moral character, and readiness for the MBOSE SSLC Board Examinations. Through
+                structured Continuous and Comprehensive Evaluation (CCE), science and computer
+                practicals, and personal mentorship, we guide every student to achieve academic
+                distinction and personal integrity.
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                <span className="rounded-lg bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-[#0c4a8a]">
+                  <i className="fas fa-check-circle mr-1 text-[#d97706]" aria-hidden="true"></i>
+                  MBOSE SSLC Board Preparation
+                </span>
+                <span className="rounded-lg bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-[#0c4a8a]">
+                  <i className="fas fa-check-circle mr-1 text-[#d97706]" aria-hidden="true"></i>
+                  Laboratory &amp; Remedial Mentorship
+                </span>
+              </div>
+            </div>
+
+            <div className="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-slate-200 pt-3.5 text-xs">
+              <div>
+                <span className="font-bold text-[#0c4a8a]">
+                  Office of the Headmistress (Secondary Section)
+                </span>
+                <span className="block text-[11px] font-medium text-slate-500">
+                  St. Michael&apos;s Higher Secondary School, Umsning
+                </span>
+              </div>
+              <a href="#academics" className="vision-read-more inline-flex items-center gap-1.5">
+                <span>Secondary Wing</span>
+                <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          {/* 4. Headmistress – LP Section */}
+          <article
+            id="hm-lp-message"
+            className="scroll-mt-28 relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 sm:p-7"
+            data-aos="fade-left"
+            data-aos-delay="120"
+            data-aos-duration="750"
+          >
+            <div className="absolute inset-x-0 top-0 h-1.5 bg-[#d97706]" />
+            <div>
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span className="inline-flex items-center rounded-full bg-amber-50 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-amber-900 border border-amber-200">
+                  <i className="fas fa-child mr-1.5 text-[#d97706]" aria-hidden="true"></i>
+                  Foundational &amp; Lower Primary • Nursery to Class V
+                </span>
+                <span className="rounded-full bg-[#d97706] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white">
+                  LP Section
+                </span>
+              </div>
+
+              <h3 className="vision-serif-heading mt-3 text-xl sm:text-2xl text-[#0c4a8a]">
+                <span className="vision-double-angle" aria-hidden="true">
+                  &raquo;
+                </span>{' '}
+                Headmistress – LP Section
+              </h3>
+
+              <p className="mt-3 text-xs sm:text-sm font-medium leading-6 text-slate-700">
+                A child&apos;s earliest years in school shape a lifetime love for learning. In our
+                Lower Primary section, we nurture curiosity, foundational literacy in English and
+                Khasi, numeracy, good manners, and joyful expression in a warm, caring environment
+                where every young learner feels safe, valued, and inspired to grow.
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                <span className="rounded-lg bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-[#0c4a8a]">
+                  <i className="fas fa-check-circle mr-1 text-[#0c4a8a]" aria-hidden="true"></i>
+                  Activity-Based Foundational Literacy
+                </span>
+                <span className="rounded-lg bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-[#0c4a8a]">
+                  <i className="fas fa-check-circle mr-1 text-[#0c4a8a]" aria-hidden="true"></i>
+                  Caring Moral &amp; Creative Formation
+                </span>
+              </div>
+            </div>
+
+            <div className="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-slate-200 pt-3.5 text-xs">
+              <div>
+                <span className="font-bold text-[#0c4a8a]">
+                  Office of the Headmistress (LP Section)
+                </span>
+                <span className="block text-[11px] font-medium text-slate-500">
+                  St. Michael&apos;s Higher Secondary School, Umsning
+                </span>
+              </div>
+              <a href="#academics" className="vision-read-more inline-flex items-center gap-1.5">
+                <span>Primary Wing</span>
+                <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
   </>

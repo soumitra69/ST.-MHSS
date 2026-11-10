@@ -19,9 +19,11 @@ const primaryLinks = [
     hasDropdown: true,
     subItems: [
       { label: 'Who We Are (Estd. 1961)', href: '#about', icon: 'fas fa-school' },
-      { label: 'Our Mission', href: '#mission', icon: 'fas fa-bullseye' },
-      { label: 'Our Vision (Excelsior)', href: '#vision', icon: 'fas fa-eye' },
+      { label: 'Our Mission & Vision', href: '#mission', icon: 'fas fa-bullseye' },
+      { label: 'Secretary & Vice Principal’s Message', href: '#secretary-message', icon: 'fas fa-user-shield' },
       { label: 'Principal’s Message', href: '#principal-message', icon: 'fas fa-user-tie' },
+      { label: 'Headmistress – Secondary Section', href: '#hm-secondary-message', icon: 'fas fa-chalkboard-teacher' },
+      { label: 'Headmistress – LP Section', href: '#hm-lp-message', icon: 'fas fa-child' },
     ],
   },
   {
