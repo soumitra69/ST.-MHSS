@@ -4,8 +4,7 @@ import { SCHOOL_INFO } from '../data/schoolData';
 const admissionsLinks = [
   { label: 'Online Admission Enquiry 2026–27', href: '#apply-form', icon: 'fas fa-file-signature' },
   { label: 'School Levels & Stream Pathways', href: '#academics', icon: 'fas fa-layer-group' },
-  { label: 'Fee Structure & Transit Calculator', href: '#hub', icon: 'fas fa-calculator' },
-  { label: 'NH-6 School Bus Routes & Stops', href: '#hub', icon: 'fas fa-bus-alt' },
+  { label: 'Fee Structure & Calculator', href: '#hub', icon: 'fas fa-calculator' },
   { label: 'SSLC ₹20,000 Merit Scholarship', href: '#toppers', icon: 'fas fa-award' },
   { label: 'Frequently Asked Questions (FAQ)', href: '#faq', icon: 'fas fa-question-circle' },
 ];

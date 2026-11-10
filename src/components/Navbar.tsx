@@ -33,7 +33,6 @@ const primaryLinks = [
     subItems: [
       { label: '2026–27 Admission Enquiry', href: '#apply-form', icon: 'fas fa-file-signature' },
       { label: 'Fee Structure & Calculator', href: '#hub', icon: 'fas fa-calculator' },
-      { label: 'School Bus Routes (NH-6)', href: '#hub', icon: 'fas fa-bus-alt' },
       { label: 'Frequently Asked Questions', href: '#faq', icon: 'fas fa-question-circle' },
     ],
   },
