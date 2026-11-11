@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { SCHOOL_IMAGES } from '../data/schoolAssets';
 import { STREAMS } from '../data/schoolData';
+import { AppPageId } from './InstitutionalSection';
 
 interface AcademicsSectionProps {
   onOpenAdmission: () => void;
+  onNavigatePage?: (page: AppPageId) => void;
 }
 
 const academicStages = [
@@ -67,7 +69,10 @@ const academicStages = [
 
 const STREAM_ICONS = ['fas fa-atom', 'fas fa-landmark', 'fas fa-chart-line'];
 
-export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmission }) => {
+export const AcademicsSection: React.FC<AcademicsSectionProps> = ({
+  onOpenAdmission,
+  onNavigatePage,
+}) => {
   const [selectedStream, setSelectedStream] = useState(0);
 
   return (
@@ -151,6 +156,16 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
                     <p className="mt-2 text-xs font-medium leading-relaxed text-slate-700">
                       {detail}
                     </p>
+                  </div>
+                  <div className="mt-4 pt-3 border-t border-slate-100">
+                    <button
+                      type="button"
+                      onClick={() => onNavigatePage?.('academic-calendar')}
+                      className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-[#0c4a8a] hover:text-[#d97706] cursor-pointer"
+                    >
+                      <span>Read More</span>
+                      <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
+                    </button>
                   </div>
                 </div>
               </article>
@@ -236,41 +251,21 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
               </div>
             </div>
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:col-span-7">
-              <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-5 shadow-xs">
-                <p className="text-xs font-bold uppercase tracking-wider text-[#0c4a8a]">
-                  <i className="fas fa-book mr-1.5 text-[#d97706]" aria-hidden="true"></i>
-                  Core &amp; Elective Subjects (MBOSE)
-                </p>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {STREAMS[selectedStream].subjects.map((subject) => (
-                    <span
-                      key={subject}
-                      className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-bold text-[#0c4a8a] shadow-xs"
-                    >
-                      <i className="fas fa-check mr-1 text-[10px] text-[#d97706]" aria-hidden="true"></i>
-                      {subject}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-5 shadow-xs">
-                <p className="text-xs font-bold uppercase tracking-wider text-[#0c4a8a]">
-                  <i className="fas fa-briefcase mr-1.5 text-[#d97706]" aria-hidden="true"></i>
-                  University &amp; Career Pathways
-                </p>
-                <ul className="mt-3 space-y-2">
-                  {STREAMS[selectedStream].careerPaths.map((career) => (
-                    <li
-                      key={career}
-                      className="flex items-center gap-2 rounded-lg bg-white px-3 py-1.5 text-xs font-semibold text-slate-800 border border-slate-200"
-                    >
-                      <i className="fas fa-arrow-circle-right text-[#0c4a8a]" aria-hidden="true"></i>
-                      <span>{career}</span>
-                    </li>
-                  ))}
-                </ul>
+            <div className="lg:col-span-7 rounded-xl border border-slate-200 bg-[#f8fafc] p-5 shadow-xs">
+              <p className="text-xs font-bold uppercase tracking-wider text-[#0c4a8a]">
+                <i className="fas fa-book mr-1.5 text-[#d97706]" aria-hidden="true"></i>
+                Core &amp; Elective Subjects (MBOSE)
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {STREAMS[selectedStream].subjects.map((subject) => (
+                  <span
+                    key={subject}
+                    className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-bold text-[#0c4a8a] shadow-xs"
+                  >
+                    <i className="fas fa-check mr-1 text-[10px] text-[#d97706]" aria-hidden="true"></i>
+                    {subject}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
@@ -281,15 +276,26 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({ onOpenAdmiss
               for the 2026–27 session. Transfer Certificate (TC) from a recognised school is
               required.
             </p>
-            <button
-              type="button"
-              onClick={onOpenAdmission}
-              className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-xl bg-[#d97706] px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-md transition-transform hover:scale-[1.02] cursor-pointer"
-            >
-              <i className="fas fa-paper-plane" aria-hidden="true"></i>
-              <span>Apply for Admission</span>
-              <i className="fas fa-arrow-right" aria-hidden="true"></i>
-            </button>
+            <div className="flex shrink-0 flex-wrap gap-3">
+              <button
+                type="button"
+                onClick={() => onNavigatePage?.('academic-calendar')}
+                className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-md transition-colors hover:bg-white/20 cursor-pointer"
+              >
+                <i className="fas fa-calendar-alt text-amber-300" aria-hidden="true"></i>
+                <span>Read More</span>
+                <i className="fas fa-arrow-right" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                onClick={onOpenAdmission}
+                className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-xl bg-[#d97706] px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-md transition-transform hover:scale-[1.02] cursor-pointer"
+              >
+                <i className="fas fa-paper-plane" aria-hidden="true"></i>
+                <span>Read More</span>
+                <i className="fas fa-arrow-right" aria-hidden="true"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>

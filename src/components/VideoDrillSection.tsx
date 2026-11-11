@@ -1,7 +1,12 @@
 import React, { useState, useRef } from 'react';
 import { SCHOOL_IMAGES, resolveSchoolAsset } from '../data/schoolAssets';
+import { AppPageId } from './InstitutionalSection';
 
-export const VideoDrillSection: React.FC = () => {
+interface VideoDrillSectionProps {
+  onNavigatePage?: (page: AppPageId) => void;
+}
+
+export const VideoDrillSection: React.FC<VideoDrillSectionProps> = ({ onNavigatePage }) => {
   const [activeVideo, setActiveVideo] = useState<'drill' | 'choir'>('drill');
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [isMuted, setIsMuted] = useState<boolean>(false);
@@ -229,6 +234,17 @@ export const VideoDrillSection: React.FC = () => {
                   <i className="fas fa-check-circle text-[#F59E0B]" aria-hidden="true"></i>
                   <span>Full spectator gallery on tiered amphitheatre stairs</span>
                 </div>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-white/15 flex justify-end">
+                <button
+                  type="button"
+                  onClick={() => onNavigatePage?.('events')}
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#d97706] px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-amber-500 cursor-pointer"
+                >
+                  <span>Read More</span>
+                  <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
+                </button>
               </div>
             </div>
 

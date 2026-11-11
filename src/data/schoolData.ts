@@ -34,7 +34,6 @@ export interface StreamInfo {
   tagline: string;
   subjects: string[];
   features: string[];
-  careerPaths: string[];
 }
 
 export interface FeeItem {
@@ -297,22 +296,19 @@ export const STREAMS: StreamInfo[] = [
     name: "Higher Secondary Science (Class XI - XII)",
     tagline: "Rigorous laboratory research & foundational preparation for engineering, medicine, and scientific inquiry.",
     subjects: ["English", "MIL Khasi / Alt English", "Physics", "Chemistry", "Mathematics", "Biology", "Computer Science"],
-    features: ["Dedicated Physics, Chemistry & Biology laboratories", "Experienced subject lecturers with M.Sc & B.Ed", "Special mentorship for NEET, JEE & CUET"],
-    careerPaths: ["Medicine (MBBS / BDS)", "Engineering (B.Tech / BE)", "Biotechnology & Pharmacy", "Pure & Applied Scientific Research"]
+    features: ["Dedicated Physics, Chemistry & Biology laboratories", "Experienced subject lecturers with M.Sc & B.Ed", "Special mentorship for NEET, JEE & CUET"]
   },
   {
     name: "Higher Secondary Arts / Humanities (Class XI - XII)",
     tagline: "Empowering critical thinkers, historians, civil servants, educators, and regional leaders.",
     subjects: ["English", "MIL Khasi / Alt English", "Political Science", "History", "Economics", "Geography (with Fieldwork)", "Sociology"],
-    features: ["Annual geographical field excursions across Meghalaya", "Debating society, mock parliament & legal literacy", "Consistent state rank record in MBOSE HSSLC"],
-    careerPaths: ["Civil Services (UPSC / MPSC)", "Law & Judiciary", "Journalism & Public Policy", "Higher Education & Research"]
+    features: ["Annual geographical field excursions across Meghalaya", "Debating society, mock parliament & legal literacy", "Consistent state rank record in MBOSE HSSLC"]
   },
   {
     name: "Higher Secondary Commerce (Class XI - XII)",
     tagline: "Developing financial acumen, business ethics, accounting principles, and regional entrepreneurship.",
     subjects: ["English", "MIL Khasi / Alt English", "Accountancy", "Business Studies", "Economics", "Mathematics / Entrepreneurship"],
-    features: ["Modern computer lab with accounting software exposure", "Case studies of Northeast enterprise & trade", "Mentorship from financial & commerce specialists"],
-    careerPaths: ["Chartered Accountancy (CA / CMA)", "Banking & Financial Management", "Corporate Leadership & Startups", "Economic Policy & Commerce"]
+    features: ["Modern computer lab with accounting software exposure", "Case studies of Northeast enterprise & trade", "Mentorship from financial & commerce specialists"]
   }
 ];
 

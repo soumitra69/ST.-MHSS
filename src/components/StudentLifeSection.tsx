@@ -234,7 +234,7 @@ export const StudentLifeSection: React.FC = () => {
               CAMPUS FORMATION SPOTLIGHT
             </span>
             <button type="button" className="life-zoom-trigger" aria-label="View full photo">
-              <i className="fas fa-expand" aria-hidden="true"></i> View Full Photo
+              <i className="fas fa-expand" aria-hidden="true"></i> Read More
             </button>
           </div>
 
@@ -332,6 +332,17 @@ export const StudentLifeSection: React.FC = () => {
                     <li key={pt}>{pt}</li>
                   ))}
                 </ul>
+
+                <div className="mt-4 pt-3 border-t border-slate-100 flex justify-end">
+                  <button
+                    type="button"
+                    onClick={() => setActiveIndex(idx)}
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-[#0c4a8a] px-3.5 py-1.5 text-xs font-extrabold uppercase tracking-wider text-white transition-colors hover:bg-[#d97706] cursor-pointer"
+                  >
+                    <span>Read More</span>
+                    <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
+                  </button>
+                </div>
               </div>
             </motion.article>
           ))}

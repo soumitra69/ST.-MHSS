@@ -1,65 +1,693 @@
 import React, { useState, useEffect } from 'react';
 import { SCHOOL_INFO } from '../data/schoolData';
+import type { AppPageId } from './InstitutionalSection';
 
-const secondaryLinks = [
-  { label: 'NOTICES', href: '#apply-form', icon: 'fas fa-bullhorn' },
-  { label: 'STATE HONORS', href: '#toppers', icon: 'fas fa-trophy' },
-  { label: 'HR. SEC STREAMS', href: '#streams', icon: 'fas fa-graduation-cap' },
-  { label: 'DRILL & CHOIR', href: '#media-drill', icon: 'fas fa-music' },
-  { label: 'CONTACT', href: '#footer', icon: 'fas fa-phone-alt' },
+interface NavLinkItem {
+  label: string;
+  href: string;
+  icon: string;
+  page?: AppPageId;
+  sectionId?: string;
+  subMenu?: NavLinkItem[];
+}
+
+interface PrimaryNavLinkItem extends NavLinkItem {
+  hasDropdown: boolean;
+  alignRight?: boolean;
+  subItems?: NavLinkItem[];
+}
+
+const secondaryLinks: NavLinkItem[] = [
+  { label: 'NOTICES', href: '#page-notices', icon: 'fas fa-bullhorn', page: 'notices' },
+  {
+    label: 'STATE HONORS',
+    href: '#page-results-achievements',
+    icon: 'fas fa-trophy',
+    page: 'results-achievements',
+  },
+  {
+    label: 'HR. SEC STREAMS',
+    href: '#page-academic-syllabus',
+    icon: 'fas fa-graduation-cap',
+    page: 'academic-syllabus',
+    sectionId: 'classes-subjects',
+  },
+  {
+    label: 'ACADEMIC CALENDAR',
+    href: '#page-academic-calendar',
+    icon: 'fas fa-calendar-alt',
+    page: 'academic-calendar',
+  },
+  {
+    label: 'CONTACT',
+    href: '#page-who-we-are',
+    icon: 'fas fa-phone-alt',
+    page: 'who-we-are',
+    sectionId: 'address-contact',
+  },
 ];
 
-const primaryLinks = [
+// Matches the exact 6-item primary navbar layout from https://github.com/soumitra69/ST.-MHSS.git
+// while organizing all Documentation redirect pages & 2nd-level flyout sub-menus with FontAwesome icons
+const primaryLinks: PrimaryNavLinkItem[] = [
   {
     label: 'ABOUT',
-    href: '#about',
+    href: '#page-who-we-are',
     icon: 'fas fa-landmark',
+    page: 'who-we-are',
     hasDropdown: true,
     subItems: [
-      { label: 'Who We Are (Estd. 1961)', href: '#about', icon: 'fas fa-school' },
-      { label: 'Our Mission', href: '#mission', icon: 'fas fa-bullseye' },
-      { label: 'Our Vision', href: '#vision', icon: 'fas fa-eye' },
-      { label: 'Founder’s Message (Fr. Michel Balawan)', href: '#founder-message', icon: 'fas fa-cross' },
-      { label: 'Secretary & Vice Principal’s Message', href: '#secretary-message', icon: 'fas fa-user-shield' },
-      { label: 'Principal’s Message', href: '#principal-message', icon: 'fas fa-user-tie' },
-      { label: 'Headmistress – Secondary Section', href: '#hm-secondary-message', icon: 'fas fa-chalkboard-teacher' },
-      { label: 'Headmistress – LP Section', href: '#hm-lp-message', icon: 'fas fa-child' },
+      {
+        label: 'Who We Are (Estd. 1961)',
+        href: '#page-who-we-are',
+        icon: 'fas fa-school',
+        page: 'who-we-are',
+        subMenu: [
+          {
+            label: 'Establishment, Registration & UDISE+',
+            href: '#page-who-we-are',
+            icon: 'fas fa-certificate',
+            page: 'who-we-are',
+            sectionId: 'registration-udise',
+          },
+          {
+            label: 'School History & 65-Year Journey',
+            href: '#page-who-we-are',
+            icon: 'fas fa-history',
+            page: 'who-we-are',
+            sectionId: 'history-timeline',
+          },
+          {
+            label: 'School Category & Three Wings',
+            href: '#page-who-we-are',
+            icon: 'fas fa-layer-group',
+            page: 'who-we-are',
+            sectionId: 'wings-structure',
+          },
+          {
+            label: 'Complete Address & Official Contact',
+            href: '#page-who-we-are',
+            icon: 'fas fa-map-marker-alt',
+            page: 'who-we-are',
+            sectionId: 'address-contact',
+          },
+        ],
+      },
+      {
+        label: 'Mission, Vision & Objectives',
+        href: '#page-mission-vision',
+        icon: 'fas fa-bullseye',
+        page: 'mission-vision',
+        subMenu: [
+          {
+            label: 'Institutional Mission',
+            href: '#page-mission-vision',
+            icon: 'fas fa-bullseye',
+            page: 'mission-vision',
+            sectionId: 'mission',
+          },
+          {
+            label: 'Institutional Vision',
+            href: '#page-mission-vision',
+            icon: 'fas fa-eye',
+            page: 'mission-vision',
+            sectionId: 'vision',
+          },
+          {
+            label: 'Seven Core Educational Objectives',
+            href: '#page-mission-vision',
+            icon: 'fas fa-list-check',
+            page: 'mission-vision',
+            sectionId: 'objectives',
+          },
+          {
+            label: 'Four Archangel Houses',
+            href: '#page-mission-vision',
+            icon: 'fas fa-shield-alt',
+            page: 'mission-vision',
+            sectionId: 'houses',
+          },
+        ],
+      },
+      {
+        label: 'Founder’s Profile (Fr. Michael Balawan)',
+        href: '#page-founder',
+        icon: 'fas fa-cross',
+        page: 'founder',
+      },
+      {
+        label: 'Leadership & Administration Messages',
+        href: '#page-leadership',
+        icon: 'fas fa-user-tie',
+        page: 'leadership',
+        subMenu: [
+          {
+            label: 'Secretary & Vice Principal’s Message',
+            href: '#page-leadership',
+            icon: 'fas fa-user-shield',
+            page: 'leadership',
+            sectionId: 'sec-vp-msg',
+          },
+          {
+            label: 'Principal’s Message',
+            href: '#page-leadership',
+            icon: 'fas fa-user-tie',
+            page: 'leadership',
+            sectionId: 'principal-msg',
+          },
+          {
+            label: 'Headmistress – Secondary Section',
+            href: '#page-leadership',
+            icon: 'fas fa-chalkboard-teacher',
+            page: 'leadership',
+            sectionId: 'hm-sec-msg',
+          },
+          {
+            label: 'Headmistress – LP Section',
+            href: '#page-leadership',
+            icon: 'fas fa-child',
+            page: 'leadership',
+            sectionId: 'hm-lp-msg',
+          },
+        ],
+      },
+      {
+        label: 'Student Statistics & School Strength',
+        href: '#page-student-stats',
+        icon: 'fas fa-chart-pie',
+        page: 'student-stats',
+        subMenu: [
+          {
+            label: 'Total Students, Boys & Girls Ratio',
+            href: '#page-student-stats',
+            icon: 'fas fa-users',
+            page: 'student-stats',
+            sectionId: 'enrolment-gender',
+          },
+          {
+            label: 'Classrooms, Sections & Wing Census',
+            href: '#page-student-stats',
+            icon: 'fas fa-door-open',
+            page: 'student-stats',
+            sectionId: 'classrooms-sections',
+          },
+          {
+            label: 'Admissions, Pass-Out & Alumni Stats',
+            href: '#page-student-stats',
+            icon: 'fas fa-user-graduate',
+            page: 'student-stats',
+            sectionId: 'admissions-passout-stats',
+          },
+        ],
+      },
+      {
+        label: 'Teaching & Non-Teaching Staff',
+        href: '#page-staff-directory',
+        icon: 'fas fa-users-cog',
+        page: 'staff-directory',
+        subMenu: [
+          {
+            label: 'Principal, Vice-Principal & Headmistresses',
+            href: '#page-staff-directory',
+            icon: 'fas fa-user-tie',
+            page: 'staff-directory',
+            sectionId: 'leadership-staff',
+          },
+          {
+            label: 'Teaching Staff & Subject Specialization',
+            href: '#page-staff-directory',
+            icon: 'fas fa-chalkboard-teacher',
+            page: 'staff-directory',
+            sectionId: 'teaching-staff',
+          },
+          {
+            label: 'Non-Teaching & Administrative Staff',
+            href: '#page-staff-directory',
+            icon: 'fas fa-id-badge',
+            page: 'staff-directory',
+            sectionId: 'non-teaching-staff',
+          },
+          {
+            label: 'Accountant, Librarian & Lab Assistants',
+            href: '#page-staff-directory',
+            icon: 'fas fa-flask',
+            page: 'staff-directory',
+            sectionId: 'support-lab-staff',
+          },
+        ],
+      },
     ],
   },
   {
     label: 'ADMISSION',
-    href: '#apply-form',
+    href: '#page-admissions-fees',
     icon: 'fas fa-user-plus',
+    page: 'admissions-fees',
     hasDropdown: true,
     subItems: [
-      { label: '2026–27 Admission Enquiry', href: '#apply-form', icon: 'fas fa-file-signature' },
-      { label: 'Frequently Asked Questions', href: '#faq', icon: 'fas fa-question-circle' },
+      {
+        label: 'Admission Details & Procedure',
+        href: '#page-admissions-fees',
+        icon: 'fas fa-file-signature',
+        page: 'admissions-fees',
+        subMenu: [
+          {
+            label: 'Step-by-Step Admission Procedure',
+            href: '#page-admissions-fees',
+            icon: 'fas fa-clipboard-list',
+            page: 'admissions-fees',
+            sectionId: 'admission-procedure',
+          },
+          {
+            label: 'Required Documents & TC Rules',
+            href: '#page-admissions-fees',
+            icon: 'fas fa-folder-open',
+            page: 'admissions-fees',
+            sectionId: 'admission-documents',
+          },
+          {
+            label: 'Class XI Stream Eligibility (Arts/Sci/Comm)',
+            href: '#page-admissions-fees',
+            icon: 'fas fa-graduation-cap',
+            page: 'admissions-fees',
+            sectionId: 'hs-stream-admission',
+          },
+        ],
+      },
+      {
+        label: 'Fee Structure (2026–27)',
+        href: '#page-admissions-fees',
+        icon: 'fas fa-rupee-sign',
+        page: 'admissions-fees',
+        sectionId: 'fee-structure',
+        subMenu: [
+          {
+            label: 'Class-Wise Fee Structure Table (Nursery – XII)',
+            href: '#page-admissions-fees',
+            icon: 'fas fa-table',
+            page: 'admissions-fees',
+            sectionId: 'fee-structure',
+          },
+          {
+            label: 'Interactive Annual & Bus Fee Estimator',
+            href: '#page-admissions-fees',
+            icon: 'fas fa-calculator',
+            page: 'admissions-fees',
+            sectionId: 'fee-calculator',
+          },
+        ],
+      },
+      {
+        label: 'Scholarships & Financial Aid',
+        href: '#page-scholarships',
+        icon: 'fas fa-hand-holding-heart',
+        page: 'scholarships',
+        subMenu: [
+          {
+            label: '₹20,000 SSLC State Merit Endowment',
+            href: '#page-scholarships',
+            icon: 'fas fa-award',
+            page: 'scholarships',
+            sectionId: 'merit-endowment',
+          },
+          {
+            label: 'State, Tribal & Minority Scholarships',
+            href: '#page-scholarships',
+            icon: 'fas fa-university',
+            page: 'scholarships',
+            sectionId: 'government-scholarships',
+          },
+        ],
+      },
     ],
   },
   {
     label: 'ACADEMICS',
-    href: '#academics',
+    href: '#page-academic-syllabus',
     icon: 'fas fa-book-open',
+    page: 'academic-syllabus',
     hasDropdown: true,
     subItems: [
-      { label: 'School Levels (Nursery – XII)', href: '#academics', icon: 'fas fa-layer-group' },
-      { label: 'Higher Secondary Streams', href: '#streams', icon: 'fas fa-microscope' },
-      { label: 'Academic & Fieldwork Spotlight', href: '#research', icon: 'fas fa-compass' },
+      {
+        label: 'Academic Information & Syllabus',
+        href: '#page-academic-syllabus',
+        icon: 'fas fa-layer-group',
+        page: 'academic-syllabus',
+        subMenu: [
+          {
+            label: 'Classes & Subjects Offered (Nursery – XII)',
+            href: '#page-academic-syllabus',
+            icon: 'fas fa-book',
+            page: 'academic-syllabus',
+            sectionId: 'classes-subjects',
+          },
+          {
+            label: 'Academic Session Details',
+            href: '#page-academic-syllabus',
+            icon: 'fas fa-clock',
+            page: 'academic-syllabus',
+            sectionId: 'session-details',
+          },
+          {
+            label: 'Class-Wise & Subject-Wise Syllabus',
+            href: '#page-academic-syllabus',
+            icon: 'fas fa-file-alt',
+            page: 'academic-syllabus',
+            sectionId: 'class-syllabus',
+          },
+        ],
+      },
+      {
+        label: 'Examination Pattern & Schedules',
+        href: '#page-academic-syllabus',
+        icon: 'fas fa-clipboard-check',
+        page: 'academic-syllabus',
+        sectionId: 'exam-pattern',
+        subMenu: [
+          {
+            label: 'Examination Pattern & Assessment Details',
+            href: '#page-academic-syllabus',
+            icon: 'fas fa-tasks',
+            page: 'academic-syllabus',
+            sectionId: 'exam-pattern',
+          },
+          {
+            label: 'Unit Test, Half-Yearly & Annual Schedules',
+            href: '#page-academic-syllabus',
+            icon: 'fas fa-calendar-week',
+            page: 'academic-syllabus',
+            sectionId: 'exam-schedules',
+          },
+          {
+            label: 'Practical Examination Schedules',
+            href: '#page-academic-syllabus',
+            icon: 'fas fa-microscope',
+            page: 'academic-syllabus',
+            sectionId: 'practical-schedules',
+          },
+        ],
+      },
+      {
+        label: 'Academic Calendar & Holiday List',
+        href: '#page-academic-calendar',
+        icon: 'fas fa-calendar-alt',
+        page: 'academic-calendar',
+        subMenu: [
+          {
+            label: 'All 12 Months Calendar (Jan – Dec)',
+            href: '#page-academic-calendar',
+            icon: 'fas fa-th',
+            page: 'academic-calendar',
+            sectionId: 'monthly-calendar-grid',
+          },
+          {
+            label: 'Complete Annual Holiday & Feast List',
+            href: '#page-academic-calendar',
+            icon: 'fas fa-umbrella-beach',
+            page: 'academic-calendar',
+            sectionId: 'holiday-list',
+          },
+          {
+            label: 'Daily Campus Bell Schedule',
+            href: '#page-academic-calendar',
+            icon: 'fas fa-bell',
+            page: 'academic-calendar',
+            sectionId: 'bell-schedule',
+          },
+        ],
+      },
     ],
   },
-  { label: 'CAMPUS LIFE', href: '#campus-life', icon: 'fas fa-futbol', hasDropdown: false },
-  { label: 'HONORS', href: '#toppers', icon: 'fas fa-medal', hasDropdown: false },
-  { label: 'GALLERY', href: '#gallery', icon: 'fas fa-images', hasDropdown: false },
+  {
+    label: 'CAMPUS LIFE',
+    href: '#page-transportation',
+    icon: 'fas fa-futbol',
+    page: 'transportation',
+    hasDropdown: true,
+    subItems: [
+      {
+        label: 'Transportation & NH-6 Bus Routes',
+        href: '#page-transportation',
+        icon: 'fas fa-bus',
+        page: 'transportation',
+        subMenu: [
+          {
+            label: 'NH-6 School Bus Routes (Routes 1 – 4)',
+            href: '#page-transportation',
+            icon: 'fas fa-route',
+            page: 'transportation',
+            sectionId: 'bus-routes-grid',
+          },
+          {
+            label: 'Pickup, Dispersal Timings & Contacts',
+            href: '#page-transportation',
+            icon: 'fas fa-clock',
+            page: 'transportation',
+            sectionId: 'bus-timings-table',
+          },
+          {
+            label: 'Transport Safety & Bus Rules',
+            href: '#page-transportation',
+            icon: 'fas fa-shield-alt',
+            page: 'transportation',
+            sectionId: 'transport-rules',
+          },
+        ],
+      },
+      {
+        label: 'Scholarships & Student Welfare',
+        href: '#page-scholarships',
+        icon: 'fas fa-heartbeat',
+        page: 'scholarships',
+        subMenu: [
+          {
+            label: '₹20,000 SSLC Merit Scholarship Endowment',
+            href: '#page-scholarships',
+            icon: 'fas fa-award',
+            page: 'scholarships',
+            sectionId: 'merit-endowment',
+          },
+          {
+            label: 'Tribal, State & Diocesan Freeships',
+            href: '#page-scholarships',
+            icon: 'fas fa-hand-holding-usd',
+            page: 'scholarships',
+            sectionId: 'government-scholarships',
+          },
+          {
+            label: 'Counseling, Remedial & Infirmary Care',
+            href: '#page-scholarships',
+            icon: 'fas fa-user-md',
+            page: 'scholarships',
+            sectionId: 'student-welfare',
+          },
+        ],
+      },
+      {
+        label: 'Alumni & Community Outreach',
+        href: '#page-alumni',
+        icon: 'fas fa-users',
+        page: 'alumni',
+        subMenu: [
+          {
+            label: 'Michaelian Alumni Network (8,500+)',
+            href: '#page-alumni',
+            icon: 'fas fa-user-graduate',
+            page: 'alumni',
+            sectionId: 'alumni-overview',
+          },
+          {
+            label: 'Distinguished Alumni Voices',
+            href: '#page-alumni',
+            icon: 'fas fa-quote-left',
+            page: 'alumni',
+            sectionId: 'alumni-testimonials',
+          },
+          {
+            label: 'Community & Eco-Social Outreach',
+            href: '#page-alumni',
+            icon: 'fas fa-seedling',
+            page: 'alumni',
+            sectionId: 'community-outreach',
+          },
+        ],
+      },
+      {
+        label: 'School Events & Celebrations',
+        href: '#page-events',
+        icon: 'fas fa-calendar-check',
+        page: 'events',
+        subMenu: [
+          {
+            label: 'Campus Events & Celebrations Archive',
+            href: '#page-events',
+            icon: 'fas fa-star',
+            page: 'events',
+            sectionId: 'events-grid',
+          },
+          {
+            label: 'Seminars, Sports & Social Outreach',
+            href: '#page-events',
+            icon: 'fas fa-running',
+            page: 'events',
+            sectionId: 'events-filter-bar',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: 'HONORS',
+    href: '#page-results-achievements',
+    icon: 'fas fa-medal',
+    page: 'results-achievements',
+    hasDropdown: true,
+    alignRight: true,
+    subItems: [
+      {
+        label: 'Results & Academic Achievements',
+        href: '#page-results-achievements',
+        icon: 'fas fa-trophy',
+        page: 'results-achievements',
+        subMenu: [
+          {
+            label: 'Class 10 (SSLC) & Class 12 (HSSLC) Results',
+            href: '#page-results-achievements',
+            icon: 'fas fa-poll',
+            page: 'results-achievements',
+            sectionId: 'board-results',
+          },
+          {
+            label: 'Overall Pass Percentage & Appeared/Passed',
+            href: '#page-results-achievements',
+            icon: 'fas fa-chart-line',
+            page: 'results-achievements',
+            sectionId: 'pass-percentage',
+          },
+          {
+            label: 'Highest Marks & School Toppers',
+            href: '#page-results-achievements',
+            icon: 'fas fa-crown',
+            page: 'results-achievements',
+            sectionId: 'school-toppers',
+          },
+          {
+            label: 'Scholarship Recipients & Academic Awards',
+            href: '#page-results-achievements',
+            icon: 'fas fa-award',
+            page: 'results-achievements',
+            sectionId: 'scholarship-awards',
+          },
+          {
+            label: 'Sports, Cultural & Olympiad Achievements',
+            href: '#page-results-achievements',
+            icon: 'fas fa-medal',
+            page: 'results-achievements',
+            sectionId: 'sports-cultural-achievements',
+          },
+        ],
+      },
+      {
+        label: 'Notice Board & Announcements (PDF)',
+        href: '#page-notices',
+        icon: 'fas fa-bullhorn',
+        page: 'notices',
+        subMenu: [
+          {
+            label: 'Official Digital Circulars & PDF Downloads',
+            href: '#page-notices',
+            icon: 'fas fa-file-pdf',
+            page: 'notices',
+            sectionId: 'notices-grid',
+          },
+          {
+            label: 'Filter by Examination, Admission & Holiday',
+            href: '#page-notices',
+            icon: 'fas fa-filter',
+            page: 'notices',
+            sectionId: 'notices-filter-bar',
+          },
+        ],
+      },
+      {
+        label: 'Academic Calendar & Holidays',
+        href: '#page-academic-calendar',
+        icon: 'fas fa-calendar-alt',
+        page: 'academic-calendar',
+      },
+    ],
+  },
+  {
+    label: 'GALLERY',
+    href: '#page-gallery',
+    icon: 'fas fa-images',
+    page: 'gallery',
+    hasDropdown: true,
+    alignRight: true,
+    subItems: [
+      {
+        label: 'School Gallery & Media Archive',
+        href: '#page-gallery',
+        icon: 'fas fa-camera-retro',
+        page: 'gallery',
+        subMenu: [
+          {
+            label: 'All Campus & Morning Assembly Photos',
+            href: '#page-gallery',
+            icon: 'fas fa-images',
+            page: 'gallery',
+            sectionId: 'gallery-grid',
+          },
+          {
+            label: 'Category Filter (Toppers, Sports, Culture, Eco)',
+            href: '#page-gallery',
+            icon: 'fas fa-sliders-h',
+            page: 'gallery',
+            sectionId: 'gallery-filter-bar',
+          },
+        ],
+      },
+      {
+        label: 'School Events & Celebrations',
+        href: '#page-events',
+        icon: 'fas fa-calendar-check',
+        page: 'events',
+        subMenu: [
+          {
+            label: 'Campus Events & Celebrations Archive',
+            href: '#page-events',
+            icon: 'fas fa-star',
+            page: 'events',
+            sectionId: 'events-grid',
+          },
+          {
+            label: 'Seminars, Sports & Social Outreach',
+            href: '#page-events',
+            icon: 'fas fa-users',
+            page: 'events',
+            sectionId: 'events-filter-bar',
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 interface NavbarProps {
   onApplyClick: () => void;
   onOpenSearch?: () => void;
+  activePage?: AppPageId;
+  onNavigatePage?: (page: AppPageId, sectionId?: string) => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onApplyClick }) => {
+export const Navbar: React.FC<NavbarProps> = ({
+  onApplyClick,
+  activePage = 'home',
+  onNavigatePage,
+}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expandedMobileGroup, setExpandedMobileGroup] = useState<string | null>(null);
+  const [expandedMobileSubGroup, setExpandedMobileSubGroup] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [loginModalOpen, setLoginModalOpen] = useState(false);
   const [studentId, setStudentId] = useState('');
@@ -75,8 +703,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onApplyClick }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = () => {
+  const handleLinkActivate = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    item: NavLinkItem
+  ) => {
     setMobileMenuOpen(false);
+    if (onNavigatePage && item.page) {
+      e.preventDefault();
+      onNavigatePage(item.page, item.sectionId);
+    }
+  };
+
+  const handleHomeLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    setMobileMenuOpen(false);
+    if (onNavigatePage) {
+      e.preventDefault();
+      onNavigatePage('home');
+    }
   };
 
   const handleStudentLoginSubmit = (e: React.FormEvent) => {
@@ -92,7 +735,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onApplyClick }) => {
       <div className="container">
         <div className="header-content">
           <div className="logo-nav">
-            <a href="#about" className="logo-section" onClick={handleNavClick}>
+            <a href="#about" className="logo-section" onClick={handleHomeLogoClick}>
               <div className="logo-placeholder">
                 <img
                   src={SCHOOL_INFO.logo}
@@ -113,12 +756,29 @@ export const Navbar: React.FC<NavbarProps> = ({ onApplyClick }) => {
               <div className="secondary-nav">
                 <div className="secondary-nav-content">
                   {secondaryLinks.map((item) => (
-                    <a key={item.label} href={item.href} className="sec-nav-link">
-                      <i className={`${item.icon} mr-1.5 text-[11px] text-[#ea580c]`} aria-hidden="true"></i>
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      className={`sec-nav-link ${
+                        item.page && item.page !== 'home' && activePage === item.page
+                          ? 'text-[#ea580c] underline decoration-2 underline-offset-4'
+                          : ''
+                      }`}
+                      onClick={(e) => handleLinkActivate(e, item)}
+                    >
+                      <i
+                        className={`${item.icon} mr-1.5 text-[11px] text-[#ea580c]`}
+                        aria-hidden="true"
+                      ></i>
                       {item.label}
                     </a>
                   ))}
-                  <a href="#why-us" className="umoid-box" title="Umsning Campus • MBOSE Affiliated">
+                  <a
+                    href="#why-us"
+                    onClick={handleHomeLogoClick}
+                    className="umoid-box"
+                    title="Umsning Campus • MBOSE Affiliated"
+                  >
                     <img
                       src={SCHOOL_INFO.logo}
                       alt=""
@@ -137,24 +797,56 @@ export const Navbar: React.FC<NavbarProps> = ({ onApplyClick }) => {
                     <a
                       href={item.href}
                       className="primary-nav-link"
-                      onClick={handleNavClick}
+                      onClick={(e) => handleLinkActivate(e, item)}
                     >
                       {item.label}
-                      {item.hasDropdown && <i className="fas fa-chevron-down" aria-hidden="true"></i>}
+                      {item.hasDropdown && (
+                        <i className="fas fa-chevron-down" aria-hidden="true"></i>
+                      )}
                     </a>
 
                     {item.hasDropdown && (
                       <div className="dropdown-menu">
                         {item.subItems?.map((sub) => (
-                          <a
+                          <div
                             key={sub.label}
-                            href={sub.href}
-                            className="dropdown-item"
-                            onClick={handleNavClick}
+                            className={`dropdown-item-group ${
+                              sub.subMenu && sub.subMenu.length > 0 ? 'has-submenu' : ''
+                            }`}
                           >
-                            <i className={`${sub.icon} mr-2 text-[#1d4ed8]`} aria-hidden="true"></i>
-                            {sub.label}
-                          </a>
+                            <a
+                              href={sub.href}
+                              className="dropdown-item"
+                              onClick={(e) => handleLinkActivate(e, sub)}
+                            >
+                              <span>{sub.label}</span>
+                              {sub.subMenu && sub.subMenu.length > 0 && (
+                                <i
+                                  className="fas fa-chevron-right submenu-arrow"
+                                  aria-hidden="true"
+                                ></i>
+                              )}
+                            </a>
+
+                            {sub.subMenu && sub.subMenu.length > 0 && (
+                              <div
+                                className={`dropdown-submenu ${
+                                  item.alignRight ? 'submenu-open-left' : ''
+                                }`}
+                              >
+                                {sub.subMenu.map((nested) => (
+                                  <a
+                                    key={nested.label}
+                                    href={nested.href}
+                                    className="dropdown-subitem"
+                                    onClick={(e) => handleLinkActivate(e, nested)}
+                                  >
+                                    <span>{nested.label}</span>
+                                  </a>
+                                ))}
+                              </div>
+                            )}
+                          </div>
                         ))}
                       </div>
                     )}
@@ -236,13 +928,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onApplyClick }) => {
                     <a
                       href={item.href}
                       className="mobile-nav-link"
-                      onClick={handleNavClick}
+                      onClick={(e) => handleLinkActivate(e, item)}
                     >
                       <span className="inline-flex items-center gap-2.5">
-                        <i className={`${item.icon} text-[#0c4a8a] w-4 text-center`} aria-hidden="true"></i>
+                        <i
+                          className={`${item.icon} text-[#0c4a8a] w-4 text-center`}
+                          aria-hidden="true"
+                        ></i>
                         {item.label}
                       </span>
-                      {!item.hasDropdown && <i className="fas fa-arrow-right text-xs" aria-hidden="true"></i>}
+                      {!item.hasDropdown && (
+                        <i className="fas fa-arrow-right text-xs" aria-hidden="true"></i>
+                      )}
                     </a>
                     {item.hasDropdown && (
                       <button
@@ -264,17 +961,58 @@ export const Navbar: React.FC<NavbarProps> = ({ onApplyClick }) => {
 
                   {item.hasDropdown && isExpanded && (
                     <div className="mobile-sub-list">
-                      {item.subItems?.map((sub) => (
-                        <a
-                          key={sub.label}
-                          href={sub.href}
-                          className="mobile-sub-item"
-                          onClick={handleNavClick}
-                        >
-                          <i className={`${sub.icon} text-[#d97706] w-4 text-center`} aria-hidden="true"></i>
-                          <span>{sub.label}</span>
-                        </a>
-                      ))}
+                      {item.subItems?.map((sub) => {
+                        const subKey = `${item.label}-${sub.label}`;
+                        const isSubExpanded = expandedMobileSubGroup === subKey;
+                        const hasNested = Boolean(sub.subMenu && sub.subMenu.length > 0);
+
+                        return (
+                          <div key={sub.label} className="mobile-nested-group">
+                            <div className="flex items-center justify-between gap-1">
+                              <a
+                                href={sub.href}
+                                className="mobile-sub-item flex-1"
+                                onClick={(e) => handleLinkActivate(e, sub)}
+                              >
+                                <span>{sub.label}</span>
+                              </a>
+                              {hasNested && (
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    setExpandedMobileSubGroup(isSubExpanded ? null : subKey)
+                                  }
+                                  className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-200 bg-white text-xs text-[#0c4a8a]"
+                                  aria-label={`Toggle ${sub.label} nested options`}
+                                  aria-expanded={isSubExpanded}
+                                >
+                                  <i
+                                    className={`fas fa-chevron-${
+                                      isSubExpanded ? 'up' : 'down'
+                                    } text-[10px]`}
+                                    aria-hidden="true"
+                                  ></i>
+                                </button>
+                              )}
+                            </div>
+
+                            {hasNested && isSubExpanded && (
+                              <div className="ml-4 mb-2 mt-1 border-l-2 border-amber-400 pl-3 space-y-1">
+                                {sub.subMenu?.map((nested) => (
+                                  <a
+                                    key={nested.label}
+                                    href={nested.href}
+                                    className="flex items-center gap-2 py-1.5 text-xs font-semibold text-slate-600 hover:text-[#0c4a8a]"
+                                    onClick={(e) => handleLinkActivate(e, nested)}
+                                  >
+                                    <span>{nested.label}</span>
+                                  </a>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
                     </div>
                   )}
                 </div>
@@ -292,7 +1030,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onApplyClick }) => {
                 <a
                   key={item.label}
                   href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => handleLinkActivate(e, item)}
                 >
                   <i className={`${item.icon} mr-1.5 text-[#0c4a8a]`} aria-hidden="true"></i>
                   {item.label}

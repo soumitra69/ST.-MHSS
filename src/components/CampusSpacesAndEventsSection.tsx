@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { SCHOOL_IMAGES } from '../data/schoolAssets';
 import { SCHOOL_INFO } from '../data/schoolData';
+import type { AppPageId } from './InstitutionalSection';
+
+interface CampusSpacesAndEventsSectionProps {
+  onNavigatePage?: (page: AppPageId) => void;
+}
 
 interface LearningSpaceItem {
   id: string;
@@ -253,7 +258,9 @@ const LATEST_EVENTS: CampusEventItem[] = [
   },
 ];
 
-export const CampusSpacesAndEventsSection: React.FC = () => {
+export const CampusSpacesAndEventsSection: React.FC<CampusSpacesAndEventsSectionProps> = ({
+  onNavigatePage,
+}) => {
   const [spaceFilter, setSpaceFilter] = useState<'All' | LearningSpaceItem['category']>('All');
   const [selectedSpace, setSelectedSpace] = useState<LearningSpaceItem | null>(null);
 
@@ -383,7 +390,7 @@ export const CampusSpacesAndEventsSection: React.FC = () => {
                       className="space-view-more-btn"
                       onClick={() => setSelectedSpace(space)}
                     >
-                      <span>View Facility Details</span>
+                      <span>Read More</span>
                       <i className="fas fa-arrow-right" aria-hidden="true"></i>
                     </button>
                   </div>
@@ -484,13 +491,28 @@ export const CampusSpacesAndEventsSection: React.FC = () => {
                     <button
                       type="button"
                       className="event-read-btn"
-                      onClick={() => setSelectedEvent(ev)}
+                      onClick={() => {
+                        if (onNavigatePage) {
+                          onNavigatePage('events');
+                        } else {
+                          setSelectedEvent(ev);
+                        }
+                      }}
                     >
-                      <span>Read Event Report</span>
+                      <span>Read More</span>
                       <i className="fas fa-arrow-right" aria-hidden="true"></i>
                     </button>
-                    <a href="#gallery" className="event-gallery-link">
-                      <i className="fas fa-images" aria-hidden="true"></i> View Gallery
+                    <a
+                      href="#gallery"
+                      onClick={(e) => {
+                        if (onNavigatePage) {
+                          e.preventDefault();
+                          onNavigatePage('gallery');
+                        }
+                      }}
+                      className="event-gallery-link"
+                    >
+                      <i className="fas fa-images" aria-hidden="true"></i> Read More
                     </a>
                   </div>
                 </div>
@@ -568,9 +590,18 @@ export const CampusSpacesAndEventsSection: React.FC = () => {
                   <h4>2026–27 School Prospectus &amp; Fee Guide</h4>
                   <p>Complete MBOSE stream syllabus, uniform rules, bus routes &amp; scholarship guide.</p>
                 </div>
-                <a href="#hub" className="prospectus-download-btn">
+                <a
+                  href="#academic-calendar"
+                  onClick={(e) => {
+                    if (onNavigatePage) {
+                      e.preventDefault();
+                      onNavigatePage('academic-calendar');
+                    }
+                  }}
+                  className="prospectus-download-btn"
+                >
                   <i className="fas fa-download" aria-hidden="true"></i>
-                  <span>Open Prospectus &amp; Fee Schedule</span>
+                  <span>Read More</span>
                 </a>
               </div>
 

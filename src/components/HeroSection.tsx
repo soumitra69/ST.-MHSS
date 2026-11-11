@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SCHOOL_IMAGES } from '../data/schoolAssets';
 import { NOTICES, Notice } from '../data/schoolData';
+import { AppPageId } from './InstitutionalSection';
 
 const bannerSlides = [
   {
@@ -85,9 +86,14 @@ const CATEGORY_META: Record<Notice['category'], { icon: string; badgeClass: stri
 interface HeroSectionProps {
   formRef: React.RefObject<HTMLDivElement | null>;
   onOpenAdmission?: () => void;
+  onNavigatePage?: (page: AppPageId) => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ formRef, onOpenAdmission }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({
+  formRef,
+  onOpenAdmission,
+  onNavigatePage,
+}) => {
   const [currentBanner, setCurrentBanner] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [activeCategory, setActiveCategory] = useState<'All' | 'Urgent' | 'Admissions' | 'Academic'>('All');
@@ -316,10 +322,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ formRef, onOpenAdmissi
 
           {/* Footer Actions */}
           <div className="hero-nb-footer">
-            <a href="#latest-events" className="hero-nb-action-secondary">
-              <i className="fas fa-calendar-check mr-1.5" aria-hidden="true"></i>
-              Campus Events
-            </a>
+            <button
+              type="button"
+              onClick={() => onNavigatePage?.('notices')}
+              className="hero-nb-action-secondary cursor-pointer"
+            >
+              <i className="fas fa-bullhorn mr-1.5" aria-hidden="true"></i>
+              Read More
+            </button>
             {onOpenAdmission ? (
               <button
                 type="button"
@@ -330,10 +340,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ formRef, onOpenAdmissi
                 Apply 2026–27
               </button>
             ) : (
-              <a href="#academics" className="hero-nb-action-primary btn-shine">
-                <i className="fas fa-user-graduate mr-1.5" aria-hidden="true"></i>
-                Admissions Desk
-              </a>
+              <button
+                type="button"
+                onClick={() => onNavigatePage?.('notices')}
+                className="hero-nb-action-primary btn-shine"
+              >
+                <i className="fas fa-arrow-right mr-1.5" aria-hidden="true"></i>
+                Read More
+              </button>
             )}
           </div>
         </aside>
@@ -401,14 +415,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ formRef, onOpenAdmissi
             </div>
 
             <div className="hero-nb-modal-footer">
-              <a
-                href="#hub"
-                onClick={() => setSelectedNotice(null)}
-                className="hero-nb-action-secondary"
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedNotice(null);
+                  onNavigatePage?.('notices');
+                }}
+                className="hero-nb-action-secondary cursor-pointer"
               >
-                <i className="fas fa-th-large mr-1.5" aria-hidden="true"></i>
-                Open Operations Hub
-              </a>
+                <i className="fas fa-bullhorn mr-1.5" aria-hidden="true"></i>
+                Read More
+              </button>
               <button
                 type="button"
                 onClick={() => window.print()}

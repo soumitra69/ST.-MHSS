@@ -1,12 +1,29 @@
 import React from 'react';
+import { AppPageId } from './InstitutionalSection';
 
-const quickLinks = [
+interface QuickLinksSectionProps {
+  onNavigatePage?: (page: AppPageId) => void;
+}
+
+const quickLinks: {
+  title: string;
+  detail: string;
+  href: string;
+  page?: AppPageId;
+  badge: string;
+  icon: string;
+  cardClass: string;
+  badgeClass: string;
+  detailClass: string;
+  arrowClass: string;
+}[] = [
   {
-    title: 'Admissions 2026–27',
-    detail: 'Nursery to Class XII online enquiry',
-    href: '#apply-form',
-    badge: 'Open Now',
-    icon: 'fas fa-user-graduate',
+    title: 'Who We Are',
+    detail: 'General Information & Estd. 1961 Heritage',
+    href: '#page-who-we-are',
+    page: 'who-we-are',
+    badge: 'Read More',
+    icon: 'fas fa-school',
     cardClass:
       'bg-[#0c4a8a] hover:bg-[#d97706] text-white border-[#0c4a8a] hover:border-[#fde047]',
     badgeClass: 'bg-amber-300 text-slate-950 group-hover:bg-white group-hover:text-[#0c4a8a]',
@@ -14,11 +31,12 @@ const quickLinks = [
     arrowClass: 'bg-white/20 text-white group-hover:bg-white group-hover:text-[#0c4a8a]',
   },
   {
-    title: 'Academic Pathways',
-    detail: 'MBOSE SSLC & XI–XII Streams',
-    href: '#academics',
-    badge: 'MBOSE',
-    icon: 'fas fa-book-open',
+    title: 'Academic Calendar',
+    detail: 'MBOSE 2026–27 Schedule & Routines',
+    href: '#page-academic-calendar',
+    page: 'academic-calendar',
+    badge: 'Read More',
+    icon: 'fas fa-calendar-alt',
     cardClass:
       'bg-[#0c2d57] hover:bg-[#d97706] text-white border-[#0c2d57] hover:border-[#fde047]',
     badgeClass: 'bg-amber-300 text-slate-950 group-hover:bg-white group-hover:text-[#0c2d57]',
@@ -26,11 +44,12 @@ const quickLinks = [
     arrowClass: 'bg-white/20 text-white group-hover:bg-white group-hover:text-[#0c2d57]',
   },
   {
-    title: 'Campus Life & Houses',
-    detail: '4 Archangel Houses, Sports & Choir',
-    href: '#campus-life',
-    badge: '4 Houses',
-    icon: 'fas fa-shield-alt',
+    title: 'Notices & Events',
+    detail: 'Official Circulars & Campus Chronicles',
+    href: '#page-notices',
+    page: 'notices',
+    badge: 'Read More',
+    icon: 'fas fa-bullhorn',
     cardClass:
       'bg-[#0c4a8a] hover:bg-[#d97706] text-white border-[#0c4a8a] hover:border-[#fde047]',
     badgeClass: 'bg-amber-300 text-slate-950 group-hover:bg-white group-hover:text-[#0c4a8a]',
@@ -40,8 +59,9 @@ const quickLinks = [
   {
     title: 'Campus Photo Gallery',
     detail: 'Events, science labs & cultural archive',
-    href: '#gallery',
-    badge: 'Archive',
+    href: '#page-gallery',
+    page: 'gallery',
+    badge: 'Read More',
     icon: 'fas fa-images',
     cardClass:
       'bg-[#0c2d57] hover:bg-[#d97706] text-white border-[#0c2d57] hover:border-[#fde047]',
@@ -51,7 +71,7 @@ const quickLinks = [
   },
 ];
 
-export const QuickLinksSection: React.FC = () => (
+export const QuickLinksSection: React.FC<QuickLinksSectionProps> = ({ onNavigatePage }) => (
   <nav
     id="quick-links"
     aria-label="Quick campus navigation"
@@ -64,12 +84,18 @@ export const QuickLinksSection: React.FC = () => (
     >
       {quickLinks.map(
         (
-          { title, detail, href, badge, icon, cardClass, badgeClass, detailClass, arrowClass },
+          { title, detail, href, page, badge, icon, cardClass, badgeClass, detailClass, arrowClass },
           index
         ) => (
           <li key={title} data-aos="zoom-in" data-aos-delay={70 * (index + 1)}>
             <a
               href={href}
+              onClick={(e) => {
+                if (page && onNavigatePage) {
+                  e.preventDefault();
+                  onNavigatePage(page);
+                }
+              }}
               className={`group flex h-full min-h-20 items-center justify-between gap-3 rounded-xl border p-3.5 sm:p-4 shadow-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-xl ${cardClass}`}
             >
               <span className="min-w-0 flex-1">

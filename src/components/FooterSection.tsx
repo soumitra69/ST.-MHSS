@@ -1,68 +1,164 @@
 import React from 'react';
 import { SCHOOL_INFO } from '../data/schoolData';
+import type { AppPageId } from './InstitutionalSection';
 
 const OFFICIAL_MAP_SHARE_URL = 'https://share.google/xohLhc6GWxPh6H3cc';
 const OFFICIAL_MAP_EMBED_URL =
   "https://maps.google.com/maps?q=St.+Michael's+Higher+Secondary+School+Umsning+Meghalaya+793105&t=&z=15&ie=UTF8&iwloc=&output=embed";
 
-const aboutAndLeadershipLinks = [
-  { label: 'Who We Are (Estd. 1961)', href: '#about' },
-  { label: 'Our Mission', href: '#mission' },
-  { label: 'Our Vision', href: '#vision' },
-  { label: "Founder's Message", href: '#founder-message' },
-  { label: "Secretary & Vice Principal's Message", href: '#secretary-message' },
-  { label: "Principal's Message", href: '#principal-message' },
-  { label: 'Headmistress – Secondary Section', href: '#hm-secondary-message' },
-  { label: 'Headmistress – LP Section', href: '#hm-lp-message' },
+interface FooterLinkItem {
+  label: string;
+  href: string;
+  page?: AppPageId;
+  sectionId?: string;
+}
+
+const aboutAndGovernanceLinks: FooterLinkItem[] = [
+  { label: 'Who We Are & School Profile', href: '#page-who-we-are', page: 'who-we-are' },
+  { label: 'Our Mission, Vision & Objectives', href: '#page-mission-vision', page: 'mission-vision' },
+  { label: "Founder's Profile (Fr. Balawan)", href: '#page-founder', page: 'founder' },
+  { label: 'Leadership & Principal Messages', href: '#page-leadership', page: 'leadership' },
+  { label: 'Teaching & Non-Teaching Staff', href: '#page-staff-directory', page: 'staff-directory' },
+  { label: 'Student Enrolment & Statistics', href: '#page-student-stats', page: 'student-stats' },
+  { label: 'Michaelian Alumni & Community', href: '#page-alumni', page: 'alumni' },
 ];
 
-const academicsAndCampusLinks = [
-  { label: 'Admissions 2026–27 Enquiry', href: '#apply-form' },
-  { label: 'School Stages (Nursery – Class XII)', href: '#academics' },
-  { label: 'Higher Secondary Streams (XI – XII)', href: '#streams' },
-  { label: 'MBOSE State Board Merit Honors', href: '#toppers' },
-  { label: 'Campus Life & 4 Archangel Houses', href: '#campus-life' },
-  { label: '2,000-Student Drill & Choral Media', href: '#media-drill' },
-  { label: 'Campus Photo Gallery', href: '#gallery' },
-  { label: 'Frequently Asked Questions (FAQ)', href: '#faq' },
+const academicsAndAdmissionsLinks: FooterLinkItem[] = [
+  { label: 'Admission Procedure & Eligibility', href: '#page-admissions-fees', page: 'admissions-fees' },
+  {
+    label: 'Fee Structure (2026–27 Session)',
+    href: '#page-admissions-fees',
+    page: 'admissions-fees',
+    sectionId: 'fee-structure',
+  },
+  { label: 'Curriculum, Streams & Syllabus', href: '#page-academic-syllabus', page: 'academic-syllabus' },
+  { label: 'Academic Calendar & Holiday List', href: '#page-academic-calendar', page: 'academic-calendar' },
+  { label: 'MBOSE Results & State Honors', href: '#page-results-achievements', page: 'results-achievements' },
+  { label: 'Scholarships & Student Welfare', href: '#page-scholarships', page: 'scholarships' },
+  { label: 'NH-6 School Bus & Transport', href: '#page-transportation', page: 'transportation' },
 ];
 
 const accreditationHighlights = [
   {
     icon: 'fas fa-landmark',
     label: 'ESTABLISHED',
-    value: '1961 • 65 Years of Legacy',
+    value: '1961 • 65+ Years of Excellence',
   },
   {
     icon: 'fas fa-certificate',
     label: 'BOARD AFFILIATION',
-    value: `MBOSE (${SCHOOL_INFO.schoolCode})`,
+    value: `MBOSE (Code: ${SCHOOL_INFO.schoolCode})`,
   },
   {
     icon: 'fas fa-id-card',
     label: 'UDISE+ REG. CODE',
-    value: '17050200108 • Meghalaya',
+    value: '17050200108 • Ri Bhoi',
   },
   {
-    icon: 'fas fa-church',
-    label: 'MANAGEMENT',
-    value: 'Catholic Mission, Umsning',
+    icon: 'fas fa-graduation-cap',
+    label: 'ACADEMIC WINGS',
+    value: 'Nursery – XII (Arts • Sci • Comm)',
   },
 ];
 
-export const FooterSection: React.FC = () => {
+interface FooterSectionProps {
+  onNavigatePage?: (page: AppPageId, sectionId?: string) => void;
+  onOpenAdmission?: () => void;
+}
+
+export const FooterSection: React.FC<FooterSectionProps> = ({
+  onNavigatePage,
+  onOpenAdmission,
+}) => {
+  const handleFooterLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    item: FooterLinkItem
+  ) => {
+    if (onNavigatePage && item.page) {
+      e.preventDefault();
+      onNavigatePage(item.page, item.sectionId);
+    }
+  };
+
+  const handleLogoHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (onNavigatePage) {
+      e.preventDefault();
+      onNavigatePage('home');
+    }
+  };
+
   return (
     <footer id="footer" className="school-footer scroll-mt-20">
-      {/* Top Executive Institutional Ribbon */}
-      <div className="school-footer-ribbon">
+      {/* Tier 1: Top Executive Institutional Credentials & Admissions Action Bar */}
+      <div className="school-footer-top-cta">
         <div className="container">
+          <div className="school-footer-cta-bar">
+            <div className="school-footer-cta-copy">
+              <span className="school-footer-cta-kicker">
+                <i className="fas fa-shield-alt mr-1.5 text-amber-300" aria-hidden="true"></i>
+                Catholic Mission of Umsning • Archdiocese of Shillong
+              </span>
+              <h2 className="school-footer-cta-heading">
+                Admissions &amp; Academic Enquiries Open for Session 2026–27
+              </h2>
+              <p className="school-footer-cta-sub">
+                Co-educational English-medium schooling from Nursery to Class XII (Arts, Science
+                &amp; Commerce) with disciplined pastoral care.
+              </p>
+            </div>
+
+            <div className="school-footer-cta-actions">
+              {onOpenAdmission ? (
+                <button
+                  type="button"
+                  onClick={onOpenAdmission}
+                  className="school-footer-btn-primary btn-shine"
+                >
+                  <i className="fas fa-paper-plane" aria-hidden="true"></i>
+                  <span>Apply for Admission</span>
+                </button>
+              ) : (
+                <a
+                  href="#page-admissions-fees"
+                  onClick={(e) =>
+                    handleFooterLinkClick(e, {
+                      label: 'Admissions',
+                      href: '#page-admissions-fees',
+                      page: 'admissions-fees',
+                    })
+                  }
+                  className="school-footer-btn-primary btn-shine"
+                >
+                  <i className="fas fa-paper-plane" aria-hidden="true"></i>
+                  <span>Apply for Admission</span>
+                </a>
+              )}
+
+              <a
+                href="#page-notices"
+                onClick={(e) =>
+                  handleFooterLinkClick(e, {
+                    label: 'Official Notices',
+                    href: '#page-notices',
+                    page: 'notices',
+                  })
+                }
+                className="school-footer-btn-secondary"
+              >
+                <i className="fas fa-bullhorn text-amber-300" aria-hidden="true"></i>
+                <span>Official Notices</span>
+              </a>
+            </div>
+          </div>
+
+          {/* 4-Pillar Institutional Credentials Strip */}
           <div className="school-footer-ribbon-grid">
             {accreditationHighlights.map((item) => (
               <div key={item.label} className="school-footer-ribbon-item">
                 <span className="school-footer-ribbon-icon">
                   <i className={item.icon} aria-hidden="true"></i>
                 </span>
-                <div>
+                <div className="min-w-0">
                   <span className="school-footer-ribbon-label">{item.label}</span>
                   <strong className="school-footer-ribbon-value">{item.value}</strong>
                 </div>
@@ -72,14 +168,18 @@ export const FooterSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Main 4-Column Executive School Footer */}
+      {/* Tier 2: Main 4-Column Executive School Footer */}
       <div className="school-footer-main">
         <div className="container">
           <div className="school-footer-grid">
-            {/* Column 1: School Crest, Identity, Motto & Quick Connect */}
+            {/* Column 1: School Crest, Heritage, Motto & Direct Connect */}
             <div className="school-footer-col school-footer-brand-col">
               <div>
-                <a href="#about" className="school-footer-brand-link group">
+                <a
+                  href="#home"
+                  onClick={handleLogoHomeClick}
+                  className="school-footer-brand-link group"
+                >
                   <div className="school-footer-crest-wrap">
                     <img
                       src={SCHOOL_INFO.logo}
@@ -93,27 +193,27 @@ export const FooterSection: React.FC = () => {
                   </div>
                   <div>
                     <span className="school-footer-eyebrow">
-                      Catholic Mission of Umsning • Estd. {SCHOOL_INFO.established}
+                      Estd. {SCHOOL_INFO.established} • Ri Bhoi, Meghalaya
                     </span>
-                    <h2 className="school-footer-title">
+                    <h3 className="school-footer-title">
                       ST. MICHAEL&apos;S HIGHER
                       <br />
                       SECONDARY SCHOOL
-                    </h2>
+                    </h3>
                     <p className="school-footer-subtitle">
-                      Umsning, Ri Bhoi District, Meghalaya – 793105
+                      Umsning, Meghalaya – 793105
                     </p>
                   </div>
                 </a>
 
                 <p className="school-footer-desc">
                   Founded in 1961 by{' '}
-                  <strong className="text-white">Rev. Fr. Michel Balawan, SDB</strong> under the
-                  Archdiocese of Shillong. Dedicated to the overall intellectual, moral, spiritual,
-                  and cultural formation of every learner from Nursery to Class XII.
+                  <strong className="text-white">Rev. Fr. Michael Balawan, SDB</strong> under the
+                  Catholic Mission of Umsning, Archdiocese of Shillong. Committed to academic
+                  excellence, moral integrity, and the overall development of every child.
                 </p>
 
-                {/* Motto & Official Codes */}
+                {/* Motto & Official Codes Box */}
                 <div className="school-footer-motto-box">
                   <div className="school-footer-motto-line">
                     <i className="fas fa-award text-amber-300" aria-hidden="true"></i>
@@ -124,20 +224,26 @@ export const FooterSection: React.FC = () => {
                   </div>
                   <div className="school-footer-code-badges">
                     <span>
-                      <i className="fas fa-check-circle mr-1 text-amber-300" aria-hidden="true"></i>
-                      MBOSE Code: {SCHOOL_INFO.schoolCode}
+                      <i
+                        className="fas fa-check-circle mr-1.5 text-amber-300"
+                        aria-hidden="true"
+                      ></i>
+                      MBOSE: {SCHOOL_INFO.schoolCode}
                     </span>
                     <span>
-                      <i className="fas fa-shield-alt mr-1 text-amber-300" aria-hidden="true"></i>
+                      <i
+                        className="fas fa-university mr-1.5 text-amber-300"
+                        aria-hidden="true"
+                      ></i>
                       UDISE+: 17050200108
                     </span>
                   </div>
                 </div>
               </div>
 
-              {/* Direct Action Channels */}
+              {/* Direct Secretariat Action Icons */}
               <div className="school-footer-social-block">
-                <p className="school-footer-social-label">Direct Secretariat Channels</p>
+                <p className="school-footer-social-label">Direct Secretariat Desk</p>
                 <div className="school-footer-social-row">
                   <a
                     href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`}
@@ -179,40 +285,109 @@ export const FooterSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Column 2: About & Leadership */}
-            <div className="school-footer-col">
-              <h3 className="school-footer-heading">About &amp; Leadership</h3>
-              <ul className="school-footer-list">
-                {aboutAndLeadershipLinks.map((item) => (
-                  <li key={item.label}>
-                    <a href={item.href} className="school-footer-link">
-                      <i className="fas fa-angle-right" aria-hidden="true"></i>
-                      <span>{item.label}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
+            {/* Column 2: About & Administration */}
+            <div className="school-footer-col school-footer-links-col">
+              <div>
+                <h3 className="school-footer-heading">About &amp; Governance</h3>
+                <ul className="school-footer-list">
+                  {aboutAndGovernanceLinks.map((item) => (
+                    <li key={item.label}>
+                      <a
+                        href={item.href}
+                        onClick={(e) => handleFooterLinkClick(e, item)}
+                        className="school-footer-link"
+                      >
+                        <i className="fas fa-chevron-right" aria-hidden="true"></i>
+                        <span>{item.label}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="school-footer-col-card">
+                <div className="school-footer-col-card-title">
+                  <i className="fas fa-clock text-amber-300" aria-hidden="true"></i>
+                  <span>Secretariat &amp; Fee Counter</span>
+                </div>
+                <p>Mon – Fri: 8:30 AM – 2:30 PM</p>
+                <small>Closed on Saturdays, Sundays &amp; Public Holidays</small>
+              </div>
             </div>
 
-            {/* Column 3: Academics & Quick Links */}
-            <div className="school-footer-col">
-              <h3 className="school-footer-heading">Academics &amp; Campus</h3>
-              <ul className="school-footer-list">
-                {academicsAndCampusLinks.map((item) => (
-                  <li key={item.label}>
-                    <a href={item.href} className="school-footer-link">
-                      <i className="fas fa-angle-right" aria-hidden="true"></i>
-                      <span>{item.label}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
+            {/* Column 3: Academics, Admissions & Campus */}
+            <div className="school-footer-col school-footer-links-col">
+              <div>
+                <h3 className="school-footer-heading">Academics &amp; Services</h3>
+                <ul className="school-footer-list">
+                  {academicsAndAdmissionsLinks.map((item) => (
+                    <li key={item.label}>
+                      <a
+                        href={item.href}
+                        onClick={(e) => handleFooterLinkClick(e, item)}
+                        className="school-footer-link"
+                      >
+                        <i className="fas fa-chevron-right" aria-hidden="true"></i>
+                        <span>{item.label}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="school-footer-col-card">
+                <div className="school-footer-col-card-title">
+                  <i className="fas fa-layer-group text-amber-300" aria-hidden="true"></i>
+                  <span>Quick Campus Portals</span>
+                </div>
+                <div className="school-footer-portal-pills">
+                  <a
+                    href="#page-notices"
+                    onClick={(e) =>
+                      handleFooterLinkClick(e, {
+                        label: 'Notices',
+                        href: '#page-notices',
+                        page: 'notices',
+                      })
+                    }
+                  >
+                    <i className="fas fa-bullhorn" aria-hidden="true"></i>
+                    Notices
+                  </a>
+                  <a
+                    href="#page-events"
+                    onClick={(e) =>
+                      handleFooterLinkClick(e, {
+                        label: 'Events',
+                        href: '#page-events',
+                        page: 'events',
+                      })
+                    }
+                  >
+                    <i className="fas fa-calendar-check" aria-hidden="true"></i>
+                    Events
+                  </a>
+                  <a
+                    href="#page-gallery"
+                    onClick={(e) =>
+                      handleFooterLinkClick(e, {
+                        label: 'Gallery',
+                        href: '#page-gallery',
+                        page: 'gallery',
+                      })
+                    }
+                  >
+                    <i className="fas fa-images" aria-hidden="true"></i>
+                    Gallery
+                  </a>
+                </div>
+              </div>
             </div>
 
-            {/* Column 4: Contact Info, Timings & Campus Map */}
+            {/* Column 4: Official Contact, Bell Schedule & Live Google Map */}
             <div className="school-footer-col school-footer-contact-col">
               <div>
-                <h3 className="school-footer-heading">Contact &amp; School Hours</h3>
+                <h3 className="school-footer-heading">Contact &amp; Campus Map</h3>
 
                 <ul className="school-footer-contact-list">
                   <li>
@@ -220,7 +395,7 @@ export const FooterSection: React.FC = () => {
                       <i className="fas fa-map-marker-alt" aria-hidden="true"></i>
                     </span>
                     <div>
-                      <strong>Campus Address:</strong>
+                      <strong>Campus Address</strong>
                       <span>Umsning, Ri Bhoi District, Meghalaya – 793105 (NH-6 Corridor)</span>
                     </div>
                   </li>
@@ -230,7 +405,7 @@ export const FooterSection: React.FC = () => {
                       <i className="fas fa-phone-alt" aria-hidden="true"></i>
                     </span>
                     <div>
-                      <strong>Phone &amp; Helpline:</strong>
+                      <strong>Secretariat Helpline</strong>
                       <span>
                         <a href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`}>
                           {SCHOOL_INFO.phoneMobile}
@@ -248,7 +423,7 @@ export const FooterSection: React.FC = () => {
                       <i className="fas fa-envelope" aria-hidden="true"></i>
                     </span>
                     <div>
-                      <strong>Official Email:</strong>
+                      <strong>Official Email</strong>
                       <span>
                         <a href={`mailto:${SCHOOL_INFO.email}`}>{SCHOOL_INFO.email}</a>
                       </span>
@@ -257,21 +432,19 @@ export const FooterSection: React.FC = () => {
 
                   <li>
                     <span className="school-footer-contact-icon">
-                      <i className="fas fa-clock" aria-hidden="true"></i>
+                      <i className="fas fa-bell" aria-hidden="true"></i>
                     </span>
                     <div>
-                      <strong>School Timings (Mon – Fri):</strong>
+                      <strong>School Bell Timings (Mon – Fri)</strong>
                       <span>
-                        Sec &amp; Hr. Sec: 8:45 AM – 3:00 PM
-                        <br />
-                        Primary Section: 8:45 AM – 2:00 PM
+                        Sec &amp; Hr. Sec: 8:45 AM – 3:00 PM • LP: 8:45 AM – 2:00 PM
                       </span>
                     </div>
                   </li>
                 </ul>
               </div>
 
-              {/* Compact Embedded Campus Map */}
+              {/* Embedded Campus Location Map */}
               <div className="school-footer-map-wrap">
                 <div className="school-footer-map-box">
                   <iframe
@@ -298,7 +471,7 @@ export const FooterSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Bottom Copyright & Attribution Bar */}
+      {/* Tier 3: Executive Sub-Footer Copyright, Quick Links & Attribution */}
       <div className="school-footer-bottom">
         <div className="container">
           <div className="school-footer-bottom-inner">
@@ -306,10 +479,52 @@ export const FooterSection: React.FC = () => {
               &copy; {new Date().getFullYear()} St. Michael&apos;s Higher Secondary School, Umsning.
               All Rights Reserved.
             </p>
+
+            <div className="school-footer-bottom-links">
+              <a
+                href="#page-who-we-are"
+                onClick={(e) =>
+                  handleFooterLinkClick(e, {
+                    label: 'About',
+                    href: '#page-who-we-are',
+                    page: 'who-we-are',
+                  })
+                }
+              >
+                School Profile
+              </a>
+              <span aria-hidden="true">•</span>
+              <a
+                href="#page-admissions-fees"
+                onClick={(e) =>
+                  handleFooterLinkClick(e, {
+                    label: 'Admissions',
+                    href: '#page-admissions-fees',
+                    page: 'admissions-fees',
+                  })
+                }
+              >
+                Admissions &amp; Fees
+              </a>
+              <span aria-hidden="true">•</span>
+              <a
+                href="#page-academic-calendar"
+                onClick={(e) =>
+                  handleFooterLinkClick(e, {
+                    label: 'Academic Calendar',
+                    href: '#page-academic-calendar',
+                    page: 'academic-calendar',
+                  })
+                }
+              >
+                Academic Calendar
+              </a>
+            </div>
+
             <div className="school-footer-credit-pill">
-              <i className="fas fa-shield-alt text-amber-400" aria-hidden="true"></i>
+              <i className="fas fa-code text-amber-400" aria-hidden="true"></i>
               <span>
-                Designed And Developed By <strong>Marak Technologies Pvt. Ltd.</strong>
+                Designed &amp; Developed By <strong>Marak Technologies Pvt. Ltd.</strong>
               </span>
             </div>
           </div>

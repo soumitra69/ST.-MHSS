@@ -1,6 +1,11 @@
 import React from 'react';
 import { SCHOOL_INFO } from '../data/schoolData';
 import { SCHOOL_IMAGES } from '../data/schoolAssets';
+import { AppPageId } from './InstitutionalSection';
+
+interface WhyUsSectionProps {
+  onNavigatePage?: (page: AppPageId) => void;
+}
 
 const schoolFacts = [
   {
@@ -25,7 +30,7 @@ const schoolFacts = [
   },
 ];
 
-export const WhyUsSection: React.FC = () => (
+export const WhyUsSection: React.FC<WhyUsSectionProps> = ({ onNavigatePage }) => (
   <section
     id="why-us"
     className="w-full bg-[#f4f7fb] py-12 md:py-16 scroll-mt-20 border-t border-slate-200"
@@ -112,14 +117,14 @@ export const WhyUsSection: React.FC = () => (
               <i className="fas fa-location-arrow text-[#d97706]" aria-hidden="true"></i>
               <span>{SCHOOL_INFO.address}</span>
             </div>
-            <a
-              href={`tel:${SCHOOL_INFO.phoneMobile.replace(/\s/g, '')}`}
-              className="inline-flex min-h-10 items-center gap-2 rounded-xl bg-[#0c4a8a] px-4 py-2 text-xs font-bold text-white shadow-sm transition-transform hover:scale-[1.02]"
+            <button
+              type="button"
+              onClick={() => onNavigatePage?.('who-we-are')}
+              className="inline-flex min-h-10 items-center gap-2 rounded-xl bg-[#0c4a8a] px-4 py-2 text-xs font-bold text-white shadow-sm transition-transform hover:scale-[1.02] hover:bg-[#d97706] cursor-pointer"
             >
-              <i className="fas fa-phone-alt text-amber-300" aria-hidden="true"></i>
-              <span>Call Office ({SCHOOL_INFO.phoneMobile})</span>
+              <span>Read More</span>
               <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
-            </a>
+            </button>
           </div>
         </div>
       </article>

@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SCHOOL_IMAGES } from '../data/schoolAssets';
+import type { AppPageId } from './InstitutionalSection';
+
+interface StudentWorkSectionProps {
+  onNavigatePage?: (page: AppPageId) => void;
+}
 
 type GalleryCategory = 'all' | 'merit' | 'fieldwork' | 'sports' | 'culture';
 
@@ -186,7 +191,7 @@ const FILTER_TABS: { id: GalleryCategory; label: string; iconClass: string }[] =
 
 const INITIAL_VISIBLE_COUNT = 6; // 2 rows of 3 cards
 
-export const StudentWorkSection: React.FC = () => {
+export const StudentWorkSection: React.FC<StudentWorkSectionProps> = ({ onNavigatePage }) => {
   const [activeCategory, setActiveCategory] = useState<GalleryCategory>('all');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [showAll, setShowAll] = useState<boolean>(false);
@@ -307,7 +312,7 @@ export const StudentWorkSection: React.FC = () => {
                     }}
                     aria-label={`Enlarge ${item.title}`}
                   >
-                    <i className="fas fa-expand" aria-hidden="true"></i> Inspect Photo
+                    <i className="fas fa-expand" aria-hidden="true"></i> Read More
                   </button>
                 </div>
 
@@ -322,22 +327,38 @@ export const StudentWorkSection: React.FC = () => {
                   </div>
                   <h3 className="work-card-title">{item.title}</h3>
                   <p className="work-card-caption">{item.caption}</p>
+                  <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (onNavigatePage) {
+                          onNavigatePage('gallery');
+                        } else {
+                          setLightboxIndex(idx);
+                        }
+                      }}
+                      className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-[#0c4a8a] hover:text-[#ea580c] transition-colors cursor-pointer"
+                    >
+                      <span>Read More</span>
+                      <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
+                    </button>
+                  </div>
                 </div>
               </motion.article>
             ))}
           </AnimatePresence>
         </motion.div>
 
-        {/* Show More / Show Less Button when there are more than 2 rows (6 items) */}
-        {filteredItems.length > INITIAL_VISIBLE_COUNT && (
-          <div className="mt-8 flex justify-center">
+        {/* Read More / View Full Gallery Page Button */}
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          {filteredItems.length > INITIAL_VISIBLE_COUNT && (
             <button
               type="button"
               onClick={() => setShowAll((prev) => !prev)}
-              className="inline-flex min-h-11 items-center gap-2.5 rounded-xl bg-[#0c4a8a] px-6 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white shadow-lg transition-all hover:bg-[#0c2d57] hover:-translate-y-0.5 cursor-pointer"
+              className="inline-flex min-h-11 items-center gap-2.5 rounded-xl border border-[#0c4a8a] bg-white px-6 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#0c4a8a] shadow-sm transition-all hover:bg-blue-50 cursor-pointer"
             >
               <i
-                className={`fas ${showAll ? 'fa-chevron-up' : 'fa-images'} text-amber-300`}
+                className={`fas ${showAll ? 'fa-chevron-up' : 'fa-images'} text-[#d97706]`}
                 aria-hidden="true"
               ></i>
               <span>
@@ -346,8 +367,17 @@ export const StudentWorkSection: React.FC = () => {
                   : `Show More Photos (+${filteredItems.length - INITIAL_VISIBLE_COUNT} More)`}
               </span>
             </button>
-          </div>
-        )}
+          )}
+          <button
+            type="button"
+            onClick={() => onNavigatePage?.('gallery')}
+            className="inline-flex min-h-11 items-center gap-2.5 rounded-xl bg-[#0c4a8a] px-6 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white shadow-lg transition-all hover:bg-[#0c2d57] hover:-translate-y-0.5 cursor-pointer"
+          >
+            <i className="fas fa-images text-amber-300" aria-hidden="true"></i>
+            <span>Read More</span>
+            <i className="fas fa-arrow-right text-xs" aria-hidden="true"></i>
+          </button>
+        </div>
       </div>
 
       {/* Fullscreen Lightbox with Next / Previous Navigation */}

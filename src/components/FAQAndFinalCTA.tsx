@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { SCHOOL_INFO } from '../data/schoolData';
+import type { AppPageId } from './InstitutionalSection';
 
 interface FAQAndFinalCTAProps {
   onOpenAdmission: () => void;
   onNavigate: (sectionId: string) => void;
+  onNavigatePage?: (page: AppPageId) => void;
 }
 
 const frequentlyAskedQuestions = [
@@ -45,6 +47,7 @@ const FAQ_BORDERS = [
 export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
   onOpenAdmission,
   onNavigate,
+  onNavigatePage,
 }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -154,11 +157,17 @@ export const FAQAndFinalCTA: React.FC<FAQAndFinalCTAProps> = ({
               </button>
               <button
                 type="button"
-                onClick={() => onNavigate('footer')}
+                onClick={() => {
+                  if (onNavigatePage) {
+                    onNavigatePage('who-we-are');
+                  } else {
+                    onNavigate('footer');
+                  }
+                }}
                 className="inline-flex items-center gap-2 rounded-xl border border-white/40 bg-white/10 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-white/20 cursor-pointer"
               >
-                <i className="fas fa-map-marker-alt text-amber-300" aria-hidden="true"></i>
-                Location &amp; Contact
+                <i className="fas fa-arrow-right text-amber-300" aria-hidden="true"></i>
+                Read More
               </button>
             </div>
           </div>

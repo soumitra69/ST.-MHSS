@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import { resolveSchoolAsset } from '../data/schoolAssets';
+import { AppPageId } from './InstitutionalSection';
 
-export const TopperFelicitation: React.FC = () => {
+interface TopperFelicitationProps {
+  onNavigatePage?: (page: AppPageId) => void;
+}
+
+export const TopperFelicitation: React.FC<TopperFelicitationProps> = ({ onNavigatePage }) => {
   const [selectedPhoto, setSelectedPhoto] = useState<number>(0);
 
   const felicitationPhotos = [
@@ -236,6 +241,17 @@ export const TopperFelicitation: React.FC = () => {
                   <span>Personal mentorship by Senior Subject Lecturers</span>
                 </li>
               </ul>
+
+              <div className="mt-4 pt-3 border-t border-slate-200 flex justify-end">
+                <button
+                  type="button"
+                  onClick={() => onNavigatePage?.('notices')}
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#0c4a8a] px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-[#d97706] cursor-pointer"
+                >
+                  <span>Read More</span>
+                  <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
+                </button>
+              </div>
             </div>
 
             <div className="p-6 bg-[#0c2d57] text-white rounded-2xl border border-slate-700 shadow-lg">

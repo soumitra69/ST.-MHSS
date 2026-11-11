@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { SCHOOL_IMAGES } from '../data/schoolAssets';
+import { AppPageId } from './InstitutionalSection';
+
+interface ExcellenceSectionProps {
+  onNavigatePage?: (page: AppPageId) => void;
+}
 
 const excellenceQuotes = [
   "During the State SSLC Toppers Felicitation, Hon'ble Chief Minister Conrad K. Sangma and Education Minister Lahkmen Rymbui honored St. Michael's student for securing rank in the Meghalaya State Top 20 Order of Merit.",
@@ -46,7 +51,7 @@ const excellenceBannerSlides = [
   },
 ];
 
-export const ExcellenceSection: React.FC = () => {
+export const ExcellenceSection: React.FC<ExcellenceSectionProps> = ({ onNavigatePage }) => {
   const [quoteIndex, setQuoteIndex] = useState(0);
   const [bannerIndex, setBannerIndex] = useState(0);
   const [isBannerPaused, setIsBannerPaused] = useState(false);
@@ -126,6 +131,16 @@ export const ExcellenceSection: React.FC = () => {
                 <p key={quoteIndex} className="quote-fade">
                   {excellenceQuotes[quoteIndex]}
                 </p>
+                <div className="mt-4">
+                  <button
+                    type="button"
+                    onClick={() => onNavigatePage?.('who-we-are')}
+                    className="inline-flex items-center gap-2 rounded-xl bg-[#0c4a8a] px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-[#d97706] cursor-pointer"
+                  >
+                    <span>Read More</span>
+                    <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
+                  </button>
+                </div>
               </div>
             </div>
           </div>

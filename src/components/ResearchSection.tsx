@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import { resolveSchoolAsset } from '../data/schoolAssets';
+import type { AppPageId } from './InstitutionalSection';
+
+interface ResearchSectionProps {
+  onNavigatePage?: (page: AppPageId) => void;
+}
 
 const researchCategories = [
   {
@@ -60,7 +65,7 @@ const metrics = [
   { value: '₹20,000', label: 'Scholarship Award Endowment', icon: 'fas fa-coins' },
 ];
 
-export const ResearchSection: React.FC = () => {
+export const ResearchSection: React.FC<ResearchSectionProps> = ({ onNavigatePage }) => {
   const [activeCategory, setActiveCategory] = useState(0);
   const [galleryPage, setGalleryPage] = useState(0);
 
@@ -166,8 +171,17 @@ export const ResearchSection: React.FC = () => {
                     <i className="fas fa-arrow-right" aria-hidden="true"></i>
                   </button>
                 </div>
-                <a href="#hub" className="resource-link">
-                  View Student Hub Resources{' '}
+                <a
+                  href="#academic-calendar"
+                  onClick={(e) => {
+                    if (onNavigatePage) {
+                      e.preventDefault();
+                      onNavigatePage('academic-calendar');
+                    }
+                  }}
+                  className="resource-link"
+                >
+                  Read More{' '}
                   <span>
                     <i className="fas fa-chevron-right text-xs" aria-hidden="true"></i>
                   </span>
