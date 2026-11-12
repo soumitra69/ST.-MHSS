@@ -40,6 +40,7 @@ import {
   ScholarshipsWelfarePage,
   AlumniCommunityPage,
 } from './components/CampusServicesPages';
+import { ContactPage } from './components/ContactPage';
 
 const PAGE_HASH_MAP: Record<string, AppPageId> = {
   '#page-who-we-are': 'who-we-are',
@@ -58,6 +59,7 @@ const PAGE_HASH_MAP: Record<string, AppPageId> = {
   '#page-transportation': 'transportation',
   '#page-scholarships': 'scholarships',
   '#page-alumni': 'alumni',
+  '#page-contact': 'contact',
   '#home': 'home',
 };
 
@@ -340,6 +342,12 @@ export default function App() {
         <AlumniCommunityPage
           onBack={() => handleNavigatePage('home')}
           onNavigatePage={handleNavigatePage}
+        />
+      ) : activePage === 'contact' ? (
+        <ContactPage
+          onBack={() => handleNavigatePage('home')}
+          onNavigatePage={handleNavigatePage}
+          onOpenAdmission={() => setAdmissionModalOpen(true)}
         />
       ) : (
         <main>

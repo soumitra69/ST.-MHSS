@@ -20,6 +20,7 @@ const aboutAndGovernanceLinks: FooterLinkItem[] = [
   { label: 'Leadership & Principal Messages', href: '#page-leadership', page: 'leadership' },
   { label: 'Teaching & Non-Teaching Staff', href: '#page-staff-directory', page: 'staff-directory' },
   { label: 'Student Enrolment & Statistics', href: '#page-student-stats', page: 'student-stats' },
+  { label: 'Contact Us & Campus Visit', href: '#page-contact', page: 'contact' },
   { label: 'Michaelian Alumni & Community', href: '#page-alumni', page: 'alumni' },
 ];
 

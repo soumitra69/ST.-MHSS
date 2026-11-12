@@ -20,7 +20,8 @@ export type AppPageId =
   | 'admissions-fees'
   | 'transportation'
   | 'scholarships'
-  | 'alumni';
+  | 'alumni'
+  | 'contact';
 
 interface InstitutionalSectionProps {
   onOpenFounderPage?: () => void;
