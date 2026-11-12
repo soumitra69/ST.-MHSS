@@ -815,132 +815,175 @@ export const InstitutionalSection: React.FC<InstitutionalSectionProps> = ({
             {/* 3. Headmistress – Secondary Section */}
             <article
               id="hm-secondary-message"
-              className="scroll-mt-28 relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 sm:p-7"
+              className="scroll-mt-28 relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md transition-all duration-300 hover:-translate-y-1"
               data-aos="fade-right"
               data-aos-duration="750"
             >
-              <div className="absolute inset-x-0 top-0 h-1.5 bg-[#0c4a8a]" />
-              <div>
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-[#0c4a8a] border border-blue-200">
-                    <i className="fas fa-graduation-cap mr-1.5 text-[#d97706]" aria-hidden="true"></i>
-                    Secondary Wing • Classes VI to X (MBOSE SSLC)
-                  </span>
-                  <span className="rounded-full bg-[#0c4a8a] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white">
-                    Secondary Section
-                  </span>
+              <div className="absolute inset-x-0 top-0 h-1.5 bg-[#0c4a8a] z-10" />
+
+              <div className="grid grid-cols-1 sm:grid-cols-12 h-full">
+                {/* Left side pic for first box */}
+                <div className="sm:col-span-5 relative min-h-[220px] sm:min-h-full bg-slate-900 overflow-hidden">
+                  <img
+                    src={SCHOOL_IMAGES.headmistressSecondary}
+                    alt="Rev. Sister Headmistress – Secondary Section in her office desk at St. Michael's Umsning"
+                    className="h-full w-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent sm:bg-gradient-to-r sm:from-transparent sm:to-black/30" />
+                  <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-slate-950/85 border border-blue-400/40 px-2.5 py-1 text-[11px] font-bold text-white backdrop-blur-xs">
+                    <i className="fas fa-user-tie mr-1.5 text-amber-300" aria-hidden="true"></i>
+                    Headmistress (Secondary)
+                  </div>
                 </div>
 
-                <h3 className="vision-serif-heading mt-3 text-xl sm:text-2xl text-[#0c4a8a]">
-                  <span className="vision-double-angle" aria-hidden="true">
-                    &raquo;
-                  </span>{' '}
-                  Headmistress – Secondary Section
-                </h3>
+                {/* Right side content for first box */}
+                <div className="sm:col-span-7 flex flex-col justify-between p-5 sm:p-6">
+                  <div>
+                    <div className="flex flex-wrap items-center justify-between gap-1.5">
+                      <span className="inline-flex items-center rounded-full bg-blue-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#0c4a8a] border border-blue-200">
+                        <i className="fas fa-graduation-cap mr-1 text-[#d97706]" aria-hidden="true"></i>
+                        Classes VI to X (MBOSE)
+                      </span>
+                      <span className="rounded-full bg-[#0c4a8a] px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-white">
+                        Secondary
+                      </span>
+                    </div>
 
-                <p className="mt-3 text-xs sm:text-sm font-medium leading-6 text-slate-700">
-                  The Secondary years are a defining bridge where young learners build analytical
-                  depth, moral character, and readiness for the MBOSE SSLC Board Examinations.
-                  Through structured Continuous and Comprehensive Evaluation (CCE), science and
-                  computer practicals, and personal mentorship, we guide every student to achieve
-                  academic distinction and personal integrity.
-                </p>
+                    <h3 className="vision-serif-heading mt-2.5 text-lg sm:text-xl text-[#0c4a8a]">
+                      <span className="vision-double-angle" aria-hidden="true">
+                        &raquo;
+                      </span>{' '}
+                      Headmistress – Secondary Section
+                    </h3>
 
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <span className="rounded-lg bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-[#0c4a8a]">
-                    <i className="fas fa-check-circle mr-1 text-[#d97706]" aria-hidden="true"></i>
-                    MBOSE SSLC Board Preparation
-                  </span>
-                  <span className="rounded-lg bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-[#0c4a8a]">
-                    <i className="fas fa-check-circle mr-1 text-[#d97706]" aria-hidden="true"></i>
-                    Laboratory &amp; Remedial Mentorship
-                  </span>
+                    <p className="mt-2 text-xs font-medium leading-relaxed text-slate-700">
+                      The Secondary years are a defining bridge where young learners build analytical
+                      depth, moral character, and readiness for the MBOSE SSLC Board Examinations.
+                      Through structured Continuous and Comprehensive Evaluation (CCE), science practicals,
+                      and personal mentorship, we guide every student to achieve distinction.
+                    </p>
+
+                    <div className="mt-3 flex flex-wrap gap-1.5">
+                      <span className="rounded-md bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-[#0c4a8a]">
+                        <i className="fas fa-check-circle mr-1 text-[#d97706]" aria-hidden="true"></i>
+                        MBOSE SSLC Preparation
+                      </span>
+                      <span className="rounded-md bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-[#0c4a8a]">
+                        <i className="fas fa-check-circle mr-1 text-[#d97706]" aria-hidden="true"></i>
+                        Remedial Mentorship
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-slate-200 pt-3 text-xs">
+                    <div>
+                      <span className="font-bold text-[#0c4a8a] text-[11px] block">
+                        Office of the Headmistress
+                      </span>
+                      <span className="block text-[10px] font-medium text-slate-500">
+                        Secondary Section • Umsning
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => onNavigatePage?.('leadership', 'hm-sec-msg')}
+                      className="inline-flex items-center gap-1.5 rounded-xl bg-[#0c4a8a] px-3.5 py-1.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-[#d97706] cursor-pointer"
+                    >
+                      <span>Read More</span>
+                      <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
+                    </button>
+                  </div>
                 </div>
-              </div>
-
-              <div className="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-slate-200 pt-3.5 text-xs">
-                <div>
-                  <span className="font-bold text-[#0c4a8a]">
-                    Office of the Headmistress (Secondary Section)
-                  </span>
-                  <span className="block text-[11px] font-medium text-slate-500">
-                    St. Michael&apos;s Higher Secondary School, Umsning
-                  </span>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => onNavigatePage?.('leadership', 'hm-sec-msg')}
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#0c4a8a] px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-[#d97706] cursor-pointer"
-                >
-                  <span>Read More</span>
-                  <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
-                </button>
               </div>
             </article>
 
             {/* 4. Headmistress – LP Section */}
             <article
               id="hm-lp-message"
-              className="scroll-mt-28 relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 sm:p-7"
+              className="scroll-mt-28 relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md transition-all duration-300 hover:-translate-y-1"
               data-aos="fade-left"
               data-aos-delay="120"
               data-aos-duration="750"
             >
-              <div className="absolute inset-x-0 top-0 h-1.5 bg-[#d97706]" />
-              <div>
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <span className="inline-flex items-center rounded-full bg-amber-50 px-3 py-0.5 text-[11px] font-bold uppercase tracking-wider text-amber-900 border border-amber-200">
-                    <i className="fas fa-child mr-1.5 text-[#d97706]" aria-hidden="true"></i>
-                    Foundational &amp; Lower Primary • Nursery to Class V
-                  </span>
-                  <span className="rounded-full bg-[#d97706] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white">
-                    LP Section
-                  </span>
+              <div className="absolute inset-x-0 top-0 h-1.5 bg-[#d97706] z-10" />
+
+              <div className="grid grid-cols-1 sm:grid-cols-12 h-full">
+                {/* Left side content for second box */}
+                <div className="sm:col-span-7 order-2 sm:order-1 flex flex-col justify-between p-5 sm:p-6">
+                  <div>
+                    <div className="flex flex-wrap items-center justify-between gap-1.5">
+                      <span className="inline-flex items-center rounded-full bg-amber-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-900 border border-amber-200">
+                        <i className="fas fa-child mr-1 text-[#d97706]" aria-hidden="true"></i>
+                        Foundational &amp; LP • Nursery to V
+                      </span>
+                      <span className="rounded-full bg-[#d97706] px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-white">
+                        LP Section
+                      </span>
+                    </div>
+
+                    <h3 className="vision-serif-heading mt-2.5 text-lg sm:text-xl text-[#0c4a8a]">
+                      <span className="vision-double-angle" aria-hidden="true">
+                        &raquo;
+                      </span>{' '}
+                      Headmistress – LP Section
+                    </h3>
+
+                    <p className="mt-2 text-xs font-medium leading-relaxed text-slate-700">
+                      A child&apos;s earliest years in school shape a lifetime love for learning. In our
+                      Lower Primary section, we nurture curiosity, foundational literacy in English and
+                      Khasi, numeracy, good manners, and joyful expression in a warm, caring environment
+                      where every young learner feels safe, valued, and inspired to grow.
+                    </p>
+
+                    <div className="mt-3 flex flex-wrap gap-1.5">
+                      <span className="rounded-md bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-[#0c4a8a]">
+                        <i className="fas fa-check-circle mr-1 text-[#0c4a8a]" aria-hidden="true"></i>
+                        Foundational Literacy
+                      </span>
+                      <span className="rounded-md bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-[#0c4a8a]">
+                        <i className="fas fa-check-circle mr-1 text-[#0c4a8a]" aria-hidden="true"></i>
+                        Moral &amp; Creative Care
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-slate-200 pt-3 text-xs">
+                    <div>
+                      <span className="font-bold text-[#0c4a8a] text-[11px] block">
+                        Office of the Headmistress
+                      </span>
+                      <span className="block text-[10px] font-medium text-slate-500">
+                        Lower Primary Section • Umsning
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => onNavigatePage?.('leadership', 'hm-lp-msg')}
+                      className="inline-flex items-center gap-1.5 rounded-xl bg-[#0c4a8a] px-3.5 py-1.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-[#d97706] cursor-pointer"
+                    >
+                      <span>Read More</span>
+                      <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
+                    </button>
+                  </div>
                 </div>
 
-                <h3 className="vision-serif-heading mt-3 text-xl sm:text-2xl text-[#0c4a8a]">
-                  <span className="vision-double-angle" aria-hidden="true">
-                    &raquo;
-                  </span>{' '}
-                  Headmistress – LP Section
-                </h3>
-
-                <p className="mt-3 text-xs sm:text-sm font-medium leading-6 text-slate-700">
-                  A child&apos;s earliest years in school shape a lifetime love for learning. In our
-                  Lower Primary section, we nurture curiosity, foundational literacy in English and
-                  Khasi, numeracy, good manners, and joyful expression in a warm, caring environment
-                  where every young learner feels safe, valued, and inspired to grow.
-                </p>
-
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <span className="rounded-lg bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-[#0c4a8a]">
-                    <i className="fas fa-check-circle mr-1 text-[#0c4a8a]" aria-hidden="true"></i>
-                    Activity-Based Foundational Literacy
-                  </span>
-                  <span className="rounded-lg bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-[#0c4a8a]">
-                    <i className="fas fa-check-circle mr-1 text-[#0c4a8a]" aria-hidden="true"></i>
-                    Caring Moral &amp; Creative Formation
-                  </span>
+                {/* Right side pic for second box */}
+                <div className="sm:col-span-5 order-1 sm:order-2 relative min-h-[220px] sm:min-h-full bg-slate-900 overflow-hidden">
+                  <img
+                    src={SCHOOL_IMAGES.headmistressLP}
+                    alt="Rev. Sister Headmistress – Lower Primary (LP) Section at St. Michael's Umsning"
+                    className="h-full w-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent sm:bg-gradient-to-l sm:from-transparent sm:to-black/30" />
+                  <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-slate-950/85 border border-amber-400/40 px-2.5 py-1 text-[11px] font-bold text-white backdrop-blur-xs">
+                    <i className="fas fa-child mr-1.5 text-amber-300" aria-hidden="true"></i>
+                    Headmistress (LP Section)
+                  </div>
                 </div>
-              </div>
-
-              <div className="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-slate-200 pt-3.5 text-xs">
-                <div>
-                  <span className="font-bold text-[#0c4a8a]">
-                    Office of the Headmistress (LP Section)
-                  </span>
-                  <span className="block text-[11px] font-medium text-slate-500">
-                    St. Michael&apos;s Higher Secondary School, Umsning
-                  </span>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => onNavigatePage?.('leadership', 'hm-lp-msg')}
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#0c4a8a] px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-[#d97706] cursor-pointer"
-                >
-                  <span>Read More</span>
-                  <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
-                </button>
               </div>
             </article>
           </div>

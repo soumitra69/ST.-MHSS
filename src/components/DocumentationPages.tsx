@@ -59,7 +59,7 @@ export const LeadershipMessagesPage: React.FC<DocPageProps> = ({
       roleBadge: 'Upper Primary & Secondary Wing (Classes VI – X)',
       title: 'Headmistress’s Message – Secondary Section',
       office: 'Office of the Headmistress (Secondary Section) • MBOSE SSLC Wing',
-      image: SCHOOL_IMAGES.stateCeremony,
+      image: SCHOOL_IMAGES.headmistressSecondary,
       quote:
         '“The Secondary years forge habits of disciplined study, scientific curiosity, and personal responsibility that last a lifetime.”',
       paragraphs: [
@@ -631,7 +631,7 @@ export const StaffDirectoryPage: React.FC<DocPageProps> = ({
       department: 'Administration',
       qualification: 'M.A., B.Ed.',
       experience: '17 years secondary school leadership',
-      image: SCHOOL_IMAGES.stateCeremony,
+      image: SCHOOL_IMAGES.headmistressSecondary,
     },
     {
       id: 'fac-extra-2',
@@ -859,7 +859,7 @@ export const StaffDirectoryPage: React.FC<DocPageProps> = ({
                 role: 'Headmistress – Secondary Section',
                 wing: 'Classes VI to X (MBOSE SSLC)',
                 qual: 'M.A., B.Ed. (17+ Yrs Exp.)',
-                img: SCHOOL_IMAGES.stateCeremony,
+                img: SCHOOL_IMAGES.headmistressSecondary,
               },
               {
                 name: 'Headmistress (LP Section)',
