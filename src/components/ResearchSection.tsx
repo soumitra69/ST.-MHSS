@@ -62,7 +62,7 @@ const metrics = [
   { value: '2,000+', label: 'Learners Enrolled (KG–XII)', icon: 'fas fa-user-graduate' },
   { value: '100%', label: 'MBOSE Board Pass Record', icon: 'fas fa-check-circle' },
   { value: 'Top 20', label: 'Meghalaya State Merit Rank', icon: 'fas fa-trophy' },
-  { value: '₹20,000', label: 'Scholarship Award Endowment', icon: 'fas fa-coins' },
+  { value: '68+', label: 'Dedicated Faculty & Staff', icon: 'fas fa-chalkboard-teacher' },
 ];
 
 export const ResearchSection: React.FC<ResearchSectionProps> = ({ onNavigatePage }) => {
