@@ -15303,13 +15303,13 @@ img.hero-bg-layer {
    ========================================================================== */
 
 @media (max-width: 1080px) {
-  /* 1. Mobile & Tablet Hero Banner — Full Section Cover Photo with Rich Legible Overlay */
+  /* 1. Mobile & Tablet Hero Banner — Crystal Clear Full Image with Gentle Text Shadow */
   .hero-section {
     position: relative !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: stretch !important;
-    padding: 24px 0 28px !important;
+    padding: 16px 0 24px !important;
     min-height: 0 !important;
     background: #071b36 !important;
     overflow: hidden !important;
@@ -15332,8 +15332,9 @@ img.hero-bg-layer {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: center top !important;
+    object-position: center 20% !important;
     transform: none !important;
+    filter: brightness(1.05) contrast(1.04) saturate(1.08) !important;
   }
 
   .hero-bg-overlay {
@@ -15341,10 +15342,10 @@ img.hero-bg-layer {
     inset: 0 !important;
     background: linear-gradient(
       180deg,
-      rgba(7, 27, 54, 0.42) 0%,
-      rgba(7, 27, 54, 0.68) 45%,
-      rgba(7, 27, 54, 0.92) 80%,
-      #071b36 100%
+      rgba(7, 27, 54, 0.22) 0%,
+      rgba(7, 27, 54, 0.35) 45%,
+      rgba(7, 27, 54, 0.65) 82%,
+      rgba(7, 27, 54, 0.85) 100%
     ) !important;
     z-index: 1 !important;
   }
@@ -15353,7 +15354,15 @@ img.hero-bg-layer {
     position: relative !important;
     z-index: 5 !important;
     margin-top: 0 !important;
-    gap: 18px !important;
+    gap: 16px !important;
+  }
+
+  .hero-section .slide-headings h3 {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85) !important;
+  }
+
+  .hero-section .hero-slide-desc {
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85) !important;
   }
 
   .slide {
@@ -15473,9 +15482,9 @@ img.hero-bg-layer {
     flex-shrink: 0 !important;
   }
 
-  /* 4. Mobile Hero Banner — Full Section Cover Photo + Single-Line Badges + 1-Row 4-Stat Strip */
+  /* 4. Mobile Hero Banner — Full Visible Photo + Clean Crisp Text */
   .hero-section {
-    padding: 16px 0 20px !important;
+    padding: 12px 0 18px !important;
   }
 
   .hero-section .container {
@@ -15497,15 +15506,16 @@ img.hero-bg-layer {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: center 25% !important;
+    object-position: center 15% !important;
+    filter: brightness(1.05) contrast(1.04) saturate(1.08) !important;
   }
 
   .hero-bg-overlay {
     background: linear-gradient(
       180deg,
-      rgba(7, 27, 54, 0.38) 0%,
-      rgba(7, 27, 54, 0.65) 45%,
-      rgba(7, 27, 54, 0.90) 80%,
+      rgba(7, 27, 54, 0.18) 0%,
+      rgba(7, 27, 54, 0.30) 45%,
+      rgba(7, 27, 54, 0.60) 80%,
       #071b36 100%
     ) !important;
   }
