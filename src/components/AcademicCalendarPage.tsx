@@ -100,9 +100,10 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
   onNavigatePage,
   onOpenAdmission,
 }) => {
-  // Month index: default to November (10) as in the user's reference, or current month
+  // Calendar month state: default to November (10) for 2026
   const [currentMonthIdx, setCurrentMonthIdx] = useState<number>(10);
   const [selectedDay, setSelectedDay] = useState<number>(12);
+  const [calendarViewMode, setCalendarViewMode] = useState<'DASHBOARD' | 'PROSPECTUS_SCAN' | 'BOTH'>('BOTH');
 
   const currentYear = 2026;
 
@@ -179,7 +180,7 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
               <span>Home</span>
             </button>
             <span className="text-slate-400">/</span>
-            <span className="text-[#d97706]">Academic Calendar 2026</span>
+            <span className="text-[#d97706]">Official Academic Calendar &amp; Holidays</span>
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
@@ -221,8 +222,48 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
                 Academic Calendar &amp; Holidays 2026
               </h1>
               <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-100">
-                Interactive monthly calendar, date inspector, gazetted holiday list, and official examination milestones published by <strong>{SCHOOL_INFO.name}</strong>, Umsning.
+                Official calendar schedule, gazetted holidays, annual milestones, and authentic prospectus page scan for <strong>{SCHOOL_INFO.name}</strong>, Umsning.
               </p>
+
+              {/* View Switcher Pills */}
+              <div className="mt-5 flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setCalendarViewMode('BOTH')}
+                  className={`rounded-xl px-3.5 py-1.5 text-xs font-bold transition-all cursor-pointer ${
+                    calendarViewMode === 'BOTH'
+                      ? 'bg-amber-400 text-slate-950 shadow-md font-extrabold'
+                      : 'bg-white/10 text-white hover:bg-white/20'
+                  }`}
+                >
+                  <i className="fas fa-layer-group mr-1.5" aria-hidden="true"></i>
+                  Full View (Calendar + Prospectus Scan)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCalendarViewMode('DASHBOARD')}
+                  className={`rounded-xl px-3.5 py-1.5 text-xs font-bold transition-all cursor-pointer ${
+                    calendarViewMode === 'DASHBOARD'
+                      ? 'bg-amber-400 text-slate-950 shadow-md font-extrabold'
+                      : 'bg-white/10 text-white hover:bg-white/20'
+                  }`}
+                >
+                  <i className="fas fa-calendar-alt mr-1.5" aria-hidden="true"></i>
+                  Interactive Calendar
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCalendarViewMode('PROSPECTUS_SCAN')}
+                  className={`rounded-xl px-3.5 py-1.5 text-xs font-bold transition-all cursor-pointer ${
+                    calendarViewMode === 'PROSPECTUS_SCAN'
+                      ? 'bg-amber-400 text-slate-950 shadow-md font-extrabold'
+                      : 'bg-white/10 text-white hover:bg-white/20'
+                  }`}
+                >
+                  <i className="fas fa-file-image mr-1.5" aria-hidden="true"></i>
+                  Original Prospectus Document
+                </button>
+              </div>
             </div>
 
             <div className="flex shrink-0 flex-col gap-3 sm:flex-row lg:flex-col">
@@ -251,244 +292,343 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
         </div>
 
         {/* =========================================================================
-            INTERACTIVE CALENDAR APP CONTAINER (MATCHES UPLOADED REFERENCE DESIGN)
+            SECTION A: AUTHENTIC PROSPECTUS SCAN CARD (SHOWS THE EXACT UPLOADED PAGE 4)
             ========================================================================= */}
-        <div className="rounded-3xl border border-slate-900 bg-[#071322] p-5 sm:p-7 md:p-8 text-white shadow-2xl mb-12">
-          {/* Top Control Bar: Month Switcher & Quick Actions */}
-          <div className="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-slate-800">
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={handlePrevMonth}
-                disabled={currentMonthIdx === 0}
-                className="h-9 w-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-800 disabled:opacity-30 cursor-pointer"
-                aria-label="Previous Month"
-              >
-                <i className="fas fa-chevron-left text-xs" aria-hidden="true"></i>
-              </button>
-
-              <span className="font-mono text-sm sm:text-base font-extrabold tracking-wider px-3 py-1 bg-slate-900 border border-slate-800 rounded-xl text-slate-200">
-                {MONTH_NAMES[currentMonthIdx]} {currentYear}
-              </span>
-
-              <button
-                type="button"
-                onClick={handleNextMonth}
-                disabled={currentMonthIdx === 11}
-                className="h-9 w-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-800 disabled:opacity-30 cursor-pointer"
-                aria-label="Next Month"
-              >
-                <i className="fas fa-chevron-right text-xs" aria-hidden="true"></i>
-              </button>
-
-              <button
-                type="button"
-                onClick={handleToday}
-                className="ml-1 rounded-xl bg-slate-800 hover:bg-slate-700 px-3.5 py-1.5 text-xs font-bold text-white border border-slate-700 cursor-pointer"
-              >
-                Today
-              </button>
-            </div>
-
-            <a
-              href="#holiday-list"
-              className="inline-flex items-center gap-2 rounded-xl bg-emerald-950/80 border border-emerald-700/60 px-4 py-2 text-xs font-bold text-emerald-300 hover:bg-emerald-900/80 transition-colors"
-            >
-              <i className="fas fa-calendar-alt text-emerald-400" aria-hidden="true"></i>
-              <span>Annual Holiday Calendar</span>
-            </a>
-          </div>
-
-          {/* Main 2-Column Calendar Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6">
-            {/* Left 6 Columns: Interactive Month Grid */}
-            <div className="lg:col-span-6 rounded-2xl bg-[#0c1a2d] border border-slate-800 p-5 sm:p-6 flex flex-col justify-between">
+        {(calendarViewMode === 'PROSPECTUS_SCAN' || calendarViewMode === 'BOTH') && (
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm mb-12">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200 pb-5 mb-6">
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-emerald-400 font-bold block">
-                      • ST. MICHAEL&apos;S CALENDAR
-                    </span>
-                    <h3 className="text-2xl sm:text-3xl font-black text-white tracking-wider">
-                      {MONTH_NAMES[currentMonthIdx]}
-                    </h3>
-                  </div>
-                  <span className="font-mono text-3xl font-black text-emerald-400/80">
-                    {currentYear}
-                  </span>
-                </div>
-
-                {/* Day of Week Header Row */}
-                <div className="grid grid-cols-7 gap-1 text-center font-mono text-[11px] sm:text-xs font-bold mb-3">
-                  {DAYS_OF_WEEK.map((dw, i) => (
-                    <span key={dw} className={i === 0 ? 'text-red-400 font-black' : 'text-slate-400'}>
-                      {dw}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Days Grid */}
-                <div className="grid grid-cols-7 gap-1.5 sm:gap-2">
-                  {/* Empty offset spaces */}
-                  {Array.from({ length: startDayOfWeek }).map((_, i) => (
-                    <div key={`empty-${i}`} className="aspect-square" />
-                  ))}
-
-                  {/* Month Days */}
-                  {Array.from({ length: daysInMonth }).map((_, i) => {
-                    const dayNum = i + 1;
-                    const isCurrentSelected = dayNum === selectedDay;
-                    const dayDate = new Date(currentYear, currentMonthIdx, dayNum);
-                    const isDaySunday = dayDate.getDay() === 0;
-                    const hasHoliday = OFFICIAL_HOLIDAYS_2026.some(
-                      (h) => h.monthIdx === currentMonthIdx && h.dayNum === dayNum
-                    );
-
-                    return (
-                      <button
-                        key={dayNum}
-                        type="button"
-                        onClick={() => setSelectedDay(dayNum)}
-                        className={`aspect-square rounded-xl sm:rounded-2xl flex flex-col items-center justify-center relative font-mono text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                          isCurrentSelected
-                            ? 'bg-white text-slate-950 font-black shadow-lg scale-105 z-10'
-                            : isDaySunday
-                            ? 'text-red-400 hover:bg-slate-800/80'
-                            : hasHoliday
-                            ? 'text-emerald-400 hover:bg-slate-800/80'
-                            : 'text-slate-200 hover:bg-slate-800/80'
-                        }`}
-                      >
-                        <span>{dayNum}</span>
-                        {(hasHoliday || isDaySunday) && (
-                          <span
-                            className={`h-1.5 w-1.5 rounded-full absolute bottom-1.5 ${
-                              isCurrentSelected
-                                ? 'bg-[#0c4a8a]'
-                                : isDaySunday
-                                ? 'bg-red-400'
-                                : 'bg-emerald-400'
-                            }`}
-                          />
-                        )}
-                      </button>
-                    );
-                  })}
-                </div>
+                <span className="rounded-md bg-amber-100 border border-amber-300 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-amber-950">
+                  Authentic School Record
+                </span>
+                <h2 className="mt-1 text-2xl sm:text-3xl font-black text-[#0c4a8a]">
+                  Official Prospectus Document — Page 4
+                </h2>
+                <p className="mt-1 text-xs sm:text-sm text-slate-600">
+                  Uploaded reference scan showing <strong>Important School Events 2026</strong>, <strong>List of Holidays 2026</strong>, and <strong>Internal Assessment &amp; Admission Directives</strong>.
+                </p>
               </div>
-
-              <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
-                <span className="flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-red-400 inline-block" /> Sunday
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-emerald-400 inline-block" /> Holiday
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-white inline-block" /> Selected
-                </span>
-              </div>
+              <a
+                href="/prospectus-calendar-page-4.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#0c4a8a] hover:bg-[#0c2d57] px-4 py-2 text-xs font-bold text-white transition-colors"
+              >
+                <i className="fas fa-external-link-alt text-amber-300" aria-hidden="true"></i>
+                <span>Open Full Image</span>
+              </a>
             </div>
 
-            {/* Right 6 Columns: DATE DETAILS (Top) & HOLIDAYS IN MONTH (Bottom) */}
-            <div className="lg:col-span-6 flex flex-col justify-between gap-5">
-              {/* Top Box: DATE DETAILS */}
-              <div className="rounded-2xl bg-[#0c1a2d] border border-slate-800 p-5 sm:p-6">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400 font-bold">
-                    DATE DETAILS
-                  </span>
-                  <span
-                    className={`rounded-full px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
-                      selectedHoliday
-                        ? 'bg-emerald-950 text-emerald-300 border border-emerald-700/60'
-                        : isSunday
-                        ? 'bg-red-950 text-red-300 border border-red-700/60'
-                        : 'bg-amber-950 text-amber-300 border border-amber-700/60'
-                    }`}
-                  >
-                    {selectedHoliday ? 'Official Holiday' : isSunday ? 'Sunday Closed' : 'Working Day'}
-                  </span>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              {/* Left 5 Cols: High-Resolution Photo of the Uploaded Prospectus */}
+              <div className="lg:col-span-5 flex flex-col items-center">
+                <div className="group relative w-full overflow-hidden rounded-2xl border-2 border-slate-300 bg-slate-100 shadow-md">
+                  <img
+                    src="/prospectus-calendar-page-4.jpg"
+                    alt="Official St. Michael's Prospectus Page 4 - Important School Events 2026 and List of Holidays 2026"
+                    className="w-full h-auto object-cover rounded-xl transition-transform duration-300 group-hover:scale-[1.02]"
+                    loading="lazy"
+                  />
+                  <div className="absolute bottom-3 right-3 rounded-lg bg-slate-950/80 px-2.5 py-1 text-[11px] font-mono text-white backdrop-blur-xs">
+                    Prospectus • Page 4
+                  </div>
                 </div>
-
-                <h4 className="text-xl sm:text-2xl font-black text-white">
-                  {selectedDayOfWeekName}, {selectedDay} {MONTH_NAMES[currentMonthIdx]} {currentYear}
-                </h4>
-
-                <div className="mt-3 flex items-center gap-2 text-xs sm:text-sm font-semibold">
-                  {selectedHoliday ? (
-                    <span className="text-emerald-300 flex items-center gap-2">
-                      <i className="fas fa-glass-cheers text-emerald-400" aria-hidden="true"></i>
-                      <span>{selectedHoliday.occasion} ({selectedHoliday.type} Holiday)</span>
-                    </span>
-                  ) : isSunday ? (
-                    <span className="text-red-300 flex items-center gap-2">
-                      <i className="fas fa-church text-red-400" aria-hidden="true"></i>
-                      <span>Sunday Diocesan Rest Day (Campus Closed)</span>
-                    </span>
-                  ) : (
-                    <span className="text-slate-300 flex items-center gap-2">
-                      <i className="fas fa-sparkles text-amber-400" aria-hidden="true"></i>
-                      <span>Regular Operational Working Day • 8:45 AM – 3:00 PM</span>
-                    </span>
-                  )}
-                </div>
+                <span className="mt-2 text-[11px] text-slate-500 font-medium">
+                  Click the button above to view or download the uncompressed original document.
+                </span>
               </div>
 
-              {/* Bottom Box: Holidays in Current Month */}
-              <div className="rounded-2xl bg-[#0c1a2d] border border-slate-800 p-5 sm:p-6 flex-1 flex flex-col justify-between">
-                <div className="flex items-center justify-between mb-3">
-                  <h4 className="text-sm sm:text-base font-extrabold text-white">
-                    Holidays in {MONTH_NAMES[currentMonthIdx]}
-                  </h4>
-                  <span className="rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 px-2.5 py-0.5 text-[11px] font-bold font-mono">
-                    {holidaysInCurrentMonth.length} {holidaysInCurrentMonth.length === 1 ? 'Day' : 'Days'}
+              {/* Right 7 Cols: Structured breakdown corresponding to the uploaded scan */}
+              <div className="lg:col-span-7 space-y-4">
+                <div className="rounded-2xl border border-amber-300 bg-[#fffdf5] p-5">
+                  <div className="flex items-center gap-2 text-amber-900 font-extrabold text-sm mb-2">
+                    <i className="fas fa-star text-amber-600" aria-hidden="true"></i>
+                    <span>Prospectus Page 4 Content Verification:</span>
+                  </div>
+                  <p className="text-xs text-slate-700 leading-relaxed">
+                    This official page establishes the academic calendar framework for St. Michael&apos;s Higher Secondary School, Umsning. Every date, public holiday, internal assessment milestone, and admission requirement below corresponds directly to this published prospectus.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                  <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4">
+                    <strong className="block text-[#0c4a8a] font-extrabold mb-1.5 flex items-center gap-1.5">
+                      <i className="fas fa-calendar-check text-[#d97706]" aria-hidden="true"></i>
+                      <span>12-Month Events</span>
+                    </strong>
+                    <span className="text-slate-600 leading-relaxed block">
+                      From January Internal Promotion Exam-XI through to December Send-off and Declaration of Annual Results.
+                    </span>
+                  </div>
+
+                  <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4">
+                    <strong className="block text-[#0c4a8a] font-extrabold mb-1.5 flex items-center gap-1.5">
+                      <i className="fas fa-umbrella-beach text-emerald-600" aria-hidden="true"></i>
+                      <span>24 Gazetted Holidays</span>
+                    </strong>
+                    <span className="text-slate-600 leading-relaxed block">
+                      State, National, and Diocesan observances including Good Friday, Seng Kut Snem, U Tirot Sing Day, and Christmas.
+                    </span>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-blue-200 bg-blue-50/70 p-4 text-xs text-[#0c4a8a]">
+                  <strong className="block font-bold mb-1">
+                    <i className="fas fa-check-circle text-emerald-600 mr-1.5" aria-hidden="true"></i>
+                    Institutional Compliance:
+                  </strong>
+                  <span>
+                    Direct admissions are open for Class XI Vocational (Computer Techniques &amp; Poultry Farming) with 100% free course offered for Poultry Farming.
                   </span>
-                </div>
-
-                <div className="space-y-2 max-h-[220px] overflow-y-auto pr-1">
-                  {holidaysInCurrentMonth.length > 0 ? (
-                    holidaysInCurrentMonth.map((hol) => (
-                      <div
-                        key={hol.occasion}
-                        className="flex items-center justify-between rounded-xl bg-slate-900/90 border border-slate-800 p-3 hover:border-emerald-600/40 transition-colors"
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className="rounded-lg bg-emerald-950 text-emerald-300 border border-emerald-800/60 px-2 py-1 text-center font-mono text-[10px] font-bold leading-tight min-w-[46px]">
-                            <span className="block text-[9px] uppercase">{MONTH_NAMES[hol.monthIdx].slice(0, 3)}</span>
-                            <span className="text-xs font-black">{hol.dayNum}</span>
-                          </div>
-                          <div>
-                            <strong className="block text-xs font-bold text-white">
-                              {hol.occasion}
-                            </strong>
-                            <span className="text-[10px] text-slate-400 font-medium">{hol.day}</span>
-                          </div>
-                        </div>
-
-                        <span className="rounded-md bg-slate-800 text-[10px] font-semibold text-slate-300 px-2 py-0.5 border border-slate-700">
-                          {hol.type || 'Official'}
-                        </span>
-                      </div>
-                    ))
-                  ) : (
-                    <div className="rounded-xl bg-slate-900/60 border border-slate-800 p-4 text-center text-xs text-slate-400">
-                      No gazetted public holidays scheduled in {MONTH_NAMES[currentMonthIdx]}.
-                    </div>
-                  )}
-                </div>
-
-                <div className="mt-4 pt-3 border-t border-slate-800/80 text-[11px] text-slate-400 flex items-center justify-between">
-                  <span>St. Michael&apos;s H.S. School, Umsning</span>
-                  <span className="font-mono text-emerald-400 font-bold">2026 Academic Session</span>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* =========================================================================
-            PROSPECTUS SECTION: IMPORTANT SCHOOL EVENTS & DIRECTIVES
+            SECTION B: INTERACTIVE CALENDAR APP CONTAINER (THEME-ALIGNED WITH SITE)
+            ========================================================================= */}
+        {(calendarViewMode === 'DASHBOARD' || calendarViewMode === 'BOTH') && (
+          <div className="rounded-3xl border border-slate-900 bg-[#071322] p-5 sm:p-7 md:p-8 text-white shadow-2xl mb-12">
+            {/* Top Control Bar: Month Switcher & Quick Actions */}
+            <div className="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-slate-800">
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handlePrevMonth}
+                  disabled={currentMonthIdx === 0}
+                  className="h-9 w-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-800 disabled:opacity-30 cursor-pointer"
+                  aria-label="Previous Month"
+                >
+                  <i className="fas fa-chevron-left text-xs" aria-hidden="true"></i>
+                </button>
+
+                <span className="font-mono text-sm sm:text-base font-extrabold tracking-wider px-3 py-1 bg-slate-900 border border-slate-800 rounded-xl text-slate-200">
+                  {MONTH_NAMES[currentMonthIdx]} {currentYear}
+                </span>
+
+                <button
+                  type="button"
+                  onClick={handleNextMonth}
+                  disabled={currentMonthIdx === 11}
+                  className="h-9 w-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-800 disabled:opacity-30 cursor-pointer"
+                  aria-label="Next Month"
+                >
+                  <i className="fas fa-chevron-right text-xs" aria-hidden="true"></i>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleToday}
+                  className="ml-1 rounded-xl bg-slate-800 hover:bg-slate-700 px-3.5 py-1.5 text-xs font-bold text-white border border-slate-700 cursor-pointer"
+                >
+                  Today
+                </button>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <a
+                  href="#holiday-list"
+                  className="inline-flex items-center gap-2 rounded-xl bg-emerald-950/80 border border-emerald-700/60 px-4 py-2 text-xs font-bold text-emerald-300 hover:bg-emerald-900/80 transition-colors"
+                >
+                  <i className="fas fa-calendar-alt text-emerald-400" aria-hidden="true"></i>
+                  <span>Annual Holiday Calendar</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Main 2-Column Calendar Layout */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6">
+              {/* Left 6 Columns: Interactive Month Grid */}
+              <div className="lg:col-span-6 rounded-2xl bg-[#0c1a2d] border border-slate-800 p-5 sm:p-6 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-emerald-400 font-bold block">
+                        • ST. MICHAEL&apos;S CALENDAR
+                      </span>
+                      <h3 className="text-2xl sm:text-3xl font-black text-white tracking-wider">
+                        {MONTH_NAMES[currentMonthIdx]}
+                      </h3>
+                    </div>
+                    <span className="font-mono text-3xl font-black text-emerald-400/80">
+                      {currentYear}
+                    </span>
+                  </div>
+
+                  {/* Day of Week Header Row */}
+                  <div className="grid grid-cols-7 gap-1 text-center font-mono text-[11px] sm:text-xs font-bold mb-3">
+                    {DAYS_OF_WEEK.map((dw, i) => (
+                      <span key={dw} className={i === 0 ? 'text-red-400 font-black' : 'text-slate-400'}>
+                        {dw}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Days Grid */}
+                  <div className="grid grid-cols-7 gap-1.5 sm:gap-2">
+                    {/* Empty offset spaces */}
+                    {Array.from({ length: startDayOfWeek }).map((_, i) => (
+                      <div key={`empty-${i}`} className="aspect-square" />
+                    ))}
+
+                    {/* Month Days */}
+                    {Array.from({ length: daysInMonth }).map((_, i) => {
+                      const dayNum = i + 1;
+                      const isCurrentSelected = dayNum === selectedDay;
+                      const dayDate = new Date(currentYear, currentMonthIdx, dayNum);
+                      const isDaySunday = dayDate.getDay() === 0;
+                      const hasHoliday = OFFICIAL_HOLIDAYS_2026.some(
+                        (h) => h.monthIdx === currentMonthIdx && h.dayNum === dayNum
+                      );
+
+                      return (
+                        <button
+                          key={dayNum}
+                          type="button"
+                          onClick={() => setSelectedDay(dayNum)}
+                          className={`aspect-square rounded-xl sm:rounded-2xl flex flex-col items-center justify-center relative font-mono text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                            isCurrentSelected
+                              ? 'bg-white text-slate-950 font-black shadow-lg scale-105 z-10'
+                              : isDaySunday
+                              ? 'text-red-400 hover:bg-slate-800/80'
+                              : hasHoliday
+                              ? 'text-emerald-400 hover:bg-slate-800/80'
+                              : 'text-slate-200 hover:bg-slate-800/80'
+                          }`}
+                        >
+                          <span>{dayNum}</span>
+                          {(hasHoliday || isDaySunday) && (
+                            <span
+                              className={`h-1.5 w-1.5 rounded-full absolute bottom-1.5 ${
+                                isCurrentSelected
+                                  ? 'bg-[#0c4a8a]'
+                                  : isDaySunday
+                                  ? 'bg-red-400'
+                                  : 'bg-emerald-400'
+                              }`}
+                            />
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                  <span className="flex items-center gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-red-400 inline-block" /> Sunday
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-emerald-400 inline-block" /> Holiday
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <span className="h-2 w-2 rounded-full bg-white inline-block" /> Selected
+                  </span>
+                </div>
+              </div>
+
+              {/* Right 6 Columns: DATE DETAILS (Top) & HOLIDAYS IN MONTH (Bottom) */}
+              <div className="lg:col-span-6 flex flex-col justify-between gap-5">
+                {/* Top Box: DATE DETAILS */}
+                <div className="rounded-2xl bg-[#0c1a2d] border border-slate-800 p-5 sm:p-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400 font-bold">
+                      DATE DETAILS
+                    </span>
+                    <span
+                      className={`rounded-full px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
+                        selectedHoliday
+                          ? 'bg-emerald-950 text-emerald-300 border border-emerald-700/60'
+                          : isSunday
+                          ? 'bg-red-950 text-red-300 border border-red-700/60'
+                          : 'bg-amber-950 text-amber-300 border border-amber-700/60'
+                      }`}
+                    >
+                      {selectedHoliday ? 'Official Holiday' : isSunday ? 'Sunday Closed' : 'Working Day'}
+                    </span>
+                  </div>
+
+                  <h4 className="text-xl sm:text-2xl font-black text-white">
+                    {selectedDayOfWeekName}, {selectedDay} {MONTH_NAMES[currentMonthIdx]} {currentYear}
+                  </h4>
+
+                  <div className="mt-3 flex items-center gap-2 text-xs sm:text-sm font-semibold">
+                    {selectedHoliday ? (
+                      <span className="text-emerald-300 flex items-center gap-2">
+                        <i className="fas fa-glass-cheers text-emerald-400" aria-hidden="true"></i>
+                        <span>{selectedHoliday.occasion} ({selectedHoliday.type} Holiday)</span>
+                      </span>
+                    ) : isSunday ? (
+                      <span className="text-red-300 flex items-center gap-2">
+                        <i className="fas fa-church text-red-400" aria-hidden="true"></i>
+                        <span>Sunday Diocesan Rest Day (Campus Closed)</span>
+                      </span>
+                    ) : (
+                      <span className="text-slate-300 flex items-center gap-2">
+                        <i className="fas fa-sparkles text-amber-400" aria-hidden="true"></i>
+                        <span>Regular Operational Working Day • 8:45 AM – 3:00 PM</span>
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Bottom Box: Holidays in Current Month */}
+                <div className="rounded-2xl bg-[#0c1a2d] border border-slate-800 p-5 sm:p-6 flex-1 flex flex-col justify-between">
+                  <div className="flex items-center justify-between mb-3">
+                    <h4 className="text-sm sm:text-base font-extrabold text-white">
+                      Holidays in {MONTH_NAMES[currentMonthIdx]}
+                    </h4>
+                    <span className="rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 px-2.5 py-0.5 text-[11px] font-bold font-mono">
+                      {holidaysInCurrentMonth.length} {holidaysInCurrentMonth.length === 1 ? 'Day' : 'Days'}
+                    </span>
+                  </div>
+
+                  <div className="space-y-2 max-h-[220px] overflow-y-auto pr-1">
+                    {holidaysInCurrentMonth.length > 0 ? (
+                      holidaysInCurrentMonth.map((hol) => (
+                        <div
+                          key={hol.occasion}
+                          className="flex items-center justify-between rounded-xl bg-slate-900/90 border border-slate-800 p-3 hover:border-emerald-600/40 transition-colors"
+                        >
+                          <div className="flex items-center gap-3">
+                            <div className="rounded-lg bg-emerald-950 text-emerald-300 border border-emerald-800/60 px-2 py-1 text-center font-mono text-[10px] font-bold leading-tight min-w-[46px]">
+                              <span className="block text-[9px] uppercase">{MONTH_NAMES[hol.monthIdx].slice(0, 3)}</span>
+                              <span className="text-xs font-black">{hol.dayNum}</span>
+                            </div>
+                            <div>
+                              <strong className="block text-xs font-bold text-white">
+                                {hol.occasion}
+                              </strong>
+                              <span className="text-[10px] text-slate-400 font-medium">{hol.day}</span>
+                            </div>
+                          </div>
+
+                          <span className="rounded-md bg-slate-800 text-[10px] font-semibold text-slate-300 px-2 py-0.5 border border-slate-700">
+                            {hol.type || 'Official'}
+                          </span>
+                        </div>
+                      ))
+                    ) : (
+                      <div className="rounded-xl bg-slate-900/60 border border-slate-800 p-4 text-center text-xs text-slate-400">
+                        No gazetted public holidays scheduled in {MONTH_NAMES[currentMonthIdx]}.
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="mt-4 pt-3 border-t border-slate-800/80 text-[11px] text-slate-400 flex items-center justify-between">
+                    <span>St. Michael&apos;s H.S. School, Umsning</span>
+                    <span className="font-mono text-emerald-400 font-bold">2026 Academic Session</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* =========================================================================
+            SECTION C: PROSPECTUS SECTION: IMPORTANT SCHOOL EVENTS & DIRECTIVES
             ========================================================================= */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
           {/* Left Column (7 cols): IMPORTANT SCHOOL EVENTS 2026 */}
@@ -564,7 +704,7 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
           </div>
         </div>
 
-        {/* Section 3: LIST OF HOLIDAYS 2026 (Official Exact Table) */}
+        {/* Section 4: LIST OF HOLIDAYS 2026 (Official Exact Table) */}
         <div id="holiday-list" className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm mb-12">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-slate-200 pb-5 mb-6">
             <div>
