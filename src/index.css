@@ -15303,44 +15303,52 @@ img.hero-bg-layer {
    ========================================================================== */
 
 @media (max-width: 1080px) {
-  /* 1. Confine Hero Background Slideshow to Top Banner Stage (Do Not Stretch Across Notice Board) */
+  /* 1. True Widescreen Top Banner Stage on Mobile & Tablet (Zero 700% Zoom-Cropping) */
   .hero-section {
-    background: linear-gradient(180deg, #071b36 0%, #0a2547 100%) !important;
-    padding: 20px 0 28px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    background: linear-gradient(180deg, #071b36 0%, #0a2547 55%, #081e3b 100%) !important;
+    padding: 0 0 26px !important;
     min-height: 0 !important;
   }
 
   .hero-bg-slideshow {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: auto !important;
-    height: 410px !important;
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: clamp(205px, 48vw, 360px) !important;
+    flex-shrink: 0 !important;
     overflow: hidden !important;
+    background: #071b36 !important;
   }
 
   .hero-bg-layer,
   .hero-bg-layer.active,
   img.hero-bg-layer {
+    position: absolute !important;
+    inset: 0 !important;
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: center 72% !important;
+    object-position: center center !important;
     transform: none !important;
   }
 
   .hero-bg-overlay {
+    position: absolute !important;
+    inset: 0 !important;
     background: linear-gradient(
       180deg,
-      rgba(6, 18, 36, 0.34) 0%,
-      rgba(6, 18, 36, 0.16) 58%,
-      rgba(7, 27, 54, 0.92) 90%,
+      rgba(6, 18, 36, 0.06) 0%,
+      rgba(6, 18, 36, 0.02) 68%,
+      rgba(7, 27, 54, 0.86) 93%,
       #071b36 100%
     ) !important;
   }
 
   .hero-container {
+    margin-top: -10px !important;
     gap: 18px !important;
   }
 
@@ -15461,9 +15469,9 @@ img.hero-bg-layer {
     flex-shrink: 0 !important;
   }
 
-  /* 4. Mobile Hero Banner — True Landscape Framing, Single-Line Badges & 1-Row 4-Stat Strip */
+  /* 4. Mobile Hero Banner — Full Widescreen Photo + Single-Line Badges + 1-Row 4-Stat Strip */
   .hero-section {
-    padding: 14px 0 22px !important;
+    padding: 0 0 20px !important;
   }
 
   .hero-section .container {
@@ -15471,17 +15479,11 @@ img.hero-bg-layer {
   }
 
   .hero-bg-slideshow {
-    height: 345px !important;
-  }
-
-  .hero-bg-layer,
-  .hero-bg-layer.active,
-  img.hero-bg-layer {
-    object-fit: cover !important;
-    object-position: center 74% !important;
+    height: clamp(195px, 48vw, 235px) !important;
   }
 
   .hero-container {
+    margin-top: -8px !important;
     gap: 14px !important;
   }
 
@@ -15490,7 +15492,7 @@ img.hero-bg-layer {
   }
 
   .slide {
-    padding: 2px 0 4px !important;
+    padding: 0 0 4px !important;
   }
 
   .hero-section .hero-pill-badge {
@@ -15505,9 +15507,7 @@ img.hero-bg-layer {
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
-    background: rgba(12, 45, 87, 0.68) !important;
-    backdrop-filter: blur(4px) !important;
-    -webkit-backdrop-filter: blur(4px) !important;
+    background: rgba(12, 45, 87, 0.88) !important;
   }
 
   .hero-section .content-wrapper .subtitle {
@@ -15521,18 +15521,18 @@ img.hero-bg-layer {
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
-    background: rgba(12, 45, 87, 0.54) !important;
+    background: rgba(12, 45, 87, 0.65) !important;
   }
 
   .hero-section .slide-headings h3 {
-    font-size: clamp(1.18rem, 5vw, 1.46rem) !important;
-    line-height: 1.14 !important;
+    font-size: clamp(1.16rem, 4.9vw, 1.44rem) !important;
+    line-height: 1.15 !important;
     letter-spacing: 0.01em !important;
   }
 
   .hero-section .hero-slide-desc {
     font-size: 0.76rem !important;
-    line-height: 1.4 !important;
+    line-height: 1.42 !important;
     margin-top: 6px !important;
     display: -webkit-box !important;
     -webkit-line-clamp: 2 !important;
@@ -15567,9 +15567,7 @@ img.hero-bg-layer {
     border-radius: 10px !important;
     align-items: center !important;
     text-align: center !important;
-    background: rgba(12, 45, 87, 0.66) !important;
-    backdrop-filter: blur(6px) !important;
-    -webkit-backdrop-filter: blur(6px) !important;
+    background: rgba(12, 45, 87, 0.82) !important;
   }
 
   .hero-section .hero-stat-val {
@@ -15588,9 +15586,7 @@ img.hero-bg-layer {
     padding: 14px 12px !important;
     gap: 10px !important;
     border-radius: 16px !important;
-    background: rgba(8, 24, 50, 0.78) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
+    background: rgba(8, 24, 50, 0.85) !important;
   }
 
   .hero-nb-header {
@@ -15624,14 +15620,33 @@ img.hero-bg-layer {
     font-size: 0.72rem !important;
   }
 
-  /* 6. Excellence Section Auto-Sliding Banner Mobile Proportions */
+  /* 6. Excellence Section Auto-Sliding Banner Mobile Proportions (Unobstructed Photo) */
   .excellence-slides-viewport {
-    height: 235px !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .excellence-slide-img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+    height: 205px !important;
+  }
+
+  .excellence-slide-img.active {
+    position: relative !important;
+    height: 205px !important;
   }
 
   .excellence-banner-overlay {
-    padding: 10px 12px !important;
-    gap: 6px !important;
+    position: relative !important;
+    inset: auto !important;
+    background: linear-gradient(180deg, #081e3b 0%, #0c2d57 100%) !important;
+    padding: 12px 12px !important;
+    gap: 8px !important;
   }
 
   .excellence-banner-pill {
@@ -15642,7 +15657,7 @@ img.hero-bg-layer {
 
   .excellence-banner-caption h3 {
     font-size: 0.82rem !important;
-    line-height: 1.24 !important;
+    line-height: 1.26 !important;
   }
 
   .excellence-ctrl-btn {

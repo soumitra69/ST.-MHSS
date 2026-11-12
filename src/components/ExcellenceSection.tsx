@@ -9,7 +9,6 @@ interface ExcellenceSectionProps {
 const excellenceQuotes = [
   "During the State SSLC Toppers Felicitation, Hon'ble Chief Minister Conrad K. Sangma and Education Minister Lahkmen Rymbui honored St. Michael's student for securing rank in the Meghalaya State Top 20 Order of Merit.",
   'Empowering over 2,000 young boys and girls in Ri Bhoi with disciplined minds, moral conviction, and value-based education under the Catholic Diocese of Shillong since 1961.',
-  "St. Michael's Secondary School Leaving Certificate Award Body provides ₹20,000 scholarship endowments and full tuition waivers to encourage academic brilliance and holistic growth.",
 ];
 
 const excellenceBannerSlides = [
