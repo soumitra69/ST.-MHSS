@@ -127,7 +127,7 @@ export const InstitutionalSection: React.FC<InstitutionalSectionProps> = ({
                   of the oldest co-educational institutions in the Ri Bhoi District of Meghalaya. It
                   was started as a Lower Primary School in{' '}
                   <strong>{SCHOOL_INFO.established}</strong> by the great Educationist and French
-                  Catholic Missionary, <strong>Rev. Fr. Michel Balawan, SDB</strong>.
+                  Catholic Missionary, <strong>Rev. Fr. Michael Balawan, SDB</strong>.
                 </p>
                 <p className="vision-body-copy mt-3 text-sm sm:text-base text-[#0c4a8a]">
                   The institution is backboned by its committed teachers who spark the imagination

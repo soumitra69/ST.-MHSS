@@ -135,7 +135,7 @@ export const MissionVisionPage: React.FC<MissionVisionPageProps> = ({
             </h1>
             <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-100">
               Rooted in the pioneering Catholic educational heritage established in{' '}
-              <strong>1961</strong> by <strong>Rev. Fr. Michel Balawan, SDB</strong>,{' '}
+              <strong>1961</strong> by <strong>Rev. Fr. Michael Balawan, SDB</strong>,{' '}
               <strong>{SCHOOL_INFO.name}, Umsning</strong> is dedicated to forming confident,
               competent, and compassionate <strong>&ldquo;Michaelians&rdquo;</strong> who strive
               ever upward (<em>{SCHOOL_INFO.mottoLatin}</em>) and step forward with courage (
