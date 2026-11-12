@@ -560,32 +560,77 @@ const FULL_YEAR_CALENDAR_2026: MonthCalendarData[] = [
   },
 ];
 
+// Official School Calendar & List of Holidays 2026 from St. Michael's Higher Secondary School Prospectus
+export const IMPORTANT_SCHOOL_EVENTS_2026 = [
+  { month: 'JANUARY', event: 'Internal Promotion Examination-XI' },
+  { month: 'FEBRUARY', event: 'Re-opening of School (VI - X), Practical Examination (XII), HSSLC Examination-2026' },
+  { month: 'MARCH', event: 'Commencement of Classes (XII), Parents-Teachers-Students Meeting' },
+  { month: 'APRIL', event: 'Oath-Taking Ceremony of School Leaders' },
+  { month: 'MAY', event: 'First Internal Assessment (VI - X)' },
+  { month: 'JUNE', event: 'Half-Yearly Exam (VI-IX) & Pre-Selection (X & XII)' },
+  { month: 'JULY', event: 'Summer Vacation, Resumption of Classes (VI - XII)' },
+  { month: 'AUGUST', event: 'Independence Day' },
+  { month: 'SEPTEMBER', event: "Second Internal Assessment (VI - X), Teachers' Day, School Fete, St. Michael's Day" },
+  { month: 'OCTOBER', event: 'Selection Test (X & XII)' },
+  { month: 'NOVEMBER', event: 'Children\'s Day, Examination : Promotion (VI - IX) & Pre-Promotion (XI)' },
+  { month: 'DECEMBER', event: 'Send-off (X & XII), Declaration of Annual Results (V - IX)' },
+];
+
+export const PROSPECTUS_ACADEMIC_RULES = [
+  {
+    title: 'Internal Assessment',
+    detail: '1. EVS  •  2. OJT (On-the-Job Training)',
+  },
+  {
+    title: 'Additional Subject',
+    detail: 'Economics is offered as an elective / additional subject.',
+  },
+  {
+    title: 'Vocational Class XI Direct Admissions',
+    detail:
+      'Direct admissions are given if you wish to apply for Class XI Vocational, either Computer Techniques or Poultry Farming, provided you have passed the SSLC Examination or any other Equivalent Examination. Moreover, a free course is offered if you opt for Poultry Farming.',
+  },
+  {
+    title: 'School Diary & Student Identity Card',
+    detail:
+      'It is compulsory for candidates admitted to Class XI (eleven) to possess a School Diary and a Student’s Identity Card issued by the School Authority.',
+  },
+  {
+    title: 'Promotion to Class XII & Stream Change Rules',
+    detail:
+      'Students from different streams should pass in all subjects of Class XI to be promoted to Class XII. Streams can be changed in Class XII from Commerce/Science to Arts Stream only if the student concerned has cleared all subjects in Class XI and is accordingly promoted to Class XII.',
+  },
+  {
+    title: 'Non-Refundable Fees Policy',
+    detail: 'Fees once paid cannot be refunded under any circumstances.',
+  },
+];
+
 const OFFICIAL_HOLIDAY_TABLE = [
-  { date: 'Jan 01, 2026', day: 'Thursday', occasion: "New Year's Day", category: 'Public / Diocesan Holiday', duration: '1 Day' },
-  { date: 'Jan 02 – Jan 15, 2026', day: 'Fri – Thu', occasion: 'Annual Winter Recess', category: 'School Vacation', duration: '14 Days' },
-  { date: 'Jan 26, 2026', day: 'Monday', occasion: 'Republic Day', category: 'National Holiday', duration: '1 Day' },
-  { date: 'Mar 04, 2026', day: 'Wednesday', occasion: 'Holi / Doljatra', category: 'Gazetted Holiday', duration: '1 Day' },
-  { date: 'Mar 21, 2026', day: 'Saturday', occasion: 'Id-ul-Fitr', category: 'Gazetted Holiday', duration: '1 Day' },
-  { date: 'Apr 02 – Apr 06, 2026', day: 'Thu – Mon', occasion: 'Maundy Thursday, Good Friday, Easter & Shad Suk Mynsiem', category: 'Diocesan & State Holiday', duration: '5 Days' },
-  { date: 'Apr 14, 2026', day: 'Tuesday', occasion: 'Dr. B.R. Ambedkar Jayanti', category: 'Public Holiday', duration: '1 Day' },
-  { date: 'May 01, 2026', day: 'Friday', occasion: 'May Day / Feast of St. Joseph the Worker', category: 'State & Diocesan Holiday', duration: '1 Day' },
-  { date: 'May 16, 2026', day: 'Saturday', occasion: 'Buddha Purnima', category: 'Gazetted Holiday', duration: '1 Day' },
-  { date: 'May 28, 2026', day: 'Thursday', occasion: 'Id-ul-Zuha (Bakrid)', category: 'Gazetted Holiday', duration: '1 Day' },
-  { date: 'Jun 26, 2026', day: 'Friday', occasion: 'Muharram', category: 'Gazetted Holiday', duration: '1 Day' },
-  { date: 'Jul 14, 2026', day: 'Tuesday', occasion: 'Behdeinkhlam Festival', category: 'Meghalaya State Holiday', duration: '1 Day' },
-  { date: 'Jul 17, 2026', day: 'Friday', occasion: 'U Tirot Sing Day', category: 'Meghalaya State Holiday', duration: '1 Day' },
-  { date: 'Aug 15, 2026', day: 'Saturday', occasion: 'Independence Day & Feast of the Assumption', category: 'National & Diocesan Holiday', duration: '1 Day' },
-  { date: 'Aug 26, 2026', day: 'Wednesday', occasion: 'Milad-un-Nabi', category: 'Gazetted Holiday', duration: '1 Day' },
-  { date: 'Sep 04, 2026', day: 'Friday', occasion: 'Janmashtami', category: 'Gazetted Holiday', duration: '1 Day' },
-  { date: 'Sep 29, 2026', day: 'Tuesday', occasion: "Feast of St. Michael the Archangel (Patron's Day)", category: 'Patron Feast Holiday', duration: '1 Day' },
-  { date: 'Oct 02, 2026', day: 'Friday', occasion: 'Mahatma Gandhi Jayanti', category: 'National Holiday', duration: '1 Day' },
-  { date: 'Oct 19 – Oct 23, 2026', day: 'Mon – Fri', occasion: 'Durga Puja & Dussehra Break', category: 'Festival Vacation', duration: '5 Days' },
-  { date: 'Nov 02, 2026', day: 'Monday', occasion: "All Souls' Day", category: 'Diocesan Holiday', duration: '1 Day' },
-  { date: 'Nov 06, 2026', day: 'Friday', occasion: 'Wangala Festival (100 Drums)', category: 'Meghalaya State Holiday', duration: '1 Day' },
-  { date: 'Nov 23, 2026', day: 'Monday', occasion: 'Seng Kut Snem', category: 'Meghalaya State Holiday', duration: '1 Day' },
-  { date: 'Dec 12, 2026', day: 'Saturday', occasion: 'Pa Togan Nengminja Sangma Day', category: 'Meghalaya State Holiday', duration: '1 Day' },
-  { date: 'Dec 18, 2026', day: 'Friday', occasion: 'Death Anniversary of U SoSo Tham', category: 'Meghalaya State Holiday', duration: '1 Day' },
-  { date: 'Dec 19 – Dec 31, 2026', day: 'Sat – Thu', occasion: 'Christmas & Winter Vacation', category: 'School Vacation', duration: '13+ Days' },
+  { date: '01 January', day: 'Thursday', occasion: "New Year's Day", category: 'Gazetted Holiday', duration: '1 Day' },
+  { date: '26 January', day: 'Monday', occasion: 'Republic Day', category: 'National Holiday', duration: '1 Day' },
+  { date: '04 March', day: 'Wednesday', occasion: 'Holi', category: 'Gazetted Holiday', duration: '1 Day' },
+  { date: '21 March', day: 'Saturday', occasion: 'Idul Fitr', category: 'Gazetted Holiday', duration: '1 Day' },
+  { date: '03 April', day: 'Friday', occasion: 'Good Friday', category: 'Christian / Diocesan Holiday', duration: '1 Day' },
+  { date: '01 May', day: 'Friday', occasion: 'May Day', category: 'Public Holiday', duration: '1 Day' },
+  { date: '04 June', day: 'Thursday', occasion: 'Ri Bhoi Day', category: 'District Holiday', duration: '1 Day' },
+  { date: '22 June', day: 'Monday', occasion: "Rev. Thomas Jones' Day", category: 'Meghalaya State Holiday', duration: '1 Day' },
+  { date: '09 July', day: 'Thursday', occasion: 'Behdeinkhlam', category: 'State Festival Holiday', duration: '1 Day' },
+  { date: '17 July', day: 'Friday', occasion: 'U Tirot Sing Day', category: 'Meghalaya State Holiday', duration: '1 Day' },
+  { date: '15 August', day: 'Saturday', occasion: 'Independence Day', category: 'National Holiday', duration: '1 Day' },
+  { date: '04 September', day: 'Friday', occasion: 'Janmashtami', category: 'Gazetted Holiday', duration: '1 Day' },
+  { date: '18 September', day: 'Friday', occasion: 'Unitarian Day', category: 'Meghalaya State Holiday', duration: '1 Day' },
+  { date: '02 October', day: 'Friday', occasion: 'Gandhi Jayanti', category: 'National Holiday', duration: '1 Day' },
+  { date: '19 October', day: 'Monday', occasion: 'Maha Navami', category: 'Festival Holiday', duration: '1 Day' },
+  { date: '02 November', day: 'Monday', occasion: "All Souls' Day", category: 'Diocesan Holiday', duration: '1 Day' },
+  { date: '08 November', day: 'Sunday', occasion: 'Diwali', category: 'Gazetted Holiday', duration: '1 Day' },
+  { date: '13 November', day: 'Friday', occasion: 'Wangala Festival', category: 'Meghalaya State Holiday', duration: '1 Day' },
+  { date: '23 November', day: 'Monday', occasion: 'Seng Kut Snem', category: 'Meghalaya State Holiday', duration: '1 Day' },
+  { date: '12 December', day: 'Saturday', occasion: 'Pa Togan Sangma', category: 'Meghalaya State Holiday', duration: '1 Day' },
+  { date: '18 December', day: 'Friday', occasion: 'Death Anniversary of U Soso Tham', category: 'Meghalaya State Holiday', duration: '1 Day' },
+  { date: '25 December', day: 'Friday', occasion: 'Christmas Day', category: 'Christian / Diocesan Holiday', duration: '1 Day' },
+  { date: '26 December', day: 'Saturday', occasion: 'Christmas Holiday', category: 'Christian / Diocesan Holiday', duration: '1 Day' },
+  { date: '30 December', day: 'Wednesday', occasion: 'U Kiang Nangbah', category: 'Meghalaya State Holiday', duration: '1 Day' },
 ];
 
 const DAILY_BELL_ROUTINE = [
@@ -991,6 +1036,70 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
               </div>
             );
           })}
+        </div>
+
+        {/* Important School Events 2026 & Prospectus Academic Directives */}
+        <div className="mt-12 grid gap-8 lg:grid-cols-12">
+          {/* Important School Events 2026 Table (from Prospectus) */}
+          <div className="lg:col-span-7 rounded-2xl border border-amber-300 bg-amber-50/50 p-6 shadow-md sm:p-7">
+            <div className="flex items-center gap-2 border-b border-amber-200 pb-3">
+              <span className="rounded-full bg-[#0c4a8a] px-3 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white">
+                Official Prospectus
+              </span>
+              <h2 className="text-lg sm:text-xl font-extrabold text-[#0c4a8a]">
+                IMPORTANT SCHOOL EVENTS 2026
+              </h2>
+            </div>
+
+            <div className="mt-4 divide-y divide-amber-200/80">
+              {IMPORTANT_SCHOOL_EVENTS_2026.map((ev) => (
+                <div key={ev.month} className="py-2.5 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+                  <span className="w-28 shrink-0 font-mono text-xs font-black tracking-wider text-amber-900">
+                    {ev.month}
+                  </span>
+                  <span className="text-xs sm:text-sm font-semibold text-slate-800">
+                    {ev.event}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Prospectus Rules & Vocational Admissions Note */}
+          <div className="lg:col-span-5 flex flex-col justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-md sm:p-7">
+            <div>
+              <div className="flex items-center gap-2 border-b border-slate-200 pb-3">
+                <span className="rounded-full bg-[#d97706] px-3 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white">
+                  Directives
+                </span>
+                <h3 className="text-base sm:text-lg font-extrabold text-[#0c4a8a]">
+                  Academic &amp; Admission Guidelines
+                </h3>
+              </div>
+
+              <div className="mt-4 space-y-3">
+                {PROSPECTUS_ACADEMIC_RULES.map((rule) => (
+                  <div key={rule.title} className="rounded-xl bg-[#f8fafc] border border-slate-200 p-3">
+                    <strong className="block text-xs font-bold text-[#0c4a8a]">
+                      <i className="fas fa-check-circle text-[#d97706] mr-1.5" aria-hidden="true"></i>
+                      {rule.title}
+                    </strong>
+                    <p className="mt-1 text-[11px] leading-relaxed text-slate-600">
+                      {rule.detail}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-xl bg-[#0c2d57] p-4 text-white text-xs">
+              <strong className="text-amber-300 block mb-1">
+                <i className="fas fa-exclamation-triangle mr-1.5" aria-hidden="true"></i>
+                Important Notice on Fees:
+              </strong>
+              <span>Fees once paid cannot be refunded under any circumstances.</span>
+            </div>
+          </div>
         </div>
 
         {/* Complete Official Holiday & Feast Day List Table */}

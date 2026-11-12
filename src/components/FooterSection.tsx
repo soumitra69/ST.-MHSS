@@ -27,10 +27,9 @@ const aboutAndGovernanceLinks: FooterLinkItem[] = [
 const academicsAndAdmissionsLinks: FooterLinkItem[] = [
   { label: 'Admission Procedure & Eligibility', href: '#page-admissions-fees', page: 'admissions-fees' },
   {
-    label: 'Fee Structure (2026–27 Session)',
-    href: '#page-admissions-fees',
-    page: 'admissions-fees',
-    sectionId: 'fee-structure',
+    label: 'Official Fee Structure (2026–27)',
+    href: '#page-fee-structure',
+    page: 'fee-structure-page',
   },
   { label: 'Curriculum, Streams & Syllabus', href: '#page-academic-syllabus', page: 'academic-syllabus' },
   { label: 'Academic Calendar & Holiday List', href: '#page-academic-calendar', page: 'academic-calendar' },
