@@ -330,10 +330,10 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
                   </div>
 
                   {/* Days Grid */}
-                  <div className="grid grid-cols-7 gap-2 sm:gap-2.5">
+                  <div className="grid grid-cols-7 gap-1.5 sm:gap-2">
                     {/* Empty offset spaces */}
                     {Array.from({ length: startDayOfWeek }).map((_, i) => (
-                      <div key={`empty-${i}`} className="h-10 sm:h-12 w-full" />
+                      <div key={`empty-${i}`} className="aspect-square" />
                     ))}
 
                     {/* Month Days */}
@@ -347,31 +347,37 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
                       );
 
                       return (
-                        <div key={dayNum} className="flex flex-col items-center justify-center">
-                          <button
-                            type="button"
-                            onClick={() => setSelectedDay(dayNum)}
-                            className={`h-9 w-9 sm:h-10 sm:w-10 rounded-xl flex items-center justify-center font-sans text-sm sm:text-base font-bold transition-all cursor-pointer ${
+                        <button
+                          key={dayNum}
+                          type="button"
+                          onClick={() => setSelectedDay(dayNum)}
+                          className={`aspect-square w-full rounded-2xl flex flex-col items-center justify-center relative transition-all cursor-pointer ${
+                            isCurrentSelected
+                              ? 'bg-white !text-[#0a192f] shadow-lg'
+                              : isDaySunday
+                              ? 'text-rose-400 hover:bg-slate-800/60'
+                              : 'text-slate-100 hover:bg-slate-800/60'
+                          }`}
+                        >
+                          <span
+                            className={`font-sans font-bold leading-none ${
                               isCurrentSelected
-                                ? 'bg-white !text-slate-950 font-black shadow-md'
-                                : isDaySunday
-                                ? 'text-rose-400 hover:bg-slate-800/80'
-                                : 'text-slate-100 hover:bg-slate-800/80'
+                                ? 'text-lg sm:text-xl font-extrabold text-[#0a192f]'
+                                : 'text-sm sm:text-base font-semibold'
                             }`}
                           >
                             {dayNum}
-                          </button>
-                          {/* Dot indicator underneath number like original reference */}
-                          <div className="h-2 flex items-center justify-center mt-0.5">
-                            {(hasHoliday || isDaySunday) && (
-                              <span
-                                className={`h-1.5 w-1.5 rounded-full ${
-                                  isDaySunday ? 'bg-rose-400' : 'bg-emerald-400'
-                                }`}
-                              />
-                            )}
-                          </div>
-                        </div>
+                          </span>
+
+                          {/* Green or red indicator dot directly inside the tile below number */}
+                          {(hasHoliday || isDaySunday) && (
+                            <span
+                              className={`h-1.5 w-1.5 rounded-full absolute bottom-1.5 sm:bottom-2 ${
+                                isDaySunday ? 'bg-rose-500' : 'bg-[#10b981]'
+                              }`}
+                            />
+                          )}
+                        </button>
                       );
                     })}
                   </div>
