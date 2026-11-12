@@ -6160,8 +6160,15 @@ h4,
 .vision-serif-heading.text-white,
 .vision-serif-heading.\!text-white,
 .text-white > .vision-serif-heading,
-[class*="from-[#0c2d57]"] .vision-serif-heading,
-[class*="bg-[#0c2d57]"] .vision-serif-heading {
+[class*="from-[#0c2d57]"] > .vision-serif-heading,
+[class*="bg-[#0c2d57]"] > .vision-serif-heading,
+.institutional-msg-card .vision-serif-heading {
+  color: #0c4a8a !important;
+}
+
+.vision-serif-heading.text-white,
+.vision-serif-heading.\!text-white,
+.text-white > .vision-serif-heading {
   color: #ffffff !important;
 }
 

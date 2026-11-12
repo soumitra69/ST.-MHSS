@@ -725,8 +725,8 @@ export const InstitutionalSection: React.FC<InstitutionalSectionProps> = ({
                 </span>
               </div>
 
-              <h2 className="vision-serif-heading mt-2.5 text-xl sm:text-2xl text-[#0c4a8a]">
-                <span className="vision-double-angle" aria-hidden="true">
+              <h2 className="vision-serif-heading mt-2.5 text-xl sm:text-2xl !text-[#0c4a8a]" style={{ color: '#0c4a8a' }}>
+                <span className="vision-double-angle text-[#0c4a8a]" style={{ color: '#0c4a8a' }} aria-hidden="true">
                   &raquo;
                 </span>{' '}
                 Principal&apos;s Message
