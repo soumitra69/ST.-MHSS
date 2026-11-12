@@ -330,10 +330,10 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
                   </div>
 
                   {/* Days Grid */}
-                  <div className="grid grid-cols-7 gap-1 sm:gap-1.5">
+                  <div className="grid grid-cols-7 gap-2 sm:gap-2.5">
                     {/* Empty offset spaces */}
                     {Array.from({ length: startDayOfWeek }).map((_, i) => (
-                      <div key={`empty-${i}`} className="aspect-square" />
+                      <div key={`empty-${i}`} className="h-10 sm:h-12 w-full" />
                     ))}
 
                     {/* Month Days */}
@@ -347,35 +347,31 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
                       );
 
                       return (
-                        <button
-                          key={dayNum}
-                          type="button"
-                          onClick={() => setSelectedDay(dayNum)}
-                          className={`aspect-square rounded-lg sm:rounded-xl flex flex-col items-center justify-center relative font-mono text-[11px] sm:text-xs font-semibold transition-all cursor-pointer ${
-                            isCurrentSelected
-                              ? 'bg-white !text-slate-950 font-black shadow-md z-10'
-                              : isDaySunday
-                              ? 'text-red-400 hover:bg-slate-800/80 font-medium'
-                              : hasHoliday
-                              ? 'text-emerald-400 hover:bg-slate-800/80 font-medium'
-                              : 'text-slate-200 hover:bg-slate-800/80 font-normal'
-                          }`}
-                        >
-                          <span className={isCurrentSelected ? 'text-slate-950 font-black text-xs sm:text-sm' : ''}>
+                        <div key={dayNum} className="flex flex-col items-center justify-center">
+                          <button
+                            type="button"
+                            onClick={() => setSelectedDay(dayNum)}
+                            className={`h-9 w-9 sm:h-10 sm:w-10 rounded-xl flex items-center justify-center font-sans text-sm sm:text-base font-bold transition-all cursor-pointer ${
+                              isCurrentSelected
+                                ? 'bg-white !text-slate-950 font-black shadow-md'
+                                : isDaySunday
+                                ? 'text-rose-400 hover:bg-slate-800/80'
+                                : 'text-slate-100 hover:bg-slate-800/80'
+                            }`}
+                          >
                             {dayNum}
-                          </span>
-                          {(hasHoliday || isDaySunday) && (
-                            <span
-                              className={`h-1 w-1 sm:h-1.5 sm:w-1.5 rounded-full absolute bottom-1 ${
-                                isCurrentSelected
-                                  ? 'bg-emerald-600'
-                                  : isDaySunday
-                                  ? 'bg-red-400'
-                                  : 'bg-emerald-400'
-                              }`}
-                            />
-                          )}
-                        </button>
+                          </button>
+                          {/* Dot indicator underneath number like original reference */}
+                          <div className="h-2 flex items-center justify-center mt-0.5">
+                            {(hasHoliday || isDaySunday) && (
+                              <span
+                                className={`h-1.5 w-1.5 rounded-full ${
+                                  isDaySunday ? 'bg-rose-400' : 'bg-emerald-400'
+                                }`}
+                              />
+                            )}
+                          </div>
+                        </div>
                       );
                     })}
                   </div>
