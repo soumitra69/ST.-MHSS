@@ -306,28 +306,6 @@ const primaryLinks: PrimaryNavLinkItem[] = [
           },
         ],
       },
-      {
-        label: 'Scholarships & Financial Aid',
-        href: '#page-scholarships',
-        icon: 'fas fa-hand-holding-heart',
-        page: 'scholarships',
-        subMenu: [
-          {
-            label: '₹20,000 SSLC State Merit Endowment',
-            href: '#page-scholarships',
-            icon: 'fas fa-award',
-            page: 'scholarships',
-            sectionId: 'merit-endowment',
-          },
-          {
-            label: 'State, Tribal & Minority Scholarships',
-            href: '#page-scholarships',
-            icon: 'fas fa-university',
-            page: 'scholarships',
-            sectionId: 'government-scholarships',
-          },
-        ],
-      },
     ],
   },
   {
