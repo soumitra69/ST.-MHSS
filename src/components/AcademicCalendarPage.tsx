@@ -330,7 +330,7 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
                   </div>
 
                   {/* Days Grid */}
-                  <div className="grid grid-cols-7 gap-1.5 sm:gap-2">
+                  <div className="grid grid-cols-7 gap-1 sm:gap-1.5">
                     {/* Empty offset spaces */}
                     {Array.from({ length: startDayOfWeek }).map((_, i) => (
                       <div key={`empty-${i}`} className="aspect-square" />
@@ -351,22 +351,24 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
                           key={dayNum}
                           type="button"
                           onClick={() => setSelectedDay(dayNum)}
-                          className={`aspect-square rounded-xl sm:rounded-2xl flex flex-col items-center justify-center relative font-mono text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                          className={`aspect-square rounded-lg sm:rounded-xl flex flex-col items-center justify-center relative font-mono text-[11px] sm:text-xs font-semibold transition-all cursor-pointer ${
                             isCurrentSelected
-                              ? 'bg-white text-slate-950 font-black shadow-lg scale-105 z-10'
+                              ? 'bg-white !text-slate-950 font-black shadow-md z-10'
                               : isDaySunday
-                              ? 'text-red-400 hover:bg-slate-800/80'
+                              ? 'text-red-400 hover:bg-slate-800/80 font-medium'
                               : hasHoliday
-                              ? 'text-emerald-400 hover:bg-slate-800/80'
-                              : 'text-slate-200 hover:bg-slate-800/80'
+                              ? 'text-emerald-400 hover:bg-slate-800/80 font-medium'
+                              : 'text-slate-200 hover:bg-slate-800/80 font-normal'
                           }`}
                         >
-                          <span>{dayNum}</span>
+                          <span className={isCurrentSelected ? 'text-slate-950 font-black text-xs sm:text-sm' : ''}>
+                            {dayNum}
+                          </span>
                           {(hasHoliday || isDaySunday) && (
                             <span
-                              className={`h-1.5 w-1.5 rounded-full absolute bottom-1.5 ${
+                              className={`h-1 w-1 sm:h-1.5 sm:w-1.5 rounded-full absolute bottom-1 ${
                                 isCurrentSelected
-                                  ? 'bg-[#0c4a8a]'
+                                  ? 'bg-emerald-600'
                                   : isDaySunday
                                   ? 'bg-red-400'
                                   : 'bg-emerald-400'
