@@ -13572,7 +13572,7 @@ section,
    7. SINGLE-LINE SCHOOL NAME ACROSS ALL SCREENS & FULL CRISP HERO BANNER
    ========================================================================== */
 
-/* 1. Force School Name onto One Single Line Across Desktop, Laptop, Tablet & Mobile */
+/* 1. School Name Always Fully Visible (No Ellipsis Truncation) Across Desktop, Laptop, Tablet & Mobile */
 .logo-section {
   max-width: none !important;
   flex-shrink: 0 !important;
@@ -13584,11 +13584,12 @@ section,
 }
 
 .university-name h1 {
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  font-size: clamp(0.75rem, 3.2vw, 1.16rem) !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  font-size: clamp(0.72rem, 2.2vw, 1.15rem) !important;
   line-height: 1.2 !important;
+  word-break: keep-all !important;
 }
 
 @media (min-width: 1141px) {
@@ -13599,26 +13600,33 @@ section,
 
   .university-name h1 {
     white-space: nowrap !important;
-    font-size: clamp(0.92rem, 1.08vw, 1.18rem) !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    font-size: clamp(0.85rem, 0.98vw, 1.15rem) !important;
   }
 }
 
 @media (max-width: 480px) {
   .logo-placeholder {
-    width: 42px !important;
-    height: 42px !important;
+    width: 38px !important;
+    height: 38px !important;
   }
 
   .university-name h1 {
-    font-size: clamp(0.7rem, 3.7vw, 0.92rem) !important;
+    font-size: clamp(0.68rem, 3.4vw, 0.88rem) !important;
     letter-spacing: 0.01em !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    line-height: 1.2 !important;
   }
 
   .university-name p {
-    font-size: 0.6rem !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    font-size: clamp(0.52rem, 2.2vw, 0.62rem) !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    line-height: 1.2 !important;
   }
 }
 
@@ -15414,24 +15422,24 @@ img.hero-bg-layer {
   .university-name {
     flex: 1 1 0% !important;
     min-width: 0 !important;
-    overflow: hidden !important;
+    overflow: visible !important;
   }
 
   .university-name h1 {
-    font-size: clamp(0.65rem, 3.05vw, 0.84rem) !important;
+    font-size: clamp(0.68rem, 3.2vw, 0.88rem) !important;
     letter-spacing: 0.01em !important;
-    line-height: 1.16 !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    line-height: 1.18 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
   }
 
   .university-name p {
     font-size: clamp(0.5rem, 2.15vw, 0.62rem) !important;
     line-height: 1.2 !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
   }
 
   .mobile-header-actions {
