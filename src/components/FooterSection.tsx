@@ -208,7 +208,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
 
                 <p className="school-footer-desc">
                   Founded in 1961 by{' '}
-                  <strong className="text-white">Rev. Fr. Michael Balawan, SDB</strong> under the
+                  <strong className="text-white">Fr. Michael Balawan</strong> under the
                   Catholic Mission of Umsning, Archdiocese of Shillong. Committed to academic
                   excellence, moral integrity, and the overall development of every child.
                 </p>

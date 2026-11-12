@@ -45,7 +45,7 @@ export const LeadershipMessagesPage: React.FC<DocPageProps> = ({
       quote:
         '“Under our sacred motto Excelsior & Shaphrang, we inspire every Michaelian to aim ever higher in scholarship and step forward with courage.”',
       paragraphs: [
-        'Welcome to St. Michael’s Higher Secondary School, Umsning. Since our humble foundation in 1961 by the great French Salesian missionary and mathematician Rev. Fr. Michael Balawan, SDB, our school has grown into a premier co-educational Higher Secondary institution offering Arts, Science, and Commerce streams under MBOSE.',
+        'Welcome to St. Michael’s Higher Secondary School, Umsning. Since our humble foundation in 1961 by the great French Salesian missionary and mathematician Fr. Michael Balawan, our school has grown into a premier co-educational Higher Secondary institution offering Arts, Science, and Commerce streams under MBOSE.',
         'Our consistent distinction in the MBOSE SSLC and HSSLC Board Examinations—including State Top 20 Merit Ranks felicitated by the Hon’ble Chief Minister of Meghalaya—is a testament to the tireless dedication of our 68+ educators and the perseverance of our 2,000+ scholars. We invite parents and students to partner with us in the holistic development of every child.',
       ],
       highlights: [

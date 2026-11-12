@@ -351,30 +351,13 @@ export const StudentWorkSection: React.FC<StudentWorkSectionProps> = ({ onNaviga
 
         {/* Read More / View Full Gallery Page Button */}
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          {filteredItems.length > INITIAL_VISIBLE_COUNT && (
-            <button
-              type="button"
-              onClick={() => setShowAll((prev) => !prev)}
-              className="inline-flex min-h-11 items-center gap-2.5 rounded-xl border border-[#0c4a8a] bg-white px-6 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#0c4a8a] shadow-sm transition-all hover:bg-blue-50 cursor-pointer"
-            >
-              <i
-                className={`fas ${showAll ? 'fa-chevron-up' : 'fa-images'} text-[#d97706]`}
-                aria-hidden="true"
-              ></i>
-              <span>
-                {showAll
-                  ? 'Show Less Photos'
-                  : `Show More Photos (+${filteredItems.length - INITIAL_VISIBLE_COUNT} More)`}
-              </span>
-            </button>
-          )}
           <button
             type="button"
             onClick={() => onNavigatePage?.('gallery')}
             className="inline-flex min-h-11 items-center gap-2.5 rounded-xl bg-[#0c4a8a] px-6 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white shadow-lg transition-all hover:bg-[#0c2d57] hover:-translate-y-0.5 cursor-pointer"
           >
             <i className="fas fa-images text-amber-300" aria-hidden="true"></i>
-            <span>Read More</span>
+            <span>Show More</span>
             <i className="fas fa-arrow-right text-xs" aria-hidden="true"></i>
           </button>
         </div>

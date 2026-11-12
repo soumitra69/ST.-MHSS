@@ -5,7 +5,7 @@ import { AppPageId } from './InstitutionalSection';
 
 interface AcademicsSectionProps {
   onOpenAdmission: () => void;
-  onNavigatePage?: (page: AppPageId) => void;
+  onNavigatePage?: (page: AppPageId, sectionId?: string) => void;
 }
 
 const academicStages = [
@@ -157,14 +157,22 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({
                       {detail}
                     </p>
                   </div>
-                  <div className="mt-4 pt-3 border-t border-slate-100">
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
                     <button
                       type="button"
-                      onClick={() => onNavigatePage?.('academic-calendar')}
-                      className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-[#0c4a8a] hover:text-[#d97706] cursor-pointer"
+                      onClick={() => onNavigatePage?.('academic-syllabus', 'classes-subjects')}
+                      className="inline-flex items-center gap-1.5 rounded-lg bg-[#0c4a8a] hover:bg-[#d97706] text-white px-3 py-1.5 text-xs font-bold uppercase tracking-wider shadow-xs transition-all cursor-pointer"
                     >
                       <span>Read More</span>
                       <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => onNavigatePage?.('academic-calendar')}
+                      className="rounded-lg border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 px-2.5 py-1 text-xs font-bold transition-colors cursor-pointer"
+                      title="View Academic Calendar"
+                    >
+                      <span>Calendar</span>
                     </button>
                   </div>
                 </div>

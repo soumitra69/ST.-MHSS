@@ -44,7 +44,7 @@ const generalIdentityRecords = [
   },
   {
     label: 'Year of Establishment & Founder',
-    value: '1961 • Founded by Rev. Fr. Michael Balawan, SDB (French Salesian Missionary)',
+    value: '1961 • Founded by Fr. Michael Balawan (French Salesian Missionary)',
     icon: 'fas fa-cross',
   },
   {
@@ -86,7 +86,7 @@ const historicalMilestones = [
     badge: 'Pioneering Era',
     icon: 'fas fa-seedling',
     description:
-      'Started as a Lower Primary School in 1961 by the visionary French Salesian missionary and mathematician Rev. Fr. Michael Balawan, SDB under the Catholic Mission of Umsning, Archdiocese of Shillong, bringing formal schooling to rural Ri Bhoi.',
+      'Started as a Lower Primary School in 1961 by the visionary French Salesian missionary and mathematician Fr. Michael Balawan under the Catholic Mission of Umsning, Archdiocese of Shillong, bringing formal schooling to rural Ri Bhoi.',
   },
   {
     year: '1970s – 1990s',
@@ -225,7 +225,7 @@ export const WhoWeArePage: React.FC<WhoWeArePageProps> = ({
                 the oldest co-educational institutions in the Ri Bhoi District of Meghalaya. It was
                 started as a Lower Primary School in <strong>{SCHOOL_INFO.established}</strong> by
                 the great Educationist and French Catholic Missionary,{' '}
-                <strong>Rev. Fr. Michael Balawan, SDB</strong>.
+                <strong>Fr. Michael Balawan</strong>.
               </p>
 
               <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-100">

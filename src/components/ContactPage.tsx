@@ -186,47 +186,47 @@ export const ContactPage: React.FC<ContactPageProps> = ({
           </div>
         </div>
 
-        {/* 4 Primary Contact Channel Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+        {/* 4 Primary Contact Channel Cards (Clean, Compact & Friendly) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {contactChannels.map((ch) => (
             <div
               key={ch.title}
-              className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:shadow-md hover:border-blue-300"
+              className="flex flex-col justify-between rounded-xl border border-slate-200/90 bg-white p-4 shadow-xs transition-all hover:shadow hover:border-[#0c4a8a]/40"
             >
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#0c4a8a]/10 text-[#0c4a8a]">
-                    <i className={`${ch.icon} text-lg`} aria-hidden="true"></i>
+                <div className="flex items-center justify-between gap-2 mb-2.5">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#0c4a8a]/10 text-[#0c4a8a]">
+                    <i className={`${ch.icon} text-sm`} aria-hidden="true"></i>
                   </div>
-                  <span className="rounded-md bg-amber-50 border border-amber-200 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-amber-800">
+                  <span className="rounded bg-amber-50 border border-amber-200 px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-amber-800">
                     {ch.badge}
                   </span>
                 </div>
-                <h3 className="text-base font-extrabold text-[#0c4a8a]">{ch.title}</h3>
-                <p className="mt-2 text-sm font-bold text-slate-800 break-words">{ch.primary}</p>
-                <p className="text-xs font-medium text-slate-600 break-words">{ch.secondary}</p>
-                <p className="mt-3 text-[11px] leading-relaxed text-slate-500">{ch.note}</p>
+                <h3 className="text-sm font-extrabold text-[#0c4a8a] leading-snug">{ch.title}</h3>
+                <p className="mt-1 text-xs font-bold text-slate-800 break-words leading-tight">{ch.primary}</p>
+                <p className="text-[11px] font-medium text-slate-600 break-words mt-0.5">{ch.secondary}</p>
+                <p className="mt-1.5 text-[11px] leading-relaxed text-slate-500 line-clamp-2">{ch.note}</p>
               </div>
 
-              <div className="mt-5 pt-4 border-t border-slate-100">
+              <div className="mt-3 pt-2.5 border-t border-slate-100">
                 {ch.actionHref ? (
                   <a
                     href={ch.actionHref}
                     target={ch.actionHref.startsWith('http') ? '_blank' : undefined}
                     rel={ch.actionHref.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-[#0c4a8a] hover:text-[#d97706]"
+                    className="inline-flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-[#0c4a8a] hover:text-[#d97706] transition-colors"
                   >
                     <span>{ch.actionText}</span>
-                    <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
+                    <i className="fas fa-arrow-right text-[9px]" aria-hidden="true"></i>
                   </a>
                 ) : (
                   <button
                     type="button"
                     onClick={() => ch.actionPage && onNavigatePage?.(ch.actionPage)}
-                    className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-[#0c4a8a] hover:text-[#d97706] cursor-pointer"
+                    className="inline-flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-[#0c4a8a] hover:text-[#d97706] transition-colors cursor-pointer"
                   >
                     <span>{ch.actionText}</span>
-                    <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
+                    <i className="fas fa-arrow-right text-[9px]" aria-hidden="true"></i>
                   </button>
                 )}
               </div>
@@ -235,200 +235,205 @@ export const ContactPage: React.FC<ContactPageProps> = ({
         </div>
 
         {/* Two-Column Layout: Send Message Form & Live Google Map */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
-          {/* Left Column: Direct Message Form */}
-          <div className="lg:col-span-6 rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-md">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="rounded-md bg-[#0c4a8a] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white">
-                Online Enquiry Form
-              </span>
-              <span className="text-xs font-semibold text-slate-500">Fast Response</span>
-            </div>
-            <h2 className="text-xl sm:text-2xl font-extrabold text-[#0c4a8a]">
-              Send an Official Enquiry
-            </h2>
-            <p className="mt-1 text-xs sm:text-sm text-slate-600">
-              Fill in your details below and our campus secretariat will connect with you regarding admissions, transfers, or academic queries.
-            </p>
-
-            {submitted ? (
-              <div className="mt-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-6 text-center">
-                <i className="fas fa-check-circle text-4xl text-emerald-600 mb-3" aria-hidden="true"></i>
-                <h3 className="text-lg font-extrabold text-emerald-900">Enquiry Received</h3>
-                <p className="mt-2 text-xs sm:text-sm text-emerald-800">
-                  Thank you, <strong>{formData.name}</strong>. Your enquiry has been registered with the St. Michael&apos;s Secretariat Desk. We will reach back to you at <strong>{formData.phone || formData.email}</strong>.
-                </p>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSubmitted(false);
-                    setFormData({
-                      name: '',
-                      phone: '',
-                      email: '',
-                      studentClass: 'Class XI Higher Secondary',
-                      category: 'Admissions & Eligibility',
-                      message: '',
-                    });
-                  }}
-                  className="mt-4 inline-flex items-center gap-2 rounded-xl bg-emerald-700 px-4 py-2 text-xs font-bold text-white hover:bg-emerald-800 cursor-pointer"
-                >
-                  <i className="fas fa-redo" aria-hidden="true"></i>
-                  <span>Send Another Message</span>
-                </button>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch mb-10">
+          {/* Left Column: Direct Message Form (Compact & Aligned) */}
+          <div className="lg:col-span-6 rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-sm flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="rounded bg-[#0c4a8a] px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-white">
+                  Online Enquiry Form
+                </span>
+                <span className="text-[11px] font-semibold text-slate-500">Fast Response</span>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Wanphrang Lyngdoh"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs sm:text-sm text-slate-800 focus:border-[#0c4a8a] focus:outline-none focus:ring-1 focus:ring-[#0c4a8a]"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
-                      Phone Number *
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="+91 98765 43210"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs sm:text-sm text-slate-800 focus:border-[#0c4a8a] focus:outline-none focus:ring-1 focus:ring-[#0c4a8a]"
-                    />
-                  </div>
-                </div>
+              <h2 className="text-lg sm:text-xl font-extrabold text-[#0c4a8a]">
+                Send an Official Enquiry
+              </h2>
+              <p className="mt-0.5 text-xs text-slate-600">
+                Fill in your details below and our campus secretariat will connect with you regarding admissions, transfers, or academic queries.
+              </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      placeholder="parent@example.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs sm:text-sm text-slate-800 focus:border-[#0c4a8a] focus:outline-none focus:ring-1 focus:ring-[#0c4a8a]"
-                    />
+              {submitted ? (
+                <div className="mt-5 rounded-xl border border-emerald-200 bg-emerald-50 p-5 text-center">
+                  <i className="fas fa-check-circle text-3xl text-emerald-600 mb-2" aria-hidden="true"></i>
+                  <h3 className="text-base font-extrabold text-emerald-900">Enquiry Received</h3>
+                  <p className="mt-1 text-xs text-emerald-800">
+                    Thank you, <strong>{formData.name}</strong>. Your enquiry has been registered with the St. Michael&apos;s Secretariat Desk. We will reach back to you at <strong>{formData.phone || formData.email}</strong>.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSubmitted(false);
+                      setFormData({
+                        name: '',
+                        phone: '',
+                        email: '',
+                        studentClass: 'Class XI Higher Secondary',
+                        category: 'Admissions & Eligibility',
+                        message: '',
+                      });
+                    }}
+                    className="mt-3 inline-flex items-center gap-2 rounded-lg bg-emerald-700 px-3.5 py-1.5 text-xs font-bold text-white hover:bg-emerald-800 cursor-pointer"
+                  >
+                    <i className="fas fa-redo text-xs" aria-hidden="true"></i>
+                    <span>Send Another Message</span>
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="mt-4 space-y-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                        Full Name *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="e.g. Wanphrang Lyngdoh"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full rounded-lg border border-slate-300 px-3 py-2 text-xs text-slate-800 focus:border-[#0c4a8a] focus:outline-none focus:ring-1 focus:ring-[#0c4a8a]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                        Phone Number *
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="+91 98765 43210"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className="w-full rounded-lg border border-slate-300 px-3 py-2 text-xs text-slate-800 focus:border-[#0c4a8a] focus:outline-none focus:ring-1 focus:ring-[#0c4a8a]"
+                      />
+                    </div>
                   </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        placeholder="parent@example.com"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="w-full rounded-lg border border-slate-300 px-3 py-2 text-xs text-slate-800 focus:border-[#0c4a8a] focus:outline-none focus:ring-1 focus:ring-[#0c4a8a]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
+                        Target Class
+                      </label>
+                      <select
+                        value={formData.studentClass}
+                        onChange={(e) => setFormData({ ...formData, studentClass: e.target.value })}
+                        className="w-full rounded-lg border border-slate-300 px-3 py-2 text-xs text-slate-800 focus:border-[#0c4a8a] focus:outline-none focus:ring-1 focus:ring-[#0c4a8a]"
+                      >
+                        <option>Class XI Higher Secondary (Science)</option>
+                        <option>Class XI Higher Secondary (Arts)</option>
+                        <option>Class XI Higher Secondary (Commerce)</option>
+                        <option>Class IX &amp; X (Secondary MBOSE)</option>
+                        <option>Classes VI – VIII (Upper Primary)</option>
+                        <option>Classes I – V (Lower Primary)</option>
+                        <option>Nursery &amp; Kindergarten (KG)</option>
+                      </select>
+                    </div>
+                  </div>
+
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1">
-                      Target Class
+                      Enquiry Subject / Category
                     </label>
                     <select
-                      value={formData.studentClass}
-                      onChange={(e) => setFormData({ ...formData, studentClass: e.target.value })}
-                      className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs sm:text-sm text-slate-800 focus:border-[#0c4a8a] focus:outline-none focus:ring-1 focus:ring-[#0c4a8a]"
+                      value={formData.category}
+                      onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                      className="w-full rounded-lg border border-slate-300 px-3 py-2 text-xs text-slate-800 focus:border-[#0c4a8a] focus:outline-none focus:ring-1 focus:ring-[#0c4a8a]"
                     >
-                      <option>Class XI Higher Secondary (Science)</option>
-                      <option>Class XI Higher Secondary (Arts)</option>
-                      <option>Class XI Higher Secondary (Commerce)</option>
-                      <option>Class IX &amp; X (Secondary MBOSE)</option>
-                      <option>Classes VI – VIII (Upper Primary)</option>
-                      <option>Classes I – V (Lower Primary)</option>
-                      <option>Nursery &amp; Kindergarten (KG)</option>
+                      <option>Admissions &amp; Eligibility 2026–27</option>
+                      <option>Fee Structure &amp; Bus Transport</option>
+                      <option>Transfer Certificate (TC) &amp; Marksheets</option>
+                      <option>Scholarships &amp; Merit Endowments</option>
+                      <option>Principal Appointment &amp; Visit Request</option>
+                      <option>Alumni &amp; Community Outreach</option>
                     </select>
                   </div>
-                </div>
 
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
-                    Enquiry Subject / Category
-                  </label>
-                  <select
-                    value={formData.category}
-                    onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    className="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-xs sm:text-sm text-slate-800 focus:border-[#0c4a8a] focus:outline-none focus:ring-1 focus:ring-[#0c4a8a]"
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">
+                      Message / Details *
+                    </label>
+                    <textarea
+                      rows={3}
+                      required
+                      placeholder="Please specify student details, previous school name, or your specific questions..."
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="w-full rounded-lg border border-slate-300 p-3 text-xs text-slate-800 focus:border-[#0c4a8a] focus:outline-none focus:ring-1 focus:ring-[#0c4a8a]"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full rounded-xl bg-[#0c4a8a] py-2.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-xs transition-all hover:bg-[#d97706] cursor-pointer"
                   >
-                    <option>Admissions &amp; Eligibility 2026–27</option>
-                    <option>Fee Structure &amp; Bus Transport</option>
-                    <option>Transfer Certificate (TC) &amp; Marksheets</option>
-                    <option>Scholarships &amp; Merit Endowments</option>
-                    <option>Principal Appointment &amp; Visit Request</option>
-                    <option>Alumni &amp; Community Outreach</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
-                    Message / Details *
-                  </label>
-                  <textarea
-                    rows={4}
-                    required
-                    placeholder="Please specify student details, previous school name, or your specific questions..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full rounded-xl border border-slate-300 p-3.5 text-xs sm:text-sm text-slate-800 focus:border-[#0c4a8a] focus:outline-none focus:ring-1 focus:ring-[#0c4a8a]"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full rounded-xl bg-[#0c4a8a] py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white shadow-md transition-all hover:bg-[#d97706] cursor-pointer"
-                >
-                  <i className="fas fa-paper-plane mr-2" aria-hidden="true"></i>
-                  <span>Submit Message to Secretariat</span>
-                </button>
-              </form>
-            )}
+                    <i className="fas fa-paper-plane mr-2" aria-hidden="true"></i>
+                    <span>Submit Message to Secretariat</span>
+                  </button>
+                </form>
+              )}
+            </div>
           </div>
 
-          {/* Right Column: Interactive Google Map & Campus Reach Details */}
-          <div className="lg:col-span-6 flex flex-col justify-between gap-6">
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-md overflow-hidden">
-              <div className="flex items-center justify-between mb-3">
-                <div>
-                  <span className="rounded-md bg-amber-100 border border-amber-300 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-amber-900">
-                    <i className="fas fa-location-arrow mr-1" aria-hidden="true"></i>
-                    Live Google Map
-                  </span>
-                  <h3 className="mt-1 text-base font-extrabold text-[#0c4a8a]">
-                    Campus Location on NH-6
-                  </h3>
+          {/* Right Column: Google Map + Assistance Box (Symmetrically Aligned) */}
+          <div className="lg:col-span-6 flex flex-col justify-between gap-4">
+            {/* Interactive Google Map Card */}
+            <div className="rounded-2xl border border-slate-200/90 bg-white p-4 sm:p-5 shadow-sm overflow-hidden flex-1 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-2.5">
+                  <div className="flex items-center gap-2">
+                    <span className="rounded bg-amber-100 border border-amber-300 px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-amber-900">
+                      <i className="fas fa-location-arrow mr-1" aria-hidden="true"></i>
+                      Live Google Map
+                    </span>
+                    <h3 className="text-sm font-extrabold text-[#0c4a8a]">
+                      Campus Location on NH-6
+                    </h3>
+                  </div>
+                  <a
+                    href={OFFICIAL_MAP_SHARE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-[11px] font-bold text-[#d97706] hover:underline"
+                  >
+                    <span>Open Full Screen</span>
+                    <i className="fas fa-external-link-alt text-[9px]" aria-hidden="true"></i>
+                  </a>
                 </div>
-                <a
-                  href={OFFICIAL_MAP_SHARE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#d97706] hover:underline"
-                >
-                  <span>Open Full Screen</span>
-                  <i className="fas fa-external-link-alt text-[10px]" aria-hidden="true"></i>
-                </a>
+
+                <div className="relative h-44 sm:h-48 w-full overflow-hidden rounded-xl border border-slate-200 shadow-inner">
+                  <iframe
+                    title="Official Google Map - St. Michael's Higher Secondary School Umsning"
+                    src={OFFICIAL_MAP_EMBED_URL}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="w-full h-full"
+                  />
+                </div>
               </div>
 
-              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-slate-200 shadow-inner">
-                <iframe
-                  title="Official Google Map - St. Michael's Higher Secondary School Umsning"
-                  src={OFFICIAL_MAP_EMBED_URL}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full h-full"
-                />
-              </div>
-
-              <div className="mt-4 rounded-xl bg-slate-50 border border-slate-200 p-3.5 text-xs text-slate-700">
-                <div className="flex items-start gap-2.5">
-                  <i className="fas fa-car text-[#0c4a8a] mt-0.5 shrink-0" aria-hidden="true"></i>
+              <div className="mt-2.5 rounded-lg bg-slate-50 border border-slate-200/80 p-2.5 text-xs text-slate-700">
+                <div className="flex items-start gap-2">
+                  <i className="fas fa-car text-[#0c4a8a] mt-0.5 shrink-0 text-xs" aria-hidden="true"></i>
                   <div>
-                    <strong className="text-slate-900">How to Reach by Road:</strong>
+                    <strong className="text-slate-900 text-xs">How to Reach by Road:</strong>
                     <p className="mt-0.5 text-[11px] leading-relaxed text-slate-600">
-                      Located in Umsning Town along the Guwahati–Shillong NH-6 corridor. Approximately 30 km from Shillong city and 22 km from Nongpoh. Convenient bus and maxi-cab connections from Mawlai, Umsning Zero Point, and Bhoirymbong.
+                      Located in Umsning Town along the Guwahati–Shillong NH-6 corridor. Approximately 30 km from Shillong and 22 km from Nongpoh.
                     </p>
                   </div>
                 </div>
@@ -436,29 +441,31 @@ export const ContactPage: React.FC<ContactPageProps> = ({
             </div>
 
             {/* Quick Contact & Emergency Desk Card */}
-            <div className="rounded-3xl border border-slate-700 bg-[#0c2d57] p-6 text-white shadow-md">
-              <span className="inline-block rounded-md bg-[#d97706] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white">
-                Direct Helpdesk
-              </span>
-              <h3 className="mt-2 text-lg font-extrabold text-white">
-                Need Immediate Assistance?
-              </h3>
-              <p className="mt-1 text-xs leading-relaxed text-slate-200">
-                For emergency campus notices, bus route enquiries, or urgent TC collection, call during working hours or send a WhatsApp message to our admissions desk.
+            <div className="rounded-2xl border border-slate-700 bg-[#0c2d57] p-4 text-white shadow-sm">
+              <div className="flex items-center justify-between gap-2 mb-1">
+                <h3 className="text-sm font-extrabold text-white">
+                  Need Immediate Assistance?
+                </h3>
+                <span className="rounded bg-[#d97706] px-2 py-0.5 text-[9px] font-extrabold uppercase tracking-wider text-white">
+                  Direct Desk
+                </span>
+              </div>
+              <p className="text-[11px] leading-relaxed text-slate-200">
+                For emergency notices, bus routes, or TC collection, contact during working hours.
               </p>
-              <div className="mt-4 flex flex-wrap gap-3">
+              <div className="mt-2.5 flex flex-wrap gap-2">
                 <a
                   href={`tel:${SCHOOL_INFO.phoneMobile.replace(/[^0-9+]/g, '')}`}
-                  className="inline-flex items-center gap-2 rounded-xl bg-amber-400 px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-slate-950 shadow-sm transition-transform hover:scale-[1.02]"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-amber-400 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-slate-950 shadow-xs transition-transform hover:scale-[1.02]"
                 >
-                  <i className="fas fa-phone-alt" aria-hidden="true"></i>
+                  <i className="fas fa-phone-alt text-[10px]" aria-hidden="true"></i>
                   <span>Call {SCHOOL_INFO.phoneMobile}</span>
                 </a>
                 <a
                   href={`mailto:${SCHOOL_INFO.email}`}
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-white transition-colors hover:bg-white/20"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-white/30 bg-white/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-white transition-colors hover:bg-white/20"
                 >
-                  <i className="fas fa-envelope text-amber-300" aria-hidden="true"></i>
+                  <i className="fas fa-envelope text-amber-300 text-[10px]" aria-hidden="true"></i>
                   <span>Email Principal</span>
                 </a>
               </div>

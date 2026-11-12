@@ -604,7 +604,7 @@ export const ScholarshipsWelfarePage: React.FC<ServicePageProps> = ({ onBack }) 
       title: 'Catholic Mission Compassionate Freeship & Sibling Concession',
       eligibility: 'Deserving students from economically weaker rural families & multiple siblings',
       benefit: 'Partial to Full Tuition Fee Concession approved by the School Managing Committee',
-      desc: 'Rooted in the missionary legacy of Fr. Michael Balawan, SDB, ensuring no talented child in rural Ri Bhoi is denied education due to financial hardship.',
+      desc: 'Rooted in the missionary legacy of Fr. Michael Balawan, ensuring no talented child in rural Ri Bhoi is denied education due to financial hardship.',
     },
   ];
 

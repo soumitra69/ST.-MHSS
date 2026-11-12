@@ -11,7 +11,7 @@ interface FAQAndFinalCTAProps {
 const frequentlyAskedQuestions = [
   {
     question: 'Which school levels and streams are offered at St. Michael’s?',
-    answer: `${SCHOOL_INFO.classes}. Founded in 1961 by Rev. Fr. Michael Balawan, SDB under the Catholic Mission of Umsning, Archdiocese of Shillong, the school offers English-medium education from Nursery to Class XII, including Science, Arts & Humanities, and Commerce streams at the Higher Secondary stage.`,
+    answer: `${SCHOOL_INFO.classes}. Founded in 1961 by Fr. Michael Balawan under the Catholic Mission of Umsning, Archdiocese of Shillong, the school offers English-medium education from Nursery to Class XII, including Science, Arts & Humanities, and Commerce streams at the Higher Secondary stage.`,
   },
   {
     question: 'What are the official school hours and office visiting timings?',

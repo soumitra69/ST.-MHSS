@@ -11,17 +11,17 @@ interface AcademicCalendarPageProps {
 // 1. IMPORTANT SCHOOL EVENTS 2026 (From Official Prospectus Page 4)
 export const IMPORTANT_SCHOOL_EVENTS_2026 = [
   { month: 'JANUARY', event: 'Internal Promotion Examination-XI' },
-  { month: 'FEBRUARY', event: 'Re-opening of School (VI - X)\nPractical Examination (XII)\nHSSLC Examination-2026' },
-  { month: 'MARCH', event: 'Commencement of Classes (XII)\nParents-Teachers-Students Meeting' },
+  { month: 'FEBRUARY', event: 'Re-opening of School (VI - X) • Practical Examination (XII) • HSSLC Examination-2026' },
+  { month: 'MARCH', event: 'Commencement of Classes (XII) • Parents-Teachers-Students Meeting' },
   { month: 'APRIL', event: 'Oath-Taking Ceremony of School Leaders' },
   { month: 'MAY', event: 'First Internal Assessment (VI - X)' },
   { month: 'JUNE', event: 'Half-Yearly Exam (VI-IX) & Pre-Selection (X & XII)' },
-  { month: 'JULY', event: 'Summer Vacation\nResumption of Classes (VI - XII)' },
+  { month: 'JULY', event: 'Summer Vacation • Resumption of Classes (VI - XII)' },
   { month: 'AUGUST', event: 'Independence Day' },
-  { month: 'SEPTEMBER', event: "Second Internal Assessment (VI - X)\nTeachers' Day\nSchool Fete\nSt. Michael's Day" },
+  { month: 'SEPTEMBER', event: "Second Internal Assessment (VI - X) • Teachers' Day • School Fete • St. Michael's Day" },
   { month: 'OCTOBER', event: 'Selection Test (X & XII)' },
-  { month: 'NOVEMBER', event: 'Children\'s Day\nExamination : Promotion (VI - IX) &\nPre-Promotion (XI)' },
-  { month: 'DECEMBER', event: 'Send-off (X & XII)\nDeclaration of Annual Results (V - IX)' },
+  { month: 'NOVEMBER', event: "Children's Day • Examination : Promotion (VI - IX) & Pre-Promotion (XI)" },
+  { month: 'DECEMBER', event: 'Send-off (X & XII) • Declaration of Annual Results (V - IX)' },
 ];
 
 // 2. LIST OF HOLIDAYS 2026 (From Official Prospectus Page 4)
@@ -245,21 +245,21 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
         {/* =========================================================================
             INTERACTIVE CALENDAR APP CONTAINER (THEME-ALIGNED WITH SITE)
             ========================================================================= */}
-        <div className="rounded-3xl border border-slate-900 bg-[#071322] p-5 sm:p-7 md:p-8 text-white shadow-2xl mb-12">
+        <div className="rounded-3xl border border-slate-900 bg-[#071322] p-4 sm:p-5 md:p-6 text-white shadow-2xl mb-10">
             {/* Top Control Bar: Month Switcher & Quick Actions */}
-            <div className="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-slate-800">
+            <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-800">
               <div className="flex items-center gap-2">
                 <button
                   type="button"
                   onClick={handlePrevMonth}
                   disabled={currentMonthIdx === 0}
-                  className="h-9 w-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-800 disabled:opacity-30 cursor-pointer"
+                  className="h-8 w-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-800 disabled:opacity-30 cursor-pointer"
                   aria-label="Previous Month"
                 >
                   <i className="fas fa-chevron-left text-xs" aria-hidden="true"></i>
                 </button>
 
-                <span className="font-mono text-sm sm:text-base font-extrabold tracking-wider px-3 py-1 bg-slate-900 border border-slate-800 rounded-xl text-slate-200">
+                <span className="font-mono text-xs sm:text-sm font-extrabold tracking-wider px-3 py-1 bg-slate-900 border border-slate-800 rounded-lg text-slate-200">
                   {MONTH_NAMES[currentMonthIdx]} {currentYear}
                 </span>
 
@@ -267,7 +267,7 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
                   type="button"
                   onClick={handleNextMonth}
                   disabled={currentMonthIdx === 11}
-                  className="h-9 w-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-800 disabled:opacity-30 cursor-pointer"
+                  className="h-8 w-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-800 disabled:opacity-30 cursor-pointer"
                   aria-label="Next Month"
                 >
                   <i className="fas fa-chevron-right text-xs" aria-hidden="true"></i>
@@ -276,7 +276,7 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
                 <button
                   type="button"
                   onClick={handleToday}
-                  className="ml-1 rounded-xl bg-slate-800 hover:bg-slate-700 px-3.5 py-1.5 text-xs font-bold text-white border border-slate-700 cursor-pointer"
+                  className="ml-1 rounded-lg bg-slate-800 hover:bg-slate-700 px-3 py-1 text-xs font-bold text-white border border-slate-700 cursor-pointer"
                 >
                   Today
                 </button>
@@ -285,7 +285,7 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
               <div className="flex items-center gap-2">
                 <a
                   href="#holiday-list"
-                  className="inline-flex items-center gap-2 rounded-xl bg-emerald-950/80 border border-emerald-700/60 px-4 py-2 text-xs font-bold text-emerald-300 hover:bg-emerald-900/80 transition-colors"
+                  className="inline-flex items-center gap-2 rounded-xl bg-emerald-950/80 border border-emerald-700/60 px-3.5 py-1.5 text-xs font-bold text-emerald-300 hover:bg-emerald-900/80 transition-colors"
                 >
                   <i className="fas fa-calendar-alt text-emerald-400" aria-hidden="true"></i>
                   <span>Annual Holiday Calendar</span>
@@ -294,26 +294,26 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
             </div>
 
             {/* Main 2-Column Calendar Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-6">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mt-4">
               {/* Left 6 Columns: Interactive Month Grid */}
-              <div className="lg:col-span-6 rounded-2xl bg-[#0c1a2d] border border-slate-800 p-5 sm:p-6 flex flex-col justify-between">
+              <div className="lg:col-span-6 rounded-2xl bg-[#0c1a2d] border border-slate-800 p-4 sm:p-5 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-3">
                     <div>
                       <span className="text-[10px] font-mono uppercase tracking-widest text-emerald-400 font-bold block">
                         • ST. MICHAEL&apos;S CALENDAR
                       </span>
-                      <h3 className="text-2xl sm:text-3xl font-black text-white tracking-wider">
+                      <h3 className="text-xl sm:text-2xl font-black text-white tracking-wider">
                         {MONTH_NAMES[currentMonthIdx]}
                       </h3>
                     </div>
-                    <span className="font-mono text-3xl font-black text-emerald-400/80">
+                    <span className="font-mono text-2xl font-black text-emerald-400/80">
                       {currentYear}
                     </span>
                   </div>
 
                   {/* Day of Week Header Row */}
-                  <div className="grid grid-cols-7 gap-1 text-center font-mono text-[11px] sm:text-xs font-bold mb-3">
+                  <div className="grid grid-cols-7 gap-1 text-center font-mono text-[11px] font-bold mb-2">
                     {DAYS_OF_WEEK.map((dw, i) => (
                       <span key={dw} className={i === 0 ? 'text-red-400 font-black' : 'text-slate-400'}>
                         {dw}
@@ -321,11 +321,11 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
                     ))}
                   </div>
 
-                  {/* Days Grid */}
-                  <div className="grid grid-cols-7 gap-1.5 sm:gap-2">
+                  {/* Days Grid - Centered items with square height & width */}
+                  <div className="grid grid-cols-7 gap-1 sm:gap-2 justify-items-center">
                     {/* Empty offset spaces */}
                     {Array.from({ length: startDayOfWeek }).map((_, i) => (
-                      <div key={`empty-${i}`} className="aspect-square" />
+                      <div key={`empty-${i}`} className="h-9 w-9 sm:h-10 sm:w-10" />
                     ))}
 
                     {/* Month Days */}
@@ -343,19 +343,19 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
                           key={dayNum}
                           type="button"
                           onClick={() => setSelectedDay(dayNum)}
-                          className={`aspect-square w-full rounded-2xl flex flex-col items-center justify-center relative transition-all cursor-pointer ${
+                          className={`h-9 w-9 sm:h-10 sm:w-10 rounded-xl flex flex-col items-center justify-center relative transition-all cursor-pointer ${
                             isCurrentSelected
-                              ? 'bg-white !text-[#0a192f] shadow-lg'
+                              ? 'bg-white !text-[#0a192f] shadow-md font-black'
                               : isDaySunday
                               ? 'text-rose-400 hover:bg-slate-800/60'
                               : 'text-slate-100 hover:bg-slate-800/60'
                           }`}
                         >
                           <span
-                            className={`font-sans font-bold leading-none ${
+                            className={`font-sans leading-none ${
                               isCurrentSelected
-                                ? 'text-lg sm:text-xl font-extrabold text-[#0a192f]'
-                                : 'text-sm sm:text-base font-semibold'
+                                ? 'text-sm sm:text-base font-extrabold text-[#0a192f]'
+                                : 'text-xs sm:text-sm font-semibold'
                             }`}
                           >
                             {dayNum}
@@ -364,7 +364,7 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
                           {/* Green or red indicator dot directly inside the tile below number */}
                           {(hasHoliday || isDaySunday) && (
                             <span
-                              className={`h-1.5 w-1.5 rounded-full absolute bottom-1.5 sm:bottom-2 ${
+                              className={`h-1.5 w-1.5 rounded-full absolute bottom-1 ${
                                 isDaySunday ? 'bg-rose-500' : 'bg-[#10b981]'
                               }`}
                             />
@@ -375,29 +375,29 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
                   <span className="flex items-center gap-1.5">
-                    <span className="h-2 w-2 rounded-full bg-red-400 inline-block" /> Sunday
+                    <span className="h-1.5 w-1.5 rounded-full bg-red-400 inline-block" /> Sunday
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <span className="h-2 w-2 rounded-full bg-emerald-400 inline-block" /> Holiday
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 inline-block" /> Holiday
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <span className="h-2 w-2 rounded-full bg-white inline-block" /> Selected
+                    <span className="h-1.5 w-1.5 rounded-full bg-white inline-block" /> Selected
                   </span>
                 </div>
               </div>
 
               {/* Right 6 Columns: DATE DETAILS (Top) & HOLIDAYS IN MONTH (Bottom) */}
-              <div className="lg:col-span-6 flex flex-col justify-between gap-5">
+              <div className="lg:col-span-6 flex flex-col justify-between gap-4">
                 {/* Top Box: DATE DETAILS */}
-                <div className="rounded-2xl bg-[#0c1a2d] border border-slate-800 p-5 sm:p-6">
-                  <div className="flex items-center justify-between mb-3">
+                <div className="rounded-2xl bg-[#0c1a2d] border border-slate-800 p-4 sm:p-5">
+                  <div className="flex items-center justify-between mb-2">
                     <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400 font-bold">
                       DATE DETAILS
                     </span>
                     <span
-                      className={`rounded-full px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
+                      className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
                         selectedHoliday
                           ? 'bg-emerald-950 text-emerald-300 border border-emerald-700/60'
                           : isSunday
@@ -409,24 +409,21 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
                     </span>
                   </div>
 
-                  <h4 className="text-xl sm:text-2xl font-black text-white">
+                  <h4 className="text-lg sm:text-xl font-black text-white">
                     {selectedDayOfWeekName}, {selectedDay} {MONTH_NAMES[currentMonthIdx]} {currentYear}
                   </h4>
 
-                  <div className="mt-3 flex items-center gap-2 text-xs sm:text-sm font-semibold">
+                  <div className="mt-2 flex items-center gap-2 text-xs font-semibold">
                     {selectedHoliday ? (
                       <span className="text-emerald-300 flex items-center gap-2">
-                        <i className="fas fa-glass-cheers text-emerald-400" aria-hidden="true"></i>
                         <span>{selectedHoliday.occasion} ({selectedHoliday.type} Holiday)</span>
                       </span>
                     ) : isSunday ? (
                       <span className="text-red-300 flex items-center gap-2">
-                        <i className="fas fa-church text-red-400" aria-hidden="true"></i>
-                        <span>Sunday Diocesan Rest Day (Campus Closed)</span>
+                        <span>Sunday Closed (Weekly Rest Day)</span>
                       </span>
                     ) : (
                       <span className="text-slate-300 flex items-center gap-2">
-                        <i className="fas fa-sparkles text-amber-400" aria-hidden="true"></i>
                         <span>Regular Operational Working Day • 8:45 AM – 3:00 PM</span>
                       </span>
                     )}
@@ -434,51 +431,51 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
                 </div>
 
                 {/* Bottom Box: Holidays in Current Month */}
-                <div className="rounded-2xl bg-[#0c1a2d] border border-slate-800 p-5 sm:p-6 flex-1 flex flex-col justify-between">
-                  <div className="flex items-center justify-between mb-3">
-                    <h4 className="text-sm sm:text-base font-extrabold text-white">
+                <div className="rounded-2xl bg-[#0c1a2d] border border-slate-800 p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="text-sm font-extrabold text-white">
                       Holidays in {MONTH_NAMES[currentMonthIdx]}
                     </h4>
-                    <span className="rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 px-2.5 py-0.5 text-[11px] font-bold font-mono">
+                    <span className="rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 px-2 py-0.5 text-[10px] font-bold font-mono">
                       {holidaysInCurrentMonth.length} {holidaysInCurrentMonth.length === 1 ? 'Day' : 'Days'}
                     </span>
                   </div>
 
-                  <div className="space-y-2 max-h-[220px] overflow-y-auto pr-1">
+                  <div className="space-y-1.5 max-h-[160px] overflow-y-auto pr-1">
                     {holidaysInCurrentMonth.length > 0 ? (
                       holidaysInCurrentMonth.map((hol) => (
                         <div
                           key={hol.occasion}
-                          className="flex items-center justify-between rounded-xl bg-slate-900/90 border border-slate-800 p-3 hover:border-emerald-600/40 transition-colors"
+                          className="flex items-center justify-between rounded-xl bg-slate-900/90 border border-slate-800 p-2 hover:border-emerald-600/40 transition-colors"
                         >
-                          <div className="flex items-center gap-3">
-                            <div className="rounded-lg bg-emerald-950 text-emerald-300 border border-emerald-800/60 px-2 py-1 text-center font-mono text-[10px] font-bold leading-tight min-w-[46px]">
-                              <span className="block text-[9px] uppercase">{MONTH_NAMES[hol.monthIdx].slice(0, 3)}</span>
+                          <div className="flex items-center gap-2.5">
+                            <div className="rounded-md bg-emerald-950 text-emerald-300 border border-emerald-800/60 px-1.5 py-0.5 text-center font-mono text-[9px] font-bold leading-tight min-w-[38px]">
+                              <span className="block text-[8px] uppercase">{MONTH_NAMES[hol.monthIdx].slice(0, 3)}</span>
                               <span className="text-xs font-black">{hol.dayNum}</span>
                             </div>
                             <div>
-                              <strong className="block text-xs font-bold text-white">
+                              <strong className="block text-xs font-bold text-white leading-tight">
                                 {hol.occasion}
                               </strong>
                               <span className="text-[10px] text-slate-400 font-medium">{hol.day}</span>
                             </div>
                           </div>
 
-                          <span className="rounded-md bg-slate-800 text-[10px] font-semibold text-slate-300 px-2 py-0.5 border border-slate-700">
+                          <span className="rounded bg-slate-800 text-[9px] font-semibold text-slate-300 px-1.5 py-0.5 border border-slate-700">
                             {hol.type || 'Official'}
                           </span>
                         </div>
                       ))
                     ) : (
-                      <div className="rounded-xl bg-slate-900/60 border border-slate-800 p-4 text-center text-xs text-slate-400">
+                      <div className="rounded-xl bg-slate-900/60 border border-slate-800 p-3 text-center text-xs text-slate-400">
                         No gazetted public holidays scheduled in {MONTH_NAMES[currentMonthIdx]}.
                       </div>
                     )}
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-slate-800/80 text-[11px] text-slate-400 flex items-center justify-between">
+                  <div className="mt-3 pt-2 border-t border-slate-800/80 text-[10px] text-slate-400 flex items-center justify-between">
                     <span>St. Michael&apos;s H.S. School, Umsning</span>
-                    <span className="font-mono text-emerald-400 font-bold">2026 Academic Session</span>
+                    <span className="font-mono text-emerald-400 font-bold">2026 Session</span>
                   </div>
                 </div>
               </div>
@@ -486,83 +483,8 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
           </div>
 
         {/* =========================================================================
-            PROSPECTUS SECTION: IMPORTANT SCHOOL EVENTS & DIRECTIVES
+            SECTION 2: LIST OF HOLIDAYS 2026 (Official Exact Table)
             ========================================================================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
-          {/* Left Column (7 cols): IMPORTANT SCHOOL EVENTS 2026 */}
-          <div className="lg:col-span-7 rounded-3xl border border-amber-300 bg-[#fffbeb] p-6 sm:p-8 shadow-sm">
-            <div className="flex items-center justify-between border-b border-amber-200 pb-4 mb-4">
-              <div>
-                <span className="rounded-md bg-amber-400 text-slate-950 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider">
-                  Annual Timeline
-                </span>
-                <h2 className="mt-1 text-xl sm:text-2xl font-black text-[#0c2d57]">
-                  IMPORTANT SCHOOL EVENTS 2026
-                </h2>
-              </div>
-              <span className="text-xs font-bold text-amber-900 hidden sm:inline">
-                Jan – Dec 2026
-              </span>
-            </div>
-
-            <div className="divide-y divide-amber-200/90">
-              {IMPORTANT_SCHOOL_EVENTS_2026.map((ev) => (
-                <div key={ev.month} className="py-3.5 flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-6">
-                  <div className="w-32 shrink-0">
-                    <span className="inline-block rounded-lg bg-amber-200/80 px-2.5 py-1 font-mono text-xs font-black tracking-wider text-amber-950">
-                      {ev.month}
-                    </span>
-                  </div>
-                  <div className="flex-1 text-xs sm:text-sm font-semibold text-slate-800 whitespace-pre-line leading-relaxed">
-                    {ev.event}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right Column (5 cols): INTERNAL ASSESSMENT & PROSPECTUS DIRECTIVES */}
-          <div className="lg:col-span-5 flex flex-col justify-between gap-6">
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
-              <span className="rounded-md bg-blue-50 border border-blue-200 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#0c4a8a]">
-                Prospectus Page 4 Guidelines
-              </span>
-              <h2 className="mt-1 text-xl sm:text-2xl font-extrabold text-[#0c4a8a] mb-5">
-                Academic &amp; Admission Notes
-              </h2>
-
-              <div className="space-y-4">
-                {PROSPECTUS_DIRECTIVES.map((d) => (
-                  <div key={d.heading} className="rounded-2xl border border-slate-200 bg-[#f8fafc] p-4">
-                    <strong className="block text-xs font-extrabold text-[#0c4a8a] uppercase tracking-wide mb-2 flex items-center gap-1.5">
-                      <i className="fas fa-caret-right text-[#d97706]" aria-hidden="true"></i>
-                      <span>{d.heading}</span>
-                    </strong>
-                    <ul className="space-y-1.5 text-xs text-slate-700 leading-relaxed">
-                      {d.items.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <span className="text-[#d97706] font-bold">•</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Non-Refundable Policy Callout */}
-            <div className="rounded-2xl border border-red-300 bg-red-50 p-4 text-red-900 text-xs">
-              <strong className="block font-bold text-red-950 mb-0.5">
-                <i className="fas fa-exclamation-circle mr-1.5" aria-hidden="true"></i>
-                Important Tuition &amp; Admission Rule:
-              </strong>
-              <span>Fees once paid cannot be refunded under any circumstances.</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Section 4: LIST OF HOLIDAYS 2026 (Official Exact Table) */}
         <div id="holiday-list" className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm mb-12">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-slate-200 pb-5 mb-6">
             <div>
@@ -612,6 +534,40 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
                 ))}
               </tbody>
             </table>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            SECTION 3: IMPORTANT SCHOOL EVENTS 2026 (Full-Width Annual Timeline)
+            ========================================================================= */}
+        <div id="school-events" className="rounded-3xl border border-amber-300 bg-[#fffbeb] p-6 sm:p-8 shadow-sm mb-12">
+          <div className="flex items-center justify-between border-b border-amber-200 pb-4 mb-6">
+            <div>
+              <span className="rounded-md bg-amber-400 text-slate-950 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider">
+                Annual Timeline
+              </span>
+              <h2 className="mt-1 text-xl sm:text-2xl font-black text-[#0c2d57]">
+                IMPORTANT SCHOOL EVENTS 2026
+              </h2>
+            </div>
+            <span className="text-xs font-bold text-amber-900 hidden sm:inline">
+              Jan – Dec 2026 • Official Prospectus Page 4
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3.5 divide-y md:divide-y-0 divide-amber-200/90">
+            {IMPORTANT_SCHOOL_EVENTS_2026.map((ev) => (
+              <div key={ev.month} className="pt-3.5 md:pt-0 flex items-center gap-4">
+                <div className="w-28 shrink-0">
+                  <span className="inline-block rounded-lg bg-amber-200/80 px-2.5 py-1 font-mono text-xs font-black tracking-wider text-amber-950">
+                    {ev.month}
+                  </span>
+                </div>
+                <div className="flex-1 text-xs sm:text-sm font-semibold text-slate-800 leading-normal">
+                  {ev.event}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

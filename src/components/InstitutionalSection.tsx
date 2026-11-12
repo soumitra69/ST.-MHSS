@@ -123,15 +123,15 @@ export const InstitutionalSection: React.FC<InstitutionalSectionProps> = ({
                   </span>{' '}
                   Who We Are (General Information)
                 </h2>
-                <p className="vision-body-copy mt-4 text-sm sm:text-base text-[#0c4a8a]">
+                <p className="vision-body-copy mt-4 text-sm sm:text-base text-slate-700 text-justify leading-relaxed">
                   The School is under the management of the{' '}
                   <strong>Catholic Mission of Umsning, Archdiocese of Shillong</strong>, and is one
                   of the oldest co-educational institutions in the Ri Bhoi District of Meghalaya. It
                   was started as a Lower Primary School in{' '}
                   <strong>{SCHOOL_INFO.established}</strong> by the great Educationist and French
-                  Catholic Missionary, <strong>Rev. Fr. Michael Balawan, SDB</strong>.
+                  Catholic Missionary, <strong>Fr. Michael Balawan</strong>.
                 </p>
-                <p className="vision-body-copy mt-3 text-sm sm:text-base text-[#0c4a8a]">
+                <p className="vision-body-copy mt-3 text-sm sm:text-base text-slate-700 text-justify leading-relaxed">
                   The institution is backboned by its committed teachers who spark the imagination
                   of their students and give wings to their dreams. The spirit of confidence and
                   competency is the hallmark that <strong>&ldquo;Michaelians&rdquo;</strong> carry
@@ -394,7 +394,7 @@ export const InstitutionalSection: React.FC<InstitutionalSectionProps> = ({
         </div>
       </section>
 
-      {/* FOUNDER'S SECTION (HOME PAGE): Founder's — Rev. Fr. Michael Balawan, SDB (#founder-message) */}
+      {/* FOUNDER'S SECTION (HOME PAGE): Founder's — Fr. Michael Balawan (#founder-message) */}
       <section
         id="founder-message"
         className="w-full bg-[#f4f7fb] py-9 md:py-12 scroll-mt-24 border-t border-slate-200"
@@ -425,7 +425,7 @@ export const InstitutionalSection: React.FC<InstitutionalSectionProps> = ({
             >
               <img
                 src={SCHOOL_IMAGES.founderPhoto}
-                alt="Rev. Fr. Michael Balawan, SDB (1922–1989) — Founder of St. Michael's Higher Secondary School, Umsning"
+                alt="Fr. Michael Balawan (1922–1989) — Founder of St. Michael's Higher Secondary School, Umsning"
                 className="h-full w-full md:absolute md:inset-0 object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
@@ -437,7 +437,7 @@ export const InstitutionalSection: React.FC<InstitutionalSectionProps> = ({
               </div>
               <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-slate-950/90 border border-amber-400/50 px-3 py-1.5 text-[11px] font-bold text-white backdrop-blur-xs">
                 <i className="fas fa-cross mr-1.5 text-amber-300" aria-hidden="true"></i>
-                Rev. Fr. Michael Balawan, SDB (1922–1989)
+                Fr. Michael Balawan (1922–1989)
               </div>
             </div>
 
@@ -454,7 +454,7 @@ export const InstitutionalSection: React.FC<InstitutionalSectionProps> = ({
                 </span>
                 <span className="rounded-full bg-[#0c4a8a] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white">
                   <i className="fas fa-church mr-1 text-amber-300" aria-hidden="true"></i>
-                  Rev. Fr. Michael Balawan, SDB
+                  Fr. Michael Balawan
                 </span>
               </div>
 
@@ -467,7 +467,7 @@ export const InstitutionalSection: React.FC<InstitutionalSectionProps> = ({
                     Founder&apos;s
                   </h2>
                   <p className="mt-1 text-xs sm:text-sm font-bold text-slate-700">
-                    Rev. Fr. Michael Balawan, SDB (Born <em>Michel Balavoiné</em> • Chartres,
+                    Fr. Michael Balawan (Born <em>Michel Balavoiné</em> • Chartres,
                     France) — French Catholic Missionary, Mathematician (M.Sc., Gauhati University),
                     Linguist &amp; Founder of St. Michael&apos;s School, Umsning (1961).
                   </p>
@@ -532,12 +532,12 @@ export const InstitutionalSection: React.FC<InstitutionalSectionProps> = ({
                 <div className="flex items-center gap-2.5">
                   <img
                     src={SCHOOL_IMAGES.founderPortrait}
-                    alt="Rev. Fr. Michael Balawan, SDB"
+                    alt="Fr. Michael Balawan"
                     className="h-9 w-9 rounded-full object-cover border border-amber-400"
                   />
                   <div>
                     <span className="font-bold text-[#0c4a8a] block">
-                      Rev. Fr. Michael Balawan, SDB (Founder, 1961)
+                      Fr. Michael Balawan (Founder, 1961)
                     </span>
                   </div>
                 </div>

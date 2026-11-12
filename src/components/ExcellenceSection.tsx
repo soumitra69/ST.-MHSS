@@ -168,47 +168,14 @@ export const ExcellenceSection: React.FC<ExcellenceSectionProps> = ({ onNavigate
 
               {/* Gradient Overlay & Live Caption Bar */}
               <div className="excellence-banner-overlay">
-                <div className="excellence-banner-caption">
+                <div className="excellence-banner-caption max-w-none w-full">
                   <span className="excellence-banner-pill">
                     <i className={currentBanner.icon} aria-hidden="true"></i>
                     {currentBanner.tag}
                   </span>
-                  <h3>{currentBanner.title}</h3>
-                </div>
-
-                <div className="excellence-banner-controls">
-                  <button
-                    type="button"
-                    className="excellence-ctrl-btn"
-                    onClick={handlePrevBanner}
-                    aria-label="Previous campus photo"
-                  >
-                    <i className="fas fa-chevron-left" aria-hidden="true"></i>
-                  </button>
-                  <div className="excellence-dots-row" role="tablist" aria-label="Campus photo slides">
-                    {excellenceBannerSlides.map((slide, idx) => (
-                      <button
-                        key={slide.tag}
-                        type="button"
-                        role="tab"
-                        aria-selected={idx === bannerIndex}
-                        aria-label={`View slide ${idx + 1}: ${slide.tag}`}
-                        className={`excellence-dot ${idx === bannerIndex ? 'active' : ''}`}
-                        onClick={() => setBannerIndex(idx)}
-                      />
-                    ))}
-                  </div>
-                  <button
-                    type="button"
-                    className="excellence-ctrl-btn"
-                    onClick={handleNextBanner}
-                    aria-label="Next campus photo"
-                  >
-                    <i className="fas fa-chevron-right" aria-hidden="true"></i>
-                  </button>
-                  <span className="excellence-slide-count">
-                    0{bannerIndex + 1} / 0{excellenceBannerSlides.length}
-                  </span>
+                  <h3 className="whitespace-nowrap overflow-hidden text-ellipsis w-full">
+                    {currentBanner.title}
+                  </h3>
                 </div>
               </div>
             </div>

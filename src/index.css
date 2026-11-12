@@ -1,9 +1,27 @@
 @import "tailwindcss";
 @import "aos/dist/aos.css";
 
-/* ==========================================================================
-   DON BOSCO COLLEGE TURA - Modern Responsive Institutional Website
-   ========================================================================== */
+/* Global Home Page Body Text Justification without breaking words or hyphens */
+main p:not(.text-center):not(.text-right):not(.nav-link):not(.ticker-item):not(.btn):not(button),
+.institutional-section p,
+.vision-body-copy,
+.about-section p,
+.excellence-section p,
+.academics-section p,
+.why-us-section p,
+.research-section p,
+.campus-spaces p,
+.student-life p,
+.faq-section p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+  -ms-hyphens: none !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
 
 :root {
   --alert-bg: #f9f0cf;
@@ -9854,8 +9872,7 @@ button,
   box-shadow: 0 8px 18px rgba(217, 4, 41, 0.28) !important;
 }
 
-/* Tailwind Section Buttons (Academics, Faculty, VideoDrill, FAQAndFinalCTA) Hover Colour Shift */
-#academics button:hover,
+/* Tailwind Section Buttons (Faculty, VideoDrill, FAQAndFinalCTA) Hover Colour Shift */
 #faculty button:hover,
 #media button:hover,
 #faq .mt-12 button:hover {
@@ -9941,7 +9958,8 @@ button,
 }
 
 .excellence-banner-caption {
-  max-width: 680px;
+  max-width: 100%;
+  width: 100%;
 }
 
 .excellence-banner-pill {

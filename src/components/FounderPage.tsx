@@ -12,7 +12,7 @@ interface FounderPageProps {
 const founderCredentials = [
   {
     label: 'Birth Name & Religious Name',
-    value: 'Michel Balavoiné • Rev. Fr. Michael Balawan, SDB',
+    value: 'Michel Balavoiné • Fr. Michael Balawan',
     icon: 'fas fa-id-badge',
   },
   {
@@ -77,7 +77,7 @@ const lifeChapters = [
     icon: 'fas fa-school',
     paragraphs: [
       'Although he held a Master’s degree in Mathematics, Fr. Balawan’s heart burned for remote villages and underserved communities. Like St. Paul of Tarsus, his aim was to go where the Gospel and formal schooling had scarcely reached—carrying out pioneering educational and pastoral work across Umsning, Nongpoh, Sojong, Umswai, Umsohlait, and Namdong.',
-      'In 1961, under the Catholic Mission of Umsning (Archdiocese of Shillong), Rev. Fr. Michael Balawan, SDB founded St. Michael’s School at Umsning as a Lower Primary School—planting the seed of what is today St. Michael’s Higher Secondary School (Nursery to Class XII). Alongside establishing schools where he went, he worked tirelessly for the social uplift of the people by constructing village roads, bridges, and culverts.',
+      'In 1961, under the Catholic Mission of Umsning (Archdiocese of Shillong), Fr. Michael Balawan founded St. Michael’s School at Umsning as a Lower Primary School—planting the seed of what is today St. Michael’s Higher Secondary School (Nursery to Class XII). Alongside establishing schools where he went, he worked tirelessly for the social uplift of the people by constructing village roads, bridges, and culverts.',
     ],
   },
   {
@@ -141,12 +141,12 @@ export const FounderPage: React.FC<FounderPageProps> = ({ onBack }) => {
               <div className="relative overflow-hidden rounded-2xl border-2 border-amber-400/70 bg-slate-900 shadow-2xl">
                 <img
                   src={SCHOOL_IMAGES.founderPhoto}
-                  alt="Rev. Fr. Michael Balawan, SDB (1922–1989) — Founder of St. Michael's Higher Secondary School, Umsning"
+                  alt="Fr. Michael Balawan (1922–1989) — Founder of St. Michael's Higher Secondary School, Umsning"
                   className="w-full h-[360px] object-cover object-top"
                 />
                 <div className="bg-slate-950/90 px-4 py-3 text-center border-t border-amber-400/30">
                   <p className="text-xs font-extrabold uppercase tracking-widest text-amber-300">
-                    REV. FR. MICHAEL BALAWAN, S.D.B.
+                    FR. MICHAEL BALAWAN
                   </p>
                   <p className="mt-0.5 text-[11px] font-medium text-slate-300">
                     Born: 14.01.1922 • Professed: 17.10.1945 • Ordained: 23.05.1954 • Died: 11.10.1989
@@ -158,7 +158,7 @@ export const FounderPage: React.FC<FounderPageProps> = ({ onBack }) => {
               <div className="flex items-center gap-3.5 rounded-2xl border border-white/15 bg-white/10 p-3 backdrop-blur-xs">
                 <img
                   src={SCHOOL_IMAGES.founderPortrait}
-                  alt="Archival portrait of Rev. Fr. Michael Balawan, SDB"
+                  alt="Archival portrait of Fr. Michael Balawan"
                   className="h-16 w-16 shrink-0 rounded-xl object-cover border border-amber-300/60"
                 />
                 <div className="min-w-0">
@@ -192,14 +192,14 @@ export const FounderPage: React.FC<FounderPageProps> = ({ onBack }) => {
                 className="vision-serif-heading mt-4 text-3xl sm:text-4xl lg:text-5xl !text-white leading-tight"
                 style={{ color: '#ffffff' }}
               >
-                Rev. Fr. Michael Balawan, SDB
+                Fr. Michael Balawan
               </h1>
               <p className="mt-1.5 text-sm sm:text-base font-bold text-amber-300">
                 (Born Michel Balavoiné • 14 January 1922, Chartres, France – 11 October 1989, Shillong, Meghalaya)
               </p>
 
               <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-100">
-                <strong>Rev. Fr. Michael Balawan, SDB</strong> was a pioneering French Catholic
+                <strong>Fr. Michael Balawan</strong> was a pioneering French Catholic
                 Missionary of the Salesians of Don Bosco, an accomplished mathematician (M.Sc.,
                 Gauhati University), a celebrated linguist of indigenous Northeast Indian languages,
                 and the visionary founder who started{' '}
@@ -207,7 +207,7 @@ export const FounderPage: React.FC<FounderPageProps> = ({ onBack }) => {
                 <strong>1961</strong> under the Catholic Mission of Umsning, Archdiocese of Shillong.
               </p>
 
-              {/* 4 Key Milestone Pills from Page 1 of the Salesian Archive PDF */}
+              {/* 4 Key Milestone Pills from Page 1 of the Salesian Archive */}
               <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
                 <div className="rounded-xl border border-white/15 bg-white/10 p-3.5 backdrop-blur-xs">
                   <span className="block text-[10px] font-extrabold uppercase tracking-widest text-amber-300">
@@ -248,30 +248,6 @@ export const FounderPage: React.FC<FounderPageProps> = ({ onBack }) => {
                   </strong>
                   <span className="text-[11px] text-slate-200">Shillong, Meghalaya</span>
                 </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="mt-6 flex flex-wrap items-center gap-3">
-                <a
-                  href={FOUNDER_ARCHIVE_PDF_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#d97706] px-5 py-3 text-xs font-extrabold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-[1.02]"
-                >
-                  <i className="fas fa-file-pdf" aria-hidden="true"></i>
-                  <span>Open Official Salesian Archive PDF</span>
-                  <i className="fas fa-external-link-alt text-[10px]" aria-hidden="true"></i>
-                </a>
-
-                <a
-                  href={SCHOOL_IMAGES.founderCredentialPdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-white/20"
-                >
-                  <i className="fas fa-download text-amber-300" aria-hidden="true"></i>
-                  <span>View Local Archival Copy</span>
-                </a>
               </div>
             </div>
           </div>
@@ -360,7 +336,7 @@ export const FounderPage: React.FC<FounderPageProps> = ({ onBack }) => {
               <div className="mt-3 overflow-hidden rounded-xl border border-slate-200 bg-slate-100">
                 <img
                   src={SCHOOL_IMAGES.founderMemorialCard}
-                  alt="Original 1989 Salesian Memorial Card of Rev. Fr. Michael Balawan, SDB"
+                  alt="Original 1989 Salesian Memorial Card of Fr. Michael Balawan"
                   className="w-full h-auto object-contain"
                   loading="lazy"
                 />
@@ -391,7 +367,7 @@ export const FounderPage: React.FC<FounderPageProps> = ({ onBack }) => {
                 Docete — Go therefore and teach all nations (Mt. 28:19).&rdquo;
               </blockquote>
               <p className="mt-3 text-xs font-bold text-amber-300">
-                — Rev. Fr. Michael Balawan, SDB (1922–1989)
+                — Fr. Michael Balawan (1922–1989)
               </p>
             </div>
           </aside>
@@ -404,7 +380,7 @@ export const FounderPage: React.FC<FounderPageProps> = ({ onBack }) => {
               St. Michael&apos;s Higher Secondary School, Umsning
             </strong>
             <span className="text-xs font-medium text-slate-600">
-              Founded in 1961 by Rev. Fr. Michael Balawan, SDB • Catholic Mission of Umsning, Archdiocese of Shillong
+              Founded in 1961 by Fr. Michael Balawan • Catholic Mission of Umsning, Archdiocese of Shillong
             </span>
           </div>
           <button
