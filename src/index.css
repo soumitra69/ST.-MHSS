@@ -15303,24 +15303,25 @@ img.hero-bg-layer {
    ========================================================================== */
 
 @media (max-width: 1080px) {
-  /* 1. True Widescreen Top Banner Stage on Mobile & Tablet (Zero 700% Zoom-Cropping) */
+  /* 1. Mobile & Tablet Hero Banner — Full Section Cover Photo with Rich Legible Overlay */
   .hero-section {
+    position: relative !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: stretch !important;
-    background: linear-gradient(180deg, #071b36 0%, #0a2547 55%, #081e3b 100%) !important;
-    padding: 0 0 26px !important;
+    padding: 24px 0 28px !important;
     min-height: 0 !important;
+    background: #071b36 !important;
+    overflow: hidden !important;
   }
 
   .hero-bg-slideshow {
-    position: relative !important;
-    inset: auto !important;
+    position: absolute !important;
+    inset: 0 !important;
     width: 100% !important;
-    height: clamp(205px, 48vw, 360px) !important;
-    flex-shrink: 0 !important;
+    height: 100% !important;
+    z-index: 0 !important;
     overflow: hidden !important;
-    background: #071b36 !important;
   }
 
   .hero-bg-layer,
@@ -15331,7 +15332,7 @@ img.hero-bg-layer {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: center center !important;
+    object-position: center top !important;
     transform: none !important;
   }
 
@@ -15340,15 +15341,18 @@ img.hero-bg-layer {
     inset: 0 !important;
     background: linear-gradient(
       180deg,
-      rgba(6, 18, 36, 0.06) 0%,
-      rgba(6, 18, 36, 0.02) 68%,
-      rgba(7, 27, 54, 0.86) 93%,
+      rgba(7, 27, 54, 0.42) 0%,
+      rgba(7, 27, 54, 0.68) 45%,
+      rgba(7, 27, 54, 0.92) 80%,
       #071b36 100%
     ) !important;
+    z-index: 1 !important;
   }
 
   .hero-container {
-    margin-top: -10px !important;
+    position: relative !important;
+    z-index: 5 !important;
+    margin-top: 0 !important;
     gap: 18px !important;
   }
 
@@ -15469,9 +15473,9 @@ img.hero-bg-layer {
     flex-shrink: 0 !important;
   }
 
-  /* 4. Mobile Hero Banner — Full Widescreen Photo + Single-Line Badges + 1-Row 4-Stat Strip */
+  /* 4. Mobile Hero Banner — Full Section Cover Photo + Single-Line Badges + 1-Row 4-Stat Strip */
   .hero-section {
-    padding: 0 0 20px !important;
+    padding: 16px 0 20px !important;
   }
 
   .hero-section .container {
@@ -15479,11 +15483,35 @@ img.hero-bg-layer {
   }
 
   .hero-bg-slideshow {
-    height: clamp(195px, 48vw, 235px) !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .hero-bg-layer,
+  .hero-bg-layer.active,
+  img.hero-bg-layer {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 25% !important;
+  }
+
+  .hero-bg-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(7, 27, 54, 0.38) 0%,
+      rgba(7, 27, 54, 0.65) 45%,
+      rgba(7, 27, 54, 0.90) 80%,
+      #071b36 100%
+    ) !important;
   }
 
   .hero-container {
-    margin-top: -8px !important;
+    margin-top: 0 !important;
     gap: 14px !important;
   }
 
