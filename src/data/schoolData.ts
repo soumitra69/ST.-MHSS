@@ -29,9 +29,18 @@ export interface StaffMember {
   image?: string;
 }
 
+export interface StreamSubjectGroup {
+  category: string;
+  list: string[];
+}
+
 export interface StreamInfo {
   name: string;
   tagline: string;
+  compulsorySubjects?: string[];
+  electiveSubjects?: string[];
+  fourthSubject?: string;
+  eligibilityNote?: string;
   subjects: string[];
   features: string[];
 }
@@ -293,22 +302,69 @@ export const HOUSES = [
 
 export const STREAMS: StreamInfo[] = [
   {
-    name: "Higher Secondary Science (Class XI - XII)",
-    tagline: "Rigorous laboratory research & foundational preparation for engineering, medicine, and scientific inquiry.",
-    subjects: ["English", "MIL Khasi / Alt English", "Physics", "Chemistry", "Mathematics", "Biology", "Computer Science"],
-    features: ["Dedicated Physics, Chemistry & Biology laboratories", "Experienced subject lecturers with M.Sc & B.Ed", "Special mentorship for NEET, JEE & CUET"]
+    name: "1. Science Stream",
+    tagline: "Rigorous scientific inquiry, theory & modern laboratory practicals under MBOSE curriculum.",
+    compulsorySubjects: ["English", "MIL / Alternative English", "Environmental Education"],
+    electiveSubjects: ["Physics", "Chemistry", "Mathematics"],
+    fourthSubject: "Biology / Computer Science / Geography",
+    eligibilityNote: "If you wish to apply for Class XI Science, you must, at least, have secured 60% in aggregate and 50% (Theory) in Science and Mathematics at the Secondary School Leaving Certificate (SSLC) / Equivalent Examinations.",
+    subjects: ["English", "MIL / Alt English", "Environmental Education", "Physics", "Chemistry", "Mathematics", "Biology", "Computer Science", "Geography"],
+    features: [
+      "Compulsory: English, MIL/Alternative English, Environmental Education",
+      "Electives: Physics, Chemistry, Mathematics",
+      "4th Subject: Biology / Computer Science / Geography",
+      "Cut-off: 60% aggregate & 50% in Science & Math theory"
+    ]
   },
   {
-    name: "Higher Secondary Arts / Humanities (Class XI - XII)",
-    tagline: "Empowering critical thinkers, historians, civil servants, educators, and regional leaders.",
-    subjects: ["English", "MIL Khasi / Alt English", "Political Science", "History", "Economics", "Geography (with Fieldwork)", "Sociology"],
-    features: ["Annual geographical field excursions across Meghalaya", "Debating society, mock parliament & legal literacy", "Consistent state rank record in MBOSE HSSLC"]
+    name: "2. Commerce Stream",
+    tagline: "Developing financial expertise, accountancy principles, business acumen & entrepreneurship.",
+    compulsorySubjects: ["English", "MIL / Alternative English", "Environmental Education"],
+    electiveSubjects: ["Economics", "Accountancy", "Business Studies"],
+    fourthSubject: "Mathematics / Entrepreneurship",
+    eligibilityNote: "If you wish to apply for Class XI Commerce, you should have secured at least 55% in aggregate and 45% in Mathematics (Theory) at the Secondary School Leaving Certificate (SSLC) / Equivalent Examinations.",
+    subjects: ["English", "MIL / Alt English", "Environmental Education", "Economics", "Accountancy", "Business Studies", "Mathematics", "Entrepreneurship"],
+    features: [
+      "Compulsory: English, MIL/Alternative English, Environmental Education",
+      "Electives: Economics, Accountancy, Business Studies",
+      "4th Subject: Mathematics / Entrepreneurship",
+      "Cut-off: 55% aggregate & 45% in Mathematics theory"
+    ]
   },
   {
-    name: "Higher Secondary Commerce (Class XI - XII)",
-    tagline: "Developing financial acumen, business ethics, accounting principles, and regional entrepreneurship.",
-    subjects: ["English", "MIL Khasi / Alt English", "Accountancy", "Business Studies", "Economics", "Mathematics / Entrepreneurship"],
-    features: ["Modern computer lab with accounting software exposure", "Case studies of Northeast enterprise & trade", "Mentorship from financial & commerce specialists"]
+    name: "3. Arts Stream",
+    tagline: "Humanities, social sciences, languages, Khasi literature & civil service foundation.",
+    compulsorySubjects: ["English", "MIL / Alternative English", "Environmental Education"],
+    electiveSubjects: ["Political Science", "Economics", "Education", "S.L (Elective Khasi)", "Philosophy / History", "Geography / Computer Science"],
+    fourthSubject: "Any fourth subject from elective offerings (advisable)",
+    eligibilityNote: "If you wish to apply for Class XI Arts, you should have obtained at least 55% in aggregate at the Secondary School Leaving Certificate (SSLC) / Equivalent Examinations. Further, you may opt for any three elective subjects along with one fourth subject. It is advisable to take the fourth subject as well.",
+    subjects: ["English", "MIL / Alt English", "Environmental Education", "Political Science", "Economics", "Education", "Elective Khasi", "Philosophy / History", "Geography / Computer Science"],
+    features: [
+      "Compulsory: English, MIL/Alternative English, Environmental Education",
+      "Electives: Political Science, Economics, Education, S.L (Elective Khasi), Philosophy/History, Geography/Computer Sc.",
+      "Flexibility: 3 electives + 1 advisable fourth subject",
+      "Cut-off: 55% aggregate at SSLC / Equivalent"
+    ]
+  },
+  {
+    name: "4. Vocational Stream",
+    tagline: "Job-ready vocational education under NEP framework with Computer Techniques & Poultry Farming courses.",
+    compulsorySubjects: ["Computer Techniques (2-Year Course)", "Poultry Farming (PF)"],
+    electiveSubjects: [
+      "Computer Tech Subjects: English, Environmental Ed., Computer Fundamentals & Operating System & Utilities, Programming in C, DBMS-Fox Pro, DTP, Computer Network, Computer Commercial App. (Addl: Mathematics)",
+      "Poultry Farming Subjects: English, Entrepreneurship, Foundation Course, Poultry Production & Breeding, Poultry Housing & Management, Poultry Disease & Control, Poultry Nutrition & Physiology, Poultry Production & Technology"
+    ],
+    fourthSubject: "Computer Techniques: Additional Subject Mathematics | Poultry Farming: Full Subsidized / Free Option",
+    eligibilityNote: "Direct admissions are given if you wish to apply for Class XI Vocational, either Computer Techniques or Poultry Farming, but you should have passed the SSLC Examination or any other Equivalent Examinations. Moreover, a free course is offered if you opt for Poultry Farming.",
+    subjects: [
+      "Computer Fundamentals", "Programming in C", "Fox Pro DBMS", "DTP Desktop Publishing", "Computer Network", "Poultry Breeding", "Poultry Housing", "Poultry Disease Control", "Poultry Nutrition"
+    ],
+    features: [
+      "4.1 Computer Techniques: 8 subjects affiliated to MBOSE for gainful employment",
+      "4.2 Poultry Farming: 8 subjects with modern livestock management",
+      "Direct Admission for SSLC pass holders",
+      "Special Benefit: Free / Subsidized course for Poultry Farming"
+    ]
   }
 ];
 

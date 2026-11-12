@@ -67,7 +67,7 @@ const academicStages = [
   },
 ];
 
-const STREAM_ICONS = ['fas fa-atom', 'fas fa-landmark', 'fas fa-chart-line'];
+const STREAM_ICONS = ['fas fa-atom', 'fas fa-chart-line', 'fas fa-palette', 'fas fa-tools'];
 
 export const AcademicsSection: React.FC<AcademicsSectionProps> = ({
   onOpenAdmission,
@@ -228,62 +228,137 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({
 
           {/* Active Stream Details */}
           <div className="mt-6 grid gap-8 lg:grid-cols-12 lg:items-start">
+            {/* Left 5 Cols: Overview, Eligibility Note & Highlights */}
             <div className="lg:col-span-5 rounded-xl border border-slate-200 bg-[#f8fafc] p-5 shadow-xs">
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <span className="rounded-md bg-amber-100 border border-amber-300 px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-amber-950">
+                  MBOSE HSSLC • Stream 0{selectedStream + 1}
+                </span>
+                <span className="text-[11px] font-bold text-[#0c4a8a]">
+                  Classes XI &amp; XII
+                </span>
+              </div>
+
               <h4 className="text-xl font-bold text-[#0c4a8a]">{STREAMS[selectedStream].name}</h4>
-              <p className="mt-2 text-sm font-medium leading-7 text-slate-700">
+              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-slate-700">
                 {STREAMS[selectedStream].tagline}
               </p>
 
-              <div className="mt-5 space-y-2.5">
+              {/* Eligibility Cut-off / Note from Official Prospectus */}
+              {STREAMS[selectedStream].eligibilityNote && (
+                <div className="mt-4 rounded-xl border border-amber-300 bg-amber-50/90 p-3.5 text-xs text-amber-950 leading-relaxed">
+                  <div className="font-extrabold flex items-center gap-1.5 text-amber-900 mb-1">
+                    <i className="fas fa-clipboard-check text-[#d97706]" aria-hidden="true"></i>
+                    <span>Prospectus Eligibility &amp; Admission Note:</span>
+                  </div>
+                  <p className="font-medium text-[11px] sm:text-xs text-slate-800">
+                    {STREAMS[selectedStream].eligibilityNote}
+                  </p>
+                </div>
+              )}
+
+              <div className="mt-4 space-y-2">
                 <p className="text-xs font-bold uppercase tracking-wider text-[#d97706]">
                   <i className="fas fa-star mr-1" aria-hidden="true"></i>
-                  Department Highlights
+                  Stream Highlights
                 </p>
                 {STREAMS[selectedStream].features.map((feat) => (
                   <div
                     key={feat}
-                    className="flex items-start gap-2.5 rounded-lg bg-white border border-slate-200 px-3 py-2 text-xs font-medium text-slate-800 sm:text-sm"
+                    className="flex items-start gap-2 rounded-lg bg-white border border-slate-200 px-3 py-2 text-xs font-medium text-slate-800"
                   >
-                    <i className="fas fa-check-circle text-[#0c4a8a] mt-0.5 shrink-0" aria-hidden="true"></i>
-                    <span>{feat}</span>
+                    <i className="fas fa-check-circle text-[#0c4a8a] mt-0.5 shrink-0 text-xs" aria-hidden="true"></i>
+                    <span className="leading-snug">{feat}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="lg:col-span-7 rounded-xl border border-slate-200 bg-[#f8fafc] p-5 shadow-xs">
-              <p className="text-xs font-bold uppercase tracking-wider text-[#0c4a8a]">
-                <i className="fas fa-book mr-1.5 text-[#d97706]" aria-hidden="true"></i>
-                Core &amp; Elective Subjects (MBOSE)
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {STREAMS[selectedStream].subjects.map((subject) => (
-                  <span
-                    key={subject}
-                    className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-bold text-[#0c4a8a] shadow-xs"
-                  >
-                    <i className="fas fa-check mr-1 text-[10px] text-[#d97706]" aria-hidden="true"></i>
-                    {subject}
-                  </span>
-                ))}
+            {/* Right 7 Cols: Structured Subjects Table (Compulsory, Elective & 4th Subject) */}
+            <div className="lg:col-span-7 rounded-xl border border-slate-200 bg-[#f8fafc] p-5 shadow-xs space-y-4">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#0c4a8a] flex items-center gap-1.5">
+                  <i className="fas fa-book-open text-[#d97706]" aria-hidden="true"></i>
+                  <span>Official Subject Distribution (Prospectus Pages 2 &amp; 3)</span>
+                </p>
+                <span className="text-[10px] font-mono font-bold text-slate-500 uppercase">
+                  MBOSE Affiliated
+                </span>
               </div>
+
+              {/* Compulsory Subjects Box */}
+              {STREAMS[selectedStream].compulsorySubjects && (
+                <div className="rounded-xl border border-blue-200 bg-white p-3.5">
+                  <span className="block text-[11px] font-extrabold uppercase tracking-wider text-[#0c4a8a] mb-2 flex items-center gap-1.5">
+                    <i className="fas fa-lock text-[#d97706] text-[10px]" aria-hidden="true"></i>
+                    <span>Compulsory Subjects</span>
+                  </span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {STREAMS[selectedStream].compulsorySubjects.map((sub, i) => (
+                      <div
+                        key={sub}
+                        className="flex items-center gap-2 rounded-lg bg-blue-50/70 border border-blue-100 px-3 py-2 text-xs font-bold text-[#0c4a8a]"
+                      >
+                        <span className="h-5 w-5 rounded-md bg-[#0c4a8a] text-white flex items-center justify-center text-[10px] font-mono shrink-0">
+                          {i + 1}
+                        </span>
+                        <span className="leading-tight">{sub}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Elective Subjects Box */}
+              {STREAMS[selectedStream].electiveSubjects && (
+                <div className="rounded-xl border border-emerald-200 bg-white p-3.5">
+                  <span className="block text-[11px] font-extrabold uppercase tracking-wider text-emerald-900 mb-2 flex items-center gap-1.5">
+                    <i className="fas fa-check-square text-emerald-600 text-[10px]" aria-hidden="true"></i>
+                    <span>Elective Subjects</span>
+                  </span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {STREAMS[selectedStream].electiveSubjects.map((sub, i) => (
+                      <div
+                        key={sub}
+                        className="flex items-center gap-2 rounded-lg bg-emerald-50/70 border border-emerald-100 px-3 py-2 text-xs font-semibold text-emerald-950"
+                      >
+                        <span className="h-5 w-5 rounded-md bg-emerald-700 text-white flex items-center justify-center text-[10px] font-mono shrink-0">
+                          {i + 1}
+                        </span>
+                        <span className="leading-tight">{sub}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 4th Subject / Special Option */}
+              {STREAMS[selectedStream].fourthSubject && (
+                <div className="rounded-xl border border-purple-200 bg-purple-50/80 p-3.5 text-xs text-purple-950">
+                  <div className="font-extrabold flex items-center gap-1.5 text-purple-900 mb-1">
+                    <i className="fas fa-layer-group text-purple-700" aria-hidden="true"></i>
+                    <span>4th Subject / Options:</span>
+                  </div>
+                  <p className="font-medium text-slate-800">
+                    {STREAMS[selectedStream].fourthSubject}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
 
           <div className="mt-8 flex flex-col items-start justify-between gap-4 rounded-xl bg-[#0c2d57] p-5 text-white shadow-lg sm:flex-row sm:items-center">
             <p className="max-w-2xl text-xs font-medium leading-6 text-slate-100 sm:text-sm">
-              Admissions for Class XI (Science, Arts &amp; Commerce) and Nursery to Class X are open
-              for the 2026–27 session. Transfer Certificate (TC) from a recognised school is
-              required.
+              Admissions for Class XI (Science, Commerce, Arts &amp; Vocational) are open for the 2026–27 session. Forms issued immediately after MBOSE SSLC result declaration.
             </p>
             <div className="flex shrink-0 flex-wrap gap-3">
               <button
                 type="button"
-                onClick={() => onNavigatePage?.('academic-calendar')}
+                onClick={() => onNavigatePage?.('fee-structure-page')}
                 className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-md transition-colors hover:bg-white/20 cursor-pointer"
               >
-                <i className="fas fa-calendar-alt text-amber-300" aria-hidden="true"></i>
-                <span>Read More</span>
+                <i className="fas fa-file-invoice-dollar text-amber-300" aria-hidden="true"></i>
+                <span>Fee Structure</span>
                 <i className="fas fa-arrow-right" aria-hidden="true"></i>
               </button>
               <button
@@ -292,7 +367,7 @@ export const AcademicsSection: React.FC<AcademicsSectionProps> = ({
                 className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-xl bg-[#d97706] px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-md transition-transform hover:scale-[1.02] cursor-pointer"
               >
                 <i className="fas fa-paper-plane" aria-hidden="true"></i>
-                <span>Read More</span>
+                <span>Apply for Admission</span>
                 <i className="fas fa-arrow-right" aria-hidden="true"></i>
               </button>
             </div>
