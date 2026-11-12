@@ -538,15 +538,6 @@ export const InstitutionalSection: React.FC<InstitutionalSectionProps> = ({
                     <span className="font-bold text-[#0c4a8a] block">
                       Rev. Fr. Michael Balawan, SDB (Founder, 1961)
                     </span>
-                    <a
-                      href={FOUNDER_ARCHIVE_PDF_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="text-[11px] font-semibold text-[#d97706] hover:underline"
-                    >
-                      Official Credential PDF (Archivio Salesiano Centrale) ↗
-                    </a>
                   </div>
                 </div>
 

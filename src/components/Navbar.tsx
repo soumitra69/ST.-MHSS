@@ -670,68 +670,6 @@ const primaryLinks: PrimaryNavLinkItem[] = [
       },
     ],
   },
-  {
-    label: 'CONTACT US',
-    href: '#page-contact',
-    icon: 'fas fa-phone-alt',
-    page: 'contact',
-    hasDropdown: true,
-    alignRight: true,
-    subItems: [
-      {
-        label: 'Contact Information & Secretariat Desk',
-        href: '#page-contact',
-        icon: 'fas fa-headset',
-        page: 'contact',
-        subMenu: [
-          {
-            label: 'Helpline: +91 94361 02845 / 03638 264218',
-            href: '#page-contact',
-            icon: 'fas fa-phone',
-            page: 'contact',
-          },
-          {
-            label: 'Official Email: stmichaelumsning@gmail.com',
-            href: '#page-contact',
-            icon: 'fas fa-envelope',
-            page: 'contact',
-          },
-          {
-            label: 'Office & Visiting Hours: Mon – Fri 8:45 AM – 3:00 PM',
-            href: '#page-contact',
-            icon: 'fas fa-clock',
-            page: 'contact',
-          },
-        ],
-      },
-      {
-        label: 'Campus Location & NH-6 Road Transit',
-        href: '#page-contact',
-        icon: 'fas fa-map-marker-alt',
-        page: 'contact',
-        subMenu: [
-          {
-            label: 'Interactive Google Map Directions',
-            href: '#page-contact',
-            icon: 'fas fa-map-marked-alt',
-            page: 'contact',
-          },
-          {
-            label: 'Umsning Bypass Transit Guide',
-            href: '#page-contact',
-            icon: 'fas fa-route',
-            page: 'contact',
-          },
-        ],
-      },
-      {
-        label: 'Send Online Message / Enquiry Form',
-        href: '#page-contact',
-        icon: 'fas fa-paper-plane',
-        page: 'contact',
-      },
-    ],
-  },
 ];
 
 interface NavbarProps {
