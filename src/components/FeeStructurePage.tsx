@@ -371,37 +371,6 @@ export const FeeStructurePage: React.FC<FeeStructurePageProps> = ({
           </div>
         </div>
 
-        {/* Farewell to Classes X & XII Photo Banner */}
-        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm mb-12 overflow-hidden">
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <span className="rounded-md bg-amber-100 border border-amber-300 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-amber-900">
-                School Memory Archive
-              </span>
-              <h3 className="mt-1 text-lg font-extrabold text-[#0c4a8a]">
-                FAREWELL TO CLASSES X &amp; XII
-              </h3>
-            </div>
-            <span className="text-xs font-semibold text-slate-500">
-              Campus Amphitheatre • St. Michael&apos;s Umsning
-            </span>
-          </div>
-
-          <div className="relative aspect-[16/9] max-h-[460px] w-full overflow-hidden rounded-2xl border border-slate-200 shadow-md">
-            <img
-              src={import.meta.env.BASE_URL + 'assets/farewell-classes-x-xii.jpg'}
-              alt="Farewell to Classes X & XII - St. Michael's Higher Secondary School Umsning"
-              className="h-full w-full object-cover object-center"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-            <div className="absolute bottom-4 left-4 right-4 text-white text-xs sm:text-sm font-bold flex items-center justify-between">
-              <span>Farewell to Classes X &amp; XII • St. Michael&apos;s Higher Secondary School</span>
-              <span className="text-amber-300 font-mono">Excelsior • Shaphrang</span>
-            </div>
-          </div>
-        </div>
-
         {/* Bottom Back Navigation */}
         <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
           <div>
