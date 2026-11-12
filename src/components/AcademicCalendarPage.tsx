@@ -166,39 +166,31 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
       id="academic-calendar-page"
       className="w-full bg-[#f4f7fb] py-8 sm:py-12 border-t border-slate-200 min-h-screen"
     >
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Breadcrumb & Navigation Bar */}
-        <div className="mb-6 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-          <div className="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-700">
-            <button
-              type="button"
-              onClick={onBack}
-              className="inline-flex items-center gap-1.5 text-[#0c4a8a] hover:text-[#d97706] cursor-pointer"
-            >
-              <i className="fas fa-home" aria-hidden="true"></i>
-              <span>Home</span>
-            </button>
-            <span className="text-slate-400">/</span>
-            <span className="text-[#d97706]">Official Academic Calendar &amp; Holidays</span>
+      <div className="container">
+        {/* Top Breadcrumb & Back Navigation Bar */}
+        <div className="mb-8 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm">
+          <button
+            type="button"
+            onClick={onBack}
+            className="inline-flex items-center gap-2 rounded-xl bg-[#0c4a8a] px-4 py-2.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-sm transition-all hover:bg-[#0c2d57] cursor-pointer"
+          >
+            <i className="fas fa-arrow-left" aria-hidden="true"></i>
+            <span>Back to Home Page</span>
+          </button>
+
+          <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-slate-600">
+            <span className="text-[#0c4a8a]">Academic</span>
+            <i className="fas fa-chevron-right text-[10px] text-slate-400" aria-hidden="true"></i>
+            <span className="text-[#d97706]">Academic Calendar &amp; Holidays 2026</span>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2">
-            <button
-              type="button"
-              onClick={onBack}
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-1.5 text-xs font-bold text-slate-700 transition-colors hover:bg-slate-100 cursor-pointer"
-            >
-              <i className="fas fa-arrow-left text-[#0c4a8a]" aria-hidden="true"></i>
-              <span>Back to Home</span>
-            </button>
-            <a
-              href="#holiday-list"
-              className="inline-flex items-center gap-2 rounded-xl border border-amber-300 bg-amber-50 px-3.5 py-1.5 text-xs font-extrabold uppercase tracking-wider text-amber-900 transition-colors hover:bg-amber-100"
-            >
-              <i className="fas fa-calendar-alt text-[#d97706]" aria-hidden="true"></i>
-              <span>Annual Holiday Table</span>
-            </a>
-          </div>
+          <a
+            href="#holiday-list"
+            className="inline-flex items-center gap-2 rounded-xl border border-amber-300 bg-amber-50 px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-amber-900 transition-colors hover:bg-amber-100"
+          >
+            <i className="fas fa-calendar-alt text-[#d97706]" aria-hidden="true"></i>
+            <span>Annual Holiday Table</span>
+          </a>
         </div>
 
         {/* Hero Header Banner */}
