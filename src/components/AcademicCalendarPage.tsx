@@ -100,9 +100,19 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
   onNavigatePage,
   onOpenAdmission,
 }) => {
-  // Calendar month state: default to November (10) for 2026
-  const [currentMonthIdx, setCurrentMonthIdx] = useState<number>(10);
-  const [selectedDay, setSelectedDay] = useState<number>(12);
+  // Real-world / current date dynamically
+  const todayDate = useMemo(() => new Date(), []);
+  const todayYear = todayDate.getFullYear();
+  const todayMonth = todayDate.getMonth();
+  const todayDay = todayDate.getDate();
+
+  // Calendar month state: initialized to today's month (or Nov if out of 2026 range)
+  const [currentMonthIdx, setCurrentMonthIdx] = useState<number>(() => {
+    return todayYear === 2026 ? todayMonth : 10;
+  });
+  const [selectedDay, setSelectedDay] = useState<number>(() => {
+    return todayYear === 2026 && todayMonth === currentMonthIdx ? todayDay : (todayYear === 2026 ? todayDay : 13);
+  });
 
   const currentYear = 2026;
 
@@ -157,8 +167,11 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
   };
 
   const handleToday = () => {
-    setCurrentMonthIdx(10); // November 2026
-    setSelectedDay(12);
+    const now = new Date();
+    const targetMonth = now.getFullYear() === currentYear ? now.getMonth() : 10;
+    const targetDay = now.getFullYear() === currentYear ? now.getDate() : 13;
+    setCurrentMonthIdx(targetMonth);
+    setSelectedDay(targetDay);
   };
 
   return (
