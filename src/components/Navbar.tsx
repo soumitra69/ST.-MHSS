@@ -862,7 +862,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     setLoginModalOpen(true);
                   }}
                   aria-label="Open Student Portal Login"
-                  title="Student & Parent Portal Login"
+                  title="Student Portal Login"
                 >
                   <i className="fas fa-user-graduate" aria-hidden="true"></i>
                   <span>STUDENT LOGIN</span>
@@ -1068,7 +1068,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </div>
 
-      {/* Student & Parent Portal Login Modal */}
+      {/* Student Portal Login Modal */}
       {loginModalOpen && (
         <div
           className="student-login-backdrop"
@@ -1093,7 +1093,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <span className="student-login-kicker">
                     MBOSE CODE: {SCHOOL_INFO.schoolCode} • UMSNING
                   </span>
-                  <h3 id="student-login-title">Student &amp; Parent Portal Login</h3>
+                  <h3 id="student-login-title">Student Portal Login</h3>
                 </div>
               </div>
               <button
