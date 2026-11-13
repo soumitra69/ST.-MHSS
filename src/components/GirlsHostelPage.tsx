@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SCHOOL_IMAGES } from '../data/schoolAssets';
 import { SCHOOL_INFO } from '../data/schoolData';
 import type { AppPageId } from './InstitutionalSection';
 
@@ -13,46 +14,112 @@ const FACILITIES = [
     icon: 'fas fa-bed',
     title: 'Comfortable Dormitories',
     desc: 'Spacious, well-ventilated dormitory rooms with individual cots, storage cupboards, personal mattresses, and study desks for each resident.',
+    image:
+      'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=800&q=80',
+    tag: 'Living Space',
   },
   {
     icon: 'fas fa-shield-alt',
     title: '24/7 Security & CCTV',
     desc: 'Round-the-clock boundary surveillance, secure gated access, and trained resident female wardens on duty inside the residential premises at all times.',
+    image:
+      'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80',
+    tag: 'Safety & Protection',
   },
   {
     icon: 'fas fa-utensils',
     title: 'Hygienic Dining & Pure Meals',
     desc: 'Wholesome, home-style meals prepared fresh three times daily in a dedicated sanitized dining hall under strict nutritional supervision.',
+    image:
+      'https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80',
+    tag: 'Dining & Kitchen',
   },
   {
     icon: 'fas fa-bolt',
     title: 'Continuous Power Backup',
     desc: 'Uninterrupted power supply via automatic institutional generator sets guaranteeing reliable lighting, ventilation, and study facilities 24/7.',
+    image:
+      'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80',
+    tag: 'Campus Infrastructure',
   },
   {
     icon: 'fas fa-tint',
     title: 'Treated Water & Clean Washrooms',
     desc: 'Multi-stage filtered pure drinking water stations and sanitary, modern washrooms maintained daily with continuous running water supply.',
+    image:
+      'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80',
+    tag: 'Health & Hygiene',
   },
   {
     icon: 'fas fa-book-open',
     title: 'Supervised Study Hall',
     desc: 'Dedicated quiet study hall with individual desk spaces, supervised every evening from 5:00 PM – 8:30 PM for disciplined academic preparation.',
+    image:
+      'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80',
+    tag: 'Quiet Evening Prep',
   },
   {
     icon: 'fas fa-heartbeat',
     title: 'Infirmary & First-Aid Care',
     desc: 'Immediate emergency medical support and first aid under an on-call attendant, with direct hospital escort to medical centers in Umsning when needed.',
+    image:
+      'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80',
+    tag: 'Medical Support',
   },
   {
     icon: 'fas fa-pray',
     title: 'Chapel & Morning Devotion',
     desc: 'Peaceful prayer space fostering spiritual grounding, daily reflective morning assembly, and Sunday worship services for resident students.',
+    image:
+      'https://images.unsplash.com/photo-1548625361-195fe57905f3?auto=format&fit=crop&w=800&q=80',
+    tag: 'Spiritual Sanctuary',
   },
   {
     icon: 'fas fa-volleyball-ball',
     title: 'Sports & Evening Recreation',
     desc: 'Secure playground space for volleyball, badminton, indoor recreation, and guided social interactions during designated evening breaks.',
+    image:
+      'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80',
+    tag: 'Sports & Wellness',
+  },
+];
+
+const HOSTEL_GALLERY_PHOTOS = [
+  {
+    title: "Girls' Dormitory & Personal Living Space",
+    category: 'Residential Wing',
+    src: 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=900&q=80',
+    caption: 'Clean, well-ventilated rooms with personal cots, lockers, and individual study desks.',
+  },
+  {
+    title: 'Supervised Evening Study Hall',
+    category: 'Academics',
+    src: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=900&q=80',
+    caption: 'Disciplined 3.5-hour evening study sessions monitored by teachers and Sisters.',
+  },
+  {
+    title: 'Sanitized Dining Hall & Kitchen',
+    category: 'Dining & Nutrition',
+    src: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=900&q=80',
+    caption: 'Fresh, balanced home-style nutritious meals prepared three times daily.',
+  },
+  {
+    title: 'Hostel Prayer Chapel & Morning Reflection',
+    category: 'Spiritual Life',
+    src: 'https://images.unsplash.com/photo-1548625361-195fe57905f3?auto=format&fit=crop&w=900&q=80',
+    caption: 'Quiet chapel space fostering moral grounding and prayerful devotion.',
+  },
+  {
+    title: 'Recreation Court & Green Lawn',
+    category: 'Fitness & Sports',
+    src: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=900&q=80',
+    caption: 'Secure evening outdoor sports including badminton, volleyball, and physical fitness.',
+  },
+  {
+    title: '24/7 Security Gate & Guard House',
+    category: 'Safety & Security',
+    src: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=900&q=80',
+    caption: 'Continuous biometric & CCTV gated security overseen by resident female wardens.',
   },
 ];
 
@@ -284,23 +351,91 @@ export const GirlsHostelPage: React.FC<GirlsHostelPageProps> = ({
               </p>
             </div>
 
-            {/* Facilities Cards Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {FACILITIES.map((f) => (
-                <div
-                  key={f.title}
-                  className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-[#0c4a8a]/40 transition-all"
-                >
-                  <div className="h-12 w-12 rounded-xl bg-slate-100 text-[#0c4a8a] flex items-center justify-center text-xl mb-4">
+          {/* Facilities Cards Grid with Photos */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {FACILITIES.map((f) => (
+              <div
+                key={f.title}
+                className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-lg hover:border-[#0c4a8a]/40 transition-all flex flex-col"
+              >
+                <div className="relative h-44 w-full overflow-hidden bg-slate-100">
+                  <img
+                    src={f.image}
+                    alt={f.title}
+                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <span className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-white/90 backdrop-blur-sm px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-[#0c4a8a] shadow-sm">
                     <i className={f.icon} aria-hidden="true" />
+                    {f.tag}
+                  </span>
+                </div>
+                <div className="p-5 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-base font-extrabold text-[#0c4a8a] mb-2">{f.title}</h3>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed text-justify">
+                      {f.desc}
+                    </p>
                   </div>
-                  <h3 className="text-base font-extrabold text-[#0c4a8a] mb-2">{f.title}</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed text-justify">
-                    {f.desc}
-                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Photo Gallery: Girls' Hostel Campus & Residential Life */}
+          <div className="rounded-3xl border border-slate-200 bg-gradient-to-b from-slate-50 to-white p-6 sm:p-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="h-2 w-2 rounded-full bg-[#d97706]" />
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-[#d97706]">
+                    Photo Tour
+                  </span>
+                </div>
+                <h3 className="vision-serif-heading text-xl sm:text-2xl font-extrabold text-[#0c4a8a]">
+                  Girls&apos; Hostel Campus Life &amp; Facilities
+                </h3>
+              </div>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 border border-amber-200 px-3 py-1 text-xs font-bold text-amber-900 w-fit">
+                <i className="fas fa-camera text-amber-600" aria-hidden="true" />
+                6 High-Res Campus Views
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {HOSTEL_GALLERY_PHOTOS.map((photo, i) => (
+                <div
+                  key={photo.title}
+                  className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-all"
+                >
+                  <div className="relative h-48 w-full overflow-hidden bg-slate-100">
+                    <img
+                      src={photo.src}
+                      alt={photo.title}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    <span className="absolute top-3 left-3 rounded-full bg-[#0c2d57]/80 backdrop-blur-sm px-2.5 py-0.5 text-[10px] font-bold text-white uppercase tracking-wider">
+                      {photo.category}
+                    </span>
+                    <span className="absolute top-3 right-3 rounded-full bg-amber-400 text-slate-950 font-black px-2 py-0.5 text-[10px]">
+                      0{i + 1}
+                    </span>
+                    <div className="absolute bottom-3 inset-x-3 text-white">
+                      <h4 className="text-xs sm:text-sm font-bold text-white leading-snug drop-shadow-sm">
+                        {photo.title}
+                      </h4>
+                      <p className="text-[11px] text-slate-200 mt-1 line-clamp-1 drop-shadow-sm">
+                        {photo.caption}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
+          </div>
 
             {/* Room Accommodations Breakdown */}
             <div id="room-types" className="pt-6">
