@@ -100,21 +100,17 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
   onNavigatePage,
   onOpenAdmission,
 }) => {
-  // Real-world / current date dynamically
-  const todayDate = useMemo(() => new Date(), []);
-  const todayYear = todayDate.getFullYear();
-  const todayMonth = todayDate.getMonth();
-  const todayDay = todayDate.getDate();
-
-  // Calendar month state: initialized to today's month (or Nov if out of 2026 range)
-  const [currentMonthIdx, setCurrentMonthIdx] = useState<number>(() => {
-    return todayYear === 2026 ? todayMonth : 10;
-  });
-  const [selectedDay, setSelectedDay] = useState<number>(() => {
-    return todayYear === 2026 && todayMonth === currentMonthIdx ? todayDay : (todayYear === 2026 ? todayDay : 13);
-  });
-
+  // Real-world dynamic live date
+  const now = new Date();
   const currentYear = 2026;
+  const isActual2026 = now.getFullYear() === currentYear;
+  
+  // Real-time month (0 = Jan, 10 = Nov) and day (1..31)
+  const realMonth = isActual2026 ? now.getMonth() : 10;
+  const realToday = isActual2026 ? now.getDate() : now.getDate();
+
+  const [currentMonthIdx, setCurrentMonthIdx] = useState<number>(realMonth);
+  const [selectedDay, setSelectedDay] = useState<number>(realToday);
 
   // Compute calendar days for current month
   const { daysInMonth, startDayOfWeek } = useMemo(() => {
@@ -167,9 +163,10 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
   };
 
   const handleToday = () => {
-    const now = new Date();
-    const targetMonth = now.getFullYear() === currentYear ? now.getMonth() : 10;
-    const targetDay = now.getFullYear() === currentYear ? now.getDate() : 13;
+    const liveDate = new Date();
+    const liveYear = liveDate.getFullYear();
+    const targetMonth = liveYear === currentYear ? liveDate.getMonth() : 10;
+    const targetDay = liveDate.getDate();
     setCurrentMonthIdx(targetMonth);
     setSelectedDay(targetDay);
   };
