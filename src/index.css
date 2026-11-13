@@ -1,8 +1,15 @@
 @import "tailwindcss";
 @import "aos/dist/aos.css";
 
-/* Global Home Page Body Text Justification without breaking words or hyphens */
+/* ==========================================================================
+   GLOBAL CONTENT TEXT JUSTIFICATION ACROSS ALL PAGES & SCREEN SIZES
+   (Ensures clean justified copy with clean word spacing and zero hyphenation breaks)
+   ========================================================================== */
+p:not(.text-center):not(.text-right):not(.nav-link):not(.ticker-item):not(.btn):not(button):not(.alert-text):not(.toast-msg),
 main p:not(.text-center):not(.text-right):not(.nav-link):not(.ticker-item):not(.btn):not(button),
+section p:not(.text-center):not(.text-right):not(.nav-link):not(.ticker-item):not(.btn):not(button),
+article p:not(.text-center):not(.text-right):not(.nav-link):not(.ticker-item):not(.btn):not(button),
+.text-justify,
 .institutional-section p,
 .vision-body-copy,
 .about-section p,
@@ -13,8 +20,8 @@ main p:not(.text-center):not(.text-right):not(.nav-link):not(.ticker-item):not(.
 .campus-spaces p,
 .student-life p,
 .faq-section p {
-  text-align: justify;
-  text-justify: inter-word;
+  text-align: justify !important;
+  text-justify: inter-word !important;
   hyphens: none !important;
   -webkit-hyphens: none !important;
   -ms-hyphens: none !important;
