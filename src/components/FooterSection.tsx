@@ -239,6 +239,28 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
                     </span>
                   </div>
                 </div>
+
+                {/* Key Campus Highlights Card to fill vertical gap */}
+                <div className="mt-3.5 grid grid-cols-2 gap-2 text-[11px]">
+                  <div className="rounded-xl border border-slate-700/60 bg-slate-900/60 p-2.5">
+                    <div className="flex items-center gap-1.5 font-bold text-amber-400">
+                      <i className="fas fa-shield-alt text-xs" aria-hidden="true"></i>
+                      <span>Affiliation</span>
+                    </div>
+                    <p className="mt-0.5 text-[10px] text-slate-300 leading-tight">
+                      MBOSE Meghalaya Board &amp; Catholic Mission
+                    </p>
+                  </div>
+                  <div className="rounded-xl border border-slate-700/60 bg-slate-900/60 p-2.5">
+                    <div className="flex items-center gap-1.5 font-bold text-amber-400">
+                      <i className="fas fa-graduation-cap text-xs" aria-hidden="true"></i>
+                      <span>Education</span>
+                    </div>
+                    <p className="mt-0.5 text-[10px] text-slate-300 leading-tight">
+                      Nursery to Class XII (Arts, Science, Commerce)
+                    </p>
+                  </div>
+                </div>
               </div>
 
               {/* Direct Secretariat Action Icons */}
