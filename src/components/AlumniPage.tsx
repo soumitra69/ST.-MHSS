@@ -34,13 +34,13 @@ const ALUMNI_PROFILES: AlumniProfile[] = [
     organization: 'Meghalaya State Merit Honoree',
     location: 'Shillong / Umsning',
     category: 'State Rankers',
-    achievement: '₹20,000 SSLC Endowment Scholar & State Topper',
+    achievement: 'SSLC State Merit Scholar & Board Topper',
     image: SCHOOL_IMAGES.awardPresentation,
     quote:
-      "Studying at St. Michael's Umsning gave me strong moral grounding and the daily academic discipline to compete at the state level. The personal mentorship from our faculty and the ₹20,000 SSLC Merit Scholarship inspired me to pursue Senior Secondary Science with confidence.",
+      "Studying at St. Michael's Umsning gave me strong moral grounding and the daily academic discipline to compete at the state level. The personal mentorship from our faculty and the school merit scholarship inspired me to pursue Senior Secondary Science with confidence.",
     highlights: [
       'MBOSE SSLC State Merit Rank Holder',
-      '₹20,000 Cash Award & 100% Tuition Waiver',
+      'Merit Award & 100% Tuition Waiver',
       '96.4% Distinction in Science & Mathematics',
     ],
   },
@@ -201,10 +201,10 @@ const MILESTONES = [
 ];
 
 const ALUMNI_STATS = [
-  { value: '8,500+', label: 'Living Alumni Worldwide', icon: 'fas fa-globe-asia' },
+  { value: '8,500+', label: 'Registered Alumni', icon: 'fas fa-user-graduate' },
   { value: '65 Years', label: 'Continuous Legacy (1961–2026)', icon: 'fas fa-landmark' },
   { value: '100+', label: 'Doctors, Engineers & Civil Servants', icon: 'fas fa-user-md' },
-  { value: '₹20,000', label: 'Annual SSLC Merit Endowment', icon: 'fas fa-award' },
+  { value: '100%', label: 'Board Pass & State Toppers', icon: 'fas fa-award' },
 ];
 
 export const AlumniPage: React.FC<AlumniPageProps> = ({
