@@ -903,8 +903,24 @@ export const InstitutionalSection: React.FC<InstitutionalSectionProps> = ({
               <div className="absolute inset-x-0 top-0 h-1.5 bg-[#d97706] z-10" />
 
               <div className="grid grid-cols-1 sm:grid-cols-12 h-full">
-                {/* Left side content for second box */}
-                <div className="sm:col-span-7 order-2 sm:order-1 flex flex-col justify-between p-5 sm:p-6">
+                {/* Left side pic for second box (consistent with first box) */}
+                <div className="sm:col-span-5 relative min-h-[220px] sm:min-h-full bg-slate-900 overflow-hidden">
+                  <img
+                    src={SCHOOL_IMAGES.headmistressLP}
+                    alt="Rev. Sister Headmistress – Lower Primary (LP) Section at St. Michael's Umsning"
+                    className="h-full w-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent sm:bg-gradient-to-r sm:from-transparent sm:to-black/30" />
+                  <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-slate-950/85 border border-amber-400/40 px-2.5 py-1 text-[11px] font-bold text-white backdrop-blur-xs">
+                    <i className="fas fa-child mr-1.5 text-amber-300" aria-hidden="true"></i>
+                    Headmistress (LP Section)
+                  </div>
+                </div>
+
+                {/* Right side content for second box */}
+                <div className="sm:col-span-7 flex flex-col justify-between p-5 sm:p-6">
                   <div>
                     <div className="flex flex-wrap items-center justify-between gap-1.5">
                       <span className="inline-flex items-center rounded-full bg-amber-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-900 border border-amber-200">
@@ -959,22 +975,6 @@ export const InstitutionalSection: React.FC<InstitutionalSectionProps> = ({
                       <span>Read More</span>
                       <i className="fas fa-arrow-right text-[10px]" aria-hidden="true"></i>
                     </button>
-                  </div>
-                </div>
-
-                {/* Right side pic for second box */}
-                <div className="sm:col-span-5 order-1 sm:order-2 relative min-h-[220px] sm:min-h-full bg-slate-900 overflow-hidden">
-                  <img
-                    src={SCHOOL_IMAGES.headmistressLP}
-                    alt="Rev. Sister Headmistress – Lower Primary (LP) Section at St. Michael's Umsning"
-                    className="h-full w-full object-cover object-center transition-transform duration-500 hover:scale-105"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent sm:bg-gradient-to-l sm:from-transparent sm:to-black/30" />
-                  <div className="absolute bottom-3 left-3 right-3 rounded-lg bg-slate-950/85 border border-amber-400/40 px-2.5 py-1 text-[11px] font-bold text-white backdrop-blur-xs">
-                    <i className="fas fa-child mr-1.5 text-amber-300" aria-hidden="true"></i>
-                    Headmistress (LP Section)
                   </div>
                 </div>
               </div>
