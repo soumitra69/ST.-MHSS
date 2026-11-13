@@ -741,8 +741,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <img
                   src={SCHOOL_INFO.logo}
                   alt="St. Michael's Higher Secondary School Crest"
-                  width="76"
-                  height="76"
+                  width="82"
+                  height="82"
                   decoding="async"
                 />
               </div>
