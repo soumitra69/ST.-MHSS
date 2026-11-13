@@ -38,8 +38,8 @@ import {
   AdmissionsAndFeesPage,
   TransportationPage,
   ScholarshipsWelfarePage,
-  AlumniCommunityPage,
 } from './components/CampusServicesPages';
+import { AlumniPage } from './components/AlumniPage';
 import { ContactPage } from './components/ContactPage';
 import { FeeStructurePage } from './components/FeeStructurePage';
 import { GirlsHostelPage } from './components/GirlsHostelPage';
@@ -343,9 +343,10 @@ export default function App() {
           onNavigatePage={handleNavigatePage}
         />
       ) : activePage === 'alumni' ? (
-        <AlumniCommunityPage
+        <AlumniPage
           onBack={() => handleNavigatePage('home')}
           onNavigatePage={handleNavigatePage}
+          onOpenAdmission={() => setAdmissionModalOpen(true)}
         />
       ) : activePage === 'contact' ? (
         <ContactPage
