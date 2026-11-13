@@ -15467,28 +15467,47 @@ img.hero-bg-layer {
 }
 
 @media (max-width: 767px) {
-  /* 2. Mobile Navbar — Full School Name Visibility Without Truncation */
+  /* 2. Mobile Navbar — Enlarged Logo, Highlighted Header, and Full School Name */
+  .main-header {
+    background: #ffffff !important;
+    border-bottom: 2.5px solid #d97706 !important;
+    box-shadow: 0 4px 20px rgba(12, 45, 87, 0.12) !important;
+  }
+
   .main-header .container {
-    padding-inline: 10px !important;
+    padding-inline: 12px !important;
   }
 
   .logo-nav {
-    gap: 6px !important;
-    padding: 6px 0 !important;
+    gap: 8px !important;
+    padding: 8px 0 !important;
+    align-items: center !important;
   }
 
   .logo-section {
     flex: 1 1 0% !important;
     min-width: 0 !important;
     max-width: none !important;
-    gap: 7px !important;
-    padding: 2px 0 !important;
+    gap: 10px !important;
+    padding: 3px 0 !important;
+    align-items: center !important;
   }
 
   .logo-placeholder {
-    width: 36px !important;
-    height: 36px !important;
+    width: 54px !important;
+    height: 54px !important;
     flex-shrink: 0 !important;
+    border-radius: 999px !important;
+    background: #ffffff !important;
+    box-shadow: 0 0 0 2px #d97706, 0 3px 10px rgba(12, 45, 87, 0.22) !important;
+    padding: 2px !important;
+  }
+
+  .logo-placeholder img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    border-radius: 999px !important;
   }
 
   .university-name {
@@ -15498,40 +15517,60 @@ img.hero-bg-layer {
   }
 
   .university-name h1 {
-    font-size: clamp(0.68rem, 3.2vw, 0.88rem) !important;
-    letter-spacing: 0.01em !important;
-    line-height: 1.18 !important;
-    white-space: normal !important;
-    overflow: visible !important;
-    text-overflow: clip !important;
-  }
-
-  .university-name p {
-    font-size: clamp(0.5rem, 2.15vw, 0.62rem) !important;
+    font-size: clamp(0.78rem, 3.6vw, 0.98rem) !important;
+    font-weight: 800 !important;
+    color: #0c2d57 !important;
+    letter-spacing: 0.02em !important;
     line-height: 1.2 !important;
     white-space: normal !important;
     overflow: visible !important;
     text-overflow: clip !important;
+    text-shadow: 0 0.5px 0 rgba(12, 45, 87, 0.15) !important;
+  }
+
+  .university-name p {
+    font-size: clamp(0.56rem, 2.3vw, 0.68rem) !important;
+    font-weight: 600 !important;
+    color: #475569 !important;
+    line-height: 1.22 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    margin-top: 2px !important;
   }
 
   .mobile-header-actions {
-    gap: 5px !important;
+    gap: 6px !important;
     flex-shrink: 0 !important;
+    align-items: center !important;
   }
 
   .mobile-login-toggle {
-    height: 32px !important;
-    padding: 0 7px !important;
-    font-size: 0.6rem !important;
-    gap: 4px !important;
-    border-radius: 7px !important;
+    height: 36px !important;
+    padding: 0 9px !important;
+    font-size: 0.68rem !important;
+    font-weight: 700 !important;
+    gap: 5px !important;
+    border-radius: 8px !important;
+    background: linear-gradient(135deg, #0c2d57 0%, #1e3a8a 100%) !important;
+    color: #ffffff !important;
+    border: 1px solid #d97706 !important;
+    box-shadow: 0 2px 8px rgba(12, 45, 87, 0.2) !important;
+  }
+
+  .mobile-login-toggle i {
+    color: #fde047 !important;
+    font-size: 0.72rem !important;
   }
 
   .hamburger-btn {
-    width: 34px !important;
-    height: 32px !important;
-    padding: 6px !important;
-    border-radius: 7px !important;
+    width: 38px !important;
+    height: 36px !important;
+    padding: 7px !important;
+    border-radius: 8px !important;
+    background: #0c2d57 !important;
+    border: 1.5px solid #d97706 !important;
+    box-shadow: 0 2px 8px rgba(12, 45, 87, 0.2) !important;
   }
 }
 
