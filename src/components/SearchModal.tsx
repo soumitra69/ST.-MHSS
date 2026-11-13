@@ -61,7 +61,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-start justify-center pt-20 sm:pt-28 px-4"
+      className="fixed inset-0 z-[10000] bg-black/75 backdrop-blur-sm flex items-start justify-center pt-16 sm:pt-24 px-4 overflow-y-auto"
       onClick={onClose}
     >
       <div

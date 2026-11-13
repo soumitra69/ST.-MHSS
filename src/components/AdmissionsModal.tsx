@@ -59,17 +59,20 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
+      className="fixed inset-0 z-[10000] bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
       onClick={resetForm}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="admissions-modal-title"
     >
       <div
-        className="bg-white rounded-2xl max-w-xl w-full shadow-2xl border-2 border-slate-200 overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-150"
+        className="bg-white rounded-2xl max-w-xl w-full max-h-[92vh] flex flex-col shadow-2xl border border-slate-200 overflow-hidden my-auto animate-in fade-in zoom-in-95 duration-150 relative"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
-        <div className="p-5 bg-gradient-to-r from-[#0c2d57] to-[#1d4ed8] text-white flex items-center justify-between">
+        {/* Header - Fixed */}
+        <div className="p-4 sm:p-5 bg-gradient-to-r from-[#0c2d57] to-[#1d4ed8] text-white flex items-center justify-between flex-shrink-0">
           <div>
-            <h3 className="text-base font-bold uppercase tracking-tight">
+            <h3 id="admissions-modal-title" className="text-sm sm:text-base font-bold uppercase tracking-tight">
               <i className="fas fa-user-graduate mr-2 text-amber-300" aria-hidden="true"></i>
               Academic Session 2026–27 Admission
             </h3>
@@ -78,22 +81,22 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
           <button
             type="button"
             onClick={resetForm}
-            className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+            className="p-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
             aria-label="Close modal"
           >
             <i className="fas fa-times text-base" aria-hidden="true"></i>
           </button>
         </div>
 
-        {/* Step Indicator */}
+        {/* Step Indicator - Fixed */}
         {!submitted && (
-          <div className="px-6 py-3 bg-slate-50 border-b border-slate-200 flex items-center justify-between text-xs">
+          <div className="px-4 sm:px-6 py-2.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between text-[11px] sm:text-xs flex-shrink-0">
             <span className={`font-bold ${step === 1 ? 'text-[#1B365D]' : 'text-slate-400'}`}>
-              <i className="fas fa-id-card mr-1" aria-hidden="true"></i>1. Student Details
+              <i className="fas fa-id-card mr-1" aria-hidden="true"></i>1. Student
             </span>
             <i className="fas fa-chevron-right text-[10px] text-slate-300" aria-hidden="true"></i>
             <span className={`font-bold ${step === 2 ? 'text-[#1B365D]' : 'text-slate-400'}`}>
-              <i className="fas fa-users mr-1" aria-hidden="true"></i>2. Guardian &amp; Contact
+              <i className="fas fa-users mr-1" aria-hidden="true"></i>2. Guardian
             </span>
             <i className="fas fa-chevron-right text-[10px] text-slate-300" aria-hidden="true"></i>
             <span className={`font-bold ${step === 3 ? 'text-[#1B365D]' : 'text-slate-400'}`}>
@@ -102,8 +105,8 @@ export const AdmissionsModal: React.FC<AdmissionsModalProps> = ({ isOpen, onClos
           </div>
         )}
 
-        {/* Modal Body */}
-        <div className="p-6">
+        {/* Modal Body - Scrollable */}
+        <div className="p-4 sm:p-6 overflow-y-auto flex-1 overscroll-contain">
           {submitted ? (
             <div className="text-center space-y-4 py-4">
               <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
