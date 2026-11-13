@@ -22,7 +22,8 @@ export type AppPageId =
   | 'scholarships'
   | 'alumni'
   | 'contact'
-  | 'fee-structure-page';
+  | 'fee-structure-page'
+  | 'girls-hostel';
 
 interface InstitutionalSectionProps {
   onOpenFounderPage?: () => void;

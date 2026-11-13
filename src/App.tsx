@@ -42,6 +42,7 @@ import {
 } from './components/CampusServicesPages';
 import { ContactPage } from './components/ContactPage';
 import { FeeStructurePage } from './components/FeeStructurePage';
+import { GirlsHostelPage } from './components/GirlsHostelPage';
 
 const PAGE_HASH_MAP: Record<string, AppPageId> = {
   '#page-who-we-are': 'who-we-are',
@@ -62,6 +63,7 @@ const PAGE_HASH_MAP: Record<string, AppPageId> = {
   '#page-alumni': 'alumni',
   '#page-contact': 'contact',
   '#page-fee-structure': 'fee-structure-page',
+  '#page-girls-hostel': 'girls-hostel',
   '#home': 'home',
 };
 
@@ -353,6 +355,12 @@ export default function App() {
         />
       ) : activePage === 'fee-structure-page' ? (
         <FeeStructurePage
+          onBack={() => handleNavigatePage('home')}
+          onNavigatePage={handleNavigatePage}
+          onOpenAdmission={() => setAdmissionModalOpen(true)}
+        />
+      ) : activePage === 'girls-hostel' ? (
+        <GirlsHostelPage
           onBack={() => handleNavigatePage('home')}
           onNavigatePage={handleNavigatePage}
           onOpenAdmission={() => setAdmissionModalOpen(true)}

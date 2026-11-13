@@ -100,17 +100,18 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
   onNavigatePage,
   onOpenAdmission,
 }) => {
-  // Real-world dynamic live date
-  const now = new Date();
+  // Real-world dynamic live date — computed fresh each render
   const currentYear = 2026;
-  const isActual2026 = now.getFullYear() === currentYear;
-  
+  const todayDate = useMemo(() => new Date(), []);
+  const isActual2026 = todayDate.getFullYear() === currentYear;
+
   // Real-time month (0 = Jan, 10 = Nov) and day (1..31)
-  const realMonth = isActual2026 ? now.getMonth() : 10;
-  const realToday = isActual2026 ? now.getDate() : now.getDate();
+  const realMonth = isActual2026 ? todayDate.getMonth() : 10;
+  const realTodayDay = isActual2026 ? todayDate.getDate() : todayDate.getDate();
+  const realTodayMonth = realMonth;
 
   const [currentMonthIdx, setCurrentMonthIdx] = useState<number>(realMonth);
-  const [selectedDay, setSelectedDay] = useState<number>(realToday);
+  const [selectedDay, setSelectedDay] = useState<number>(realTodayDay);
 
   // Compute calendar days for current month
   const { daysInMonth, startDayOfWeek } = useMemo(() => {
@@ -170,6 +171,9 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
     setCurrentMonthIdx(targetMonth);
     setSelectedDay(targetDay);
   };
+
+  // Check if viewing today's actual month
+  const isViewingTodayMonth = currentMonthIdx === realTodayMonth;
 
   return (
     <section
@@ -342,6 +346,8 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
                     {Array.from({ length: daysInMonth }).map((_, i) => {
                       const dayNum = i + 1;
                       const isCurrentSelected = dayNum === selectedDay;
+                      // isActualToday: true only on the real calendar today date
+                      const isActualToday = isViewingTodayMonth && dayNum === realTodayDay;
                       const dayDate = new Date(currentYear, currentMonthIdx, dayNum);
                       const isDaySunday = dayDate.getDay() === 0;
                       const hasHoliday = OFFICIAL_HOLIDAYS_2026.some(
@@ -356,6 +362,8 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
                           className={`h-9 w-9 sm:h-10 sm:w-10 rounded-xl flex flex-col items-center justify-center relative transition-all cursor-pointer ${
                             isCurrentSelected
                               ? 'bg-white !text-[#0a192f] shadow-md font-black'
+                              : isActualToday
+                              ? 'ring-2 ring-amber-400 text-amber-300 font-bold hover:bg-slate-800/60'
                               : isDaySunday
                               ? 'text-rose-400 hover:bg-slate-800/60'
                               : 'text-slate-100 hover:bg-slate-800/60'
@@ -365,6 +373,8 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
                             className={`font-sans leading-none ${
                               isCurrentSelected
                                 ? 'text-sm sm:text-base font-extrabold text-[#0a192f]'
+                                : isActualToday
+                                ? 'text-sm font-extrabold'
                                 : 'text-xs sm:text-sm font-semibold'
                             }`}
                           >
