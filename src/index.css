@@ -13520,40 +13520,62 @@ section,
   z-index: 2;
   background: #030b18;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 20px 0 !important;
+  padding: 16px 0 !important;
 }
 
 .school-footer-bottom-inner {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
+  gap: 16px;
+  width: 100%;
 }
 
 .school-footer-copy {
   margin: 0 !important;
-  font-size: 0.85rem !important;
+  font-size: 0.8rem !important;
   font-weight: 500;
-  color: #cbd5e1 !important;
+  color: #94a3b8 !important;
+  white-space: nowrap;
 }
 
 .school-footer-credit-pill {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 7px 15px;
+  padding: 6px 14px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(251, 191, 36, 0.35);
-  font-size: 0.84rem !important;
-  color: #e2e8f0 !important;
+  font-size: 0.76rem !important;
+  color: #cbd5e1 !important;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.school-footer-credit-pill:hover {
+  background: rgba(217, 119, 6, 0.15);
+  border-color: #fde047;
 }
 
 .school-footer-credit-pill strong {
   color: #fde047 !important;
   font-weight: 800;
   letter-spacing: 0.02em;
+}
+
+@media (max-width: 1024px) {
+  .school-footer-bottom-inner {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .school-footer-copy {
+    white-space: normal;
+  }
 }
 
 @media (max-width: 1080px) {
