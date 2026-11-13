@@ -35,7 +35,7 @@ const academicsAndAdmissionsLinks: FooterLinkItem[] = [
   { label: 'Academic Calendar & Holiday List', href: '#page-academic-calendar', page: 'academic-calendar' },
   { label: 'MBOSE Results & State Honors', href: '#page-results-achievements', page: 'results-achievements' },
   { label: 'Scholarships & Student Welfare', href: '#page-scholarships', page: 'scholarships' },
-  { label: 'NH-6 School Bus & Transport', href: '#page-transportation', page: 'transportation' },
+  { label: 'School Bus & Transport', href: '#page-transportation', page: 'transportation' },
 ];
 
 const accreditationHighlights = [
@@ -418,7 +418,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
                     </span>
                     <div>
                       <strong>Campus Address</strong>
-                      <span>Umsning, Ri Bhoi District, Meghalaya – 793105 (NH-6 Corridor)</span>
+                      <span>Umsning, Ri Bhoi District, Meghalaya – 793105</span>
                     </div>
                   </li>
 
