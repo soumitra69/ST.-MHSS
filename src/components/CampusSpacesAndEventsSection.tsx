@@ -19,17 +19,38 @@ interface LearningSpaceItem {
   details: string;
   specs: string[];
   themeClass: string;
+  isHighlighted?: boolean;
+  highlightBadge?: string;
+  targetPage?: AppPageId;
 }
 
 const LEARNING_SPACES: LearningSpaceItem[] = [
   {
-    id: 'college-building',
+    id: 'girls-hostel',
     number: '01',
+    title: "Girls' Hostel & Residential Care Campus",
+    category: 'Campus & Transit',
+    badge: 'Girls Only Residence',
+    icon: 'fas fa-hotel',
+    image: SCHOOL_IMAGES.foundingCampus,
+    summary:
+      'Safe, fully guarded, and nurturing residential facility dedicated exclusively for female scholars with supervised study hours and nutritious dining.',
+    details:
+      "St. Michael's Girls' Hostel provides a serene, disciplined, and home-like home for outstation female students from across Meghalaya and Northeast India. Supervised by resident Catholic Sisters and dedicated matrons, the hostel features 24/7 CCTV surveillance, biometric security, dedicated evening study halls, hygienic multi-cuisine dining, and regular health check-ups.",
+    specs: ['24/7 Sister & Matron Supervision', 'Nutritious Hygienic Meal Plans', 'Quiet Evening Supervised Study Halls'],
+    themeClass: 'space-theme-amber',
+    isHighlighted: true,
+    highlightBadge: 'FEATURED RESIDENTIAL FACILITY',
+    targetPage: 'girls-hostel',
+  },
+  {
+    id: 'college-building',
+    number: '02',
     title: 'Main Academic Building & Archangel Tower',
     category: 'Campus & Transit',
     badge: '60+ Classrooms',
     icon: 'fas fa-school',
-    image: SCHOOL_IMAGES.foundingCampus,
+    image: SCHOOL_IMAGES.schoolBuildingFront,
     summary:
       'Spacious, sunlit academic wings housing Nursery to Class XII classrooms, departmental staff rooms, and administrative offices.',
     details:
@@ -39,7 +60,7 @@ const LEARNING_SPACES: LearningSpaceItem[] = [
   },
   {
     id: 'smart-classroom',
-    number: '02',
+    number: '03',
     title: 'Smart Classrooms & Audio-Visual Halls',
     category: 'Academics & Tech',
     badge: 'Digital Learning',
@@ -54,7 +75,7 @@ const LEARNING_SPACES: LearningSpaceItem[] = [
   },
   {
     id: 'science-labs',
-    number: '03',
+    number: '04',
     title: 'Physics, Chemistry & Biology Laboratories',
     category: 'Labs & Library',
     badge: 'HSSLC Practicals',
@@ -69,7 +90,7 @@ const LEARNING_SPACES: LearningSpaceItem[] = [
   },
   {
     id: 'computer-lab',
-    number: '04',
+    number: '05',
     title: 'Advanced Computer & Coding Laboratory',
     category: 'Academics & Tech',
     badge: '1:1 Lab Terminals',
@@ -84,7 +105,7 @@ const LEARNING_SPACES: LearningSpaceItem[] = [
   },
   {
     id: 'central-library',
-    number: '05',
+    number: '06',
     title: 'Central Reference Library & Reading Room',
     category: 'Labs & Library',
     badge: '12,000+ Volumes',
@@ -99,7 +120,7 @@ const LEARNING_SPACES: LearningSpaceItem[] = [
   },
   {
     id: 'amphitheatre-stage',
-    number: '06',
+    number: '07',
     title: 'Open-Air Amphitheatre & Courtyard Stage',
     category: 'Campus & Transit',
     badge: '2,000+ Seating',
@@ -114,33 +135,18 @@ const LEARNING_SPACES: LearningSpaceItem[] = [
   },
   {
     id: 'transport-fleet',
-    number: '07',
-    title: 'Safe NH-6 School Bus Transit Fleet',
+    number: '08',
+    title: 'Safe School Bus Transit Fleet',
     category: 'Campus & Transit',
-    badge: '4 NH-6 Routes',
+    badge: '4 Main Routes',
     icon: 'fas fa-bus-alt',
     image: SCHOOL_IMAGES.houseAssembly,
     summary:
       'Reliable daily bus service connecting Umsning Town, Nongpoh Road, Bhoirymbong, Umroi Junction, Umden, and Sumer.',
     details:
-      'Each school bus is supervised by trained transport attendants and route coordinators, ensuring punctual morning pickup and safe afternoon dispersal along the NH-6 corridor.',
-    specs: ['4 Supervised NH-6 Corridors', 'Trained Attendants on Board', 'First-Aid & Speed Governor Equipped'],
+      'Each school bus is supervised by trained transport attendants and route coordinators, ensuring punctual morning pickup and safe afternoon dispersal across Ri Bhoi District.',
+    specs: ['4 Supervised Corridors', 'Trained Attendants on Board', 'First-Aid & Speed Governor Equipped'],
     themeClass: 'space-theme-blue',
-  },
-  {
-    id: 'eco-solar-campus',
-    number: '08',
-    title: 'Green Pine Campus, Solar & Clean Water',
-    category: 'Campus & Transit',
-    badge: '15-Acre Eco Zone',
-    icon: 'fas fa-solar-panel',
-    image: SCHOOL_IMAGES.campusEcoDrive,
-    summary:
-      'Eco-friendly solar backup lighting, UV-filtered drinking water stations, and lush pine-forested botanical gardens.',
-    details:
-      "Maintained in partnership with the St. Michael's Eco Club, our 15-acre plastic-free campus combines renewable energy awareness, rainwater harvesting, and native Khasi Hills flora conservation.",
-    specs: ['UV-Purified Drinking Water', 'Solar Lighting & Backup', 'Plastic-Free Botanical Zone'],
-    themeClass: 'space-theme-emerald',
   },
 ];
 
@@ -353,14 +359,27 @@ export const CampusSpacesAndEventsSection: React.FC<CampusSpacesAndEventsSection
             {filteredSpaces.map((space, idx) => (
               <article
                 key={space.id}
-                className={`space-facility-card ${space.themeClass}`}
+                className={`space-facility-card ${space.themeClass} ${
+                  space.isHighlighted ? 'space-card-featured ring-2 ring-[#d97706] shadow-xl' : ''
+                }`}
                 data-aos="fade-up"
                 data-aos-delay={60 * (idx + 1)}
               >
+                {space.highlightBadge && (
+                  <div className="bg-gradient-to-r from-[#0c2d57] via-[#d97706] to-[#b45309] text-white px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-wider flex items-center justify-between">
+                    <span className="flex items-center gap-1.5">
+                      <i className="fas fa-star text-amber-300 text-xs animate-pulse" aria-hidden="true"></i>
+                      {space.highlightBadge}
+                    </span>
+                    <span className="bg-amber-400 text-[#0c2d57] px-2 py-0.5 rounded text-[10px] font-black">
+                      ADMISSIONS OPEN
+                    </span>
+                  </div>
+                )}
                 <div className="space-card-media" onClick={() => setSelectedSpace(space)}>
                   <img src={space.image} alt={space.title} loading="lazy" decoding="async" />
                   <div className="space-card-badges">
-                    <span className="space-badge-pill">
+                    <span className={`space-badge-pill ${space.isHighlighted ? 'bg-[#d97706] text-white' : ''}`}>
                       <i className={space.icon} aria-hidden="true"></i>
                       {space.badge}
                     </span>
@@ -370,8 +389,12 @@ export const CampusSpacesAndEventsSection: React.FC<CampusSpacesAndEventsSection
 
                 <div className="space-card-body">
                   <div>
-                    <span className="space-cat-label">{space.category}</span>
-                    <h3>{space.title}</h3>
+                    <span className={`space-cat-label ${space.isHighlighted ? 'text-[#d97706] font-bold' : ''}`}>
+                      {space.category}
+                    </span>
+                    <h3 className={space.isHighlighted ? 'text-[#0c2d57] font-black' : ''}>
+                      {space.title}
+                    </h3>
                     <p>{space.summary}</p>
                   </div>
 
@@ -379,20 +402,48 @@ export const CampusSpacesAndEventsSection: React.FC<CampusSpacesAndEventsSection
                     <ul className="space-specs-list">
                       {space.specs.map((spec) => (
                         <li key={spec}>
-                          <i className="fas fa-check-circle" aria-hidden="true"></i>
-                          <span>{spec}</span>
+                          <i
+                            className={`fas fa-check-circle ${
+                              space.isHighlighted ? 'text-[#d97706]' : ''
+                            }`}
+                            aria-hidden="true"
+                          ></i>
+                          <span className={space.isHighlighted ? 'font-semibold text-slate-800' : ''}>
+                            {spec}
+                          </span>
                         </li>
                       ))}
                     </ul>
 
-                    <button
-                      type="button"
-                      className="space-view-more-btn"
-                      onClick={() => setSelectedSpace(space)}
-                    >
-                      <span>Read More</span>
-                      <i className="fas fa-arrow-right" aria-hidden="true"></i>
-                    </button>
+                    {space.targetPage && onNavigatePage ? (
+                      <div className="flex items-center gap-2 mt-4">
+                        <button
+                          type="button"
+                          className="space-view-more-btn flex-1 !bg-[#0c2d57] !text-white hover:!bg-[#d97706] transition-colors"
+                          onClick={() => onNavigatePage(space.targetPage!)}
+                        >
+                          <i className="fas fa-door-open mr-1.5" aria-hidden="true"></i>
+                          <span>Visit Girls&apos; Hostel Page</span>
+                        </button>
+                        <button
+                          type="button"
+                          className="px-3 py-2 text-xs font-bold text-[#0c4a8a] bg-blue-50 hover:bg-blue-100 rounded-lg border border-blue-200 transition-colors"
+                          onClick={() => setSelectedSpace(space)}
+                          title="Quick preview"
+                        >
+                          <i className="fas fa-info-circle" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    ) : (
+                      <button
+                        type="button"
+                        className="space-view-more-btn"
+                        onClick={() => setSelectedSpace(space)}
+                      >
+                        <span>Read More</span>
+                        <i className="fas fa-arrow-right" aria-hidden="true"></i>
+                      </button>
+                    )}
                   </div>
                 </div>
               </article>
