@@ -13765,7 +13765,7 @@ img.hero-bg-layer {
 }
 
 .logo-placeholder {
-  border-radius: 0 !important;
+  border-radius: 999px !important;
   border: none !important;
   background: transparent !important;
   padding: 0 !important;
@@ -13776,6 +13776,13 @@ img.hero-bg-layer {
   overflow: visible !important;
   width: 58px !important;
   height: 58px !important;
+  filter: drop-shadow(0 2px 8px rgba(12, 74, 138, 0.25)) drop-shadow(0 0 10px rgba(217, 119, 6, 0.35));
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.logo-section:hover .logo-placeholder {
+  filter: drop-shadow(0 4px 14px rgba(217, 119, 6, 0.6)) drop-shadow(0 0 18px rgba(255, 255, 255, 0.8));
+  transform: scale(1.06) rotate(3deg);
 }
 
 .logo-placeholder img {
@@ -13783,7 +13790,7 @@ img.hero-bg-layer {
   height: 100% !important;
   object-fit: contain !important;
   border: none !important;
-  border-radius: 0 !important;
+  border-radius: 999px !important;
   box-shadow: none !important;
 }
 

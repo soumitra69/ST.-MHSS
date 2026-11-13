@@ -375,24 +375,14 @@ export const AdmissionsAndFeesPage: React.FC<ServicePageProps> = ({
           </div>
         </div>
 
-        {/* Bottom Back Navigation */}
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div>
-            <strong className="block text-sm font-extrabold text-[#0c4a8a]">
-              {SCHOOL_INFO.name}, Umsning
-            </strong>
-            <span className="text-xs font-medium text-slate-600">
-              Admissions &amp; Fee Counter Helpline: {SCHOOL_INFO.phoneMobile}
-            </span>
-          </div>
-          <button
-            type="button"
-            onClick={onBack}
-            className="inline-flex items-center gap-2 rounded-xl bg-[#0c4a8a] px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-[#0c2d57] cursor-pointer"
-          >
-            <i className="fas fa-arrow-left" aria-hidden="true"></i>
-            <span>Return to Main Website</span>
-          </button>
+        {/* Bottom Campus Summary */}
+        <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-center">
+          <strong className="block text-sm font-extrabold text-[#0c4a8a]">
+            {SCHOOL_INFO.name}, Umsning
+          </strong>
+          <span className="text-xs font-medium text-slate-600">
+            Admissions &amp; Fee Counter Helpline: {SCHOOL_INFO.phoneMobile}
+          </span>
         </div>
       </div>
     </section>
@@ -549,24 +539,14 @@ export const TransportationPage: React.FC<ServicePageProps> = ({ onBack }) => {
           </div>
         </div>
 
-        {/* Bottom Back Navigation */}
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div>
-            <strong className="block text-sm font-extrabold text-[#0c4a8a]">
-              {SCHOOL_INFO.name}, Umsning
-            </strong>
-            <span className="text-xs font-medium text-slate-600">
-              Campus Transport Desk • Helpline: {SCHOOL_INFO.phoneMobile}
-            </span>
-          </div>
-          <button
-            type="button"
-            onClick={onBack}
-            className="inline-flex items-center gap-2 rounded-xl bg-[#0c4a8a] px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-[#0c2d57] cursor-pointer"
-          >
-            <i className="fas fa-arrow-left" aria-hidden="true"></i>
-            <span>Return to Main Website</span>
-          </button>
+        {/* Bottom Campus Summary */}
+        <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-center">
+          <strong className="block text-sm font-extrabold text-[#0c4a8a]">
+            {SCHOOL_INFO.name}, Umsning
+          </strong>
+          <span className="text-xs font-medium text-slate-600">
+            Campus Transport Desk • Helpline: {SCHOOL_INFO.phoneMobile}
+          </span>
         </div>
       </div>
     </section>
@@ -733,24 +713,14 @@ export const ScholarshipsWelfarePage: React.FC<ServicePageProps> = ({ onBack }) 
           </div>
         </div>
 
-        {/* Bottom Back Navigation */}
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div>
-            <strong className="block text-sm font-extrabold text-[#0c4a8a]">
-              {SCHOOL_INFO.name}, Umsning
-            </strong>
-            <span className="text-xs font-medium text-slate-600">
-              Scholarship &amp; Student Welfare Desk • Catholic Mission of Umsning
-            </span>
-          </div>
-          <button
-            type="button"
-            onClick={onBack}
-            className="inline-flex items-center gap-2 rounded-xl bg-[#0c4a8a] px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-[#0c2d57] cursor-pointer"
-          >
-            <i className="fas fa-arrow-left" aria-hidden="true"></i>
-            <span>Return to Main Website</span>
-          </button>
+        {/* Bottom Campus Summary */}
+        <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-center">
+          <strong className="block text-sm font-extrabold text-[#0c4a8a]">
+            {SCHOOL_INFO.name}, Umsning
+          </strong>
+          <span className="text-xs font-medium text-slate-600">
+            Scholarship &amp; Student Welfare Desk • Catholic Mission of Umsning
+          </span>
         </div>
       </div>
     </section>
@@ -942,24 +912,14 @@ export const AlumniCommunityPage: React.FC<ServicePageProps> = ({ onBack }) => {
           </div>
         </div>
 
-        {/* Bottom Back Navigation */}
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div>
-            <strong className="block text-sm font-extrabold text-[#0c4a8a]">
-              {SCHOOL_INFO.name}, Umsning
-            </strong>
-            <span className="text-xs font-medium text-slate-600">
-              Michaelian Alumni &amp; Community Desk • Estd. {SCHOOL_INFO.established}
-            </span>
-          </div>
-          <button
-            type="button"
-            onClick={onBack}
-            className="inline-flex items-center gap-2 rounded-xl bg-[#0c4a8a] px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-[#0c2d57] cursor-pointer"
-          >
-            <i className="fas fa-arrow-left" aria-hidden="true"></i>
-            <span>Return to Main Website</span>
-          </button>
+        {/* Bottom Campus Summary */}
+        <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-center">
+          <strong className="block text-sm font-extrabold text-[#0c4a8a]">
+            {SCHOOL_INFO.name}, Umsning
+          </strong>
+          <span className="text-xs font-medium text-slate-600">
+            Michaelian Alumni &amp; Community Desk • Estd. {SCHOOL_INFO.established}
+          </span>
         </div>
       </div>
     </section>

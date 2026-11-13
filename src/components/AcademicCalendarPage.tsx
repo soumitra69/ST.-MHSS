@@ -591,24 +591,14 @@ export const AcademicCalendarPage: React.FC<AcademicCalendarPageProps> = ({
           </div>
         </div>
 
-        {/* Bottom Back Navigation */}
-        <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div>
-            <strong className="block text-sm font-extrabold text-[#0c4a8a]">
-              {SCHOOL_INFO.name}, Umsning
-            </strong>
-            <span className="text-xs font-medium text-slate-600">
-              Official MBOSE Academic Calendar &amp; Holiday List 2026 • School Code: {SCHOOL_INFO.schoolCode}
-            </span>
-          </div>
-          <button
-            type="button"
-            onClick={onBack}
-            className="inline-flex items-center gap-2 rounded-xl bg-[#0c4a8a] px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-[#0c2d57] cursor-pointer"
-          >
-            <i className="fas fa-arrow-left" aria-hidden="true"></i>
-            <span>Return to Main Website</span>
-          </button>
+        {/* Bottom Campus Summary */}
+        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-center">
+          <strong className="block text-sm font-extrabold text-[#0c4a8a]">
+            {SCHOOL_INFO.name}, Umsning
+          </strong>
+          <span className="text-xs font-medium text-slate-600">
+            Official MBOSE Academic Calendar &amp; Holiday List 2026 • School Code: {SCHOOL_INFO.schoolCode}
+          </span>
         </div>
       </div>
     </section>

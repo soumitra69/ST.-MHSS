@@ -15,7 +15,7 @@ interface ContactPageProps {
 const contactChannels = [
   {
     icon: 'fas fa-phone-alt',
-    title: 'Secretariat & Office Phone',
+    title: 'Office Phone',
     primary: SCHOOL_INFO.phoneMobile,
     secondary: SCHOOL_INFO.phone,
     note: 'Mon – Fri: 8:45 AM – 11:55 AM & 12:35 PM – 3:00 PM',
@@ -25,7 +25,7 @@ const contactChannels = [
   },
   {
     icon: 'fas fa-envelope',
-    title: 'Official Email Helpdesk',
+    title: 'Official Email',
     primary: SCHOOL_INFO.email,
     secondary: 'stmichaelumsning@gmail.com',
     note: 'Official admissions, TC verification & parent enquiries',
@@ -69,13 +69,6 @@ const administrativeOffices = [
     hours: '8:45 AM – 11:55 AM & 12:35 PM – 2:30 PM',
     duties: 'Admissions enquiry, Transfer Certificates (TC), attendance verification & student diary notes',
     contact: SCHOOL_INFO.phone,
-  },
-  {
-    role: 'MBOSE Examination & Records Cell',
-    officer: 'Controller of Internal & Board Exams',
-    hours: '9:00 AM – 2:00 PM on working days',
-    duties: 'MBOSE SSLC / HSSLC registrations, admit cards, official marksheets, and pass certificates',
-    contact: SCHOOL_INFO.phoneMobile,
   },
   {
     role: 'Fee Counter & Accounts Section',
@@ -520,24 +513,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({
           </div>
         </div>
 
-        {/* Bottom Back Navigation */}
-        <div className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div>
-            <strong className="block text-sm font-extrabold text-[#0c4a8a]">
-              {SCHOOL_INFO.name}, Umsning
-            </strong>
-            <span className="text-xs font-medium text-slate-600">
-              Catholic Mission of Umsning, Archdiocese of Shillong • Affiliated to MBOSE ({SCHOOL_INFO.schoolCode})
-            </span>
-          </div>
-          <button
-            type="button"
-            onClick={onBack}
-            className="inline-flex items-center gap-2 rounded-xl bg-[#0c4a8a] px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-sm transition-colors hover:bg-[#0c2d57] cursor-pointer"
-          >
-            <i className="fas fa-arrow-left" aria-hidden="true"></i>
-            <span>Return to Main Website</span>
-          </button>
+        {/* Bottom Campus Summary */}
+        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm text-center">
+          <strong className="block text-sm font-extrabold text-[#0c4a8a]">
+            {SCHOOL_INFO.name}, Umsning
+          </strong>
+          <span className="text-xs font-medium text-slate-600">
+            Catholic Mission of Umsning, Archdiocese of Shillong • Affiliated to MBOSE ({SCHOOL_INFO.schoolCode})
+          </span>
         </div>
       </div>
     </section>
