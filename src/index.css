@@ -14920,15 +14920,38 @@ img.hero-bg-layer {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    gap: clamp(12px, 1.4vw, 22px) !important;
+    gap: clamp(14px, 1.8vw, 26px) !important;
     width: 100% !important;
     min-width: 0 !important;
   }
 
   .main-header .logo-section {
     flex: 0 0 auto !important;
-    max-width: clamp(275px, 23vw, 355px) !important;
-    padding: 12px 12px 12px 0 !important;
+    max-width: none !important;
+    width: auto !important;
+    padding: 10px 14px 10px 0 !important;
+  }
+
+  .main-header .university-name {
+    min-width: max-content !important;
+    white-space: nowrap !important;
+  }
+
+  .main-header .university-name h1 {
+    font-size: clamp(0.92rem, 1.08vw, 1.25rem) !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .main-header .university-name p {
+    font-size: clamp(0.58rem, 0.68vw, 0.74rem) !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    line-height: 1.25 !important;
   }
 
   .main-header .primary-secondery-nav {
