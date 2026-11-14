@@ -40,7 +40,6 @@ const academicsAndAdmissionsLinks: FooterLinkItem[] = [
     href: '#page-girls-hostel',
     page: 'girls-hostel',
     highlight: true,
-    badge: 'Girls Only',
   },
   { label: 'Scholarships & Student Welfare', href: '#page-scholarships', page: 'scholarships' },
   { label: 'School Bus & Transport', href: '#page-transportation', page: 'transportation' },
