@@ -118,17 +118,6 @@ export const FounderPage: React.FC<FounderPageProps> = ({ onBack }) => {
             <i className="fas fa-chevron-right text-[10px] text-slate-400" aria-hidden="true"></i>
             <span className="text-[#d97706]">Founder&apos;s Biography &amp; Official Credentials</span>
           </div>
-
-          <a
-            href={FOUNDER_ARCHIVE_PDF_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl border border-amber-300 bg-amber-50 px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-amber-900 transition-colors hover:bg-amber-100"
-          >
-            <i className="fas fa-file-pdf text-[#d97706]" aria-hidden="true"></i>
-            <span>Official Salesian Archive PDF</span>
-            <i className="fas fa-external-link-alt text-[10px]" aria-hidden="true"></i>
-          </a>
         </div>
 
         {/* Hero Profile Banner */}
