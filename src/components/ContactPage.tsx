@@ -36,12 +36,12 @@ const contactChannels = [
   {
     icon: 'fas fa-map-marker-alt',
     title: 'Campus Physical Address',
-    primary: 'Umsning Town, NH-6 Corridor',
-    secondary: 'Ri Bhoi District, Meghalaya – 793105',
-    note: 'Left side of old National Highway, right side of Bypass',
+    primary: 'Umsning Town, Ri Bhoi District',
+    secondary: 'Meghalaya – 793105, India',
+    note: 'Conveniently accessible near the Umsning Bypass & town center',
     actionText: 'Get Directions',
     actionHref: OFFICIAL_MAP_SHARE_URL,
-    badge: 'NH-6 Corridor',
+    badge: 'Umsning Campus',
   },
   {
     icon: 'fas fa-clock',
@@ -144,7 +144,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                 </span>
                 <span className="inline-flex items-center rounded-full border border-white/25 bg-white/10 px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-amber-200">
                   <i className="fas fa-map-marker-alt mr-1.5" aria-hidden="true"></i>
-                  NH-6 Corridor • Umsning, Ri Bhoi
+                  Umsning Town • Ri Bhoi District
                 </span>
               </div>
 
@@ -391,7 +391,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                       Live Google Map
                     </span>
                     <h3 className="text-sm font-extrabold text-[#0c4a8a]">
-                      Campus Location on NH-6
+                      Campus Location Map
                     </h3>
                   </div>
                   <a
@@ -426,7 +426,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                   <div>
                     <strong className="text-slate-900 text-xs">How to Reach by Road:</strong>
                     <p className="mt-0.5 text-[11px] leading-relaxed text-slate-600">
-                      Located in Umsning Town along the Guwahati–Shillong NH-6 corridor. Approximately 30 km from Shillong and 22 km from Nongpoh.
+                      Located in Umsning Town, Ri Bhoi District. Conveniently situated approximately 30 km from Shillong and 22 km from Nongpoh.
                     </p>
                   </div>
                 </div>
