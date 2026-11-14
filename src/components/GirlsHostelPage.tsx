@@ -219,7 +219,7 @@ export const GirlsHostelPage: React.FC<GirlsHostelPageProps> = ({
           <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-slate-600">
             <span className="text-[#0c4a8a]">Campus Life</span>
             <i className="fas fa-chevron-right text-[10px] text-slate-400" aria-hidden="true" />
-            <span className="text-[#d97706]">Girls' Hostel &amp; Residential Care</span>
+            <span className="text-[#d97706]">Girls' Hostel Residence</span>
           </div>
 
           <div className="flex items-center gap-2">

@@ -28,7 +28,7 @@ const LEARNING_SPACES: LearningSpaceItem[] = [
   {
     id: 'girls-hostel',
     number: '01',
-    title: "Girls' Hostel & Residential Care Campus",
+    title: "Girls' Hostel Residence",
     category: 'Campus & Transit',
     badge: 'Girls Only Residence',
     icon: 'fas fa-hotel',

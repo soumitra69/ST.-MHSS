@@ -35,7 +35,7 @@ const academicsAndAdmissionsLinks: FooterLinkItem[] = [
   },
   { label: 'Curriculum, Streams & Syllabus', href: '#page-academic-syllabus', page: 'academic-syllabus' },
   { label: 'Academic Calendar & Holiday List', href: '#page-academic-calendar', page: 'academic-calendar' },
-  { label: "Girls' Hostel & Residential Care", href: '#page-girls-hostel', page: 'girls-hostel' },
+  { label: "Girls' Hostel", href: '#page-girls-hostel', page: 'girls-hostel' },
   { label: 'Scholarships & Student Welfare', href: '#page-scholarships', page: 'scholarships' },
   { label: 'School Bus & Transport', href: '#page-transportation', page: 'transportation' },
 ];
