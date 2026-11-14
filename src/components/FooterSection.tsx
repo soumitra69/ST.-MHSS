@@ -35,12 +35,7 @@ const academicsAndAdmissionsLinks: FooterLinkItem[] = [
   },
   { label: 'Curriculum, Streams & Syllabus', href: '#page-academic-syllabus', page: 'academic-syllabus' },
   { label: 'Academic Calendar & Holiday List', href: '#page-academic-calendar', page: 'academic-calendar' },
-  {
-    label: "Girls' Hostel & Residential Care",
-    href: '#page-girls-hostel',
-    page: 'girls-hostel',
-    highlight: true,
-  },
+  { label: "Girls' Hostel & Residential Care", href: '#page-girls-hostel', page: 'girls-hostel' },
   { label: 'Scholarships & Student Welfare', href: '#page-scholarships', page: 'scholarships' },
   { label: 'School Bus & Transport', href: '#page-transportation', page: 'transportation' },
 ];
@@ -354,24 +349,10 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
                       <a
                         href={item.href}
                         onClick={(e) => handleFooterLinkClick(e, item)}
-                        className={`school-footer-link ${
-                          item.highlight ? 'school-footer-link-highlight' : ''
-                        }`}
+                        className="school-footer-link"
                       >
-                        <i
-                          className={`${
-                            item.highlight ? 'fas fa-home text-amber-400' : 'fas fa-chevron-right'
-                          }`}
-                          aria-hidden="true"
-                        ></i>
-                        <span className={item.highlight ? 'font-bold text-amber-300' : ''}>
-                          {item.label}
-                        </span>
-                        {item.badge && (
-                          <span className="ml-2 inline-flex items-center rounded-full bg-amber-400/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-300 ring-1 ring-inset ring-amber-400/40">
-                            {item.badge}
-                          </span>
-                        )}
+                        <i className="fas fa-chevron-right" aria-hidden="true"></i>
+                        <span>{item.label}</span>
                       </a>
                     </li>
                   ))}
