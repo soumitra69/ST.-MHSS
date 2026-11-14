@@ -513,7 +513,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
       <div className="school-footer-bottom">
         <div className="container">
           <div className="school-footer-bottom-inner">
-            <p className="school-footer-copy">
+            <p className="school-footer-copy text-center">
               &copy; {new Date().getFullYear()} St. Michael&apos;s Higher Secondary School, Umsning.
               All Rights Reserved.
             </p>

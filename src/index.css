@@ -5,10 +5,10 @@
    GLOBAL CONTENT TEXT JUSTIFICATION ACROSS ALL PAGES & SCREEN SIZES
    (Ensures clean justified copy with clean word spacing and zero hyphenation breaks)
    ========================================================================== */
-p:not(.text-center):not(.text-right):not(.nav-link):not(.ticker-item):not(.btn):not(button):not(.alert-text):not(.toast-msg),
-main p:not(.text-center):not(.text-right):not(.nav-link):not(.ticker-item):not(.btn):not(button),
-section p:not(.text-center):not(.text-right):not(.nav-link):not(.ticker-item):not(.btn):not(button),
-article p:not(.text-center):not(.text-right):not(.nav-link):not(.ticker-item):not(.btn):not(button),
+p:not(.text-center):not(.text-right):not(.nav-link):not(.ticker-item):not(.btn):not(button):not(.alert-text):not(.toast-msg):not(.school-footer-copy),
+main p:not(.text-center):not(.text-right):not(.nav-link):not(.ticker-item):not(.btn):not(button):not(.school-footer-copy),
+section p:not(.text-center):not(.text-right):not(.nav-link):not(.ticker-item):not(.btn):not(button):not(.school-footer-copy),
+article p:not(.text-center):not(.text-right):not(.nav-link):not(.ticker-item):not(.btn):not(button):not(.school-footer-copy),
 .text-justify,
 .institutional-section p,
 .vision-body-copy,
@@ -13544,8 +13544,11 @@ section,
   font-size: 0.76rem !important;
   font-weight: 500;
   color: #94a3b8 !important;
-  text-align: center;
-  line-height: 1.5;
+  text-align: center !important;
+  line-height: 1.5 !important;
+  text-justify: auto !important;
+  word-spacing: normal !important;
+  letter-spacing: normal !important;
 }
 
 .school-footer-bottom-links {
@@ -13634,7 +13637,11 @@ section,
     white-space: normal !important;
     text-align: center !important;
     font-size: 0.74rem !important;
-    line-height: 1.4 !important;
+    line-height: 1.5 !important;
+    word-spacing: normal !important;
+    letter-spacing: normal !important;
+    max-width: 90% !important;
+    margin: 0 auto !important;
   }
 
   .school-footer-bottom-links {
