@@ -290,7 +290,7 @@ export const GirlsHostelPage: React.FC<GirlsHostelPageProps> = ({
             {[
               { label: 'Resident Capacity', value: '120+ Beds', icon: 'fas fa-bed' },
               { label: 'Supervising Matrons', value: '24/7 On Campus', icon: 'fas fa-user-shield' },
-              { label: 'Fresh Daily Meals', value: '3 Courses + Tea', icon: 'fas fa-utensils' },
+              { label: 'Nutritious Dining', value: 'Hygienic & Fresh', icon: 'fas fa-utensils' },
               { label: 'Daily Supervised Prep', value: '3.5 Hours', icon: 'fas fa-clock' },
             ].map((stat) => (
               <div
