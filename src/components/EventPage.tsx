@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { SCHOOL_IMAGES } from '../data/schoolAssets';
 import { SCHOOL_INFO } from '../data/schoolData';
 import type { AppPageId } from './InstitutionalSection';
@@ -27,6 +27,65 @@ interface CampusEventItem {
   location: string;
   image: string;
 }
+
+const EVENT_SLIDER_PHOTOS = [
+  {
+    src: SCHOOL_IMAGES.eventSlide1,
+    title: 'Inter-House Drill & Athletic Championship 2026',
+    tag: 'Sports & Synchronized PT',
+    badge: 'Campus Ground',
+    desc: 'Athletes from Blue, Green, Yellow, and Red Houses marching in synchronized coordination across the Umsning grounds.',
+  },
+  {
+    src: SCHOOL_IMAGES.eventSlide2,
+    title: 'Cultural Pageantry & Traditional Folk Celebrations',
+    tag: 'Cultural Heritage',
+    badge: 'Courtyard Stage',
+    desc: 'Scholars dressed in traditional attire presenting classical Khasi folklore, dance, and cultural unity.',
+  },
+  {
+    src: SCHOOL_IMAGES.eventSlide3,
+    title: 'Annual State Merit & Academic Award Presentation',
+    tag: 'Academic Honours',
+    badge: 'Main Auditorium',
+    desc: 'Honouring outstanding scholars and board rank-holders for scholastic discipline and exceptional excellence.',
+  },
+  {
+    src: SCHOOL_IMAGES.eventSlide4,
+    title: 'Higher Secondary Science Exhibition & Innovation Fair',
+    tag: 'Science & Research',
+    badge: 'Senior Lab Block',
+    desc: 'Interactive physics, chemistry, and biology project demonstrations by Class XI and XII science students.',
+  },
+  {
+    src: SCHOOL_IMAGES.eventSlide5,
+    title: 'Archangel House Assembly & Morning Liturgical Service',
+    tag: 'Spiritual Life',
+    badge: 'Assembly Arena',
+    desc: 'Daily devotional reflection, choral hymns, and moral instructions fostering spiritual clarity.',
+  },
+  {
+    src: SCHOOL_IMAGES.eventSlide6,
+    title: 'Green Ri Bhoi Eco Drive & Botanical Conservation',
+    tag: 'Social Outreach',
+    badge: '15-Acre Eco Zone',
+    desc: 'Students actively participating in plantation, waste-management, and ecological awareness across Umsning.',
+  },
+  {
+    src: SCHOOL_IMAGES.eventSlide7,
+    title: 'Diocesan Four-Part Choral Choir Recital',
+    tag: 'Music & Arts',
+    badge: 'Chapel Stage',
+    desc: 'Choral ensemble delivering harmonious multi-part hymns in English and indigenous languages.',
+  },
+  {
+    src: SCHOOL_IMAGES.eventSlide8,
+    title: 'Farewell & Valedictory Ceremony for Class X & XII',
+    tag: 'Milestone Day',
+    badge: 'Central Amphitheatre',
+    desc: 'Heartwarming benediction and felicitation of outgoing SSLC and HSSLC graduates.',
+  },
+];
 
 const CAMPUS_EVENTS: CampusEventItem[] = [
   {
@@ -147,6 +206,27 @@ export const EventPage: React.FC<EventPageProps> = ({ onBack, onNavigatePage }) 
   const [eventFilter, setEventFilter] = useState<EventCategory>('All Events');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedEvent, setSelectedEvent] = useState<CampusEventItem | null>(null);
+  const [sliderIndex, setSliderIndex] = useState(0);
+  const [isSliderPaused, setIsSliderPaused] = useState(false);
+
+  // Auto-sliding 8-photo banner updated from Update Photo folder (advances every 3.5 seconds)
+  useEffect(() => {
+    if (isSliderPaused) return;
+    const interval = setInterval(() => {
+      setSliderIndex((prev) => (prev + 1) % EVENT_SLIDER_PHOTOS.length);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [isSliderPaused]);
+
+  const handlePrevSlide = () => {
+    setSliderIndex((prev) => (prev - 1 + EVENT_SLIDER_PHOTOS.length) % EVENT_SLIDER_PHOTOS.length);
+  };
+
+  const handleNextSlide = () => {
+    setSliderIndex((prev) => (prev + 1) % EVENT_SLIDER_PHOTOS.length);
+  };
+
+  const currentSlide = EVENT_SLIDER_PHOTOS[sliderIndex];
 
   const filteredEvents = useMemo(() => {
     return CAMPUS_EVENTS.filter((ev) => {
@@ -225,6 +305,94 @@ export const EventPage: React.FC<EventPageProps> = ({ onBack, onNavigatePage }) 
               4-House athletic championships, Patron Feast Day celebrations, and eco-social outreach
               drives at <strong>{SCHOOL_INFO.name}, Umsning</strong>.
             </p>
+          </div>
+        </div>
+
+        {/* Dynamic Photo Slider (Powered by Update Photo Folder) */}
+        <div
+          className="mt-8 relative overflow-hidden rounded-3xl border-2 border-[#93c5fd]/50 bg-[#081e3b] shadow-2xl"
+          onMouseEnter={() => setIsSliderPaused(true)}
+          onMouseLeave={() => setIsSliderPaused(false)}
+        >
+          <div className="relative w-full h-[280px] sm:h-[380px] md:h-[460px] overflow-hidden">
+            {EVENT_SLIDER_PHOTOS.map((slide, idx) => (
+              <div
+                key={slide.title}
+                className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                  idx === sliderIndex ? 'opacity-100 z-10' : 'opacity-0 pointer-events-none z-0'
+                }`}
+              >
+                <img
+                  src={slide.src}
+                  alt={slide.title}
+                  className="w-full h-full object-cover object-center"
+                  loading={idx === 0 ? 'eager' : 'lazy'}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#06162e]/95 via-[#0c2d57]/45 to-transparent" />
+              </div>
+            ))}
+
+            {/* Slider Controls: Arrows */}
+            <button
+              type="button"
+              onClick={handlePrevSlide}
+              className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-20 h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-slate-900/70 border border-white/20 text-white backdrop-blur-md flex items-center justify-center transition-all hover:bg-[#d97706] hover:scale-110 cursor-pointer shadow-lg"
+              aria-label="Previous event slide"
+            >
+              <i className="fas fa-chevron-left text-sm sm:text-base" aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              onClick={handleNextSlide}
+              className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-20 h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-slate-900/70 border border-white/20 text-white backdrop-blur-md flex items-center justify-center transition-all hover:bg-[#d97706] hover:scale-110 cursor-pointer shadow-lg"
+              aria-label="Next event slide"
+            >
+              <i className="fas fa-chevron-right text-sm sm:text-base" aria-hidden="true" />
+            </button>
+
+            {/* Slide Information & Caption Card Overlay */}
+            <div className="absolute bottom-0 inset-x-0 z-20 p-4 sm:p-6 md:p-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+              <div className="max-w-3xl">
+                <div className="flex flex-wrap items-center gap-2 mb-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#ea580c] to-[#d97706] px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-white shadow-sm">
+                    <i className="fas fa-star text-amber-300 text-[10px]" aria-hidden="true" />
+                    {currentSlide.tag}
+                  </span>
+                  <span className="inline-flex items-center gap-1 rounded-full bg-white/20 backdrop-blur-sm border border-white/25 px-2.5 py-0.5 text-[10px] font-bold text-amber-200 uppercase tracking-wider">
+                    <i className="fas fa-map-marker-alt text-amber-300" aria-hidden="true" />
+                    {currentSlide.badge}
+                  </span>
+                </div>
+                <h2 className="text-lg sm:text-2xl md:text-3xl font-extrabold text-white leading-tight drop-shadow-md">
+                  {currentSlide.title}
+                </h2>
+                <p className="mt-1 text-xs sm:text-sm text-slate-200 line-clamp-2 drop-shadow-sm max-w-2xl">
+                  {currentSlide.desc}
+                </p>
+              </div>
+
+              {/* Slider Dots & Counter */}
+              <div className="flex items-center gap-2 shrink-0">
+                <span className="text-xs font-mono font-bold text-amber-300 bg-black/40 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-white/10 mr-1">
+                  0{sliderIndex + 1} / 0{EVENT_SLIDER_PHOTOS.length}
+                </span>
+                <div className="flex items-center gap-1.5">
+                  {EVENT_SLIDER_PHOTOS.map((_, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => setSliderIndex(i)}
+                      aria-label={`Go to slide ${i + 1}`}
+                      className={`h-2 transition-all rounded-full cursor-pointer ${
+                        i === sliderIndex
+                          ? 'w-7 bg-amber-400 shadow-sm'
+                          : 'w-2 bg-white/40 hover:bg-white/70'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

@@ -40,6 +40,24 @@ export const SCHOOL_IMAGES = {
   staff: assetUrl('WhatsApp Image 2026-11-08 at 2.05.21 PM (2).jpeg'),
   studentLeaders: assetUrl('WhatsApp Image 2026-11-08 at 2.05.19 PM.jpeg'),
   campusCommunity: assetUrl('WhatsApp Image 2026-11-08 at 2.04.09 PM.jpeg'),
+
+  // Updated Event & Campus Chronicles Photos (from Update Photo)
+  eventSlide1: assetUrl('WhatsApp Image 2026-11-13 at 10.19.31 PM (1).jpeg'),
+  eventSlide2: assetUrl('WhatsApp Image 2026-11-13 at 10.19.31 PM (2).jpeg'),
+  eventSlide3: assetUrl('WhatsApp Image 2026-11-13 at 10.19.31 PM.jpeg'),
+  eventSlide4: assetUrl('WhatsApp Image 2026-11-13 at 10.19.32 PM (1).jpeg'),
+  eventSlide5: assetUrl('WhatsApp Image 2026-11-13 at 10.19.32 PM.jpeg'),
+  eventSlide6: assetUrl('WhatsApp Image 2026-11-13 at 10.19.33 PM.jpeg'),
+  eventSlide7: assetUrl('WhatsApp Image 2026-11-13 at 10.19.43 PM (1).jpeg'),
+  eventSlide8: assetUrl('WhatsApp Image 2026-11-13 at 10.19.43 PM.jpeg'),
+  eventSlide9: assetUrl('WhatsApp Image 2026-11-13 at 10.19.58 PM (1).jpeg'),
+  eventSlide10: assetUrl('WhatsApp Image 2026-11-13 at 10.19.58 PM (2).jpeg'),
+  eventSlide11: assetUrl('WhatsApp Image 2026-11-13 at 10.19.59 PM (1).jpeg'),
+  eventSlide12: assetUrl('WhatsApp Image 2026-11-13 at 10.19.59 PM.jpeg'),
+  eventSlide13: assetUrl('WhatsApp Image 2026-11-13 at 10.20.00 PM (1).jpeg'),
+  eventSlide14: assetUrl('WhatsApp Image 2026-11-13 at 10.20.00 PM.jpeg'),
+  eventSlide15: assetUrl('WhatsApp Image 2026-11-13 at 10.20.01 PM (1).jpeg'),
+  eventSlide16: assetUrl('WhatsApp Image 2026-11-13 at 10.20.02 PM (1).jpeg'),
 } as const;
 
 const legacyAssetMap: Record<string, string> = {
