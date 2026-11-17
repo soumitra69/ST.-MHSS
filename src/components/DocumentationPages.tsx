@@ -40,18 +40,31 @@ export const LeadershipMessagesPage: React.FC<DocPageProps> = ({
       id: 'principal-msg',
       roleBadge: 'Head of Institution • MBOSE Code: 01961',
       title: 'Principal’s Message',
+      subtitle: 'On the Launch of the Official School Website',
       office: 'Office of the Principal • St. Michael’s Higher Secondary School, Umsning',
       image: SCHOOL_IMAGES.principalPhoto,
       quote:
-        '“Under our sacred motto Excelsior & Shaphrang, we inspire every Michaelian to aim ever higher in scholarship and step forward with courage.”',
+        '“Let us move forward together with faith, dedication, innovation and shared commitment to excellence.”',
       paragraphs: [
-        'Welcome to St. Michael’s Higher Secondary School, Umsning. Since our humble foundation in 1961 by the great French Salesian missionary and mathematician Fr. Michael Balawan, our school has grown into a premier co-educational Higher Secondary institution offering Arts, Science, and Commerce streams under MBOSE.',
-        'Our consistent distinction in the MBOSE SSLC and HSSLC Board Examinations—including State Top 20 Merit Ranks felicitated by the Hon’ble Chief Minister of Meghalaya—is a testament to the tireless dedication of our 68+ educators and the perseverance of our 2,000+ scholars. We invite parents and students to partner with us in the holistic development of every child.',
+        'It gives me immense pleasure and pride to welcome you to the official website of our School.',
+        'The launch of our School website marks an important milestone in our journey towards embracing digital technology and strengthening communication among the school, students, parents, teachers, alumni and the wider community.',
+        'Education is not merely about acquiring knowledge; it is about nurturing young minds, building strong character, developing values and preparing students to face the challenges of an ever-changing world. At St. Michael’s Higher Secondary School we strive to provide a learning environment where every child is encouraged to discover their potential, develop confidence and pursue excellence.',
+        'As Principal, I firmly believe that the success of an educational institution depends on the collective efforts of dedicated teachers, committed staff members, supportive parents, enthusiastic students and responsible management. Together we can create an atmosphere of discipline, mutual respect, creativity and academic excellence.',
+        'Through this website we hope to provide easy access to important school information, academic updates, achievements, activities, announcements and other significant events. It will also serve as a platform to showcase the talents, accomplishments and vibrant life of our school.',
+        'I extend my heartfelt gratitude to the school management, teachers, staff members, parents and everyone who has contributed to making this initiative possible.',
+        'Let us move forward together with faith, dedication, innovation and shared commitment to excellence.',
       ],
+      signoff: {
+        valediction: 'With warm regards,',
+        title: 'Principal',
+        institution: 'St. Michael’s Higher Secondary School,',
+        location: 'Umsning',
+        district: 'Ri-Bhoi District, Meghalaya.',
+      },
       highlights: [
-        '100% commitment to MBOSE academic excellence & board readiness',
-        'Holistic balance of science inquiry, choral arts & synchronized athletics',
-        'Merit scholarships including the ₹20,000 St. Michael’s SSLC Award Endowment',
+        'Digital milestone strengthening communication across school & community',
+        'Nurturing character, values, discipline and academic excellence',
+        'Showcasing talents, accomplishments & vibrant life of St. Michael’s',
       ],
     },
     {
@@ -207,6 +220,11 @@ export const LeadershipMessagesPage: React.FC<DocPageProps> = ({
                     </span>{' '}
                     {msg.title}
                   </h2>
+                  {(msg as { subtitle?: string }).subtitle && (
+                    <p className="mt-1 text-xs sm:text-sm font-bold text-amber-700 uppercase tracking-wide">
+                      {(msg as { subtitle?: string }).subtitle}
+                    </p>
+                  )}
 
                   <blockquote className="mt-3 rounded-xl border-l-4 border-[#d97706] bg-amber-50/70 p-4 text-xs sm:text-sm font-bold italic text-amber-950">
                     {msg.quote}
@@ -217,6 +235,23 @@ export const LeadershipMessagesPage: React.FC<DocPageProps> = ({
                       <p key={i}>{p}</p>
                     ))}
                   </div>
+
+                  {(msg as { signoff?: { valediction: string; title: string; institution: string; location: string; district: string } }).signoff && (
+                    <div className="mt-4 pt-3 border-t border-slate-200 text-xs sm:text-sm text-slate-700">
+                      <p className="font-semibold text-slate-800">
+                        {(msg as { signoff: { valediction: string } }).signoff.valediction}
+                      </p>
+                      <p className="mt-2 font-bold text-[#0c4a8a]">
+                        {(msg as { signoff: { title: string } }).signoff.title}
+                      </p>
+                      <p className="font-medium text-slate-600">
+                        {(msg as { signoff: { institution: string } }).signoff.institution}
+                      </p>
+                      <p className="font-medium text-slate-600">
+                        {(msg as { signoff: { location: string; district: string } }).signoff.location}, {(msg as { signoff: { location: string; district: string } }).signoff.district}
+                      </p>
+                    </div>
+                  )}
 
                   <div className="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-3">
                     {msg.highlights.map((hl) => (

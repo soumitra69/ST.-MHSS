@@ -732,12 +732,12 @@ export const InstitutionalSection: React.FC<InstitutionalSectionProps> = ({
                 </span>{' '}
                 Principal&apos;s Message
               </h2>
+              <p className="text-[11px] font-bold text-amber-700 uppercase tracking-wide">
+                On the Launch of the Official School Website
+              </p>
 
               <p className="mt-2 text-xs sm:text-sm font-medium leading-6 text-slate-700">
-                Every child brings unique gifts and possibilities. Our responsibility at St.
-                Michael&apos;s is to provide a disciplined, caring environment where learners ask
-                thoughtful questions, excel in MBOSE academics, discover their talents in athletics
-                and music, and grow into compassionate citizens.
+                It gives me immense pleasure and pride to welcome you to the official website of our School. The launch of our School website marks an important milestone in our journey towards embracing digital technology and strengthening communication among the school, students, parents, teachers, alumni and the wider community.
               </p>
 
               <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-2">
