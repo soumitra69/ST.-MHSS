@@ -22,6 +22,7 @@ export const SCHOOL_IMAGES = {
   stateCeremony: assetUrl('WhatsApp Image 2026-11-08 at 2.04.10 PM.jpeg'),
   awardPresentation: assetUrl('WhatsApp Image 2026-11-08 at 2.04.10 PM (2).jpeg'),
   studentAwards: assetUrl('WhatsApp Image 2026-11-08 at 2.05.18 PM.jpeg'),
+  topperLasarapynbiang: assetUrl('lasarapynbiang-nongbri-topper.jpg'),
   certificateWinners: assetUrl('WhatsApp Image 2026-11-08 at 2.05.20 PM (2).jpeg'),
   graduatingBatch: assetUrl('WhatsApp Image 2026-11-08 at 2.05.17 PM (1).jpeg'),
   sports: assetUrl('WhatsApp Image 2026-11-08 at 2.04.54 PM.jpeg'),

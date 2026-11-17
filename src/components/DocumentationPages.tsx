@@ -1531,9 +1531,17 @@ export const ResultsAchievementsPage: React.FC<DocPageProps> = ({
 
   const toppersAndAwards = [
     {
-      title: 'MBOSE SSLC State Top 20 Merit Ranker (2026)',
+      title: 'MBOSE S.S.L.C Examination 2026 — 8th Position State Board Topper',
+      award: 'Felicitation on Children’s Day + Institutional Memento & Honors',
+      score: 'Lasarapynbiang Nongbri (State Rank 8)',
+      image: SCHOOL_IMAGES.topperLasarapynbiang,
+      detail:
+        'The felicitation given to the 8th position topper S.S.L.C Examination 2026 from St. Michael’s Higher Secondary School, Lasarapynbiang Nongbri, on Children’s Day by Reverend Sister on campus.',
+    },
+    {
+      title: 'MBOSE SSLC State Top Merit Felicitation (2026)',
       award: 'Felicitated by Hon’ble Chief Minister Shri Conrad K. Sangma + ₹20,000 Cash Award',
-      score: '94.8% Aggregate (Letter Marks in All 6 Subjects)',
+      score: 'State Top Order of Merit (Letter Marks in All Subjects)',
       image: SCHOOL_IMAGES.awardPresentation,
       detail:
         'Honored at the State Felicitation Ceremony in Shillong by the Chief Minister and Education Minister, and awarded the ₹20,000 St. Michael’s SSLC Award Body Endowment.',

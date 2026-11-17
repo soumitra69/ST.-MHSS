@@ -140,6 +140,13 @@ export const NOTICES: Notice[] = [
 
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
+    id: "gal-topper-lasarapynbiang",
+    title: "8th Position Topper S.S.L.C Examination 2026: Lasarapynbiang Nongbri",
+    category: "Toppers",
+    src: SCHOOL_IMAGES.topperLasarapynbiang,
+    description: "The felicitation given to the 8th position topper S.S.L.C Examination 2026 from our school, Lasarapynbiang Nongbri, on Children's Day."
+  },
+  {
     id: "gal-01",
     title: "Historic Campus Facade & St. Michael Archangel Tower",
     category: "Campus",

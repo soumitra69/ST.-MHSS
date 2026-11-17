@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { resolveSchoolAsset } from '../data/schoolAssets';
+import { resolveSchoolAsset, SCHOOL_IMAGES } from '../data/schoolAssets';
 import { AppPageId } from './InstitutionalSection';
 
 interface TopperFelicitationProps {
@@ -10,6 +10,13 @@ export const TopperFelicitation: React.FC<TopperFelicitationProps> = ({ onNaviga
   const [selectedPhoto, setSelectedPhoto] = useState<number>(0);
 
   const felicitationPhotos = [
+    {
+      src: SCHOOL_IMAGES.topperLasarapynbiang,
+      title: "8th Position Topper S.S.L.C Examination 2026: Lasarapynbiang Nongbri",
+      subtitle: "Felicitation Ceremony on Children's Day at St. Michael's Umsning",
+      description:
+        "Lasarapynbiang Nongbri, 8th Position State Board Topper in the MBOSE S.S.L.C Examination 2026, felicitated with the prestigious institutional memento by Rev. Sister on Children's Day.",
+    },
     {
       src: resolveSchoolAsset('/assets/aistudio/WhatsApp_Image_2026-11-08_at_2.04.10_PM__2__df242174.jpeg'),
       title: "State Felicitation by Hon'ble Chief Minister Conrad K. Sangma",
@@ -29,7 +36,7 @@ export const TopperFelicitation: React.FC<TopperFelicitationProps> = ({ onNaviga
       title: "Chief Minister with St. Michael's Scholar",
       subtitle: 'Proud Moment for Umsning and Ri Bhoi District',
       description:
-        "Our board topper in official St. Michael's blazer standing alongside the Hon'ble Chief Minister of Meghalaya.",
+        "Our board topper standing alongside the Hon'ble Chief Minister of Meghalaya during state felicitations.",
     },
     {
       src: resolveSchoolAsset('/assets/aistudio/WhatsApp_Image_2026-11-08_at_2.04.11_PM__2__12d4b152.jpeg'),
@@ -174,7 +181,7 @@ export const TopperFelicitation: React.FC<TopperFelicitationProps> = ({ onNaviga
               </div>
 
               {/* Thumbnail Strip */}
-              <div className="pt-3 grid grid-cols-4 gap-3 bg-transparent">
+              <div className="pt-3 grid grid-cols-5 gap-2 sm:gap-3 bg-transparent">
                 {felicitationPhotos.map((photo, idx) => (
                   <button
                     key={idx}
