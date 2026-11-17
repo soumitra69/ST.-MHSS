@@ -4,7 +4,7 @@ const assetUrl = (filename: string) =>
 export const SCHOOL_IMAGES = {
   logo: assetUrl('st-michaels-logo.png'),
   schoolBuildingFront: assetUrl('school-building-front.jpg'),
-  principalPhoto: assetUrl('WhatsApp Image 2026-11-09 at 11.56.08 PM.jpeg'),
+  principalPhoto: assetUrl('principal-official-photo.jpg'),
   headmistressSecondary: assetUrl('headmistress-desk.jpg'),
   headmistressLP: assetUrl('WhatsApp Image 2026-11-08 at 2.05.20 PM.jpeg'),
   headmistressPhoto: assetUrl('headmistress-desk.jpg'),

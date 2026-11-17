@@ -694,7 +694,7 @@ export const InstitutionalSection: React.FC<InstitutionalSectionProps> = ({
               <img
                 src={SCHOOL_IMAGES.principalPhoto}
                 alt="Rev. Sister Principal at her desk in St. Michael's Higher Secondary School, Umsning"
-                className="h-full w-full md:absolute md:inset-0 object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                className="h-full w-full md:absolute md:inset-0 object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
               />
