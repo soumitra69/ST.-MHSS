@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import AOS from 'aos';
 import { AlertBar } from './components/AlertBar';
 import { Navbar } from './components/Navbar';
@@ -145,6 +145,14 @@ export default function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
+  // When switching pages, ensure the viewport immediately starts from the top of the new page
+  useLayoutEffect(() => {
+    // Immediate instantaneous reset before browser paint so page doesn't show from previous scroll position
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [activePage]);
+
   const handleNavigatePage = (page: AppPageId, sectionId?: string) => {
     if (page === 'home') {
       setActivePage('home');
@@ -158,7 +166,7 @@ export default function App() {
           }
         }, 80);
       } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo(0, 0);
       }
       return;
     }
@@ -171,11 +179,11 @@ export default function App() {
         if (el) {
           smoothScrollToElement(el);
         } else {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          window.scrollTo(0, 0);
         }
       }, 90);
     } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo(0, 0);
     }
   };
 
