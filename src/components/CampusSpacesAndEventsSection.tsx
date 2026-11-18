@@ -173,6 +173,51 @@ interface CampusEventItem {
 
 const LATEST_EVENTS: CampusEventItem[] = [
   {
+    id: 'exposure-trip-class-xii-mit-shillong',
+    date: '10 Mar',
+    year: '2026',
+    category: 'Academic & Seminars',
+    badge: 'Higher Education Exposure',
+    title: 'Exposure Trip of Class XII at MIT Shillong',
+    summary:
+      'Class XII higher secondary scholars visited MIT Shillong for academic exposure, departmental tours, laboratory interaction, and career guidance.',
+    fullReport:
+      "St. Michael's Higher Secondary School organized an educational Exposure Trip for Class XII students to MIT Shillong. Accompanied by faculty mentors, scholars explored modern university infrastructure, advanced engineering and management departments, research facilities, and interactive sessions with university professors to gain vital insights into higher educational pathways following their MBOSE HSSLC examinations.",
+    location: 'MIT University Campus, Shillong',
+    image: SCHOOL_IMAGES.exposureTripMitShillong,
+    themeClass: 'event-theme-blue',
+  },
+  {
+    id: 'environmental-education-class-xii-2026',
+    date: '18 Nov',
+    year: '2026',
+    category: 'Academic & Seminars',
+    badge: 'Field Work & Eco Studies',
+    title: 'Environmental Education of Class XII - 2026',
+    summary:
+      'Class XII higher secondary students participated in comprehensive practical field work and training on ecology, rural sustainability, and conservation.',
+    fullReport:
+      "St. Michael's Higher Secondary School conducted the official Environmental Education Field Work for Class XII (2026 batch) at the Rural Resource & Training Centre (RRTC). Accompanied by faculty and subject mentors, scholars studied local biodiversity, sustainable agriculture practices, watershed conservation, and environmental impact management, bridging classroom curriculum with real-world ecological responsibility.",
+    location: 'Rural Resource & Training Centre (RRTC)',
+    image: SCHOOL_IMAGES.environmentalEducation2026,
+    themeClass: 'event-theme-emerald',
+  },
+  {
+    id: 'environmental-education-class-xi-2025-umtrew',
+    date: '29 Nov',
+    year: '2025',
+    category: 'Academic & Seminars',
+    badge: 'Biodiversity Field Work',
+    title: 'Environmental Education Field of Class XI 2025 at Meghalaya Biological Park, Umtrew',
+    summary:
+      'Class XI higher secondary scholars conducted their official Environmental Education field work exploring conservation and biodiversity at Meghalaya Biological Park, Umtrew, Ri-Bhoi District.',
+    fullReport:
+      "St. Michael's Higher Secondary School organized the official Environmental Education Field Work for Class XI students (2025 batch) at the Meghalaya Biological Park, Umtrew, Ri-Bhoi District. Accompanied by teachers and environmental mentors, scholars engaged in on-site flora and fauna documentation, wildlife conservation principles, and ecological ecosystem analysis as part of their comprehensive environmental curriculum.",
+    location: 'Meghalaya Biological Park, Umtrew, Ri-Bhoi District',
+    image: SCHOOL_IMAGES.environmentalEducation2025Umtrew,
+    themeClass: 'event-theme-purple',
+  },
+  {
     id: 'cm-felicitation-2026',
     date: '14 Jun',
     year: '2026',
@@ -272,6 +317,7 @@ export const CampusSpacesAndEventsSection: React.FC<CampusSpacesAndEventsSection
 
   const [eventFilter, setEventFilter] = useState<EventCategory>('All Events');
   const [selectedEvent, setSelectedEvent] = useState<CampusEventItem | null>(null);
+  const [visibleEventsCount, setVisibleEventsCount] = useState<number>(6);
 
   const [callbackPhone, setCallbackPhone] = useState('');
   const [callbackClass, setCallbackClass] = useState('Class XI Science / Arts / Commerce');
@@ -282,10 +328,12 @@ export const CampusSpacesAndEventsSection: React.FC<CampusSpacesAndEventsSection
       ? LEARNING_SPACES
       : LEARNING_SPACES.filter((item) => item.category === spaceFilter);
 
-  const filteredEvents =
+  const allFilteredEvents =
     eventFilter === 'All Events'
       ? LATEST_EVENTS
       : LATEST_EVENTS.filter((item) => item.category === eventFilter);
+
+  const displayedEvents = allFilteredEvents.slice(0, visibleEventsCount);
 
   const handleRequestCallback = (e: React.FormEvent) => {
     e.preventDefault();
@@ -503,7 +551,7 @@ export const CampusSpacesAndEventsSection: React.FC<CampusSpacesAndEventsSection
 
           {/* 6 Dated Event Cards Grid */}
           <div className="events-cards-grid">
-            {filteredEvents.map((ev, idx) => (
+            {displayedEvents.map((ev, idx) => (
               <article
                 key={ev.id}
                 className={`campus-event-card ${ev.themeClass}`}
@@ -569,6 +617,42 @@ export const CampusSpacesAndEventsSection: React.FC<CampusSpacesAndEventsSection
                 </div>
               </article>
             ))}
+          </div>
+
+          {/* View More / View Less Events Controller */}
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+            {visibleEventsCount < allFilteredEvents.length && (
+              <button
+                type="button"
+                onClick={() => setVisibleEventsCount((prev) => prev + 3)}
+                className="inline-flex items-center gap-2 rounded-xl bg-[#0c4a8a] px-6 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white shadow-md hover:bg-[#d97706] transition-all cursor-pointer"
+              >
+                <i className="fas fa-calendar-plus" aria-hidden="true"></i>
+                <span>Load More Events ({allFilteredEvents.length - visibleEventsCount} Remaining)</span>
+              </button>
+            )}
+
+            {visibleEventsCount > 6 && (
+              <button
+                type="button"
+                onClick={() => setVisibleEventsCount(6)}
+                className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-slate-700 shadow-xs hover:bg-slate-100 transition-all cursor-pointer"
+              >
+                <i className="fas fa-compress-arrows-alt" aria-hidden="true"></i>
+                <span>Show Less</span>
+              </button>
+            )}
+
+            {onNavigatePage && (
+              <button
+                type="button"
+                onClick={() => onNavigatePage('events')}
+                className="inline-flex items-center gap-2 rounded-xl border border-[#d97706] bg-amber-50 px-5 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#d97706] shadow-xs hover:bg-[#d97706] hover:text-white transition-all cursor-pointer"
+              >
+                <i className="fas fa-external-link-alt" aria-hidden="true"></i>
+                <span>View Full Events Archive</span>
+              </button>
+            )}
           </div>
 
           {/* Request Callback, Download Prospectus & Digital App Banner (stxaviersumoid.com style) */}
