@@ -157,16 +157,16 @@ export const TopperFelicitation: React.FC<TopperFelicitationProps> = ({ onNaviga
           {/* Main Photo Feature */}
           <div className="lg:col-span-8" data-aos="fade-right" data-aos-duration="800">
             <div className="rounded-2xl overflow-hidden border border-slate-200 bg-[#0c2d57] p-3 shadow-xl">
-              <div className="relative aspect-4/3 sm:aspect-16/10 bg-black rounded-xl overflow-hidden">
+              <div className="relative aspect-4/3 sm:aspect-16/10 bg-[#07172e] rounded-xl overflow-hidden flex items-center justify-center">
                 <img
                   src={felicitationPhotos[selectedPhoto].src}
                   alt={felicitationPhotos[selectedPhoto].title}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-contain sm:object-cover transition-opacity duration-300"
+                  className="w-full h-full object-contain transition-opacity duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F1D38] via-[#0F1D38]/30 to-transparent pointer-events-none" />
-                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 text-white">
+                <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#0F1D38] via-[#0F1D38]/70 to-transparent pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
                   <span className="inline-block rounded-md bg-amber-400 px-2.5 py-0.5 text-[11px] uppercase tracking-wider text-slate-950 font-extrabold mb-2">
                     <i className="fas fa-award mr-1" aria-hidden="true"></i>
                     {felicitationPhotos[selectedPhoto].subtitle}
