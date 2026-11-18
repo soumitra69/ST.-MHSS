@@ -30,6 +30,13 @@ interface CampusEventItem {
 
 const EVENT_SLIDER_PHOTOS = [
   {
+    src: SCHOOL_IMAGES.exposureTripMitShillong,
+    title: 'Exposure Trip of Class XII at MIT Shillong',
+    tag: 'Higher Education & Career Exposure',
+    badge: 'MIT Shillong Campus',
+    desc: 'Class XII scholars alongside faculty coordinators during their institutional academic exposure trip and university lab orientation at MIT Shillong.',
+  },
+  {
     src: SCHOOL_IMAGES.environmentalEducation2026,
     title: 'Environmental Education of Class XII - 2026',
     tag: 'Field Work & Eco Studies',
@@ -95,6 +102,20 @@ const EVENT_SLIDER_PHOTOS = [
 ];
 
 const CAMPUS_EVENTS: CampusEventItem[] = [
+  {
+    id: 'exposure-trip-class-xii-mit-shillong',
+    date: '10 Mar',
+    year: '2026',
+    category: 'Academic & Seminars',
+    badge: 'Higher Education Exposure',
+    title: 'Exposure Trip of Class XII at MIT Shillong',
+    summary:
+      'Class XII higher secondary scholars visited MIT Shillong for academic exposure, departmental tours, laboratory interaction, and career guidance.',
+    fullReport:
+      "St. Michael's Higher Secondary School organized an educational Exposure Trip for Class XII students to MIT Shillong. Accompanied by faculty mentors, scholars explored modern university infrastructure, advanced engineering and management departments, research facilities, and interactive sessions with university professors to gain vital insights into higher educational pathways following their MBOSE HSSLC examinations.",
+    location: 'MIT University Campus, Shillong',
+    image: SCHOOL_IMAGES.exposureTripMitShillong,
+  },
   {
     id: 'environmental-education-class-xii-2026',
     date: '18 Nov',
