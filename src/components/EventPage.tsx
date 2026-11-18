@@ -30,6 +30,13 @@ interface CampusEventItem {
 
 const EVENT_SLIDER_PHOTOS = [
   {
+    src: SCHOOL_IMAGES.environmentalEducation2026,
+    title: 'Environmental Education of Class XII - 2026',
+    tag: 'Field Work & Eco Studies',
+    badge: 'Rural Resource & Training Centre',
+    desc: 'Class XII scholars engaged in practical Environmental Education field work, ecological study, and sustainability training at the Rural Resource & Training Centre.',
+  },
+  {
     src: SCHOOL_IMAGES.eventSlide1,
     title: 'Inter-House Drill & Athletic Championship 2026',
     tag: 'Sports & Synchronized PT',
@@ -88,6 +95,20 @@ const EVENT_SLIDER_PHOTOS = [
 ];
 
 const CAMPUS_EVENTS: CampusEventItem[] = [
+  {
+    id: 'environmental-education-class-xii-2026',
+    date: '18 Nov',
+    year: '2026',
+    category: 'Academic & Seminars',
+    badge: 'Field Work & Eco Studies',
+    title: 'Environmental Education of Class XII - 2026',
+    summary:
+      'Class XII higher secondary students participated in comprehensive practical field work and training on ecology, rural sustainability, and conservation.',
+    fullReport:
+      "St. Michael's Higher Secondary School conducted the official Environmental Education Field Work for Class XII (2026 batch) at the Rural Resource & Training Centre (RRTC). Accompanied by faculty and subject mentors, scholars studied local biodiversity, sustainable agriculture practices, watershed conservation, and environmental impact management, bridging classroom curriculum with real-world ecological responsibility.",
+    location: 'Rural Resource & Training Centre (RRTC)',
+    image: SCHOOL_IMAGES.environmentalEducation2026,
+  },
   {
     id: 'cm-felicitation-2026',
     date: '14 Jun',
