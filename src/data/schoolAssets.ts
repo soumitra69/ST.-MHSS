@@ -25,6 +25,7 @@ export const SCHOOL_IMAGES = {
   topperLasarapynbiang: assetUrl('lasarapynbiang-nongbri-topper.jpg'),
   environmentalEducation2026: assetUrl('environmental-education-class-xii-2026.jpg'),
   exposureTripMitShillong: assetUrl('exposure-trip-class-xii-mit-shillong.jpg'),
+  environmentalEducation2025Umtrew: assetUrl('environmental-education-class-xi-2025-umtrew.jpg'),
   certificateWinners: assetUrl('WhatsApp Image 2026-11-08 at 2.05.20 PM (2).jpeg'),
   graduatingBatch: assetUrl('WhatsApp Image 2026-11-08 at 2.05.17 PM (1).jpeg'),
   sports: assetUrl('WhatsApp Image 2026-11-08 at 2.04.54 PM.jpeg'),

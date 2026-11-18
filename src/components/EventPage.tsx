@@ -30,6 +30,13 @@ interface CampusEventItem {
 
 const EVENT_SLIDER_PHOTOS = [
   {
+    src: SCHOOL_IMAGES.environmentalEducation2025Umtrew,
+    title: 'Environmental Education Field Work of Class XI - 2025',
+    tag: 'Biodiversity & Forest Field Study',
+    badge: 'Meghalaya Biological Park, Umtrew',
+    desc: 'Class XI scholars and faculty during their practical Environmental Education field study at Meghalaya Biological Park, Umtrew, Ri-Bhoi District.',
+  },
+  {
     src: SCHOOL_IMAGES.exposureTripMitShillong,
     title: 'Exposure Trip of Class XII at MIT Shillong',
     tag: 'Higher Education & Career Exposure',
@@ -102,6 +109,20 @@ const EVENT_SLIDER_PHOTOS = [
 ];
 
 const CAMPUS_EVENTS: CampusEventItem[] = [
+  {
+    id: 'environmental-education-class-xi-2025-umtrew',
+    date: '29 Nov',
+    year: '2025',
+    category: 'Academic & Seminars',
+    badge: 'Biodiversity Field Work',
+    title: 'Environmental Education Field of Class XI 2025 at Meghalaya Biological Park, Umtrew',
+    summary:
+      'Class XI higher secondary scholars conducted their official Environmental Education field work exploring conservation and biodiversity at Meghalaya Biological Park, Umtrew, Ri-Bhoi District.',
+    fullReport:
+      "St. Michael's Higher Secondary School organized the official Environmental Education Field Work for Class XI students (2025 batch) at the Meghalaya Biological Park, Umtrew, Ri-Bhoi District. Accompanied by teachers and environmental mentors, scholars engaged in on-site flora and fauna documentation, wildlife conservation principles, and ecological ecosystem analysis as part of their comprehensive environmental curriculum.",
+    location: 'Meghalaya Biological Park, Umtrew, Ri-Bhoi District',
+    image: SCHOOL_IMAGES.environmentalEducation2025Umtrew,
+  },
   {
     id: 'exposure-trip-class-xii-mit-shillong',
     date: '10 Mar',
