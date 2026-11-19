@@ -15,7 +15,7 @@ const excellenceBannerSlides = [
   {
     src: SCHOOL_IMAGES.campus,
     tag: 'Cultural Heritage • Central Amphitheatre',
-    title: 'Traditional Khasi Cultural Dance before 2,000+ Scholars on the Courtyard Stage',
+    title: 'Traditional Khasi Cultural Dance before 2,002+ Scholars on the Courtyard Stage',
     icon: 'fas fa-music',
   },
   {

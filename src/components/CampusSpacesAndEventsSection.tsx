@@ -129,7 +129,7 @@ const LEARNING_SPACES: LearningSpaceItem[] = [
     summary:
       'Our iconic tiered amphitheatre steps and covered stage host daily morning assembly, synchronized drill, and cultural festivals.',
     details:
-      'Capable of seating all 2,000+ students simultaneously, the central courtyard arena serves as the heart of community prayer, inter-house elocution, choral concerts, and state felicitation ceremonies.',
+      'Capable of seating all 2,002+ students simultaneously, the central courtyard arena serves as the heart of community prayer, inter-house elocution, choral concerts, and state felicitation ceremonies.',
     specs: ['2,000+ Tiered Spectator Steps', 'PA & Concert Sound System', 'All-Weather Stage Canopy'],
     themeClass: 'space-theme-amber',
   },

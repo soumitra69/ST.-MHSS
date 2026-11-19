@@ -189,7 +189,7 @@ export const StudentLifeSection: React.FC = () => {
             </div>
             <div className="life-kpi-chip life-kpi-orange">
               <strong>
-                <i className="fas fa-user-graduate mr-1.5 text-amber-200" aria-hidden="true"></i>2,000+
+                <i className="fas fa-user-graduate mr-1.5 text-amber-200" aria-hidden="true"></i>2,002+
               </strong>
               <span>Active Campus Scholars</span>
             </div>

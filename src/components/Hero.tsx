@@ -136,7 +136,7 @@ export const Hero: React.FC<HeroProps> = ({
                     <MapPin className="w-3.5 h-3.5 text-[#F59E0B]" /> Umsning Town, NH-6 Highway Corridor
                   </span>
                   <span>•</span>
-                  <span className="text-[#FDE68A] font-semibold">2,000+ Student Body</span>
+                  <span className="text-[#FDE68A] font-semibold">2,002+ Student Body</span>
                 </div>
               </div>
 
@@ -161,10 +161,10 @@ export const Hero: React.FC<HeroProps> = ({
               <span>Learners</span>
             </span>
             <div className="text-3xl font-extrabold font-mono tabular-nums text-[#1B365D]">
-              2,000+
+              2,002+
             </div>
             <p className="text-xs text-slate-500 mt-1 font-medium">
-              Kindergarten to Class XII
+              Nursery to Class XII
             </p>
           </div>
 

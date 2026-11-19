@@ -187,7 +187,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ onBack }) => {
               Campus Photo Gallery
             </h1>
             <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-100">
-              Explore high-resolution photographs documenting daily morning assemblies of 2,000+
+              Explore high-resolution photographs documenting daily morning assemblies of 2,002+
               scholars, MBOSE State Top 20 felicitations by the Hon&apos;ble Chief Minister,
               4-House athletic championships, Khasi cultural festivals, and Class XII Geography
               fieldwork across Ri Bhoi District.

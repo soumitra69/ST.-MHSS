@@ -43,7 +43,7 @@ const accreditationSlides = [
     id: 3,
     badge: 'MOTTO: EXCELSIOR & SHAPHRANG',
     subtitle: 'NURSERY TO CLASS XII • ARTS, SCIENCE & COMMERCE',
-    lines: ['2,000+ ACTIVE', 'LEARNERS & 63', 'DEDICATED TEACHERS'],
+    lines: ['2,002+ ACTIVE', 'LEARNERS & 63', 'DEDICATED TEACHERS'],
     description:
       'Featuring modern science laboratories, regional geography fieldwork, synchronized drill, and choral traditions.',
   },
@@ -51,7 +51,7 @@ const accreditationSlides = [
 
 const heroStats = [
   { value: '1961', label: 'Founded' },
-  { value: '2,000+', label: 'Students' },
+  { value: '2,002+', label: 'Students' },
   { value: 'Top 20', label: 'State Merit' },
   { value: '100%', label: 'Board Pass' },
 ];

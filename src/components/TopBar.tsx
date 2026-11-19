@@ -78,7 +78,7 @@ export const TopBar: React.FC<TopBarProps> = ({
               MBOSE Affiliated
             </span>
             <span className="text-slate-300 text-[11px]">
-              Estd. 1961 • 2,000+ Students
+              Estd. 1961 • 2,002+ Students
             </span>
           </div>
         </div>
