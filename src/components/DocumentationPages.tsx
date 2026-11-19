@@ -715,11 +715,11 @@ export const StaffDirectoryPage: React.FC<DocPageProps> = ({
       duty: 'Transfer Certificates (TC), board admit cards, student records & parent helpdesk.',
     },
     {
-      name: 'Sir L. Lyngdoh & Transit Team (8 Staff)',
-      designation: 'Transport Supervisor & NH-6 Bus Drivers / Attendants',
-      unit: 'Campus Bus Fleet (Routes 1–4)',
-      qualification: 'Commercial Heavy Vehicle Licensed & First-Aid Trained',
-      duty: 'Safe daily morning pickup and 3:00 PM dispersal across Nongpoh, Umroi & Umsning.',
+      name: 'Sir L. Lyngdoh',
+      designation: 'Campus Operations & Transport Supervisor',
+      unit: 'Campus Support & Transit Logistics',
+      qualification: 'Commercial Heavy Vehicle Licensed & First-Aid Certified',
+      duty: 'Campus maintenance, facility upkeep, and student transit supervision.',
     },
   ];
 
@@ -896,7 +896,7 @@ export const StaffDirectoryPage: React.FC<DocPageProps> = ({
           <div className="flex flex-col justify-between gap-4 border-b border-slate-200 pb-5 lg:flex-row lg:items-end">
             <div>
               <span className="inline-block rounded-full bg-blue-50 border border-blue-200 px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[#0c4a8a]">
-                63 Qualified Educators
+                63 Dedicated Teachers
               </span>
               <h2 className="vision-serif-heading mt-2 text-2xl sm:text-3xl text-[#0c4a8a]">
                 <span className="vision-double-angle" aria-hidden="true">
@@ -972,9 +972,14 @@ export const StaffDirectoryPage: React.FC<DocPageProps> = ({
           className="mt-10 scroll-mt-28 rounded-2xl border border-slate-200 bg-white p-6 shadow-md sm:p-8"
         >
           <div id="support-lab-staff" className="scroll-mt-28">
-            <span className="inline-block rounded-full bg-amber-50 border border-amber-200 px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-amber-900">
-              Secretariat, Library, Laboratories &amp; Campus Operations
-            </span>
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <span className="inline-block rounded-full bg-amber-50 border border-amber-200 px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-amber-900">
+                Secretariat, Library, Laboratories &amp; Campus Operations
+              </span>
+              <span className="inline-block rounded-full bg-[#0c4a8a] text-white px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider shadow-xs">
+                6 Non-Teaching Staff Members
+              </span>
+            </div>
             <h2 className="vision-serif-heading mt-2 text-2xl sm:text-3xl text-[#0c4a8a]">
               <span className="vision-double-angle" aria-hidden="true">
                 &raquo;

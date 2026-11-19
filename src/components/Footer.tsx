@@ -135,7 +135,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmission }) =
             </li>
             <li>
               <button onClick={() => onNavigate('faculty')} className="hover:text-white transition-colors">
-                63 Faculty & Sisters Directory
+                63 Teachers & 6 Non-Teaching Staff
               </button>
             </li>
           </ul>

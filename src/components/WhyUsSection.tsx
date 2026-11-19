@@ -25,7 +25,7 @@ const schoolFacts = [
   },
   {
     label: 'Student & Staff',
-    value: `${SCHOOL_INFO.studentCount} Learners • ${SCHOOL_INFO.facultyCount} Educators`,
+    value: `${SCHOOL_INFO.studentCount} Learners • 63 Teachers & 6 Non-Teaching`,
     icon: 'fas fa-users',
   },
 ];

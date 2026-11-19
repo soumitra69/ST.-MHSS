@@ -184,13 +184,13 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="p-4 bg-white rounded-xl border border-slate-200 shadow-sm text-left hover:border-[#1B365D] transition-colors">
             <span className="text-xs font-bold text-[#1B365D] uppercase tracking-wider flex items-center gap-1.5 mb-1.5">
               <BookOpen className="w-4 h-4 text-[#D97706]" />
-              <span>Faculty</span>
+              <span>Teaching Staff</span>
             </span>
             <div className="text-3xl font-extrabold font-mono tabular-nums text-[#1B365D]">
               63
             </div>
             <p className="text-xs text-slate-500 mt-1 font-medium">
-              Lecturers & Sisters
+              63 Teachers • 6 Non-Teaching Staff
             </p>
           </div>
 

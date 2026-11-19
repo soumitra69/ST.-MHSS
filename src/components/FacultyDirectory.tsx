@@ -70,9 +70,9 @@ export const FacultyDirectory: React.FC = () => {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full bg-[#0c4a8a] px-4 py-1 text-xs font-bold tracking-wider uppercase text-white shadow-sm mb-3">
               <i className="fas fa-chalkboard-teacher text-amber-300" aria-hidden="true"></i>
-              <span>Mentors &amp; Academic Leadership</span>
+              <span>63 Teachers</span>
               <span>•</span>
-              <span>63 Teaching Faculty</span>
+              <span>6 Non-Teaching Staff</span>
             </div>
             <h2 className="vision-serif-heading text-3xl sm:text-4xl text-[#0c4a8a]">
               <span className="vision-double-angle" aria-hidden="true">
