@@ -72,7 +72,7 @@ export const FacultyDirectory: React.FC = () => {
               <i className="fas fa-chalkboard-teacher text-amber-300" aria-hidden="true"></i>
               <span>Mentors &amp; Academic Leadership</span>
               <span>•</span>
-              <span>68+ Certified Educators</span>
+              <span>63 Teaching Faculty</span>
             </div>
             <h2 className="vision-serif-heading text-3xl sm:text-4xl text-[#0c4a8a]">
               <span className="vision-double-angle" aria-hidden="true">

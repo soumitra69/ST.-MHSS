@@ -370,7 +370,7 @@ export const NoticePage: React.FC<NoticePageProps> = ({
                     <strong>Office of the Principal</strong>
                     <span>St. Michael&apos;s Higher Secondary School, Umsning</span>
                   </div>
-                  <span className="hero-nb-modal-stamp">MBOSE • 01961</span>
+                  <span className="hero-nb-modal-stamp">MBOSE • 10301</span>
                 </div>
               </div>
 

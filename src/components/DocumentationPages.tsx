@@ -38,7 +38,7 @@ export const LeadershipMessagesPage: React.FC<DocPageProps> = ({
     },
     {
       id: 'principal-msg',
-      roleBadge: 'Head of Institution • MBOSE Code: 01961',
+      roleBadge: 'Head of Institution • MBOSE Code: 10301',
       title: 'Principal’s Message',
       subtitle: 'On the Launch of the Official School Website',
       office: 'Office of the Principal • St. Michael’s Higher Secondary School, Umsning',
@@ -310,99 +310,81 @@ export const StudentStatisticsPage: React.FC<DocPageProps> = ({
   const keyStrengthCards = [
     {
       label: 'Total Number of Students',
-      value: '2,040',
-      detail: 'Active Enrolment Across Nursery to Class XII (2026–27)',
-      badge: 'Verified Strength',
+      value: '2,002',
+      detail: 'Class VI–XII: 1,200 • Nursery–V Primary: 327 • Nursery–IX Eng.: 475',
+      badge: 'Official Enrolment',
     },
     {
-      label: 'Boys & Girls Breakdown',
-      value: '995 Boys • 1,045 Girls',
-      detail: '48.8% Boys • 51.2% Girls (Co-Educational Balance)',
-      badge: 'Gender Ratio',
+      label: 'Total Boys & Girls',
+      value: '2,002 Students',
+      detail: 'Comprehensive Co-Educational Enrolment Across All Wings',
+      badge: 'Gender Balance',
     },
     {
       label: 'Total Teaching Staff',
-      value: '68 Educators',
-      detail: 'Post-Graduate (M.A. / M.Sc.), B.Ed. & Trained Faculty',
-      badge: 'Teaching Strength',
+      value: '63 Teachers',
+      detail: 'Post-Graduate (M.A. / M.Sc.), B.Ed. & Certified Subject Teachers',
+      badge: 'Faculty Strength',
     },
     {
       label: 'Total Non-Teaching Staff',
-      value: '18 Staff Members',
-      detail: 'Accountant, Librarian, Lab Assistants, Admin & Transit',
+      value: '6 Staff Members',
+      detail: 'Accountant, Librarian, Lab Assistant & Administrative Secretariat',
       badge: 'Support Staff',
     },
     {
-      label: 'Classrooms, Sections & Classes',
-      value: '48 Classrooms • 38 Sections',
-      detail: '14 Grade Levels (Nursery, KG, Classes I to XII) + 4 Labs',
-      badge: 'Infrastructure',
+      label: 'Total Classrooms & Facilities',
+      value: '45 Classrooms',
+      detail: 'Spacious classrooms spanning Nursery to Class XII across wings',
+      badge: 'Campus Infrastructure',
     },
     {
-      label: 'Admitted in Current Year',
-      value: '420 Students',
-      detail: 'Total Roll Promotions & Fresh Enrolments in 2026–27',
-      badge: '2026–27 Session',
+      label: 'Students Admitted (Current Year)',
+      value: '200 Students',
+      detail: 'Admitted across Nursery, Primary, Secondary & Higher Secondary',
+      badge: 'Current Admissions',
     },
     {
-      label: 'New Admissions (Fresh)',
-      value: '285 Scholars',
-      detail: 'Newly Admitted in Nursery, Class I, Class VI & Class XI',
-      badge: 'Fresh Intake',
+      label: 'School Category & Board',
+      value: 'Primary, Secondary & Hr. Sec.',
+      detail: 'MBOSE Affiliated • School Code: 10301 • UDISE+: 17050214204',
+      badge: 'Institutional Wing',
     },
     {
-      label: 'Passed Out Last Year & Alumni',
-      value: '362 Passed • 8,500+ Alumni',
-      detail: 'SSLC & HSSLC Graduates (2025–26) • Global Michaelian Network',
-      badge: 'Graduates & Alumni',
+      label: 'School Establishment Year',
+      value: 'Estd. 1961',
+      detail: '65 Years of Service • Official Email: stmichaels.school2019@gmail.com',
+      badge: 'Legacy & Contacts',
     },
   ];
 
   const wingWiseTable = [
     {
-      wing: 'Foundational & Pre-Primary (Nursery & KG)',
-      classes: 'Nursery, LKG, UKG',
-      sections: '6 Sections',
-      classrooms: '6 Dedicated Rooms',
-      boys: 118,
-      girls: 124,
-      total: 242,
+      wing: 'Higher Secondary & Secondary Section (Classes VI – XII)',
+      classes: 'Classes VI, VII, VIII, IX, X, XI & XII (Arts, Science, Commerce)',
+      sections: 'Senior Sections',
+      classrooms: '26 Classrooms + Science & Computer Labs',
+      boys: 590,
+      girls: 610,
+      total: 1200,
     },
     {
-      wing: 'Lower Primary Section (Classes I – V)',
-      classes: 'Classes I, II, III, IV & V',
-      sections: '10 Sections (A & B)',
-      classrooms: '12 Classrooms',
-      boys: 310,
-      girls: 325,
-      total: 635,
-    },
-    {
-      wing: 'Upper Primary Section (Classes VI – VIII)',
-      classes: 'Classes VI, VII & VIII',
-      sections: '9 Sections (A, B & C)',
+      wing: 'Primary Section (Nursery – Class V)',
+      classes: 'Nursery, KG, Classes I, II, III, IV & V',
+      sections: 'Primary Sections',
       classrooms: '10 Classrooms',
-      boys: 242,
-      girls: 256,
-      total: 498,
+      boys: 160,
+      girls: 167,
+      total: 327,
     },
     {
-      wing: 'Secondary Section — MBOSE SSLC (Classes IX – X)',
-      classes: 'Classes IX & X',
-      sections: '6 Sections (A, B & C)',
-      classrooms: '8 Classrooms',
-      boys: 175,
-      girls: 182,
-      total: 357,
-    },
-    {
-      wing: 'Higher Secondary — MBOSE HSSLC (Classes XI – XII)',
-      classes: 'Arts, Science & Commerce',
-      sections: '7 Stream Sections',
-      classrooms: '12 Rooms + 4 Labs',
-      boys: 150,
-      girls: 158,
-      total: 308,
+      wing: 'English Medium Wing (Nursery – Class IX)',
+      classes: 'Nursery through Class IX (English Section)',
+      sections: 'English Stream Sections',
+      classrooms: '9 Classrooms',
+      boys: 232,
+      girls: 243,
+      total: 475,
     },
   ];
 
@@ -449,7 +431,7 @@ export const StudentStatisticsPage: React.FC<DocPageProps> = ({
                 UDISE+ Census &amp; Institutional Strength • 2026–27
               </span>
               <span className="inline-flex items-center rounded-full border border-white/25 bg-white/10 px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-amber-200">
-                UDISE+ Code: 17050200108 • MBOSE-01961
+                UDISE+ Code: 17050214204 • Affiliation No: 10301 (MBOSE)
               </span>
             </div>
 
@@ -519,7 +501,7 @@ export const StudentStatisticsPage: React.FC<DocPageProps> = ({
               </h2>
             </div>
             <span className="text-xs font-bold text-[#d97706]">
-              Total: 48 Classrooms • 38 Sections • 2,040 Scholars
+              Total: 45 Classrooms • 2,002 Scholars
             </span>
           </div>
 
@@ -557,10 +539,10 @@ export const StudentStatisticsPage: React.FC<DocPageProps> = ({
                     GRAND TOTAL (NURSERY TO CLASS XII)
                   </td>
                   <td className="px-4 py-3.5">38 Sections</td>
-                  <td className="px-4 py-3.5">48 Rooms + 4 Labs</td>
-                  <td className="px-4 py-3.5 text-center">995</td>
-                  <td className="px-4 py-3.5 text-center">1,045</td>
-                  <td className="px-4 py-3.5 text-right text-base text-[#0c4a8a]">2,040</td>
+                  <td className="px-4 py-3.5">45 Classrooms</td>
+                  <td className="px-4 py-3.5 text-center">982</td>
+                  <td className="px-4 py-3.5 text-center">1,020</td>
+                  <td className="px-4 py-3.5 text-right text-base text-[#0c4a8a]">2,002</td>
                 </tr>
               </tbody>
             </table>
@@ -580,9 +562,8 @@ export const StudentStatisticsPage: React.FC<DocPageProps> = ({
               Admissions &amp; Intake (2026–27)
             </h3>
             <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600">
-              A total of <strong>420 students</strong> were enrolled/promoted into key transition
-              grades this session, including <strong>285 fresh admissions</strong> across Nursery,
-              Class I, Class VI, and Class XI (Science, Arts &amp; Commerce).
+              A total of <strong>200 students</strong> were admitted in the current academic year
+              across Nursery, Class I, Class VI, and Class XI.
             </p>
           </div>
 
@@ -621,7 +602,7 @@ export const StudentStatisticsPage: React.FC<DocPageProps> = ({
             {SCHOOL_INFO.name}, Umsning
           </strong>
           <span className="text-xs font-medium text-slate-600">
-            UDISE+: 17050200108 • Official School Strength &amp; Census Record
+            UDISE+: 17050214204 • Affiliation No: 10301 • Official School Strength &amp; Census Record
           </span>
         </div>
       </div>
@@ -807,7 +788,7 @@ export const StaffDirectoryPage: React.FC<DocPageProps> = ({
             <div>
               <div className="flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center rounded-full bg-amber-400 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-950 shadow-sm">
-                  68+ Teaching Faculty • 18+ Administrative &amp; Support Staff
+                  63 Teaching Faculty • 6 Non-Teaching Staff
                 </span>
                 <span className="inline-flex items-center rounded-full border border-white/25 bg-white/10 px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-amber-200">
                   Nursery to Class XII
@@ -915,7 +896,7 @@ export const StaffDirectoryPage: React.FC<DocPageProps> = ({
           <div className="flex flex-col justify-between gap-4 border-b border-slate-200 pb-5 lg:flex-row lg:items-end">
             <div>
               <span className="inline-block rounded-full bg-blue-50 border border-blue-200 px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-[#0c4a8a]">
-                68+ Qualified Educators
+                63 Qualified Educators
               </span>
               <h2 className="vision-serif-heading mt-2 text-2xl sm:text-3xl text-[#0c4a8a]">
                 <span className="vision-double-angle" aria-hidden="true">
@@ -1032,7 +1013,7 @@ export const StaffDirectoryPage: React.FC<DocPageProps> = ({
             {SCHOOL_INFO.name}, Umsning
           </strong>
           <span className="text-xs font-medium text-slate-600">
-            Official Staff &amp; Faculty Directory • 68+ Teaching &amp; 18+ Support Staff
+            Official Staff &amp; Faculty Directory • 63 Teaching &amp; 6 Non-Teaching Staff
           </span>
         </div>
       </div>

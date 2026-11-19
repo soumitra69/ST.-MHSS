@@ -135,7 +135,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmission }) =
             </li>
             <li>
               <button onClick={() => onNavigate('faculty')} className="hover:text-white transition-colors">
-                68+ Faculty & Sisters Directory
+                63 Faculty & Sisters Directory
               </button>
             </li>
           </ul>
@@ -157,7 +157,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmission }) =
             </div>
             <div className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-[#F59E0B] shrink-0" />
-              <span>stmichaelumsning@gmail.com</span>
+              <span>stmichaels.school2019@gmail.com</span>
             </div>
           </div>
         </div>
@@ -171,7 +171,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmission }) =
             Designed And Developed By <strong>Marak Technologies Pvt. Ltd.</strong>
           </div>
           <div className="flex items-center gap-4">
-            <span className="hover:text-white transition-colors">MBOSE Code: 01961</span>
+            <span className="hover:text-white transition-colors">MBOSE Code: 10301</span>
             <span>•</span>
             <span className="hover:text-white transition-colors">Diocesan Education Commission</span>
             <span>•</span>

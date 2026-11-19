@@ -54,7 +54,7 @@ const accreditationHighlights = [
   {
     icon: 'fas fa-id-card',
     label: 'UDISE+ REG. CODE',
-    value: '17050200108 • Ri Bhoi',
+    value: '17050214204 • Ri Bhoi',
   },
   {
     icon: 'fas fa-graduation-cap',
@@ -237,7 +237,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
                         className="fas fa-university mr-1.5 text-amber-300"
                         aria-hidden="true"
                       ></i>
-                      UDISE+: 17050200108
+                      UDISE+: 17050214204
                     </span>
                   </div>
                 </div>

@@ -88,7 +88,7 @@ export const ContactSection: React.FC = () => {
                   <Mail className="w-5 h-5 text-[#D97706] shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold text-slate-900 block">Official Institutional Email</span>
-                    <span>stmichaelumsning@gmail.com</span>
+                    <span>stmichaels.school2019@gmail.com</span>
                   </div>
                 </div>
 

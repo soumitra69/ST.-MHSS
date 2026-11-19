@@ -176,7 +176,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ onBack }) => {
               </span>
               <span className="inline-flex items-center rounded-full border border-white/25 bg-white/10 px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-amber-200">
                 <i className="fas fa-landmark mr-1.5" aria-hidden="true"></i>
-                Estd. {SCHOOL_INFO.established} • MBOSE-01961
+                Estd. {SCHOOL_INFO.established} • MBOSE Code: 10301
               </span>
             </div>
 

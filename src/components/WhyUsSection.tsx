@@ -15,7 +15,7 @@ const schoolFacts = [
   },
   {
     label: 'Affiliation',
-    value: 'MBOSE (Code: 01961)',
+    value: `MBOSE (Code: ${SCHOOL_INFO.schoolCode})`,
     icon: 'fas fa-certificate',
   },
   {

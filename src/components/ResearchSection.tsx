@@ -59,10 +59,10 @@ const researchGalleryPairs = [
 ];
 
 const metrics = [
-  { value: '2,000+', label: 'Learners Enrolled (KG–XII)', icon: 'fas fa-user-graduate' },
+  { value: '2,002', label: 'Learners Enrolled (Nursery–XII)', icon: 'fas fa-user-graduate' },
   { value: '100%', label: 'MBOSE Board Pass Record', icon: 'fas fa-check-circle' },
   { value: 'Top 20', label: 'Meghalaya State Merit Rank', icon: 'fas fa-trophy' },
-  { value: '68+', label: 'Dedicated Faculty & Staff', icon: 'fas fa-chalkboard-teacher' },
+  { value: '63', label: 'Dedicated Teaching Faculty', icon: 'fas fa-chalkboard-teacher' },
 ];
 
 export const ResearchSection: React.FC<ResearchSectionProps> = ({ onNavigatePage }) => {

@@ -63,26 +63,26 @@ const visionHighlights = [
 const schoolProfileStats = [
   {
     label: 'Total Enrolment',
-    value: '2,000+ Students',
-    sub: '980+ Boys • 1,020+ Girls',
+    value: '2,002 Students',
+    sub: 'Classes Nursery to XII',
     icon: 'fas fa-user-graduate',
   },
   {
     label: 'Teaching & Admin Staff',
-    value: '68+ Teaching • 18+ Support',
-    sub: 'Librarian, Accountant & Lab Staff',
+    value: '63 Teaching • 6 Support',
+    sub: 'Librarian, Accountant & Non-Teaching Staff',
     icon: 'fas fa-chalkboard-teacher',
   },
   {
-    label: 'Classrooms & Labs',
-    value: '48+ Classrooms & 4 Labs',
+    label: 'Classrooms & Infrastructure',
+    value: '45 Classrooms',
     sub: 'Nursery to Class XII Sections',
     icon: 'fas fa-school',
   },
   {
     label: 'Board & Registration',
-    value: 'MBOSE Code: 01961',
-    sub: 'UDISE+: 17050200108 • Estd. 1961',
+    value: 'MBOSE Code: 10301',
+    sub: 'UDISE+: 17050214204 • Estd. 1961',
     icon: 'fas fa-certificate',
   },
 ];
@@ -722,7 +722,7 @@ export const InstitutionalSection: React.FC<InstitutionalSectionProps> = ({
                 </span>
                 <span className="rounded-full bg-[#0c4a8a] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-white shadow-xs">
                   <i className="fas fa-certificate mr-1 text-amber-300" aria-hidden="true"></i>
-                  MBOSE-01961
+                  MBOSE Code: 10301
                 </span>
               </div>
 

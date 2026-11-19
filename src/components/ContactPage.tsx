@@ -27,7 +27,7 @@ const contactChannels = [
     icon: 'fas fa-envelope',
     title: 'Official Email',
     primary: SCHOOL_INFO.email,
-    secondary: 'stmichaelumsning@gmail.com',
+    secondary: 'stmichaels.school2019@gmail.com',
     note: 'Official admissions, TC verification & parent enquiries',
     actionText: 'Send Email',
     actionHref: `mailto:${SCHOOL_INFO.email}`,

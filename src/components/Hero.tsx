@@ -187,7 +187,7 @@ export const Hero: React.FC<HeroProps> = ({
               <span>Faculty</span>
             </span>
             <div className="text-3xl font-extrabold font-mono tabular-nums text-[#1B365D]">
-              68+
+              63
             </div>
             <p className="text-xs text-slate-500 mt-1 font-medium">
               Lecturers & Sisters

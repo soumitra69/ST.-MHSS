@@ -185,7 +185,7 @@ export const StudentStaffHub: React.FC = () => {
         <div className="hub-header-wrap" data-aos="fade-up" data-aos-duration="750">
           <div className="hub-header-left">
             <span className="hub-eyebrow">
-              CENTRAL DIGITAL CAMPUS • 2,000+ LEARNERS &amp; 68+ EDUCATORS
+              CENTRAL DIGITAL CAMPUS • 2,002 LEARNERS &amp; 63 TEACHERS
             </span>
             <h2 className="hub-main-title vision-serif-heading">
               <span className="vision-double-angle" aria-hidden="true">&raquo;</span> Student &amp; Staff Operations Hub
@@ -848,7 +848,7 @@ export const StudentStaffHub: React.FC = () => {
                   </div>
                   <h3>&raquo; Faculty &amp; Secretariat Sign-In</h3>
                   <p>
-                    Authorized portal for St. Michael&apos;s 68+ teaching faculty and administrative staff.
+                    Authorized portal for St. Michael&apos;s 63 teaching faculty and administrative staff.
                   </p>
                 </div>
 

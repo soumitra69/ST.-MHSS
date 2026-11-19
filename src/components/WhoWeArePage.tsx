@@ -12,26 +12,26 @@ interface WhoWeArePageProps {
 const schoolProfileStats = [
   {
     label: 'Total Enrolment',
-    value: '2,000+ Students',
-    sub: '980+ Boys • 1,020+ Girls (Co-Ed)',
+    value: '2,002 Students',
+    sub: 'Classes Nursery to XII (Co-Ed)',
     icon: 'fas fa-user-graduate',
   },
   {
     label: 'Teaching & Admin Staff',
-    value: '68+ Teaching • 18+ Support',
-    sub: 'Qualified M.A., M.Sc., B.Ed. Faculty',
+    value: '63 Teaching • 6 Support',
+    sub: '63 Teaching & 6 Non-Teaching Staff',
     icon: 'fas fa-chalkboard-teacher',
   },
   {
     label: 'Classrooms & Labs',
-    value: '60+ Classrooms & 4 Labs',
+    value: '45 Classrooms',
     sub: 'Nursery to Class XII Sections',
     icon: 'fas fa-school',
   },
   {
     label: 'Board & Registration',
-    value: 'MBOSE Code: 01961',
-    sub: 'UDISE+: 17050200108 • Estd. 1961',
+    value: 'MBOSE Code: 10301',
+    sub: 'UDISE+: 17050214204 • Estd. 1961',
     icon: 'fas fa-certificate',
   },
 ];
@@ -205,7 +205,7 @@ export const WhoWeArePage: React.FC<WhoWeArePageProps> = ({
                 </span>
                 <span className="inline-flex items-center rounded-full border border-white/25 bg-white/10 px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-amber-200">
                   <i className="fas fa-certificate mr-1.5" aria-hidden="true"></i>
-                  MBOSE Code: {SCHOOL_INFO.schoolCode} • UDISE+: 17050200108
+                  MBOSE Code: {SCHOOL_INFO.schoolCode} • UDISE+: 17050214204
                 </span>
               </div>
 

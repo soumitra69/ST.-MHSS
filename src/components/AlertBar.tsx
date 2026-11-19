@@ -66,7 +66,7 @@ export const AlertBar: React.FC<AlertBarProps> = ({ onRegisterClick }) => {
               >
                 <span className="pulse-dot" aria-hidden="true"></span>
                 <span className="hidden sm:inline-block text-[10px] font-mono font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-amber-400/20 text-amber-200 border border-amber-300/30">
-                  MBOSE • 01961
+                  MBOSE • 10301
                 </span>
                 <p className="alert-text">{alertMessages[currentAlert]}</p>
                 <button

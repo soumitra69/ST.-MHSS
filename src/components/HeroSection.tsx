@@ -43,7 +43,7 @@ const accreditationSlides = [
     id: 3,
     badge: 'MOTTO: EXCELSIOR & SHAPHRANG',
     subtitle: 'NURSERY TO CLASS XII • ARTS, SCIENCE & COMMERCE',
-    lines: ['2,000+ ACTIVE', 'LEARNERS & 68+', 'DEDICATED EDUCATORS'],
+    lines: ['2,000+ ACTIVE', 'LEARNERS & 63', 'DEDICATED TEACHERS'],
     description:
       'Featuring modern science laboratories, regional geography fieldwork, synchronized drill, and choral traditions.',
   },
@@ -410,7 +410,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <strong>Office of the Principal</strong>
                   <span>St. Michael&apos;s Higher Secondary School, Umsning</span>
                 </div>
-                <span className="hero-nb-modal-stamp">MBOSE • 01961</span>
+                <span className="hero-nb-modal-stamp">MBOSE • 10301</span>
               </div>
             </div>
 
