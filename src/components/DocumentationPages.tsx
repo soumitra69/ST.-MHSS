@@ -575,9 +575,9 @@ export const StudentStatisticsPage: React.FC<DocPageProps> = ({
               Students Passed Out Last Year
             </h3>
             <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600">
-              In the previous academic session, <strong>362 board candidates</strong> (214 SSLC
-              Class X and 148 HSSLC Class XII scholars) successfully graduated with State Top 20
-              Merit honours and high first-division distinctions.
+              In the 2026 board examination session, <strong>292 candidates</strong> (76 SSLC
+              Class X and 216 HSSLC Class XII scholars across Arts, Science, Commerce &amp; Vocational)
+              successfully passed, headlined by our State Top 10 Merit Rank honor.
             </p>
           </div>
 

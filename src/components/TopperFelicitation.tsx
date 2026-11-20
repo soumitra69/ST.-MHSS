@@ -85,69 +85,117 @@ export const TopperFelicitation: React.FC<TopperFelicitationProps> = ({ onNaviga
           </div>
         </div>
 
-        {/* MBOSE Class 10 (SSLC) & Class 12 (HSSLC) Board Result Summary Strip */}
+        {/* MBOSE Class 10 (SSLC) & Class 12 (HSSLC) Board Result Summary Strip (Passed 2026 Official Census) */}
         <div
-          className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6"
           data-aos="fade-up"
           data-aos-duration="700"
         >
-          <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4 border-t-4 border-t-[#0c4a8a]">
-            <div className="flex items-center justify-between">
-              <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#0c4a8a]">
-                Class X (MBOSE SSLC)
-              </span>
-              <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-[10px] font-extrabold text-emerald-800">
-                98.4% Pass
-              </span>
+          {/* 1. Class X SSLC */}
+          <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4 border-t-4 border-t-[#0c4a8a] flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between gap-1">
+                <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#0c4a8a]">
+                  Class X (SSLC)
+                </span>
+                <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-extrabold text-emerald-800">
+                  96.2% Pass
+                </span>
+              </div>
+              <p className="mt-2 text-xl font-black text-[#0c2d57]">76 / 79 Passed</p>
             </div>
-            <p className="mt-1.5 text-xl font-black text-[#0c2d57]">186 / 189 Passed</p>
-            <p className="mt-1 text-xs font-medium text-slate-600">
-              142 First Division • 68+ Subject Letter Marks (80%+) • State Top 10 Merit Rank
+            <p className="mt-2 text-[11px] font-semibold text-slate-600 leading-snug">
+              Appeared: 79 • Fail: 3 • State Top 10 Merit Rank (8th Position)
             </p>
           </div>
 
-          <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4 border-t-4 border-t-[#d97706]">
-            <div className="flex items-center justify-between">
-              <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#d97706]">
-                Class XII (HSSLC Arts)
-              </span>
-              <span className="rounded-full bg-amber-100 px-2.5 py-0.5 text-[10px] font-extrabold text-amber-900">
-                97.8% Pass
-              </span>
+          {/* 2. Class XII Arts */}
+          <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4 border-t-4 border-t-[#d97706] flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between gap-1">
+                <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#d97706]">
+                  Class XII (Arts)
+                </span>
+                <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-extrabold text-amber-900">
+                  94.7% Pass
+                </span>
+              </div>
+              <p className="mt-2 text-xl font-black text-[#0c2d57]">160 / 169 Passed</p>
             </div>
-            <p className="mt-1.5 text-xl font-black text-[#0c2d57]">134 / 137 Passed</p>
-            <p className="mt-1 text-xs font-medium text-slate-600">
-              96 First Division • Distinctions in English, Khasi, Pol. Science, History &amp; Education
+            <p className="mt-2 text-[11px] font-semibold text-slate-600 leading-snug">
+              Appeared: 169 • Fail: 9 • High First Divisions &amp; Distinctions
             </p>
           </div>
 
-          <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4 border-t-4 border-t-[#0c4a8a]">
-            <div className="flex items-center justify-between">
-              <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#0c4a8a]">
-                Class XII (HSSLC Science)
-              </span>
-              <span className="rounded-full bg-blue-100 px-2.5 py-0.5 text-[10px] font-extrabold text-[#0c4a8a]">
-                96.2% Pass
-              </span>
+          {/* 3. Class XII Science */}
+          <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4 border-t-4 border-t-blue-600 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between gap-1">
+                <span className="text-[11px] font-extrabold uppercase tracking-wider text-blue-700">
+                  Class XII (Science)
+                </span>
+                <span className="rounded-full bg-blue-100 px-2 py-0.5 text-[10px] font-extrabold text-[#0c4a8a]">
+                  88% Pass
+                </span>
+              </div>
+              <p className="mt-2 text-xl font-black text-[#0c2d57]">22 / 25 Passed</p>
             </div>
-            <p className="mt-1.5 text-xl font-black text-[#0c2d57]">51 / 53 Passed</p>
-            <p className="mt-1 text-xs font-medium text-slate-600">
-              44 First Division • High Scores in Physics, Chemistry, Biology &amp; Mathematics
+            <p className="mt-2 text-[11px] font-semibold text-slate-600 leading-snug">
+              Appeared: 25 • Fail: 3 • Physics, Chemistry &amp; Biology Practical Scores
             </p>
           </div>
 
-          <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4 border-t-4 border-t-emerald-600">
-            <div className="flex items-center justify-between">
-              <span className="text-[11px] font-extrabold uppercase tracking-wider text-emerald-700">
-                Class XII (HSSLC Commerce)
-              </span>
-              <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-[10px] font-extrabold text-emerald-800">
-                97.5% Pass
-              </span>
+          {/* 4. Class XII Commerce */}
+          <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4 border-t-4 border-t-emerald-600 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between gap-1">
+                <span className="text-[11px] font-extrabold uppercase tracking-wider text-emerald-700">
+                  Class XII (Commerce)
+                </span>
+                <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-extrabold text-emerald-800">
+                  100% Pass
+                </span>
+              </div>
+              <p className="mt-2 text-xl font-black text-[#0c2d57]">16 / 16 Passed</p>
             </div>
-            <p className="mt-1.5 text-xl font-black text-[#0c2d57]">39 / 40 Passed</p>
-            <p className="mt-1 text-xs font-medium text-slate-600">
-              33 First Division • Distinctions in Accountancy, Business Studies &amp; Entrepreneurship
+            <p className="mt-2 text-[11px] font-semibold text-slate-600 leading-snug">
+              Appeared: 16 • Fail: NIL • 100% Board Pass in Accountancy &amp; BST
+            </p>
+          </div>
+
+          {/* 5. Class XII Computer Technique (C.T) */}
+          <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4 border-t-4 border-t-indigo-600 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between gap-1">
+                <span className="text-[11px] font-extrabold uppercase tracking-wider text-indigo-700">
+                  Class XII (C.T)
+                </span>
+                <span className="rounded-full bg-indigo-100 px-2 py-0.5 text-[10px] font-extrabold text-indigo-800">
+                  92.9% Pass
+                </span>
+              </div>
+              <p className="mt-2 text-xl font-black text-[#0c2d57]">13 / 14 Passed</p>
+            </div>
+            <p className="mt-2 text-[11px] font-semibold text-slate-600 leading-snug">
+              Computer Technique • Appeared: 14 • Fail: 1 • Vocational IT
+            </p>
+          </div>
+
+          {/* 6. Class XII Poultry Farming (P.F) */}
+          <div className="rounded-xl border border-slate-200 bg-[#f8fafc] p-4 border-t-4 border-t-teal-600 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between gap-1">
+                <span className="text-[11px] font-extrabold uppercase tracking-wider text-teal-800">
+                  Class XII (P.F)
+                </span>
+                <span className="rounded-full bg-teal-100 px-2 py-0.5 text-[10px] font-extrabold text-teal-800">
+                  100% Pass
+                </span>
+              </div>
+              <p className="mt-2 text-xl font-black text-[#0c2d57]">5 / 5 Passed</p>
+            </div>
+            <p className="mt-2 text-[11px] font-semibold text-slate-600 leading-snug">
+              Poultry Farming • Appeared: 5 • Fail: NIL • 100% Practical Vocational
             </p>
           </div>
         </div>
