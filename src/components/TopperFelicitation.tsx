@@ -81,7 +81,7 @@ export const TopperFelicitation: React.FC<TopperFelicitationProps> = ({ onNaviga
 
           <div className="shrink-0 bg-[#0c2d57] px-5 py-3 rounded-xl border border-slate-700 text-xs text-white font-extrabold uppercase tracking-wider shadow-md">
             <i className="fas fa-medal mr-1.5 text-amber-300" aria-hidden="true"></i>
-            MBOSE SSLC State Top 20 Honoree
+            MBOSE SSLC State Top 10 Honoree
           </div>
         </div>
 
@@ -102,7 +102,7 @@ export const TopperFelicitation: React.FC<TopperFelicitationProps> = ({ onNaviga
             </div>
             <p className="mt-1.5 text-xl font-black text-[#0c2d57]">186 / 189 Passed</p>
             <p className="mt-1 text-xs font-medium text-slate-600">
-              142 First Division • 68+ Subject Letter Marks (80%+) • State Top 20 Merit Rank
+              142 First Division • 68+ Subject Letter Marks (80%+) • State Top 10 Merit Rank
             </p>
           </div>
 

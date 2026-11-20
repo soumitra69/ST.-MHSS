@@ -52,7 +52,7 @@ const accreditationSlides = [
 const heroStats = [
   { value: '1961', label: 'Founded' },
   { value: '2,002+', label: 'Students' },
-  { value: 'Top 20', label: 'State Merit' },
+  { value: 'Top 10', label: 'State Merit' },
   { value: '100%', label: 'Board Pass' },
 ];
 

@@ -912,7 +912,7 @@ export const StudentStaffHub: React.FC = () => {
                 <h3>&raquo; MBOSE SSLC &amp; HSSLC Excellence</h3>
                 <p>
                   St. Michael&apos;s Higher Secondary School (Affiliation Code:{' '}
-                  <strong>{SCHOOL_INFO.schoolCode}</strong>) maintains a proud legacy of State Top 20 Merit Rankers and 100% board pass performance.
+                  <strong>{SCHOOL_INFO.schoolCode}</strong>) maintains a proud legacy of State Top 10 Merit Rankers and 100% board pass performance.
                 </p>
                 <div className="hub-result-stats-grid">
                   <div className="hub-result-mini-stat">
@@ -920,7 +920,7 @@ export const StudentStaffHub: React.FC = () => {
                     <span>Board Pass Record</span>
                   </div>
                   <div className="hub-result-mini-stat">
-                    <strong>Top 20</strong>
+                    <strong>Top 10</strong>
                     <span>State Merit Rank</span>
                   </div>
                   <div className="hub-result-mini-stat">

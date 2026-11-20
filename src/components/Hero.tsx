@@ -44,7 +44,7 @@ export const Hero: React.FC<HeroProps> = ({
             <span className="text-slate-300">|</span>
             <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
             <span className="text-xs font-semibold text-slate-700">
-              Meghalaya SSLC Top 20 Institution
+              Meghalaya SSLC Top 10 Institution
             </span>
             <span className="text-slate-300">·</span>
             <span className="text-xs text-[#D97706] font-bold">Estd. 1961</span>
@@ -174,7 +174,7 @@ export const Hero: React.FC<HeroProps> = ({
               <span>State Ranking</span>
             </span>
             <div className="text-3xl font-extrabold font-mono tabular-nums text-[#D97706]">
-              Top 20
+              Top 10
             </div>
             <p className="text-xs text-slate-500 mt-1 font-medium">
               MBOSE Board Topper 2026

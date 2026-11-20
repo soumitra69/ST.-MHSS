@@ -252,7 +252,7 @@ export const AlumniSection: React.FC = () => {
                 <i className="fas fa-medal" aria-hidden="true"></i>
               </div>
               <div>
-                <strong>Top 20</strong>
+                <strong>Top 10</strong>
                 <span>MBOSE State Merit Legacy</span>
               </div>
             </div>

@@ -3,7 +3,7 @@ import { SCHOOL_INFO } from '../data/schoolData';
 
 const alertMessages = [
   'Admissions 2026–27 open for Nursery to Class XII (Arts, Science & Commerce)',
-  'Congratulations to our MBOSE SSLC State Top 20 Merit Holder felicitated by Hon’ble Chief Minister',
+  'Congratulations to our MBOSE SSLC State Top 10 Merit Holder felicitated by Hon’ble Chief Minister',
   'St. Michael’s ₹20,000 Academic Merit Scholarship & full tuition waivers open for rank holders',
   'Campus NH-6 bus transit registration open across Umsning, Nongpoh, Bhoirymbong & Sumer routes',
 ];
