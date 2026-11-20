@@ -353,7 +353,7 @@ export const StudentStatisticsPage: React.FC<DocPageProps> = ({
     {
       label: 'School Establishment Year',
       value: 'Estd. 1961',
-      detail: '65 Years of Service • Official Email: stmichaels.school2019@gmail.com',
+      detail: 'Lum Roman, Umsning • Ph/WhatsApp: 6009280647 • stmichaels.school2019@gmail.com',
       badge: 'Legacy & Contacts',
     },
   ];

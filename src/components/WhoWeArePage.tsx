@@ -471,13 +471,12 @@ export const WhoWeArePage: React.FC<WhoWeArePageProps> = ({
                 Visit St. Michael&apos;s, Umsning
               </h3>
               <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-slate-200">
-                Situated at Umsning (PIN - 793105) between Shillong and Nongpoh on the left side of
-                the old National Highway and right side of the Shillong–Guwahati Bypass road.
+                Address for Correspondence: <strong>THE PRINCIPAL</strong>, St. Michael&apos;s Higher Secondary School, Lum Roman, Umsning, Ri-Bhoi District - 793105.
               </p>
               <div className="mt-4 space-y-1.5 text-xs text-amber-200 font-semibold">
                 <div>
                   <i className="fas fa-phone-alt mr-2 text-amber-400" aria-hidden="true"></i>
-                  {SCHOOL_INFO.phoneMobile} / {SCHOOL_INFO.phone}
+                  Contact &amp; WhatsApp: {SCHOOL_INFO.phoneMobile}
                 </div>
                 <div>
                   <i className="fas fa-envelope mr-2 text-amber-400" aria-hidden="true"></i>

@@ -65,13 +65,27 @@ export const TopBar: React.FC<TopBarProps> = ({
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5 text-slate-200">
               <MapPin className="w-3 h-3 text-[#F59E0B]" />
-              Umsning, Ri Bhoi District, Meghalaya 793105
+              Lum Roman, Umsning, Ri-Bhoi - 793105
             </span>
             <span className="text-slate-400">|</span>
-            <span className="flex items-center gap-1.5 text-slate-200">
+            <a
+              href={`tel:6009280647`}
+              className="flex items-center gap-1.5 text-slate-200 hover:text-amber-300 transition-colors"
+            >
               <Phone className="w-3 h-3 text-[#F59E0B]" />
-              +91 94361 02845 / 03638 264218
-            </span>
+              Contact: 6009280647
+            </a>
+            <span className="text-slate-400">|</span>
+            <a
+              href="https://wa.me/916009280647"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1 text-emerald-400 hover:text-emerald-300 font-bold text-[11px] transition-colors"
+              title="Chat on WhatsApp"
+            >
+              <i className="fab fa-whatsapp text-xs" aria-hidden="true"></i>
+              WhatsApp
+            </a>
           </div>
           <div className="flex items-center gap-3">
             <span className="bg-[#D97706] text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">

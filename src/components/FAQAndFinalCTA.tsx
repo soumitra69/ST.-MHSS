@@ -35,7 +35,7 @@ const frequentlyAskedQuestions = [
   },
   {
     question: 'Where is St. Michael’s located and how can parents contact the school office?',
-    answer: `St. Michael’s is situated at Umsning (PIN - 793105) between Shillong and Nongpoh on the left side of the old National Highway and right side of the Shillong–Guwahati Bypass road. You can visit the Secretariat during office hours (${SCHOOL_INFO.officeHours}), call ${SCHOOL_INFO.phoneMobile} or ${SCHOOL_INFO.phone}, or email ${SCHOOL_INFO.email}.`,
+    answer: `St. Michael’s is located at Lum Roman, Umsning, Ri-Bhoi District - 793105. Address for correspondence: THE PRINCIPAL, St. Michael’s Higher Secondary School, Lum Roman, Umsning, Ri-Bhoi District - 793105. You can visit the Secretariat during office hours (${SCHOOL_INFO.officeHours}), call or WhatsApp ${SCHOOL_INFO.phoneMobile}, or email ${SCHOOL_INFO.email}.`,
   },
 ];
 

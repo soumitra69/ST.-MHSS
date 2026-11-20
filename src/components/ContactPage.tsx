@@ -15,12 +15,12 @@ interface ContactPageProps {
 const contactChannels = [
   {
     icon: 'fas fa-phone-alt',
-    title: 'Office Phone',
+    title: 'Contact & WhatsApp',
     primary: SCHOOL_INFO.phoneMobile,
-    secondary: SCHOOL_INFO.phone,
+    secondary: 'WhatsApp: 6009280647',
     note: 'Mon – Fri: 8:45 AM – 11:55 AM & 12:35 PM – 3:00 PM',
-    actionText: 'Call Now',
-    actionHref: `tel:${SCHOOL_INFO.phoneMobile.replace(/[^0-9+]/g, '')}`,
+    actionText: 'WhatsApp Now',
+    actionHref: `https://wa.me/916009280647`,
     badge: 'Direct Desk',
   },
   {
@@ -35,13 +35,13 @@ const contactChannels = [
   },
   {
     icon: 'fas fa-map-marker-alt',
-    title: 'Campus Physical Address',
-    primary: 'Umsning Town, Ri Bhoi District',
-    secondary: 'Meghalaya – 793105, India',
-    note: 'Conveniently accessible near the Umsning Bypass & town center',
+    title: 'Address for Correspondence',
+    primary: 'THE PRINCIPAL',
+    secondary: 'Lum Roman, Umsning, Ri-Bhoi District - 793105',
+    note: "St. Michael's Higher Secondary School, Meghalaya",
     actionText: 'Get Directions',
     actionHref: OFFICIAL_MAP_SHARE_URL,
-    badge: 'Umsning Campus',
+    badge: 'Lum Roman Campus',
   },
   {
     icon: 'fas fa-clock',
@@ -144,7 +144,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                 </span>
                 <span className="inline-flex items-center rounded-full border border-white/25 bg-white/10 px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-amber-200">
                   <i className="fas fa-map-marker-alt mr-1.5" aria-hidden="true"></i>
-                  Umsning Town • Ri Bhoi District
+                  Lum Roman, Umsning • Ri-Bhoi District
                 </span>
               </div>
 

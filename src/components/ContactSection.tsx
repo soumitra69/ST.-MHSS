@@ -71,16 +71,22 @@ export const ContactSection: React.FC = () => {
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-[#D97706] shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-bold text-slate-900 block">Campus Address</span>
-                    <span>St. Michael's Higher Secondary School, Umsning Town, Ri Bhoi District, Meghalaya 793105, India</span>
+                    <span className="font-bold text-slate-900 block">Address for Correspondence</span>
+                    <span>THE PRINCIPAL<br />St. Michael&apos;s Higher Secondary School, Lum Roman, Umsning, Ri-Bhoi District - 793105</span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
                   <Phone className="w-5 h-5 text-[#D97706] shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-bold text-slate-900 block">Helpline & Office Phone</span>
-                    <span>+91 94361 02845 / 03638 264218</span>
+                    <span className="font-bold text-slate-900 block">Contact &amp; WhatsApp Number</span>
+                    <span>
+                      <a href="tel:6009280647" className="font-bold text-[#0c4a8a] hover:underline">6009280647</a>
+                      {' • '}
+                      <a href="https://wa.me/916009280647" target="_blank" rel="noreferrer" className="text-emerald-600 font-bold hover:underline inline-flex items-center gap-1">
+                        <i className="fab fa-whatsapp text-emerald-500" aria-hidden="true"></i> WhatsApp
+                      </a>
+                    </span>
                   </div>
                 </div>
 

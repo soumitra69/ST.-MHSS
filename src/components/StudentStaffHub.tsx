@@ -985,13 +985,13 @@ export const StudentStaffHub: React.FC = () => {
 
                 <div className="hub-exam-contact-box">
                   <div className="hub-exam-contact-item">
-                    <span>&raquo; Umsning Town, NH-6 Corridor, Ri Bhoi District</span>
+                    <span>&raquo; Lum Roman, Umsning, Ri-Bhoi District - 793105</span>
                   </div>
                   <div className="hub-exam-contact-item">
                     <span>&raquo; {SCHOOL_INFO.officeHours}</span>
                   </div>
                   <div className="hub-exam-contact-item">
-                    <span>&raquo; {SCHOOL_INFO.phoneMobile} / {SCHOOL_INFO.phone}</span>
+                    <span>&raquo; Contact &amp; WhatsApp: {SCHOOL_INFO.phoneMobile}</span>
                   </div>
                 </div>
 

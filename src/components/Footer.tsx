@@ -149,11 +149,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmission }) =
           <div className="space-y-2 text-xs text-slate-300">
             <div className="flex items-start gap-2">
               <MapPin className="w-4 h-4 text-[#F59E0B] shrink-0 mt-0.5" />
-              <span>Umsning, Ri Bhoi District, Meghalaya 793105</span>
+              <span>Lum Roman, Umsning, Ri-Bhoi District - 793105</span>
             </div>
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-[#F59E0B] shrink-0" />
-              <span>+91 94361 02845 / 03638 264218</span>
+              <a href="tel:6009280647" className="hover:text-white transition-colors">Contact: 6009280647</a>
+            </div>
+            <div className="flex items-center gap-2">
+              <i className="fab fa-whatsapp w-4 text-[#10B981] text-sm shrink-0" aria-hidden="true"></i>
+              <a href="https://wa.me/916009280647" target="_blank" rel="noreferrer" className="text-emerald-400 hover:text-emerald-300 font-semibold transition-colors">WhatsApp: 6009280647</a>
             </div>
             <div className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-[#F59E0B] shrink-0" />

@@ -70,9 +70,12 @@ export const SCHOOL_INFO = {
   district: "Ri Bhoi District",
   state: "Meghalaya",
   pincode: "793105",
-  address: "Umsning Town, Ri Bhoi District, Meghalaya - 793105, India",
-  phone: "+91 3638 264218",
-  phoneMobile: "+91 94361 02845",
+  address: "Lum Roman, Umsning, Ri-Bhoi District - 793105, Meghalaya, India",
+  correspondenceAddress: "THE PRINCIPAL, St. Michael's Higher Secondary School, Lum Roman, Umsning, Ri-Bhoi District - 793105",
+  contactNumber: "6009280647",
+  whatsapp: "+91 60092 80647",
+  phone: "+91 60092 80647",
+  phoneMobile: "+91 60092 80647",
   email: "stmichaels.school2019@gmail.com",
   officeHours: "Mon – Fri: 8:45 AM – 11:55 AM & 12:35 PM – 3:00 PM (Sat & Sun Closed)",
   studentCount: "2,002",
@@ -544,7 +547,7 @@ export const BUS_ROUTES = [
     stops: ["Nongpoh Main Market", "Umling", "Nongkhyllem", "Umsning Gate", "St. Michael's Campus"],
     pickupTime: "7:15 AM",
     dropTime: "3:45 PM",
-    inCharge: "Sir L. Lyngdoh (Ph: +91 94361 02845)"
+    inCharge: "Sir L. Lyngdoh (Ph: +91 60092 80647)"
   },
   {
     routeNo: "Route 2",
@@ -552,7 +555,7 @@ export const BUS_ROUTES = [
     stops: ["Bhoirymbong Point", "Umroi Airport Junction", "Umroi Madan", "Umsning Bypass", "St. Michael's Campus"],
     pickupTime: "7:30 AM",
     dropTime: "3:40 PM",
-    inCharge: "Sir P. Maring (Ph: +91 3638 264218)"
+    inCharge: "Sir P. Maring (Ph: +91 60092 80647)"
   },
   {
     routeNo: "Route 3",
@@ -560,7 +563,7 @@ export const BUS_ROUTES = [
     stops: ["Mawrong Village", "Sumer Hydel Gate", "Kyrdemkulai Junction", "Umsning Town", "St. Michael's Campus"],
     pickupTime: "7:20 AM",
     dropTime: "3:50 PM",
-    inCharge: "Sir K. Kharbuki (Ph: +91 94361 02845)"
+    inCharge: "Sir K. Kharbuki (Ph: +91 60092 80647)"
   },
   {
     routeNo: "Route 4",
@@ -568,6 +571,6 @@ export const BUS_ROUTES = [
     stops: ["Umsning Proper", "Ri Bhoi College Turn", "Civil Hospital Umsning", "Shaphreng", "St. Michael's Campus"],
     pickupTime: "8:00 AM",
     dropTime: "3:30 PM",
-    inCharge: "Kong B. Syiem (Ph: +91 3638 264218)"
+    inCharge: "Kong B. Syiem (Ph: +91 60092 80647)"
   }
 ];
