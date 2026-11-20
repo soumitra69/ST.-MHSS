@@ -18,8 +18,8 @@ const schoolProfileStats = [
   },
   {
     label: 'Teaching & Admin Staff',
-    value: '63 Teaching • 6 Support',
-    sub: '63 Teaching & 6 Non-Teaching Staff',
+    value: '63 Teaching • 6 Support Team',
+    sub: '63 Teaching & 6 Support Staff Members',
     icon: 'fas fa-chalkboard-teacher',
   },
   {

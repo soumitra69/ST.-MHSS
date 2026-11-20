@@ -69,8 +69,8 @@ const schoolProfileStats = [
   },
   {
     label: 'Teaching & Admin Staff',
-    value: '63 Teaching • 6 Support',
-    sub: 'Librarian, Accountant & Non-Teaching Staff',
+    value: '63 Teaching • 6 Support Team',
+    sub: 'Librarian, Accountant & Support Staff',
     icon: 'fas fa-chalkboard-teacher',
   },
   {
