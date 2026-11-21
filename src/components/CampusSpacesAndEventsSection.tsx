@@ -153,6 +153,7 @@ const LEARNING_SPACES: LearningSpaceItem[] = [
 type EventCategory =
   | 'All Events'
   | 'Given an Award to the Students of 2026'
+  | 'Send off ceremony for the outgoing students of class X 2026'
   | 'Academic & Seminars'
   | 'Sports & Youth'
   | 'Social Outreach'
@@ -174,6 +175,22 @@ interface CampusEventItem {
 }
 
 const LATEST_EVENTS: CampusEventItem[] = [
+  {
+    id: 'send-off-class-x-2026',
+    date: '18 Nov',
+    year: '2026',
+    category: 'Send off ceremony for the outgoing students of class X 2026',
+    badge: 'Class X Farewell & Valedictory',
+    title: 'Send off ceremony for the outgoing students of class X 2026',
+    summary:
+      'Heartfelt valedictory and send-off ceremony blessing the outgoing Class X SSLC batch of 2026 with academic mementos, prayer benediction, and teacher blessings.',
+    fullReport:
+      "St. Michael's Higher Secondary School organized a solemn and joyful Send-off Ceremony for the outgoing students of Class X (SSLC Batch 2026) at the campus courtyard stage. Reverend Sisters, the Headmistress, and faculty mentors presented commemorative plaques, merit citations, and blessing gifts to the students. Inspiring farewell speeches, prayer services, and emotional memories made it an unforgettable milestone as scholars prepare for their upcoming MBOSE Board examinations.",
+    location: "St. Michael's Campus Courtyard Stage, Umsning",
+    image: SCHOOL_IMAGES.sendOffClassX2026Cover,
+    themeClass: 'event-theme-purple',
+    galleryImages: SCHOOL_IMAGES.sendOffClassX2026Gallery,
+  },
   {
     id: 'student-award-felicitation-2026',
     date: '14 Nov',
@@ -548,6 +565,7 @@ export const CampusSpacesAndEventsSection: React.FC<CampusSpacesAndEventsSection
                 [
                   'All Events',
                   'Given an Award to the Students of 2026',
+                  'Send off ceremony for the outgoing students of class X 2026',
                   'Academic & Seminars',
                   'Sports & Youth',
                   'Social Outreach',

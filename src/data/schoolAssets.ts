@@ -65,6 +65,23 @@ export const SCHOOL_IMAGES = {
     assetUrl('student-awards-2026/award-student-2026-15.jpg'),
   ],
 
+  // Send off Ceremony for Outgoing Students of Class X 2026
+  sendOffClassX2026Cover: assetUrl('send-off-class-x-2026/send-off-class-x-2026-08.jpg'),
+  sendOffClassX2026Gallery: [
+    assetUrl('send-off-class-x-2026/send-off-class-x-2026-01.jpg'),
+    assetUrl('send-off-class-x-2026/send-off-class-x-2026-02.jpg'),
+    assetUrl('send-off-class-x-2026/send-off-class-x-2026-03.jpg'),
+    assetUrl('send-off-class-x-2026/send-off-class-x-2026-04.jpg'),
+    assetUrl('send-off-class-x-2026/send-off-class-x-2026-05.jpg'),
+    assetUrl('send-off-class-x-2026/send-off-class-x-2026-06.jpg'),
+    assetUrl('send-off-class-x-2026/send-off-class-x-2026-07.jpg'),
+    assetUrl('send-off-class-x-2026/send-off-class-x-2026-08.jpg'),
+    assetUrl('send-off-class-x-2026/send-off-class-x-2026-09.jpg'),
+    assetUrl('send-off-class-x-2026/send-off-class-x-2026-10.jpg'),
+    assetUrl('send-off-class-x-2026/send-off-class-x-2026-11.jpg'),
+    assetUrl('send-off-class-x-2026/send-off-class-x-2026-12.jpg'),
+  ],
+
   // Updated Event & Campus Chronicles Photos (from Update Photo)
   eventSlide1: assetUrl('WhatsApp Image 2026-11-13 at 10.19.31 PM (1).jpeg'),
   eventSlide2: assetUrl('WhatsApp Image 2026-11-13 at 10.19.31 PM (2).jpeg'),

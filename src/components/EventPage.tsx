@@ -11,6 +11,7 @@ interface EventPageProps {
 type EventCategory =
   | 'All Events'
   | 'Given an Award to the Students of 2026'
+  | 'Send off ceremony for the outgoing students of class X 2026'
   | 'Academic & Seminars'
   | 'Sports & Youth'
   | 'Social Outreach'
@@ -31,6 +32,13 @@ interface CampusEventItem {
 }
 
 const EVENT_SLIDER_PHOTOS = [
+  {
+    src: SCHOOL_IMAGES.sendOffClassX2026Cover,
+    title: 'Send off ceremony for the outgoing students of class X 2026',
+    tag: 'Class X Send-off & Valedictory',
+    badge: 'Courtyard Stage • Class X Batch 2026',
+    desc: 'Solemn prayer blessings, commemorative memento presentation, and farewell celebration for the outgoing SSLC batch of 2026.',
+  },
   {
     src: SCHOOL_IMAGES.studentAwards2026Cover,
     title: 'Given an Award to the Students of 2026 - Felicitation Ceremony',
@@ -118,6 +126,21 @@ const EVENT_SLIDER_PHOTOS = [
 ];
 
 const CAMPUS_EVENTS: CampusEventItem[] = [
+  {
+    id: 'send-off-class-x-2026',
+    date: '18 Nov',
+    year: '2026',
+    category: 'Send off ceremony for the outgoing students of class X 2026',
+    badge: 'Class X Farewell & Valedictory',
+    title: 'Send off ceremony for the outgoing students of class X 2026',
+    summary:
+      'Heartfelt valedictory and send-off ceremony blessing the outgoing Class X SSLC batch of 2026 with academic mementos, prayer benediction, and teacher blessings.',
+    fullReport:
+      "St. Michael's Higher Secondary School organized a solemn and joyful Send-off Ceremony for the outgoing students of Class X (SSLC Batch 2026) at the campus courtyard stage. Reverend Sisters, the Headmistress, and faculty mentors presented commemorative plaques, merit citations, and blessing gifts to the students. Inspiring farewell speeches, prayer services, and emotional memories made it an unforgettable milestone as scholars prepare for their upcoming MBOSE Board examinations.",
+    location: "St. Michael's Campus Courtyard Stage, Umsning",
+    image: SCHOOL_IMAGES.sendOffClassX2026Cover,
+    galleryImages: SCHOOL_IMAGES.sendOffClassX2026Gallery,
+  },
   {
     id: 'student-award-felicitation-2026',
     date: '14 Nov',
@@ -497,6 +520,7 @@ export const EventPage: React.FC<EventPageProps> = ({ onBack, onNavigatePage }) 
               [
                 'All Events',
                 'Given an Award to the Students of 2026',
+                'Send off ceremony for the outgoing students of class X 2026',
                 'Academic & Seminars',
                 'Sports & Youth',
                 'Social Outreach',

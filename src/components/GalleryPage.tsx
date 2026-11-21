@@ -18,6 +18,13 @@ const FILTER_OPTIONS: { id: GalleryFilter; label: string; icon: string }[] = [
 ];
 
 const EXTRA_GALLERY_PHOTOS = [
+  ...SCHOOL_IMAGES.sendOffClassX2026Gallery.map((imgSrc, idx) => ({
+    id: `gal-sendoff-2026-${idx + 1}`,
+    title: `Send off ceremony for the outgoing students of class X 2026 — Moment #${idx + 1}`,
+    category: 'Toppers' as const,
+    src: imgSrc,
+    description: `Send-off and valedictory ceremony photo for Class X 2026 outgoing batch: student receiving commemorative plaque, blessings, and citations on the courtyard stage.`,
+  })),
   ...SCHOOL_IMAGES.studentAwards2026Gallery.map((imgSrc, idx) => ({
     id: `gal-award-2026-${idx + 1}`,
     title: `Given an Award to the Students of 2026 — Moment #${idx + 1}`,
