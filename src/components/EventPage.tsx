@@ -30,6 +30,13 @@ interface CampusEventItem {
 
 const EVENT_SLIDER_PHOTOS = [
   {
+    src: SCHOOL_IMAGES.studentAwards2026Cover,
+    title: 'Given an Award to the Students of 2026 - Felicitation Ceremony',
+    tag: 'Student Awards & Felicitation',
+    badge: 'Courtyard Stage • Children’s Day 2026',
+    desc: 'Annual student award and felicitation ceremony honoring board toppers, academic distinctions, and exceptional student achievers of 2026.',
+  },
+  {
     src: SCHOOL_IMAGES.environmentalEducation2025Umtrew,
     title: 'Environmental Education Field Work of Class XI - 2025',
     tag: 'Biodiversity & Forest Field Study',
@@ -109,6 +116,20 @@ const EVENT_SLIDER_PHOTOS = [
 ];
 
 const CAMPUS_EVENTS: CampusEventItem[] = [
+  {
+    id: 'student-award-felicitation-2026',
+    date: '14 Nov',
+    year: '2026',
+    category: 'Celebrations',
+    badge: 'Student Awards & Felicitation',
+    title: 'Given an Award to the Students of 2026 - Felicitation Ceremony',
+    summary:
+      'Grand Children’s Day felicitation and award ceremony honoring outstanding academic rank holders, board achievers, and exemplary student leaders of 2026.',
+    fullReport:
+      "St. Michael's Higher Secondary School organized a grand Student Award & Felicitation Ceremony on Children's Day 2026 at the campus courtyard stage. Exemplary students, board toppers including our 8th Position State Board Topper Lasarapynbiang Nongbri, academic distinction holders across SSLC and HSSLC, and student leaders were presented with institutional mementos, merit certificates, and cash awards by Reverend Sisters, Principal, and faculty mentors in the presence of parents and teachers.",
+    location: "St. Michael's Campus Courtyard Stage, Umsning",
+    image: SCHOOL_IMAGES.studentAwards2026Cover,
+  },
   {
     id: 'environmental-education-class-xi-2025-umtrew',
     date: '29 Nov',

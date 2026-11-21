@@ -45,6 +45,26 @@ export const SCHOOL_IMAGES = {
   studentLeaders: assetUrl('WhatsApp Image 2026-11-08 at 2.05.19 PM.jpeg'),
   campusCommunity: assetUrl('WhatsApp Image 2026-11-08 at 2.04.09 PM.jpeg'),
 
+  // Student Awards 2026 Presentation Photos (Children's Day Ceremony)
+  studentAwards2026Cover: assetUrl('student-awards-2026/award-student-2026-02.jpg'),
+  studentAwards2026Gallery: [
+    assetUrl('student-awards-2026/award-student-2026-01.jpg'),
+    assetUrl('student-awards-2026/award-student-2026-02.jpg'),
+    assetUrl('student-awards-2026/award-student-2026-03.jpg'),
+    assetUrl('student-awards-2026/award-student-2026-04.jpg'),
+    assetUrl('student-awards-2026/award-student-2026-05.jpg'),
+    assetUrl('student-awards-2026/award-student-2026-06.jpg'),
+    assetUrl('student-awards-2026/award-student-2026-07.jpg'),
+    assetUrl('student-awards-2026/award-student-2026-08.jpg'),
+    assetUrl('student-awards-2026/award-student-2026-09.jpg'),
+    assetUrl('student-awards-2026/award-student-2026-10.jpg'),
+    assetUrl('student-awards-2026/award-student-2026-11.jpg'),
+    assetUrl('student-awards-2026/award-student-2026-12.jpg'),
+    assetUrl('student-awards-2026/award-student-2026-13.jpg'),
+    assetUrl('student-awards-2026/award-student-2026-14.jpg'),
+    assetUrl('student-awards-2026/award-student-2026-15.jpg'),
+  ],
+
   // Updated Event & Campus Chronicles Photos (from Update Photo)
   eventSlide1: assetUrl('WhatsApp Image 2026-11-13 at 10.19.31 PM (1).jpeg'),
   eventSlide2: assetUrl('WhatsApp Image 2026-11-13 at 10.19.31 PM (2).jpeg'),

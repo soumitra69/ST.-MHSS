@@ -173,6 +173,21 @@ interface CampusEventItem {
 
 const LATEST_EVENTS: CampusEventItem[] = [
   {
+    id: 'student-award-felicitation-2026',
+    date: '14 Nov',
+    year: '2026',
+    category: 'Celebrations',
+    badge: 'Student Awards & Felicitation',
+    title: 'Given an Award to the Students of 2026 - Felicitation Ceremony',
+    summary:
+      'Grand Children’s Day felicitation and award ceremony honoring outstanding academic rank holders, board achievers, and exemplary student leaders of 2026.',
+    fullReport:
+      "St. Michael's Higher Secondary School organized a grand Student Award & Felicitation Ceremony on Children's Day 2026 at the campus courtyard stage. Exemplary students, board toppers including our 8th Position State Board Topper Lasarapynbiang Nongbri, academic distinction holders across SSLC and HSSLC, and student leaders were presented with institutional mementos, merit certificates, and cash awards by Reverend Sisters, Principal, and faculty mentors in the presence of parents and teachers.",
+    location: "St. Michael's Campus Courtyard Stage, Umsning",
+    image: SCHOOL_IMAGES.studentAwards2026Cover,
+    themeClass: 'event-theme-gold',
+  },
+  {
     id: 'exposure-trip-class-xii-mit-shillong',
     date: '10 Mar',
     year: '2026',

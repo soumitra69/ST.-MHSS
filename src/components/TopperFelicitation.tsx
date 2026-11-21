@@ -18,6 +18,41 @@ export const TopperFelicitation: React.FC<TopperFelicitationProps> = ({ onNaviga
         "Lasarapynbiang Nongbri, 8th Position State Board Topper in the MBOSE S.S.L.C Examination 2026, felicitated with the prestigious institutional memento by Rev. Sister on Children's Day.",
     },
     {
+      src: SCHOOL_IMAGES.studentAwards2026Gallery[1],
+      title: "Given an Award to the Students of 2026 - Felicitation Ceremony",
+      subtitle: "Honoring Board Achievers & Distinction Holders on Children's Day",
+      description:
+        "St. Michael's scholar felicitated with the institutional memento and cash scholarship envelope by Rev. Sister on the courtyard stage.",
+    },
+    {
+      src: SCHOOL_IMAGES.studentAwards2026Gallery[3],
+      title: "Class XII Distinction Award Presentation",
+      subtitle: "Academic Excellence Honors at Umsning Campus",
+      description:
+        "Senior secondary student receiving the academic excellence plaque and citation from faculty mentors during the 2026 award ceremonies.",
+    },
+    {
+      src: SCHOOL_IMAGES.studentAwards2026Gallery[10],
+      title: "Leadership Address & Welcome at Student Awards 2026",
+      subtitle: "Pastoral Address from the Podium on Campus",
+      description:
+        "Faculty and school leadership addressing scholars, congratulating awardees, and inspiring the student body during the 2026 ceremony.",
+    },
+    {
+      src: SCHOOL_IMAGES.studentAwards2026Gallery[13],
+      title: "Institutional Memento & Special Recognition",
+      subtitle: "Recognizing Diligence and Character Excellence",
+      description:
+        "Presentation of the official institutional memento by school leadership to high-achieving student honorees.",
+    },
+    {
+      src: SCHOOL_IMAGES.studentAwards2026Gallery[14],
+      title: "Class XII Achiever Felicitation",
+      subtitle: "Academic & Co-Curricular Recognition 2026",
+      description:
+        "Outstanding student being awarded the academic plaque by Rev. Sister during the campus-wide awards ceremony.",
+    },
+    {
       src: resolveSchoolAsset('/assets/aistudio/WhatsApp_Image_2026-11-08_at_2.04.10_PM__2__df242174.jpeg'),
       title: "State Felicitation by Hon'ble Chief Minister Conrad K. Sangma",
       subtitle: 'Government of Meghalaya Official Felicitation of SSLC Toppers 2026 (Khasi & Jaintia Districts)',
@@ -30,20 +65,6 @@ export const TopperFelicitation: React.FC<TopperFelicitationProps> = ({ onNaviga
       subtitle: 'Presented by Diocesan Leadership and Reverend Sisters on School Campus',
       description:
         "St. Michael's Secondary School Leaving Certificate Award Body honoring academic excellence in Umsning.",
-    },
-    {
-      src: resolveSchoolAsset('/assets/aistudio/WhatsApp_Image_2026-11-08_at_2.04.12_PM_8061309a.jpeg'),
-      title: "Chief Minister with St. Michael's Scholar",
-      subtitle: 'Proud Moment for Umsning and Ri Bhoi District',
-      description:
-        "Our board topper standing alongside the Hon'ble Chief Minister of Meghalaya during state felicitations.",
-    },
-    {
-      src: resolveSchoolAsset('/assets/aistudio/WhatsApp_Image_2026-11-08_at_2.04.11_PM__2__12d4b152.jpeg'),
-      title: 'MBOSE Merit Order Recognition Ceremony',
-      subtitle: 'Official Board Ceremony Honoring Top Twenty Candidates',
-      description:
-        'Meghalaya Board of School Education Shillong state felicitation alongside school management and educators.',
     },
   ];
 
@@ -229,7 +250,7 @@ export const TopperFelicitation: React.FC<TopperFelicitationProps> = ({ onNaviga
               </div>
 
               {/* Thumbnail Strip */}
-              <div className="pt-3 grid grid-cols-5 gap-2 sm:gap-3 bg-transparent">
+              <div className="pt-3 grid grid-cols-4 sm:grid-cols-8 gap-2 bg-transparent">
                 {felicitationPhotos.map((photo, idx) => (
                   <button
                     key={idx}
