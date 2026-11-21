@@ -67,42 +67,6 @@ export const LeadershipMessagesPage: React.FC<DocPageProps> = ({
         'Showcasing talents, accomplishments & vibrant life of St. Michael’s',
       ],
     },
-    {
-      id: 'hm-sec-msg',
-      roleBadge: 'Upper Primary & Secondary Wing (Classes VI – X)',
-      title: 'Headmistress’s Message – Secondary Section',
-      office: 'Office of the Headmistress (Secondary Section) • MBOSE SSLC Wing',
-      image: SCHOOL_IMAGES.headmistressSecondary,
-      quote:
-        '“The Secondary years forge habits of disciplined study, scientific curiosity, and personal responsibility that last a lifetime.”',
-      paragraphs: [
-        'The Upper Primary and Secondary Section (Classes VI to X) serves as the vital academic bridge where foundational skills mature into analytical thinking and MBOSE SSLC Board readiness. Our teachers accompany adolescents closely through structured Continuous and Comprehensive Evaluation (CCE), laboratory practicals, and remedial mentoring.',
-        'Beyond classroom mastery in Mathematics, Science, Social Studies, English, and Khasi, we encourage every secondary student to participate actively in the four Archangel Houses, literary debates, environmental stewardship, and daily physical drill.',
-      ],
-      highlights: [
-        'Focused MBOSE SSLC board preparation & regular diagnostic testing',
-        'Hands-on Physics, Chemistry, Biology & Computer lab sessions',
-        'Close parent–teacher communication via the daily School Diary',
-      ],
-    },
-    {
-      id: 'hm-lp-msg',
-      roleBadge: 'Foundational & Lower Primary Wing (Nursery – Class V)',
-      title: 'Headmistress’s Message – Lower Primary (LP) Section',
-      office: 'Office of the Headmistress (LP Section) • Nursery, KG & Classes I – V',
-      image: SCHOOL_IMAGES.schoolStaff,
-      quote:
-        '“Every child’s educational journey begins with wonder, warmth, joyful literacy, and gentle moral guidance.”',
-      paragraphs: [
-        'In the Lower Primary Section of St. Michael’s School, our foremost priority is to create a joyful, nurturing, and fear-free learning environment where young children love coming to school each morning. Through activity-based storytelling, phonics, Khasi and English reading, and playful numeracy, we build rock-solid foundational skills.',
-        'We partner closely with parents to instill good manners, neatness, respect for elders, prayerfulness, and sharing—laying the cornerstone for lifelong learning.',
-      ],
-      highlights: [
-        'Child-centric foundational literacy & numeracy in English and Khasi',
-        'Dedicated morning care, storytelling, drawing & recitation activities',
-        'Safe early dispersal at 2:00 PM with supervised campus care',
-      ],
-    },
   ];
 
   return (
@@ -159,9 +123,8 @@ export const LeadershipMessagesPage: React.FC<DocPageProps> = ({
               Leadership &amp; Administration Messages
             </h1>
             <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-100">
-              Messages and pastoral reflections from the Secretary &amp; Vice Principal, the
-              Principal, the Headmistress of the Secondary Section, and the Headmistress of the
-              Lower Primary Section at <strong>{SCHOOL_INFO.name}, Umsning</strong>.
+              Official messages and pastoral reflections from the Secretary &amp; Vice Principal and the
+              Principal of <strong>{SCHOOL_INFO.name}, Umsning</strong>.
             </p>
           </div>
         </div>

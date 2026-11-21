@@ -154,20 +154,6 @@ const primaryLinks: PrimaryNavLinkItem[] = [
             page: 'leadership',
             sectionId: 'principal-msg',
           },
-          {
-            label: 'Headmistress – Secondary Section',
-            href: '#page-leadership',
-            icon: 'fas fa-chalkboard-teacher',
-            page: 'leadership',
-            sectionId: 'hm-sec-msg',
-          },
-          {
-            label: 'Headmistress – LP Section',
-            href: '#page-leadership',
-            icon: 'fas fa-child',
-            page: 'leadership',
-            sectionId: 'hm-lp-msg',
-          },
         ],
       },
       {
