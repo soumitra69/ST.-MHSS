@@ -152,6 +152,7 @@ const LEARNING_SPACES: LearningSpaceItem[] = [
 
 type EventCategory =
   | 'All Events'
+  | 'Given an Award to the Students of 2026'
   | 'Academic & Seminars'
   | 'Sports & Youth'
   | 'Social Outreach'
@@ -161,7 +162,7 @@ interface CampusEventItem {
   id: string;
   date: string;
   year: string;
-  category: Exclude<EventCategory, 'All Events'>;
+  category: string;
   badge: string;
   title: string;
   summary: string;
@@ -169,6 +170,7 @@ interface CampusEventItem {
   location: string;
   image: string;
   themeClass: string;
+  galleryImages?: string[];
 }
 
 const LATEST_EVENTS: CampusEventItem[] = [
@@ -176,7 +178,7 @@ const LATEST_EVENTS: CampusEventItem[] = [
     id: 'student-award-felicitation-2026',
     date: '14 Nov',
     year: '2026',
-    category: 'Celebrations',
+    category: 'Given an Award to the Students of 2026',
     badge: 'Student Awards & Felicitation',
     title: 'Given an Award to the Students of 2026 - Felicitation Ceremony',
     summary:
@@ -186,6 +188,7 @@ const LATEST_EVENTS: CampusEventItem[] = [
     location: "St. Michael's Campus Courtyard Stage, Umsning",
     image: SCHOOL_IMAGES.studentAwards2026Cover,
     themeClass: 'event-theme-gold',
+    galleryImages: SCHOOL_IMAGES.studentAwards2026Gallery,
   },
   {
     id: 'exposure-trip-class-xii-mit-shillong',
@@ -544,6 +547,7 @@ export const CampusSpacesAndEventsSection: React.FC<CampusSpacesAndEventsSection
               {(
                 [
                   'All Events',
+                  'Given an Award to the Students of 2026',
                   'Academic & Seminars',
                   'Sports & Youth',
                   'Social Outreach',
@@ -865,6 +869,41 @@ export const CampusSpacesAndEventsSection: React.FC<CampusSpacesAndEventsSection
               </span>
               <h3>{selectedEvent.title}</h3>
               <p className="hub-modal-text">{selectedEvent.fullReport}</p>
+
+              {/* Event Ceremony Photo Gallery for all 15 Uploaded Photos */}
+              {selectedEvent.galleryImages && selectedEvent.galleryImages.length > 0 && (
+                <div className="mt-5 pt-4 border-t border-slate-200">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-extrabold uppercase tracking-wider text-[#0c4a8a] flex items-center gap-1.5">
+                      <i className="fas fa-camera text-[#ea580c]" aria-hidden="true"></i>
+                      All Ceremony &amp; Award Photos ({selectedEvent.galleryImages.length} Official Photos)
+                    </span>
+                    <span className="text-[11px] font-semibold text-slate-500">
+                      Children&apos;s Day 2026 Felicitation
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-3 sm:grid-cols-5 gap-2 max-h-64 overflow-y-auto pr-1">
+                    {selectedEvent.galleryImages.map((imgSrc, imgIdx) => (
+                      <div
+                        key={imgIdx}
+                        className="group relative aspect-4/3 rounded-lg overflow-hidden border border-slate-200 bg-slate-100 shadow-xs hover:border-[#ea580c] transition-all cursor-pointer"
+                        onClick={() => window.open(imgSrc, '_blank')}
+                        title={`Award Ceremony Photo ${imgIdx + 1} - Click to open full view`}
+                      >
+                        <img
+                          src={imgSrc}
+                          alt={`${selectedEvent.title} - Photo ${imgIdx + 1}`}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs">
+                          <i className="fas fa-expand" aria-hidden="true"></i>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
             <div className="hub-modal-footer">
               <button

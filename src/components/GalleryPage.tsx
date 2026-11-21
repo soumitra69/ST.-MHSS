@@ -18,6 +18,13 @@ const FILTER_OPTIONS: { id: GalleryFilter; label: string; icon: string }[] = [
 ];
 
 const EXTRA_GALLERY_PHOTOS = [
+  ...SCHOOL_IMAGES.studentAwards2026Gallery.map((imgSrc, idx) => ({
+    id: `gal-award-2026-${idx + 1}`,
+    title: `Given an Award to the Students of 2026 — Moment #${idx + 1}`,
+    category: 'Toppers' as const,
+    src: imgSrc,
+    description: `Official Children's Day 2026 felicitation photo: student receiving institutional memento, medal, and scholarship citation on the campus courtyard stage.`,
+  })),
   {
     id: 'gal-extra-01',
     title: "St. Michael's Main Academic Building & Archangel Tower",

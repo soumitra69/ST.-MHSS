@@ -17,41 +17,13 @@ export const TopperFelicitation: React.FC<TopperFelicitationProps> = ({ onNaviga
       description:
         "Lasarapynbiang Nongbri, 8th Position State Board Topper in the MBOSE S.S.L.C Examination 2026, felicitated with the prestigious institutional memento by Rev. Sister on Children's Day.",
     },
-    {
-      src: SCHOOL_IMAGES.studentAwards2026Gallery[1],
-      title: "Given an Award to the Students of 2026 - Felicitation Ceremony",
-      subtitle: "Honoring Board Achievers & Distinction Holders on Children's Day",
+    ...SCHOOL_IMAGES.studentAwards2026Gallery.map((imgSrc, idx) => ({
+      src: imgSrc,
+      title: `Given an Award to the Students of 2026 - Felicitation Photo #${idx + 1}`,
+      subtitle: `Children's Day Award Presentation • Moment ${idx + 1} of 15`,
       description:
-        "St. Michael's scholar felicitated with the institutional memento and cash scholarship envelope by Rev. Sister on the courtyard stage.",
-    },
-    {
-      src: SCHOOL_IMAGES.studentAwards2026Gallery[3],
-      title: "Class XII Distinction Award Presentation",
-      subtitle: "Academic Excellence Honors at Umsning Campus",
-      description:
-        "Senior secondary student receiving the academic excellence plaque and citation from faculty mentors during the 2026 award ceremonies.",
-    },
-    {
-      src: SCHOOL_IMAGES.studentAwards2026Gallery[10],
-      title: "Leadership Address & Welcome at Student Awards 2026",
-      subtitle: "Pastoral Address from the Podium on Campus",
-      description:
-        "Faculty and school leadership addressing scholars, congratulating awardees, and inspiring the student body during the 2026 ceremony.",
-    },
-    {
-      src: SCHOOL_IMAGES.studentAwards2026Gallery[13],
-      title: "Institutional Memento & Special Recognition",
-      subtitle: "Recognizing Diligence and Character Excellence",
-      description:
-        "Presentation of the official institutional memento by school leadership to high-achieving student honorees.",
-    },
-    {
-      src: SCHOOL_IMAGES.studentAwards2026Gallery[14],
-      title: "Class XII Achiever Felicitation",
-      subtitle: "Academic & Co-Curricular Recognition 2026",
-      description:
-        "Outstanding student being awarded the academic plaque by Rev. Sister during the campus-wide awards ceremony.",
-    },
+        "St. Michael's scholar felicitated with the institutional memento, distinction certificate, and scholarship award on the courtyard stage.",
+    })),
     {
       src: resolveSchoolAsset('/assets/aistudio/WhatsApp_Image_2026-11-08_at_2.04.10_PM__2__df242174.jpeg'),
       title: "State Felicitation by Hon'ble Chief Minister Conrad K. Sangma",
@@ -249,17 +221,17 @@ export const TopperFelicitation: React.FC<TopperFelicitationProps> = ({ onNaviga
                 </div>
               </div>
 
-              {/* Thumbnail Strip */}
-              <div className="pt-3 grid grid-cols-4 sm:grid-cols-8 gap-2 bg-transparent">
+              {/* Thumbnail Strip: Shows all 18 photos including all 15 student award moments */}
+              <div className="pt-3 flex gap-2 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-amber-400 bg-transparent">
                 {felicitationPhotos.map((photo, idx) => (
                   <button
                     key={idx}
                     type="button"
                     onClick={() => setSelectedPhoto(idx)}
                     aria-label={`View photo: ${photo.title}`}
-                    className={`relative rounded-lg overflow-hidden aspect-4/3 border-2 transition-all cursor-pointer ${
+                    className={`relative shrink-0 w-20 sm:w-24 rounded-lg overflow-hidden aspect-4/3 border-2 transition-all cursor-pointer ${
                       selectedPhoto === idx
-                        ? 'border-amber-400 ring-2 ring-amber-400/50 opacity-100 scale-[1.02]'
+                        ? 'border-amber-400 ring-2 ring-amber-400/50 opacity-100 scale-[1.04]'
                         : 'border-slate-700 opacity-65 hover:opacity-100'
                     }`}
                   >
