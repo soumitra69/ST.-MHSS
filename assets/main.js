@@ -397,6 +397,12 @@ function initCallbackForms() {
  * 10. AOS Animation Library Initializer
  * ---------------------------------------------------- */
 function initAOS() {
+  // Remove any leftover inline opacity:0 from SSR/Framer-Motion
+  document.querySelectorAll('[style*="opacity:0"], [style*="opacity: 0"]').forEach((el) => {
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+  });
+
   if (typeof AOS !== 'undefined') {
     AOS.init({
       duration: 600,
@@ -409,9 +415,6 @@ function initAOS() {
     window.addEventListener('load', () => {
       AOS.refresh();
     });
-    window.addEventListener('scroll', () => {
-      // Periodic refresh in case of dynamic heights
-    }, { passive: true });
     setTimeout(() => {
       AOS.refresh();
     }, 400);

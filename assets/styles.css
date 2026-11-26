@@ -21,3 +21,16 @@ html:not(.aos-init) [data-aos],
 /* Student Life vibrant section - guaranteed background */
 section.student.life-vibrant-section,section#campus-life.life-vibrant-section,#campus-life{background-color:#0c2d57!important;background-image:linear-gradient(135deg,#0c2d57 0%,#1e3a8a 48%,#0f4c5c 100%)!important;background-repeat:no-repeat!important;background-size:cover!important;position:relative!important;overflow:hidden!important;visibility:visible!important;opacity:1!important;min-height:1px;border-top:4px solid #f59e0b!important;border-bottom:4px solid #38bdf8!important}
 
+
+/* --- Student Life, Campus Gallery & School App Visibility Safeguard --- */
+.life-vibrant-section .life-section-header,
+.life-vibrant-section .life-featured-banner,
+.life-vibrant-section .life-photo-card,
+.student-work-gallery-section .work-gallery-header,
+.student-work-gallery-section .work-gallery-card,
+.school-app-section .school-app-content,
+.school-app-section .school-app-feature-item,
+.school-app-section .school-app-visual {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
