@@ -83,28 +83,39 @@ function initNavbar() {
  * 2. Scroll Progress & Back-to-Top
  * ---------------------------------------------------- */
 function initScrollProgress() {
-  const progressBar = document.querySelector('.reading-progress-bar');
+  const progressBar = document.querySelector('.reading-progress-bar, .scroll-progress-bar');
   const backToTopBtn = document.querySelector('.back-to-top-btn');
 
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY;
+  function updateScrollUI() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
 
     if (progressBar) {
-      progressBar.style.width = `${progress}%`;
+      if (progressBar.classList.contains('scroll-progress-bar')) {
+        progressBar.style.transform = `scaleX(${progress / 100})`;
+      } else {
+        progressBar.style.width = `${progress}%`;
+      }
     }
 
     if (backToTopBtn) {
-      if (scrollTop > 350) {
+      if (scrollTop > 150) {
         backToTopBtn.classList.remove('hidden');
-        backToTopBtn.classList.add('flex');
+        backToTopBtn.classList.add('flex', 'visible');
+        backToTopBtn.style.display = 'flex';
+        backToTopBtn.style.opacity = '1';
+        backToTopBtn.style.visibility = 'visible';
       } else {
         backToTopBtn.classList.add('hidden');
-        backToTopBtn.classList.remove('flex');
+        backToTopBtn.classList.remove('flex', 'visible');
+        backToTopBtn.style.display = 'none';
       }
     }
-  });
+  }
+
+  window.addEventListener('scroll', updateScrollUI, { passive: true });
+  updateScrollUI();
 
   if (backToTopBtn) {
     backToTopBtn.addEventListener('click', () => {
