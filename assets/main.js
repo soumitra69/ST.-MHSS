@@ -340,22 +340,118 @@ function initGalleryLightbox() {
 }
 
 /* ----------------------------------------------------
- * 7. Interactive ChatBot
+ * 7. Interactive ChatBot (Ask Desk)
  * ---------------------------------------------------- */
 function initChatBot() {
-  const trigger = document.querySelector('.chatbot-trigger, [aria-label*="help desk"], [aria-label*="Chat"]');
-  const panel = document.querySelector('.chatbot-panel, .chatbot-window');
-  const closeBtn = document.querySelector('.chatbot-close');
+  const trigger = document.querySelector('.ask-chat-trigger, .chatbot-trigger, [aria-label*="Help Desk"], [aria-label*="Chat"]');
+  if (!trigger) return;
 
-  if (trigger && panel) {
-    trigger.addEventListener('click', () => {
-      panel.classList.toggle('hidden');
+  let panel = document.querySelector('.chatbot-panel, .chatbot-window');
+
+  if (!panel) {
+    panel = document.createElement('div');
+    panel.className = 'chatbot-panel hidden fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] max-w-sm rounded-2xl border border-slate-200 bg-white shadow-2xl overflow-hidden flex flex-col';
+    panel.setAttribute('role', 'dialog');
+    panel.setAttribute('aria-label', 'St. Michael\'s Campus Help Desk');
+    panel.innerHTML = `
+      <div class="bg-[#0c2d57] text-white px-4 py-3.5 flex items-center justify-between border-b border-amber-400/40">
+        <div class="flex items-center gap-2.5">
+          <span class="w-8 h-8 rounded-full bg-[#d97706] flex items-center justify-center text-white text-sm shrink-0">
+            <i class="fas fa-headset" aria-hidden="true"></i>
+          </span>
+          <div>
+            <h3 class="text-sm font-extrabold leading-tight">St. Michael's Help Desk</h3>
+            <p class="text-[11px] text-amber-300 font-medium">Umsning Secretariat • Online</p>
+          </div>
+        </div>
+        <button type="button" class="chatbot-close w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 text-white flex items-center justify-center cursor-pointer" aria-label="Close Help Desk">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="chatbot-messages p-4 space-y-3 max-h-72 overflow-y-auto bg-[#f8fafc] text-xs text-slate-700">
+        <div class="rounded-xl bg-white border border-slate-200 p-3 shadow-xs">
+          <p class="font-bold text-[#0c4a8a] mb-1">Welcome to St. Michael's H.S. School, Umsning!</p>
+          <p>How can we help you today? Choose a quick topic below or type your question:</p>
+        </div>
+        <div class="flex flex-wrap gap-1.5">
+          <button type="button" class="chatbot-quick-btn rounded-lg border border-blue-200 bg-blue-50 hover:bg-[#0c4a8a] hover:text-white text-[#0c4a8a] px-2.5 py-1.5 text-[11px] font-bold transition-colors cursor-pointer" data-q="admissions">Admissions 2026–27</button>
+          <button type="button" class="chatbot-quick-btn rounded-lg border border-blue-200 bg-blue-50 hover:bg-[#0c4a8a] hover:text-white text-[#0c4a8a] px-2.5 py-1.5 text-[11px] font-bold transition-colors cursor-pointer" data-q="fees">Fee Structure</button>
+          <button type="button" class="chatbot-quick-btn rounded-lg border border-blue-200 bg-blue-50 hover:bg-[#0c4a8a] hover:text-white text-[#0c4a8a] px-2.5 py-1.5 text-[11px] font-bold transition-colors cursor-pointer" data-q="hostel">Girls' Hostel</button>
+          <button type="button" class="chatbot-quick-btn rounded-lg border border-blue-200 bg-blue-50 hover:bg-[#0c4a8a] hover:text-white text-[#0c4a8a] px-2.5 py-1.5 text-[11px] font-bold transition-colors cursor-pointer" data-q="bus">Bus Routes</button>
+          <button type="button" class="chatbot-quick-btn rounded-lg border border-emerald-200 bg-emerald-50 hover:bg-emerald-600 hover:text-white text-emerald-800 px-2.5 py-1.5 text-[11px] font-bold transition-colors cursor-pointer" data-q="contact">Contact &amp; WhatsApp</button>
+        </div>
+      </div>
+      <form class="chatbot-form flex items-center gap-2 border-t border-slate-200 bg-white p-3">
+        <input type="text" class="chatbot-input flex-1 rounded-xl border border-slate-300 px-3 py-2 text-xs text-slate-800 focus:border-[#0c4a8a] focus:outline-none" placeholder="Ask about admissions, fees, timings..." />
+        <button type="submit" class="rounded-xl bg-[#0c4a8a] hover:bg-[#d97706] text-white px-3.5 py-2 text-xs font-bold transition-colors cursor-pointer" aria-label="Send message">
+          <i class="fas fa-paper-plane" aria-hidden="true"></i>
+        </button>
+      </form>
+    `;
+    document.body.appendChild(panel);
+  }
+
+  const closeBtn = panel.querySelector('.chatbot-close');
+  const messagesBox = panel.querySelector('.chatbot-messages');
+  const form = panel.querySelector('.chatbot-form');
+  const input = panel.querySelector('.chatbot-input');
+
+  const replies = {
+    admissions: 'Admissions 2026–27 are open for Nursery to Class XII (Arts, Science & Commerce). Visit <a href="admissions-fees.html" class="underline font-bold text-[#0c4a8a]">Admissions &amp; Fees</a> or call +91 60092 80647.',
+    fees: 'You can view the complete 2026–27 fee packages and installment schedules on our <a href="fee-structure.html" class="underline font-bold text-[#0c4a8a]">Official Fee Structure</a> page.',
+    hostel: 'Our Girls\' Hostel offers 24/7 Sister &amp; Matron supervision, nutritious meals, and supervised study hours. See <a href="girls-hostel.html" class="underline font-bold text-[#0c4a8a]">Girls\' Hostel</a> for details.',
+    bus: 'School buses operate across 4 main NH-6 corridors (Umsning, Nongpoh Road, Bhoirymbong, Umroi). Check <a href="transportation.html" class="underline font-bold text-[#0c4a8a]">Transportation</a>.',
+    contact: 'Reach our Secretariat Mon–Fri (8:30 AM – 2:30 PM) at <a href="tel:+916009280647" class="underline font-bold text-[#0c4a8a]">+91 60092 80647</a> or <a href="https://wa.me/916009280647" target="_blank" rel="noreferrer" class="underline font-bold text-emerald-700">WhatsApp Desk</a>.'
+  };
+
+  function addMessage(html, isUser = false) {
+    if (!messagesBox) return;
+    const msg = document.createElement('div');
+    msg.className = isUser
+      ? 'ml-auto max-w-[85%] rounded-xl bg-[#0c4a8a] text-white px-3 py-2 shadow-xs'
+      : 'mr-auto max-w-[90%] rounded-xl bg-white border border-slate-200 px-3 py-2 shadow-xs';
+    msg.innerHTML = html;
+    messagesBox.appendChild(msg);
+    messagesBox.scrollTop = messagesBox.scrollHeight;
+  }
+
+  trigger.addEventListener('click', () => {
+    const isHidden = panel.classList.toggle('hidden');
+    trigger.setAttribute('aria-expanded', String(!isHidden));
+    if (!isHidden && input) input.focus();
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      panel.classList.add('hidden');
+      trigger.setAttribute('aria-expanded', 'false');
     });
   }
 
-  if (closeBtn && panel) {
-    closeBtn.addEventListener('click', () => {
-      panel.classList.add('hidden');
+  panel.querySelectorAll('.chatbot-quick-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const key = btn.dataset.q;
+      addMessage(btn.textContent.trim(), true);
+      setTimeout(() => {
+        addMessage(replies[key] || replies.contact);
+      }, 200);
+    });
+  });
+
+  if (form && input) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const text = input.value.trim();
+      if (!text) return;
+      addMessage(text.replace(/</g, '&lt;').replace(/>/g, '&gt;'), true);
+      input.value = '';
+      const lower = text.toLowerCase();
+      let reply = replies.contact;
+      if (lower.includes('admi') || lower.includes('apply') || lower.includes('class')) reply = replies.admissions;
+      else if (lower.includes('fee') || lower.includes('cost') || lower.includes('pay')) reply = replies.fees;
+      else if (lower.includes('hostel') || lower.includes('room')) reply = replies.hostel;
+      else if (lower.includes('bus') || lower.includes('transport')) reply = replies.bus;
+      setTimeout(() => addMessage(reply), 250);
     });
   }
 }
