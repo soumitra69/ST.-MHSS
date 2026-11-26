@@ -399,10 +399,24 @@ function initCallbackForms() {
 function initAOS() {
   if (typeof AOS !== 'undefined') {
     AOS.init({
-      duration: 750,
-      easing: 'ease-out-cubic',
-      once: false,
-      mirror: true,
+      duration: 600,
+      easing: 'ease-out',
+      once: true,
+      mirror: false,
+      offset: 40,
+      disableMutationObserver: false,
     });
+    window.addEventListener('load', () => {
+      AOS.refresh();
+    });
+    window.addEventListener('scroll', () => {
+      // Periodic refresh in case of dynamic heights
+    }, { passive: true });
+    setTimeout(() => {
+      AOS.refresh();
+    }, 400);
+    setTimeout(() => {
+      AOS.refresh();
+    }, 1200);
   }
 }
