@@ -350,7 +350,8 @@ function initChatBot() {
 
   if (!panel) {
     panel = document.createElement('div');
-    panel.className = 'chatbot-panel hidden fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] max-w-sm rounded-2xl border border-slate-200 bg-white shadow-2xl overflow-hidden flex flex-col';
+    panel.className = 'chatbot-panel rounded-2xl border border-slate-200 bg-white shadow-2xl overflow-hidden';
+    panel.style.cssText = 'display:none;flex-direction:column;position:fixed;bottom:92px;right:20px;z-index:9999;width:min(360px,calc(100vw - 32px));max-height:80vh;';
     panel.setAttribute('role', 'dialog');
     panel.setAttribute('aria-label', 'St. Michael\'s Campus Help Desk');
     panel.innerHTML = `
@@ -415,15 +416,25 @@ function initChatBot() {
     messagesBox.scrollTop = messagesBox.scrollHeight;
   }
 
-  trigger.addEventListener('click', () => {
-    const isHidden = panel.classList.toggle('hidden');
-    trigger.setAttribute('aria-expanded', String(!isHidden));
-    if (!isHidden && input) input.focus();
+  trigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    const isCurrentlyHidden = panel.style.display === 'none' || panel.classList.contains('hidden');
+    if (isCurrentlyHidden) {
+      panel.classList.remove('hidden');
+      panel.style.display = 'flex';
+      trigger.setAttribute('aria-expanded', 'true');
+      if (input) input.focus();
+    } else {
+      panel.classList.add('hidden');
+      panel.style.display = 'none';
+      trigger.setAttribute('aria-expanded', 'false');
+    }
   });
 
   if (closeBtn) {
     closeBtn.addEventListener('click', () => {
       panel.classList.add('hidden');
+      panel.style.display = 'none';
       trigger.setAttribute('aria-expanded', 'false');
     });
   }
