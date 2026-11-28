@@ -45,20 +45,36 @@ if (document.readyState === 'loading') {
  * 1. Navbar & Mobile Menu
  * ---------------------------------------------------- */
 function initNavbar() {
-  const mobileToggle = document.querySelector('.mobile-menu-toggle');
-  const mobileMenu = document.querySelector('.mobile-menu-drawer, .mobile-nav-panel');
+  const mobileToggle = document.querySelector('.hamburger-btn, .mobile-menu-toggle');
+  const mobileMenu = document.querySelector('#mobile-navigation, .mobile-menu-drawer, .mobile-nav-panel');
+
   if (mobileToggle && mobileMenu) {
-    mobileToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      mobileMenu.classList.toggle('active');
+    mobileToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isOpen = mobileMenu.classList.toggle('open');
+      mobileMenu.classList.toggle('active', isOpen);
+      mobileMenu.classList.remove('hidden');
+      mobileToggle.classList.toggle('active', isOpen);
+      mobileToggle.setAttribute('aria-expanded', String(isOpen));
+      mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+      if (isOpen) {
+        mobileMenu.removeAttribute('inert');
+        mobileMenu.style.display = 'block';
+      } else {
+        mobileMenu.setAttribute('inert', '');
+        mobileMenu.style.display = '';
+      }
     });
   }
 
   // Mobile submenu accordion
-  document.querySelectorAll('.mobile-dropdown-btn').forEach((btn) => {
+  document.querySelectorAll('.mobile-sub-toggle, .mobile-dropdown-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
-      const parent = btn.closest('.mobile-nav-item');
-      if (parent) parent.classList.toggle('open');
+      const parent = btn.closest('.mobile-nav-group, .mobile-nav-item');
+      if (parent) {
+        const isOpen = parent.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(isOpen));
+      }
     });
   });
 
